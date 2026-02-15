@@ -6,6 +6,8 @@ export const TRANSLATIONS = {
                   projects: 'PROJECTS',
                   expertise: 'EXPERTISE',
                   tech_radar: 'TECH_RADAR',
+                  status: 'STATUS',
+                  intel: 'INTELLIGENCE',
                   contact: 'CONTACT',
             },
             hero: {
@@ -44,6 +46,29 @@ export const TRANSLATIONS = {
                         hold: 'HOLD // DEPRECATED',
                   }
             },
+            status: {
+                  title: 'SYSTEM_STATUS // TRUST_CENTER',
+                  uptime: 'SYSTEM UPTIME',
+                  latency: 'GLOBAL LATENCY',
+                  threats: 'THREATS BLOCKED',
+                  services: {
+                        api: 'API GATEWAY',
+                        portals: 'CLIENT PORTALS',
+                        encryption: 'ENCRYPTION MODULES',
+                  },
+                  history: 'INCIDENT HISTORY',
+                  operational: 'OPERATIONAL',
+                  secure: 'SECURE',
+                  maintenance: 'MAINTENANCE - SECURITY PATCHING',
+                  resolved: 'RESOLVED',
+            },
+            intel: {
+                  title: 'INTELLIGENCE_BRIEFINGS',
+                  subtitle: 'T.L.P. // AMBER // WHITE',
+                  access_btn: 'REQUEST FULL ACCESS',
+                  read_more: 'READ BRIEFING',
+                  disclosed: 'DISCLOSED ON',
+            },
             contact: {
                   title: 'Initiate Secure Protocol',
                   subtitle: 'Target: MAGBO_HQ // Encryption Level: AES-256',
@@ -74,6 +99,8 @@ export const TRANSLATIONS = {
                   projects: 'PROJETOS',
                   expertise: 'EXPERTISE',
                   tech_radar: 'RADAR_TEC',
+                  status: 'STATUS',
+                  intel: 'INTELIGÊNCIA',
                   contact: 'CONTATO',
             },
             hero: {
@@ -112,6 +139,29 @@ export const TRANSLATIONS = {
                         hold: 'RETER // DEPRECIADO',
                   }
             },
+            status: {
+                  title: 'STATUS_SISTEMA // CENTRO_CONFIANÇA',
+                  uptime: 'UPTIME SISTEMA',
+                  latency: 'LATÊNCIA GLOBAL',
+                  threats: 'AMEAÇAS BLOQUEADAS',
+                  services: {
+                        api: 'GATEWAY API',
+                        portals: 'PORTAIS CLIENTE',
+                        encryption: 'MÓDULOS CRIPTOGRAFIA',
+                  },
+                  history: 'HISTÓRICO INCIDENTES',
+                  operational: 'OPERACIONAL',
+                  secure: 'SEGURO',
+                  maintenance: 'MANUTENÇÃO - PATCH SEGURANÇA',
+                  resolved: 'RESOLVIDO',
+            },
+            intel: {
+                  title: 'BRIEFINGS_INTELIGÊNCIA',
+                  subtitle: 'T.L.P. // AMBER // WHITE',
+                  access_btn: 'SOLICITAR ACESSO TOTAL',
+                  read_more: 'LER BRIEFING',
+                  disclosed: 'DIVULGADO EM',
+            },
             contact: {
                   title: 'Iniciar Protocolo Seguro',
                   subtitle: 'Alvo: MAGBO_HQ // Nível Criptografia: AES-256',
@@ -142,6 +192,8 @@ export const TRANSLATIONS = {
                   projects: 'PROYECTOS',
                   expertise: 'EXPERTISE',
                   tech_radar: 'RADAR_TEC',
+                  status: 'ESTADO',
+                  intel: 'INTELIGENCIA',
                   contact: 'CONTACTO',
             },
             hero: {
@@ -179,6 +231,29 @@ export const TRANSLATIONS = {
                         assess: 'EVALUAR // OBSERVACIÓN',
                         hold: 'RETENER // DEPRECADO',
                   }
+            },
+            status: {
+                  title: 'ESTADO_SISTEMA // CENTRO_CONFIANZA',
+                  uptime: 'TIEMPO ACTIVIDAD',
+                  latency: 'LATENCIA GLOBAL',
+                  threats: 'AMENAZAS BLOQUEADAS',
+                  services: {
+                        api: 'GATEWAY API',
+                        portals: 'PORTALES CLIENTE',
+                        encryption: 'MÓDULOS ENCRIPTACIÓN',
+                  },
+                  history: 'HISTORIAL INCIDENTES',
+                  operational: 'OPERATIVO',
+                  secure: 'SEGURO',
+                  maintenance: 'MANTENIMIENTO - PARCHE SEGURIDAD',
+                  resolved: 'RESUELTO',
+            },
+            intel: {
+                  title: 'BRIEFINGS_INTELIGENCIA',
+                  subtitle: 'T.L.P. // AMBER // WHITE',
+                  access_btn: 'SOLICITAR ACCESO TOTAL',
+                  read_more: 'LEER BRIEFING',
+                  disclosed: 'DIVULGADO EN',
             },
             contact: {
                   title: 'Iniciar Protocolo Seguro',
