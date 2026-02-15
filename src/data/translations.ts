@@ -30,6 +30,44 @@ export const TRANSLATIONS = {
                   title: 'CASE_LOGS // CLASSIFIED',
                   restricted: 'Restricted Access',
                   view_study: 'View Case Study',
+                  list: {
+                        vote_guard: {
+                              title: 'PROTOCOL: VOTE_GUARD',
+                              description: 'High-stakes electronic voting system with real-time state machine logic, quorum control, and cryptographic audit trails for executive decision making.',
+                              type: 'Critical Safety',
+                              stack: ['React', 'State Machine', 'PDF Gen', 'Real-time'],
+                        },
+                        access_alpha: {
+                              title: 'ACCESS_CONTROL_ALPHA',
+                              description: 'Physical security infrastructure for educational institutions. Features sector-based monitoring, QR Code scanning, and student tracking.',
+                              type: 'GovTech',
+                              stack: ['IoT Integration', 'Tablet Ops', 'Analytics'],
+                        },
+                        data_nexus: {
+                              title: 'DATA_SYNC_NEXUS',
+                              description: 'Full-stack integration module synchronizing legacy systems with modern React frontends via Spring Boot, ensuring data persistence and integrity.',
+                              type: 'High Scale',
+                              stack: ['Spring Boot', 'React', 'REST API', 'PostgreSQL'],
+                        },
+                        media_ops: {
+                              title: 'MEDIA_OPS_VECTOR',
+                              description: 'High-performance media distribution platform with Spotify integration, advanced GSAP motion graphics, and SEO optimization for maximum reach.',
+                              type: 'High Scale',
+                              stack: ['Next.js', 'GSAP', 'Spotify API', 'SEO'],
+                        },
+                        java_core: {
+                              title: 'BACKEND_CORE_INIT',
+                              description: 'Robust backend infrastructure initiative focusing on clean architecture, Maven configuration, and scalable RESTful services.',
+                              type: 'Infrastructure',
+                              stack: ['Java', 'Maven', 'Spring Boot', 'Clean Arch'],
+                        },
+                        magbo_kernel: {
+                              title: 'MAGBO_HQ_KERNEL',
+                              description: 'The secure, elite portfolio system you are currently navigating. Designed for authority, performance, and global operations.',
+                              type: 'Identity',
+                              stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
+                        },
+                  }
             },
             expertise: {
                   capabilities: 'OPERATIONAL_CAPABILITIES',
@@ -123,6 +161,44 @@ export const TRANSLATIONS = {
                   title: 'REGISTROS_CASOS // CONFIDENCIAL',
                   restricted: 'Acesso Restrito',
                   view_study: 'Ver Estudo de Caso',
+                  list: {
+                        vote_guard: {
+                              title: 'PROTOCOLO: VOTE_GUARD',
+                              description: 'Sistema de votação eletrônica de alto risco com lógica de máquina de estados em tempo real, controle de quórum e trilhas de auditoria criptográfica.',
+                              type: 'Segurança Crítica',
+                              stack: ['React', 'Máquina de Estados', 'Ger. PDF', 'Tempo Real'],
+                        },
+                        access_alpha: {
+                              title: 'CONTROLE_ACESSO_ALPHA',
+                              description: 'Infraestrutura de segurança física para instituições de ensino. Monitoramento por setor, escaneamento de QR Code e rastreamento de alunos.',
+                              type: 'GovTech',
+                              stack: ['Integração IoT', 'Ops Tablet', 'Analytics'],
+                        },
+                        data_nexus: {
+                              title: 'NEXUS_SINCRONIA_DADOS',
+                              description: 'Módulo de integração full-stack sincronizando sistemas legados com frontends React via Spring Boot, garantindo persistência e integridade.',
+                              type: 'Alta Escala',
+                              stack: ['Spring Boot', 'React', 'API REST', 'PostgreSQL'],
+                        },
+                        media_ops: {
+                              title: 'VETOR_OPS_MÍDIA',
+                              description: 'Plataforma de distribuição de mídia de alta performance com integração Spotify, motion graphics avançados GSAP e otimização SEO.',
+                              type: 'Alta Escala',
+                              stack: ['Next.js', 'GSAP', 'Spotify API', 'SEO'],
+                        },
+                        java_core: {
+                              title: 'INICIATIVA_CORE_BACKEND',
+                              description: 'Iniciativa robusta de infraestrutura backend focada em arquitetura limpa, configuração Maven e serviços RESTful escaláveis.',
+                              type: 'Infraestrutura',
+                              stack: ['Java', 'Maven', 'Spring Boot', 'Clean Check'],
+                        },
+                        magbo_kernel: {
+                              title: 'KERNEL_MAGBO_HQ',
+                              description: 'O sistema de portfólio seguro e de elite que você está navegando. Projetado para autoridade, performance e operações globais.',
+                              type: 'Identidade',
+                              stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
+                        },
+                  }
             },
             expertise: {
                   capabilities: 'CAPACIDADES_OPERACIONAIS',
@@ -216,6 +292,44 @@ export const TRANSLATIONS = {
                   title: 'REGISTRO_CASOS // CONFIDENCIAL',
                   restricted: 'Acceso Restringido',
                   view_study: 'Ver Estudio de Caso',
+                  list: {
+                        vote_guard: {
+                              title: 'PROTOCOLO: VOTE_GUARD',
+                              description: 'Sistema de votación electrónica de alto riesgo con lógica de máquina de estados en tiempo real, control de quórum y pistas de auditoría criptográfica.',
+                              type: 'Seguridad Crítica',
+                              stack: ['React', 'Máquina Estados', 'Gen. PDF', 'Tiempo Real'],
+                        },
+                        access_alpha: {
+                              title: 'CONTROL_ACCESO_ALPHA',
+                              description: 'Infraestructura de seguridad física para instituciones educativas. Monitoreo por sector, escaneo de códigos QR y seguimiento de estudiantes.',
+                              type: 'GovTech',
+                              stack: ['Integración IoT', 'Tablet Ops', 'Analytics'],
+                        },
+                        data_nexus: {
+                              title: 'NEXUS_SINCRONIA_DATOS',
+                              description: 'Módulo de integración full-stack sincronizando sistemas heredados con frontends React vía Spring Boot, asegurando persistencia e integridad.',
+                              type: 'Alta Escala',
+                              stack: ['Spring Boot', 'React', 'API REST', 'PostgreSQL'],
+                        },
+                        media_ops: {
+                              title: 'VECTOR_OPS_MEDIA',
+                              description: 'Plataforma de distribución de medios de alto rendimiento con integración Spotify, gráficos de movimiento avanzados GSAP y optimización SEO.',
+                              type: 'Alta Escala',
+                              stack: ['Next.js', 'GSAP', 'Spotify API', 'SEO'],
+                        },
+                        java_core: {
+                              title: 'INICIATIVA_CORE_BACKEND',
+                              description: 'Iniciativa robusta de infraestructura backend centrada en arquitectura limpia, configuración Maven y servicios RESTful escalables.',
+                              type: 'Infraestructura',
+                              stack: ['Java', 'Maven', 'Spring Boot', 'Clean Arch'],
+                        },
+                        magbo_kernel: {
+                              title: 'KERNEL_MAGBO_HQ',
+                              description: 'El sistema de portafolio seguro y de élite que está navegando. Diseñado para autoridad, rendimiento y operaciones globales.',
+                              type: 'Identidad',
+                              stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
+                        },
+                  }
             },
             expertise: {
                   capabilities: 'CAPACIDADES_OPERATIVAS',

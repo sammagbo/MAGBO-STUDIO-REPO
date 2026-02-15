@@ -1,4 +1,4 @@
-import { PROJECTS_DATA } from '@/data/projects';
+import { getProjects } from '@/data/projects';
 import { Server, ShieldAlert, Cpu, Lock, Archive } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
@@ -6,6 +6,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 export const ProjectsView = () => {
       const { t } = useLanguage();
+      const projects = getProjects(t);
 
       return (
             <section className="py-24 bg-slate-950 px-6 font-sans">
@@ -20,7 +21,7 @@ export const ProjectsView = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                              {PROJECTS_DATA.map((project, index) => (
+                              {projects.map((project, index) => (
                                     <motion.div
                                           key={project.id}
                                           initial={{ opacity: 0, y: 20 }}
@@ -41,9 +42,9 @@ export const ProjectsView = () => {
 
                                           {/* Secure Badge */}
                                           <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-950 border border-slate-800 rounded mb-6 text-xs font-mono text-slate-400">
-                                                {project.type === 'Critical Safety' && <ShieldAlert className="w-3 h-3 text-red-500" />}
-                                                {project.type === 'High Scale' && <Server className="w-3 h-3 text-blue-500" />}
-                                                {(project.type === 'GovTech' || project.type === 'HealthTech') && <Cpu className="w-3 h-3 text-amber-500" />}
+                                                {(project.type.includes('Critical') || project.type.includes('Crítica') || project.type.includes('Segurança')) && <ShieldAlert className="w-3 h-3 text-red-500" />}
+                                                {(project.type.includes('High Scale') || project.type.includes('Alta Escala')) && <Server className="w-3 h-3 text-blue-500" />}
+                                                {(project.type.includes('GovTech') || project.type.includes('Infraestrutura') || project.type.includes('Infrastructure')) && <Cpu className="w-3 h-3 text-amber-500" />}
                                                 {project.type.toUpperCase()}
                                           </div>
 
