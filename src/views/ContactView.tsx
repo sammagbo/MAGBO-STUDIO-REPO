@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Terminal, Lock, Loader2, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const ContactView = () => {
+      const { t } = useLanguage();
       const [status, setStatus] = useState<'IDLE' | 'ENCRYPTING' | 'SENT'>('IDLE');
       const [charCount, setCharCount] = useState(0);
 
@@ -20,8 +22,8 @@ export const ContactView = () => {
                   <div className="w-full max-w-2xl">
 
                         <div className="mb-10 text-center">
-                              <h2 className="text-3xl font-bold text-white mb-2">Initiate Secure Protocol</h2>
-                              <p className="text-slate-400 font-mono text-sm">Target: MAGBO_HQ // Encryption Level: AES-256</p>
+                              <h2 className="text-3xl font-bold text-white mb-2">{t.contact.title}</h2>
+                              <p className="text-slate-400 font-mono text-sm">{t.contact.subtitle}</p>
                         </div>
 
                         <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden shadow-2xl relative">
@@ -34,7 +36,7 @@ export const ContactView = () => {
                                     </div>
                                     <div className="ml-4 text-xs font-mono text-slate-500 flex items-center gap-2">
                                           <Lock className="w-3 h-3" />
-                                          SECURE_CHANNEL_V1.4
+                                          {t.contact.secure_channel}
                                     </div>
                               </div>
 
@@ -43,48 +45,48 @@ export const ContactView = () => {
                                     {status === 'SENT' ? (
                                           <div className="flex flex-col items-center justify-center py-12 text-emerald-500 animate-in fade-in duration-500">
                                                 <CheckCircle2 className="w-16 h-16 mb-6" />
-                                                <h3 className="text-2xl font-bold mb-2">Protocol Initiated</h3>
+                                                <h3 className="text-2xl font-bold mb-2">{t.contact.success.title}</h3>
                                                 <p className="text-slate-400 font-mono text-center max-w-sm">
-                                                      Transmission successful. Our team will decrypt your briefing and establish a secure uplink shortly.
+                                                      {t.contact.success.message}
                                                 </p>
                                                 <button
                                                       onClick={() => { setStatus('IDLE'); setCharCount(0); }}
                                                       className="mt-8 text-xs text-emerald-500/50 hover:text-emerald-500 underline underline-offset-4"
                                                 >
-                                                      Start New Transmission
+                                                      {t.contact.success.new}
                                                 </button>
                                           </div>
                                     ) : (
                                           <form onSubmit={handleSubmit} className="space-y-6">
                                                 <div className="space-y-2">
-                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">Identification (Name)</label>
+                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">{t.contact.identification}</label>
                                                       <input
                                                             required
                                                             type="text"
                                                             className="w-full bg-slate-950 border border-slate-700 text-slate-100 p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-mono placeholder:text-slate-700"
-                                                            placeholder="ENTER IDENTIFIER..."
+                                                            placeholder={t.contact.placeholders.id}
                                                       />
                                                 </div>
 
                                                 <div className="space-y-2">
-                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">Institutional Email</label>
+                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">{t.contact.email}</label>
                                                       <input
                                                             required
                                                             type="email"
                                                             className="w-full bg-slate-950 border border-slate-700 text-slate-100 p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-mono placeholder:text-slate-700"
-                                                            placeholder="USER@AGENCY.GOV"
+                                                            placeholder={t.contact.placeholders.email}
                                                       />
                                                 </div>
 
                                                 <div className="space-y-2">
-                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">Project Briefing</label>
+                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">{t.contact.briefing}</label>
                                                       <textarea
                                                             required
                                                             rows={5}
                                                             maxLength={2000}
                                                             onChange={(e) => setCharCount(e.target.value.length)}
                                                             className="w-full bg-slate-950 border border-slate-700 text-slate-100 p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-mono placeholder:text-slate-700"
-                                                            placeholder="DESCRIBE MISSION OBJECTIVES AND TECHNICAL REQUIREMENTS..."
+                                                            placeholder={t.contact.placeholders.briefing}
                                                       />
                                                       <div className="text-right text-xs text-slate-600 font-mono transition-colors duration-300">
                                                             <span className={charCount > 1800 ? "text-amber-500" : ""}>{charCount}</span>/2000
@@ -99,12 +101,12 @@ export const ContactView = () => {
                                                       {status === 'ENCRYPTING' ? (
                                                             <>
                                                                   <Loader2 className="w-5 h-5 animate-spin" />
-                                                                  ENCRYPTING DATA_PACKETS...
+                                                                  {t.contact.button.encrypting}
                                                             </>
                                                       ) : (
                                                             <>
                                                                   <Terminal className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                                                  INITIATE COMMUNICATION
+                                                                  {t.contact.button.initiate}
                                                             </>
                                                       )}
                                                 </button>
@@ -114,8 +116,8 @@ export const ContactView = () => {
 
                               {/* Terminal Footer */}
                               <div className="bg-slate-950 border-t border-slate-800 p-2 px-4 flex justify-between items-center text-[10px] font-mono text-slate-600">
-                                    <span>ENCRYPTION: AES-256-GCM</span>
-                                    <span className="animate-pulse text-emerald-900">• LINK ACTIVE</span>
+                                    <span>{t.contact.encryption_label}</span>
+                                    <span className="animate-pulse text-emerald-900">• {t.contact.link_active}</span>
                               </div>
                         </div>
                   </div>

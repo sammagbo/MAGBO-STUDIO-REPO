@@ -1,8 +1,9 @@
 import { ArrowRight, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const HeroSection = () => {
-      const tagline = "Elite Software Engineering & Security Architecture. We architect institutional-grade platforms, secure environments, and high-scale solutions for government and enterprise sectors.";
+      const { t } = useLanguage();
 
       return (
             <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -22,7 +23,7 @@ export const HeroSection = () => {
                                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                                     </span>
-                                    SYSTEM OPERATIONAL // READY TO DEPLOY
+                                    {t.hero.status}
                               </motion.div>
 
                               <motion.h1
@@ -31,9 +32,9 @@ export const HeroSection = () => {
                                     transition={{ duration: 0.5, delay: 0.2 }}
                                     className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight"
                               >
-                                    Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">Critical Systems</span><br />
-                                    Where Failure Is <br />
-                                    <span className="text-emerald-500">Not An Option.</span>
+                                    {t.hero.title_start} <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">{t.hero.title_gradient}</span><br />
+                                    {t.hero.title_middle} <br />
+                                    <span className="text-emerald-500">{t.hero.title_end}</span>
                               </motion.h1>
 
                               <motion.p
@@ -42,7 +43,7 @@ export const HeroSection = () => {
                                     transition={{ duration: 1, delay: 0.5 }}
                                     className="text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed font-mono"
                               >
-                                    {tagline.split("").map((char, index) => (
+                                    {t.hero.description.split("").map((char, index) => (
                                           <motion.span
                                                 key={index}
                                                 initial={{ opacity: 0 }}
@@ -61,11 +62,11 @@ export const HeroSection = () => {
                                     className="flex flex-col sm:flex-row gap-4"
                               >
                                     <button className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded flex items-center justify-center gap-2 transition-all">
-                                          INITIATE PROTOCOL
+                                          {t.hero.cta_primary}
                                           <ArrowRight className="w-4 h-4" />
                                     </button>
                                     <button className="px-8 py-4 bg-transparent border border-slate-700 hover:border-slate-500 text-slate-300 rounded flex items-center justify-center gap-2 transition-all font-mono">
-                                          VIEW CLASSIFIED DATA
+                                          {t.hero.cta_secondary}
                                           <Lock className="w-4 h-4" />
                                     </button>
                               </motion.div>
@@ -73,19 +74,19 @@ export const HeroSection = () => {
                               <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-slate-800 pt-8">
                                     <div>
                                           <div className="text-3xl font-bold text-white mb-1">50+</div>
-                                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Mission Critical System</div>
+                                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">{t.hero.stats.systems}</div>
                                     </div>
                                     <div>
                                           <div className="text-3xl font-bold text-white mb-1">99.99%</div>
-                                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Uptime Guarantee</div>
+                                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">{t.hero.stats.uptime}</div>
                                     </div>
                                     <div>
                                           <div className="text-3xl font-bold text-white mb-1">Zero</div>
-                                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Compromised Data</div>
+                                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">{t.hero.stats.security}</div>
                                     </div>
                                     <div>
                                           <div className="text-3xl font-bold text-white mb-1">Global</div>
-                                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">Operations Reach</div>
+                                          <div className="text-xs text-slate-500 font-mono uppercase tracking-wider">{t.hero.stats.global}</div>
                                     </div>
                               </div>
                         </div>

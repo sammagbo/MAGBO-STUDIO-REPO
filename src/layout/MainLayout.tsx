@@ -1,7 +1,15 @@
 import React from 'react';
 import { Shield, Terminal } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { Language } from '@/data/translations';
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
+      const { t, language, setLanguage } = useLanguage();
+
+      const handleLangChange = (lang: string) => {
+            setLanguage(lang as Language);
+      };
+
       return (
             <div className="min-h-screen flex flex-col bg-slate-950 font-sans text-slate-50 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950">
 
@@ -14,14 +22,41 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                               </div>
 
                               <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-                                    <span className="hover:text-emerald-500 cursor-pointer transition-colors">PROJECTS</span>
-                                    <span className="hover:text-emerald-500 cursor-pointer transition-colors">EXPERTISE</span>
-                                    <span className="hover:text-emerald-500 cursor-pointer transition-colors">CONTACT</span>
+                                    <span className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.projects}</span>
+                                    <span className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.expertise}</span>
+                                    <span className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.tech_radar}</span>
+                                    <span className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.contact}</span>
                               </div>
 
-                              <div className="flex items-center gap-2">
-                                    <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                                    <span className="text-xs font-mono text-emerald-500 tracking-wider">SYSTEM ONLINE</span>
+                              <div className="flex items-center gap-6">
+                                    {/* Language Selector */}
+                                    <div className="hidden md:flex items-center gap-3 text-xs font-mono text-slate-500 border-r border-slate-800 pr-6">
+                                          <button
+                                                onClick={() => handleLangChange('en')}
+                                                className={`hover:text-emerald-500 transition-colors ${language === 'en' ? 'text-emerald-500 font-bold' : ''}`}
+                                          >
+                                                EN
+                                          </button>
+                                          <span>|</span>
+                                          <button
+                                                onClick={() => handleLangChange('pt')}
+                                                className={`hover:text-emerald-500 transition-colors ${language === 'pt' ? 'text-emerald-500 font-bold' : ''}`}
+                                          >
+                                                PT
+                                          </button>
+                                          <span>|</span>
+                                          <button
+                                                onClick={() => handleLangChange('es')}
+                                                className={`hover:text-emerald-500 transition-colors ${language === 'es' ? 'text-emerald-500 font-bold' : ''}`}
+                                          >
+                                                ES
+                                          </button>
+                                    </div>
+
+                                    <div className="flex items-center gap-2">
+                                          <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                                          <span className="text-xs font-mono text-emerald-500 tracking-wider">ONLINE</span>
+                                    </div>
                               </div>
                         </div>
                   </nav>

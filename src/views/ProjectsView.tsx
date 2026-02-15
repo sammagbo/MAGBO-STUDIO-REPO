@@ -2,8 +2,11 @@ import { PROJECTS_DATA } from '@/data/projects';
 import { Server, ShieldAlert, Cpu, Lock, Archive } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const ProjectsView = () => {
+      const { t } = useLanguage();
+
       return (
             <section className="py-24 bg-slate-950 px-6 font-sans">
                   <div className="container mx-auto">
@@ -11,7 +14,7 @@ export const ProjectsView = () => {
                               <div className="h-px flex-1 bg-slate-800" />
                               <h2 className="text-2xl font-mono font-bold text-slate-400 tracking-widest flex items-center gap-2">
                                     <Archive className="w-5 h-5 text-emerald-500" />
-                                    CASE_LOGS // CLASSIFIED
+                                    {t.projects.title}
                               </h2>
                               <div className="h-px flex-1 bg-slate-800" />
                         </div>
@@ -71,7 +74,7 @@ export const ProjectsView = () => {
 
                                                 <button className="flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-emerald-500 transition-colors uppercase tracking-wider">
                                                       <Lock className="w-3 h-3" />
-                                                      Restricted Access
+                                                      {t.projects.restricted}
                                                 </button>
                                           </div>
                                     </motion.div>

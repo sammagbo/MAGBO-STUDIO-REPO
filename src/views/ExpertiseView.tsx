@@ -1,7 +1,10 @@
 import { SERVICES_DATA, HISTORY_DATA } from '@/data/services';
 import { Shield, Clock } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const ExpertiseView = () => {
+      const { t } = useLanguage();
+
       return (
             <section className="py-24 bg-slate-950 border-t border-slate-900 relative px-6">
 
@@ -11,7 +14,7 @@ export const ExpertiseView = () => {
                         <div>
                               <div className="flex items-center gap-2 mb-12 text-emerald-500">
                                     <Shield className="w-5 h-5" />
-                                    <h2 className="font-mono font-bold tracking-widest text-slate-100">OPERATIONAL_CAPABILITIES</h2>
+                                    <h2 className="font-mono font-bold tracking-widest text-slate-100">{t.expertise.capabilities}</h2>
                               </div>
 
                               <div className="space-y-6">
@@ -25,7 +28,7 @@ export const ExpertiseView = () => {
                                                             <h3 className="text-xl font-bold text-slate-100 mb-2">{service.title}</h3>
                                                             <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
                                                             <div className="mt-4 flex items-center gap-2 text-xs font-mono text-slate-600">
-                                                                  <span>RISK_LEVEL:</span>
+                                                                  <span>{t.expertise.risk_level}:</span>
                                                                   <span className={service.riskLevel === 'Critical' ? 'text-red-500' : 'text-amber-500'}>
                                                                         [{service.riskLevel.toUpperCase()}]
                                                                   </span>
@@ -41,7 +44,7 @@ export const ExpertiseView = () => {
                         <div>
                               <div className="flex items-center gap-2 mb-12 text-emerald-500">
                                     <Clock className="w-5 h-5" />
-                                    <h2 className="font-mono font-bold tracking-widest text-slate-100">KEY_SYSTEM_EVENTS</h2>
+                                    <h2 className="font-mono font-bold tracking-widest text-slate-100">{t.expertise.events}</h2>
                               </div>
 
                               <div className="relative border-l border-slate-800 ml-3 space-y-12">
@@ -64,7 +67,7 @@ export const ExpertiseView = () => {
                                     <div className="relative pl-8 pt-8">
                                           <div className="absolute -left-[5px] top-10 w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                                           <div className="inline-block px-3 py-1 bg-emerald-900/20 text-emerald-500 text-xs font-mono border border-emerald-500/30 rounded">
-                                                CURRENT STATE: ACTIVE
+                                                {t.expertise.current_state}
                                           </div>
                                     </div>
                               </div>
