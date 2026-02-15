@@ -1,12 +1,4 @@
-export interface Project {
-      id: string;
-      title: string;
-      description: string;
-      type: string;
-      status: 'Production' | 'MVP' | 'Classified';
-      stack: string[];
-      accessLevel: 'Restricted' | 'Public' | 'Classified';
-}
+import { Project } from './types';
 
 export const getProjects = (t: any): Project[] => {
       return [
@@ -20,48 +12,30 @@ export const getProjects = (t: any): Project[] => {
                   accessLevel: 'Restricted'
             },
             {
-                  id: 'SENTINEL_ACCESS',
-                  title: t.projects.list.access_alpha.title,
-                  description: t.projects.list.access_alpha.description,
-                  type: t.projects.list.access_alpha.type,
+                  id: 'SECTOR_WATCH',
+                  title: t.projects.list.sector_watch.title,
+                  description: t.projects.list.sector_watch.description,
+                  type: t.projects.list.sector_watch.type,
                   status: 'Production',
-                  stack: t.projects.list.access_alpha.stack,
+                  stack: t.projects.list.sector_watch.stack,
                   accessLevel: 'Restricted'
             },
             {
-                  id: 'DATA_SYNC',
-                  title: t.projects.list.data_nexus.title,
-                  description: t.projects.list.data_nexus.description,
-                  type: t.projects.list.data_nexus.type,
-                  status: 'Production',
-                  stack: t.projects.list.data_nexus.stack,
-                  accessLevel: 'Classified'
+                  id: 'CORE_SYNC',
+                  title: t.projects.list.core_sync.title,
+                  description: t.projects.list.core_sync.description,
+                  type: t.projects.list.core_sync.type,
+                  status: 'Completed',
+                  stack: t.projects.list.core_sync.stack,
+                  accessLevel: 'Public'
             },
             {
-                  id: 'MEDIA_VECTOR',
+                  id: 'MEDIA_OPS',
                   title: t.projects.list.media_ops.title,
                   description: t.projects.list.media_ops.description,
                   type: t.projects.list.media_ops.type,
-                  status: 'Production',
+                  status: 'Live',
                   stack: t.projects.list.media_ops.stack,
-                  accessLevel: 'Public'
-            },
-            {
-                  id: 'JAVA_INIT',
-                  title: t.projects.list.java_core.title,
-                  description: t.projects.list.java_core.description,
-                  type: t.projects.list.java_core.type,
-                  status: 'MVP',
-                  stack: t.projects.list.java_core.stack,
-                  accessLevel: 'Public'
-            },
-            {
-                  id: 'MAGBO_KERNEL',
-                  title: t.projects.list.magbo_kernel.title,
-                  description: t.projects.list.magbo_kernel.description,
-                  type: t.projects.list.magbo_kernel.type,
-                  status: 'Production',
-                  stack: t.projects.list.magbo_kernel.stack,
                   accessLevel: 'Public'
             }
       ];

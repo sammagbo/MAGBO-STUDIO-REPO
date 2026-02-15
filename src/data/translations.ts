@@ -36,38 +36,26 @@ export const TRANSLATIONS = {
                         vote_guard: {
                               title: 'PROTOCOL: VOTE_GUARD',
                               description: 'High-stakes electronic voting system with real-time state machine logic, quorum control, and cryptographic audit trails for executive decision making.',
-                              type: 'Critical Safety',
-                              stack: ['React', 'State Machine', 'PDF Gen', 'Real-time'],
+                              type: 'Critical Governance',
+                              stack: ['React', 'State Logic', 'PDF Gen', 'Real-time'],
                         },
-                        access_alpha: {
-                              title: 'ACCESS_CONTROL_ALPHA',
+                        sector_watch: {
+                              title: 'SECTOR_WATCH',
                               description: 'Physical security infrastructure for educational institutions. Features sector-based monitoring, QR Code scanning, and student tracking.',
-                              type: 'GovTech',
-                              stack: ['IoT Integration', 'Tablet Ops', 'Analytics'],
+                              type: 'Physical Security',
+                              stack: ['IoT Logic', 'QR Code', 'React', 'Dashboard'],
                         },
-                        data_nexus: {
-                              title: 'DATA_SYNC_NEXUS',
+                        core_sync: {
+                              title: 'CORE_SYNC',
                               description: 'Full-stack integration module synchronizing legacy systems with modern React frontends via Spring Boot, ensuring data persistence and integrity.',
-                              type: 'High Scale',
-                              stack: ['Spring Boot', 'React', 'REST API', 'PostgreSQL'],
+                              type: 'Fullstack Infra',
+                              stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
                         },
                         media_ops: {
-                              title: 'MEDIA_OPS_VECTOR',
+                              title: 'MEDIA_OPS',
                               description: 'High-performance media distribution platform with Spotify integration, advanced GSAP motion graphics, and SEO optimization for maximum reach.',
-                              type: 'High Scale',
-                              stack: ['Next.js', 'GSAP', 'Spotify API', 'SEO'],
-                        },
-                        java_core: {
-                              title: 'BACKEND_CORE_INIT',
-                              description: 'Robust backend infrastructure initiative focusing on clean architecture, Maven configuration, and scalable RESTful services.',
-                              type: 'Infrastructure',
-                              stack: ['Java', 'Maven', 'Spring Boot', 'Clean Arch'],
-                        },
-                        magbo_kernel: {
-                              title: 'MAGBO_HQ_KERNEL',
-                              description: 'The secure, elite portfolio system you are currently navigating. Designed for authority, performance, and global operations.',
-                              type: 'Identity',
-                              stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
+                              type: 'High Performance UI',
+                              stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
                   }
             },
@@ -211,38 +199,26 @@ export const TRANSLATIONS = {
                         vote_guard: {
                               title: 'PROTOCOLO: VOTE_GUARD',
                               description: 'Sistema de votação eletrônica de alto risco com lógica de máquina de estados em tempo real, controle de quórum e trilhas de auditoria criptográfica.',
-                              type: 'Segurança Crítica',
-                              stack: ['React', 'Máquina de Estados', 'Ger. PDF', 'Tempo Real'],
+                              type: 'Governança Crítica',
+                              stack: ['React', 'Lógica Estado', 'Ger. PDF', 'Tempo Real'],
                         },
-                        access_alpha: {
-                              title: 'CONTROLE_ACESSO_ALPHA',
+                        sector_watch: {
+                              title: 'SECTOR_WATCH',
                               description: 'Infraestrutura de segurança física para instituições de ensino. Monitoramento por setor, escaneamento de QR Code e rastreamento de alunos.',
-                              type: 'GovTech',
-                              stack: ['Integração IoT', 'Ops Tablet', 'Analytics'],
+                              type: 'Segurança Física',
+                              stack: ['Lógica IoT', 'QR Code', 'React', 'Dashboard'],
                         },
-                        data_nexus: {
-                              title: 'NEXUS_SINCRONIA_DADOS',
+                        core_sync: {
+                              title: 'CORE_SYNC',
                               description: 'Módulo de integração full-stack sincronizando sistemas legados com frontends React via Spring Boot, garantindo persistência e integridade.',
-                              type: 'Alta Escala',
-                              stack: ['Spring Boot', 'React', 'API REST', 'PostgreSQL'],
+                              type: 'Infra Fullstack',
+                              stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
                         },
                         media_ops: {
-                              title: 'VETOR_OPS_MÍDIA',
+                              title: 'MEDIA_OPS',
                               description: 'Plataforma de distribuição de mídia de alta performance com integração Spotify, motion graphics avançados GSAP e otimização SEO.',
-                              type: 'Alta Escala',
-                              stack: ['Next.js', 'GSAP', 'Spotify API', 'SEO'],
-                        },
-                        java_core: {
-                              title: 'INICIATIVA_CORE_BACKEND',
-                              description: 'Iniciativa robusta de infraestrutura backend focada em arquitetura limpa, configuração Maven e serviços RESTful escaláveis.',
-                              type: 'Infraestrutura',
-                              stack: ['Java', 'Maven', 'Spring Boot', 'Clean Check'],
-                        },
-                        magbo_kernel: {
-                              title: 'KERNEL_MAGBO_HQ',
-                              description: 'O sistema de portfólio seguro e de elite que você está navegando. Projetado para autoridade, performance e operações globais.',
-                              type: 'Identidade',
-                              stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
+                              type: 'UI Alta Performance',
+                              stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
                   }
             },
@@ -386,38 +362,26 @@ export const TRANSLATIONS = {
                         vote_guard: {
                               title: 'PROTOCOLO: VOTE_GUARD',
                               description: 'Sistema de votación electrónica de alto riesgo con lógica de máquina de estados en tiempo real, control de quórum y pistas de auditoría criptográfica.',
-                              type: 'Seguridad Crítica',
-                              stack: ['React', 'Máquina Estados', 'Gen. PDF', 'Tiempo Real'],
+                              type: 'Gobernanza Crítica',
+                              stack: ['React', 'Lógica Estado', 'Gen. PDF', 'Tiempo Real'],
                         },
-                        access_alpha: {
-                              title: 'CONTROL_ACCESO_ALPHA',
+                        sector_watch: {
+                              title: 'SECTOR_WATCH',
                               description: 'Infraestructura de seguridad física para instituciones educativas. Monitoreo por sector, escaneo de códigos QR y seguimiento de estudiantes.',
-                              type: 'GovTech',
-                              stack: ['Integración IoT', 'Tablet Ops', 'Analytics'],
+                              type: 'Seguridad Física',
+                              stack: ['Lógica IoT', 'QR Code', 'React', 'Dashboard'],
                         },
-                        data_nexus: {
-                              title: 'NEXUS_SINCRONIA_DATOS',
+                        core_sync: {
+                              title: 'CORE_SYNC',
                               description: 'Módulo de integración full-stack sincronizando sistemas heredados con frontends React vía Spring Boot, asegurando persistencia e integridad.',
-                              type: 'Alta Escala',
-                              stack: ['Spring Boot', 'React', 'API REST', 'PostgreSQL'],
+                              type: 'Infra Fullstack',
+                              stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
                         },
                         media_ops: {
-                              title: 'VECTOR_OPS_MEDIA',
+                              title: 'MEDIA_OPS',
                               description: 'Plataforma de distribución de medios de alto rendimiento con integración Spotify, gráficos de movimiento avanzados GSAP y optimización SEO.',
-                              type: 'Alta Escala',
-                              stack: ['Next.js', 'GSAP', 'Spotify API', 'SEO'],
-                        },
-                        java_core: {
-                              title: 'INICIATIVA_CORE_BACKEND',
-                              description: 'Iniciativa robusta de infraestructura backend centrada en arquitectura limpia, configuración Maven y servicios RESTful escalables.',
-                              type: 'Infraestructura',
-                              stack: ['Java', 'Maven', 'Spring Boot', 'Clean Arch'],
-                        },
-                        magbo_kernel: {
-                              title: 'KERNEL_MAGBO_HQ',
-                              description: 'El sistema de portafolio seguro y de élite que está navegando. Diseñado para autoridad, rendimiento y operaciones globales.',
-                              type: 'Identidad',
-                              stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
+                              type: 'UI Alto Rendimiento',
+                              stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
                   }
             },
@@ -452,7 +416,7 @@ export const TRANSLATIONS = {
                   cols: {
                         year: 'AÑO',
                         project: 'NOMBRE DE OPERACIÓN',
-                        built_with: 'CONSTRUIDO CON',
+                        built_with: 'CONSTRUÍDO CON',
                         link: 'ENLACE',
                   },
                   data: {
