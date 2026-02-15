@@ -26,18 +26,13 @@ export const SERVICES_DATA = [
 
 export const HISTORY_DATA = [
       {
-            year: '2026',
-            event: 'GLOBAL_OPS_EXPANSION',
-            description: 'Extended operations to support international government contracts. Initiated "Protocol Aegis".'
+            year: '2023-Presente',
+            event: 'Fundação & Expansão',
+            description: 'MAGBO STUDIO established with a focus on solving high-complexity problems rejected by standard agencies. Extended operations to support international government contracts.'
       },
       {
-            year: '2024-2025',
-            event: 'STUDIO_FOUNDATION',
-            description: 'MAGBO STUDIO established with a focus on solving high-complexity problems rejected by standard agencies.'
-      },
-      {
-            year: 'PRE-2024',
-            event: 'LEAD_ARCHITECT_ORIGIN',
-            description: 'Lead Architect deployed in Big Tech & Gov Sector. Expertise forged in high-stress environments.'
+            year: 'PRE-2023',
+            event: 'Background do Lead Architect',
+            description: 'Lead Architect deployed in Big Tech & Gov Sector. Expertise forged in high-stress environments, securing critical infrastructure and data pipelines.'
       }
 ];

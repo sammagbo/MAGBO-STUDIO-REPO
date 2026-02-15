@@ -3,6 +3,7 @@ import { Terminal, Lock, Loader2, CheckCircle2 } from 'lucide-react';
 
 export const ContactView = () => {
       const [status, setStatus] = useState<'IDLE' | 'ENCRYPTING' | 'SENT'>('IDLE');
+      const [charCount, setCharCount] = useState(0);
 
       const handleSubmit = (e: React.FormEvent) => {
             e.preventDefault();
@@ -47,7 +48,7 @@ export const ContactView = () => {
                                                       Transmission successful. Our team will decrypt your briefing and establish a secure uplink shortly.
                                                 </p>
                                                 <button
-                                                      onClick={() => setStatus('IDLE')}
+                                                      onClick={() => { setStatus('IDLE'); setCharCount(0); }}
                                                       className="mt-8 text-xs text-emerald-500/50 hover:text-emerald-500 underline underline-offset-4"
                                                 >
                                                       Start New Transmission
@@ -80,10 +81,14 @@ export const ContactView = () => {
                                                       <textarea
                                                             required
                                                             rows={5}
+                                                            maxLength={2000}
+                                                            onChange={(e) => setCharCount(e.target.value.length)}
                                                             className="w-full bg-slate-950 border border-slate-700 text-slate-100 p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-mono placeholder:text-slate-700"
                                                             placeholder="DESCRIBE MISSION OBJECTIVES AND TECHNICAL REQUIREMENTS..."
                                                       />
-                                                      <div className="text-right text-xs text-slate-600 font-mono">0/2000</div>
+                                                      <div className="text-right text-xs text-slate-600 font-mono transition-colors duration-300">
+                                                            <span className={charCount > 1800 ? "text-amber-500" : ""}>{charCount}</span>/2000
+                                                      </div>
                                                 </div>
 
                                                 <button
