@@ -35,25 +35,25 @@ export const TRANSLATIONS = {
                   list: {
                         vote_guard: {
                               title: 'PROTOCOL: VOTE_GUARD',
-                              description: 'High-stakes electronic voting system with real-time state machine logic, quorum control, and cryptographic audit trails for executive decision making.',
+                              description: 'Critical electronic voting system and high-stakes assembly management. Implements real-time state machine logic for timers, strict quorum control, President\'s Counsel mode, and precise legal PDF report generation.',
                               type: 'Critical Governance',
                               stack: ['React', 'State Logic', 'PDF Gen', 'Real-time'],
                         },
                         sector_watch: {
                               title: 'SECTOR_WATCH',
-                              description: 'Physical security infrastructure for educational institutions. Features sector-based monitoring, QR Code scanning, and student tracking.',
+                              description: 'Physical security infrastructure for a French educational institution. Features QR Code logic for access control, sector-based dashboard for flow monitoring, and real-time student tracking.',
                               type: 'Physical Security',
                               stack: ['IoT Logic', 'QR Code', 'React', 'Dashboard'],
                         },
                         core_sync: {
                               title: 'CORE_SYNC',
-                              description: 'Full-stack integration module synchronizing legacy systems with modern React frontends via Spring Boot, ensuring data persistence and integrity.',
+                              description: 'Full-stack synchronization for a development center. Hybrid architecture integrating React Frontend with Spring Boot Backend, migrating local persistence to robust and secure APIs.',
                               type: 'Fullstack Infra',
                               stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
                         },
                         media_ops: {
                               title: 'MEDIA_OPS',
-                              description: 'High-performance media distribution platform with Spotify integration, advanced GSAP motion graphics, and SEO optimization for maximum reach.',
+                              description: 'High-performance media platform. Deep integration with Spotify API, technical SEO optimization, and advanced GSAP animations with magnetic physics and parallax effects.',
                               type: 'High Performance UI',
                               stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
@@ -198,25 +198,25 @@ export const TRANSLATIONS = {
                   list: {
                         vote_guard: {
                               title: 'PROTOCOLO: VOTE_GUARD',
-                              description: 'Sistema de votação eletrônica de alto risco com lógica de máquina de estados em tempo real, controle de quórum e trilhas de auditoria criptográfica.',
+                              description: 'Sistema crítico de votação eletrônica e gestão de assembleias de alto risco. Implementa lógica de máquina de estados em tempo real para timers, controle estrito de quórum, modo "President\'s Counsel" e geração precisa de relatórios legais em PDF.',
                               type: 'Governança Crítica',
                               stack: ['React', 'Lógica Estado', 'Ger. PDF', 'Tempo Real'],
                         },
                         sector_watch: {
                               title: 'SECTOR_WATCH',
-                              description: 'Infraestrutura de segurança física para instituições de ensino. Monitoramento por setor, escaneamento de QR Code e rastreamento de alunos.',
+                              description: 'Infraestrutura de segurança física para instituição de ensino francesa. Controle de acesso via lógica de QR Code, dashboard setorizado para monitoramento de fluxo e rastreamento de alunos em tempo real.',
                               type: 'Segurança Física',
                               stack: ['Lógica IoT', 'QR Code', 'React', 'Dashboard'],
                         },
                         core_sync: {
                               title: 'CORE_SYNC',
-                              description: 'Módulo de integração full-stack sincronizando sistemas legados com frontends React via Spring Boot, garantindo persistência e integridade.',
+                              description: 'Sincronização Full-stack para centro de desenvolvimento. Arquitetura híbrida integrando Frontend React com Backend Spring Boot, migrando persistência local para APIs robustas e seguras.',
                               type: 'Infra Fullstack',
                               stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
                         },
                         media_ops: {
                               title: 'MEDIA_OPS',
-                              description: 'Plataforma de distribuição de mídia de alta performance com integração Spotify, motion graphics avançados GSAP e otimização SEO.',
+                              description: 'Plataforma de mídia de alta performance visual. Integração profunda com Spotify API, otimização de SEO técnico e animações avançadas (GSAP) com física magnética e parallax.',
                               type: 'UI Alta Performance',
                               stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
@@ -361,25 +361,25 @@ export const TRANSLATIONS = {
                   list: {
                         vote_guard: {
                               title: 'PROTOCOLO: VOTE_GUARD',
-                              description: 'Sistema de votación electrónica de alto riesgo con lógica de máquina de estados en tiempo real, control de quórum y pistas de auditoría criptográfica.',
+                              description: 'Sistema crítico de votación electrónica y gestión de asambleas de alto riesgo. Implementa lógica de máquina de estados en tiempo real para temporizadores, control estricto de quórum, modo "President\'s Counsel" y generación precisa de informes legales en PDF.',
                               type: 'Gobernanza Crítica',
                               stack: ['React', 'Lógica Estado', 'Gen. PDF', 'Tiempo Real'],
                         },
                         sector_watch: {
                               title: 'SECTOR_WATCH',
-                              description: 'Infraestructura de seguridad física para instituciones educativas. Monitoreo por sector, escaneo de códigos QR y seguimiento de estudiantes.',
+                              description: 'Infraestructura de seguridad física para institución educativa francesa. Cuenta con lógica de código QR para control de acceso, tablero sectorizado para monitoreo de flujo y seguimiento de estudiantes en tiempo real.',
                               type: 'Seguridad Física',
                               stack: ['Lógica IoT', 'QR Code', 'React', 'Dashboard'],
                         },
                         core_sync: {
                               title: 'CORE_SYNC',
-                              description: 'Módulo de integración full-stack sincronizando sistemas heredados con frontends React vía Spring Boot, asegurando persistencia e integridad.',
+                              description: 'Sincronización Full-stack para centro de desarrollo. Arquitectura híbrida integrando Frontend React con Backend Spring Boot, migrando persistencia local a APIs robustas y seguras.',
                               type: 'Infra Fullstack',
                               stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
                         },
                         media_ops: {
                               title: 'MEDIA_OPS',
-                              description: 'Plataforma de distribución de medios de alto rendimiento con integración Spotify, gráficos de movimiento avanzados GSAP y optimización SEO.',
+                              description: 'Plataforma de medios de alto rendimiento visual. Integración profunda con Spotify API, optimización de SEO técnico y animaciones avanzadas (GSAP) con física magnética y efectos de paralaje.',
                               type: 'UI Alto Rendimiento',
                               stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
@@ -463,7 +463,7 @@ export const TRANSLATIONS = {
                   subtitle: 'T.L.P. // AMBER // WHITE',
                   access_btn: 'SOLICITAR ACCESO TOTAL',
                   read_more: 'LEER BRIEFING',
-                  disclosed: 'DIVULGADO EN',
+                  disclosed: 'DIVULGADO EM',
             },
             contact: {
                   title: 'Iniciar Protocolo Seguro',
@@ -484,7 +484,7 @@ export const TRANSLATIONS = {
                   success: {
                         title: 'Protocolo Iniciado',
                         message: 'Transmisión exitosa. Nuestro equipo desencriptará su briefing y establecerá un enlace seguro en breve.',
-                        new: 'Iniciar Nueva Transmisión',
+                        new: 'Iniciar Nova Transmissão',
                   },
                   encryption_label: 'ENCRIPTACIÓN: AES-256-GCM',
                   link_active: 'ENLACE ACTIVO',
