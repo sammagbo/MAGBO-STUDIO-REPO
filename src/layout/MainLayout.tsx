@@ -30,10 +30,12 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
                               <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
                                     <span onClick={() => scrollToSection('projects')} className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.projects}</span>
+                                    <span onClick={() => scrollToSection('labs')} className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.labs}</span>
                                     <span onClick={() => scrollToSection('expertise')} className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.expertise}</span>
                                     <span onClick={() => scrollToSection('tech-radar')} className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.tech_radar}</span>
                                     <span onClick={() => scrollToSection('status')} className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.status}</span>
                                     <span onClick={() => scrollToSection('intel')} className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.intel}</span>
+                                    <span onClick={() => scrollToSection('archive')} className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.archive}</span>
                                     <span onClick={() => scrollToSection('contact')} className="hover:text-emerald-500 cursor-pointer transition-colors uppercase">{t.nav.contact}</span>
                               </div>
 

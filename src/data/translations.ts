@@ -9,6 +9,8 @@ export const TRANSLATIONS = {
                   status: 'STATUS',
                   intel: 'INTELLIGENCE',
                   contact: 'CONTACT',
+                  labs: 'LABS',
+                  archive: 'VAULT',
             },
             hero: {
                   status: 'SYSTEM OPERATIONAL // READY TO DEPLOY',
@@ -67,6 +69,48 @@ export const TRANSLATIONS = {
                               type: 'Identity',
                               stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
                         },
+                  }
+            },
+            labs: {
+                  title: 'MAGBO_LABS // TACTICAL_OPS',
+                  view_source: 'SOURCE_CODE',
+                  preview: 'DECLASSIFIED_PREVIEW',
+                  items: {
+                        media_ops: {
+                              title: 'MEDIA_OPS',
+                              tagline: 'High-fidelity audio interface with advanced motion UI.',
+                              description: 'Experimental podcast platform pushing the boundaries of Web Audio API and GSAP animations.',
+                              stack: ['React', 'GSAP', 'Spotify API'],
+                        },
+                        java_init: {
+                              title: 'JAVA_INIT',
+                              tagline: 'Core backend architecture and API structuring.',
+                              description: 'Deep dive into Spring Boot internals and exploring the limits of RESTful API design patterns.',
+                              stack: ['Java', 'Spring Boot', 'Maven'],
+                        },
+                        identity: {
+                              title: 'IDENTITY_V1',
+                              tagline: 'Self-referential secure portfolio architecture.',
+                              description: 'The recursive architecture of this very site, designed as a study in secure UI principles.',
+                              stack: ['React', 'Tailwind', 'Security UI'],
+                        },
+                  }
+            },
+            archive: {
+                  title: 'FULL PROJECT ARCHIVE // SAMMY K MAGBO',
+                  subtitle: 'OPERATIONAL LOG & ENGINEERING HISTORY',
+                  cols: {
+                        year: 'YEAR',
+                        project: 'OPERATION NAME',
+                        built_with: 'BUILT WITH',
+                        link: 'LINK',
+                  },
+                  data: {
+                        vote_guard: 'PROTOCOL: VOTE_GUARD (MeetingManager)',
+                        sector_watch: 'SECTOR_WATCH (Access Control System)',
+                        core_sync: 'CORE_SYNC (CDI Integration)',
+                        media_ops: 'MEDIA_OPS (The Talk)',
+                        java_init: 'JAVA_INIT (Spring Boot Portfolio)',
                   }
             },
             expertise: {
@@ -140,6 +184,8 @@ export const TRANSLATIONS = {
                   status: 'STATUS',
                   intel: 'INTELIGÊNCIA',
                   contact: 'CONTATO',
+                  labs: 'LABS',
+                  archive: 'VAULT',
             },
             hero: {
                   status: 'SISTEMA OPERACIONAL // PRONTO PARA DEPLOY',
@@ -198,6 +244,48 @@ export const TRANSLATIONS = {
                               type: 'Identidade',
                               stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
                         },
+                  }
+            },
+            labs: {
+                  title: 'MAGBO_LABS // OPS_TÁTICAS',
+                  view_source: 'CÓDIGO FONTE',
+                  preview: 'PREVIEW_DESCLASSIFICADO',
+                  items: {
+                        media_ops: {
+                              title: 'MEDIA_OPS',
+                              tagline: 'Interface de áudio de alta fidelidade com UI motion avançada.',
+                              description: 'Plataforma experimental de podcast explorando os limites da Web Audio API e animações GSAP.',
+                              stack: ['React', 'GSAP', 'Spotify API'],
+                        },
+                        java_init: {
+                              title: 'JAVA_INIT',
+                              tagline: 'Arquitetura core backend e estruturação de API.',
+                              description: 'Mergulho profundo nos internos do Spring Boot e exploração de padrões de design de API RESTful.',
+                              stack: ['Java', 'Spring Boot', 'Maven'],
+                        },
+                        identity: {
+                              title: 'IDENTITY_V1',
+                              tagline: 'Arquitetura de portfólio seguro autorreferencial.',
+                              description: 'A arquitetura recursiva deste próprio site, projetada como estudo em princípios de UI segura.',
+                              stack: ['React', 'Tailwind', 'Security UI'],
+                        },
+                  }
+            },
+            archive: {
+                  title: 'ARQUIVO DE PROJETOS COMPLETO // SAMMY K MAGBO',
+                  subtitle: 'LOG OPERACIONAL & HISTÓRICO DE ENGENHARIA',
+                  cols: {
+                        year: 'ANO',
+                        project: 'NOME DA OPERAÇÃO',
+                        built_with: 'CONSTRUÍDO COM',
+                        link: 'LINK',
+                  },
+                  data: {
+                        vote_guard: 'PROTOCOLO: VOTE_GUARD (MeetingManager)',
+                        sector_watch: 'SECTOR_WATCH (Sistema de Controle de Acesso)',
+                        core_sync: 'CORE_SYNC (Integração CDI)',
+                        media_ops: 'MEDIA_OPS (The Talk)',
+                        java_init: 'JAVA_INIT (Portfólio Spring Boot)',
                   }
             },
             expertise: {
@@ -271,6 +359,8 @@ export const TRANSLATIONS = {
                   status: 'ESTADO',
                   intel: 'INTELIGENCIA',
                   contact: 'CONTACTO',
+                  labs: 'LABS',
+                  archive: 'VAULT',
             },
             hero: {
                   status: 'SISTEMA OPERATIVO // LISTO PARA DESPLIEGUE',
@@ -329,6 +419,48 @@ export const TRANSLATIONS = {
                               type: 'Identidad',
                               stack: ['React', 'TypeScript', 'Tailwind', 'Framer Motion'],
                         },
+                  }
+            },
+            labs: {
+                  title: 'MAGBO_LABS // OPS_TÁCTICAS',
+                  view_source: 'CÓDIGO FUENTE',
+                  preview: 'VISTA_DESCLASIFICADA',
+                  items: {
+                        media_ops: {
+                              title: 'MEDIA_OPS',
+                              tagline: 'Interfaz de audio de alta fidelidad con UI motion avanzada.',
+                              description: 'Plataforma experimental de podcast explorando los límites de Web Audio API y animaciones GSAP.',
+                              stack: ['React', 'GSAP', 'Spotify API'],
+                        },
+                        java_init: {
+                              title: 'JAVA_INIT',
+                              tagline: 'Arquitectura core backend y estructuración de API.',
+                              description: 'Inmersión profunda en los internos de Spring Boot y exploración de patrones de diseño de API RESTful.',
+                              stack: ['Java', 'Spring Boot', 'Maven'],
+                        },
+                        identity: {
+                              title: 'IDENTITY_V1',
+                              tagline: 'Arquitectura de portafolio seguro autorreferencial.',
+                              description: 'La arquitectura recursiva de este propio sitio, diseñada como estudio en principios de UI segura.',
+                              stack: ['React', 'Tailwind', 'Security UI'],
+                        },
+                  }
+            },
+            archive: {
+                  title: 'ARCHIVO DE PROYECTOS COMPLETO // SAMMY K MAGBO',
+                  subtitle: 'LOG OPERATIVO & HISTORIAL DE INGENIERÍA',
+                  cols: {
+                        year: 'AÑO',
+                        project: 'NOMBRE DE OPERACIÓN',
+                        built_with: 'CONSTRUIDO CON',
+                        link: 'ENLACE',
+                  },
+                  data: {
+                        vote_guard: 'PROTOCOLO: VOTE_GUARD (MeetingManager)',
+                        sector_watch: 'SECTOR_WATCH (Sistema de Control de Acceso)',
+                        core_sync: 'CORE_SYNC (Integración CDI)',
+                        media_ops: 'MEDIA_OPS (The Talk)',
+                        java_init: 'JAVA_INIT (Portafolio Spring Boot)',
                   }
             },
             expertise: {

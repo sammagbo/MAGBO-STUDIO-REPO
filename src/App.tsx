@@ -7,6 +7,8 @@ import { ExpertiseView } from '@/views/ExpertiseView';
 import { RadarView } from '@/views/RadarView';
 import { StatusView } from '@/views/StatusView';
 import { IntelView } from '@/views/IntelView';
+import { LabsView } from '@/views/LabsView';
+import { ArchiveView } from '@/views/ArchiveView';
 import { ContactView } from '@/views/ContactView';
 import { CommandPalette } from '@/components/CommandPalette';
 import { SEOHelmet } from '@/components/SEOHelmet';
@@ -24,6 +26,9 @@ function App() {
                                     <div id="projects">
                                           <ProjectsView />
                                     </div>
+                                    <div id="labs">
+                                          <LabsView />
+                                    </div>
                                     <div id="expertise">
                                           <ExpertiseView />
                                     </div>
@@ -35,6 +40,9 @@ function App() {
                                     </div>
                                     <div id="intel">
                                           <IntelView />
+                                    </div>
+                                    <div id="archive">
+                                          <ArchiveView />
                                     </div>
                                     <div id="contact">
                                           <ContactView />
