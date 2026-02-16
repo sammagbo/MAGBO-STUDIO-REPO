@@ -1,38 +1,50 @@
-import { Server, Lock, Activity } from 'lucide-react';
+import { Server, Workflow, Cpu, GitMerge } from 'lucide-react';
 
-export const SERVICES_DATA = [
+export const getServices = (t: any) => [
       {
-            id: 'infra',
-            title: 'Critical Infrastructure',
-            description: 'High-Availability architecture, Disaster Recovery protocols, and Zero-Downtime deployment strategies for mission-critical operations.',
+            id: 'backend',
+            title: t.expertise.list.backend.title,
+            description: t.expertise.list.backend.description,
             icon: Server,
-            riskLevel: 'High'
+            riskLevel: 'Critical'
       },
       {
-            id: 'frontend',
-            title: 'Secure Frontend',
-            description: 'Anti-Tamper UI development, Client-side security hardening, and React performance optimization for complex dashboards.',
-            icon: Activity,
+            id: 'integration',
+            title: t.expertise.list.integration.title,
+            description: t.expertise.list.integration.description,
+            icon: Workflow,
             riskLevel: 'Medium'
       },
       {
-            id: 'cyber',
-            title: 'Cybersecurity Ops',
-            description: 'Threat Modeling, Penetration Testing coordination, and Implementation of defensive coding standards defined by OWASP.',
-            icon: Lock,
-            riskLevel: 'Critical'
+            id: 'ai',
+            title: t.expertise.list.ai.title,
+            description: t.expertise.list.ai.description,
+            icon: Cpu,
+            riskLevel: 'High'
+      },
+      {
+            id: 'logic',
+            title: t.expertise.list.logic.title,
+            description: t.expertise.list.logic.description,
+            icon: GitMerge,
+            riskLevel: 'High'
       }
 ];
 
-export const HISTORY_DATA = [
+export const getHistory = (t: any) => [
       {
-            year: '2023-Presente',
-            event: 'Fundação & Expansão',
-            description: 'MAGBO STUDIO established with a focus on solving high-complexity problems rejected by standard agencies. Extended operations to support international government contracts.'
+            year: t.expertise.history.stage3.year,
+            event: t.expertise.history.stage3.event,
+            description: t.expertise.history.stage3.description
       },
       {
-            year: 'PRE-2023',
-            event: 'Background do Lead Architect',
-            description: 'Lead Architect deployed in Big Tech & Gov Sector. Expertise forged in high-stress environments, securing critical infrastructure and data pipelines.'
+            year: t.expertise.history.stage2.year,
+            event: t.expertise.history.stage2.event,
+            description: t.expertise.history.stage2.description
+      },
+      {
+            year: t.expertise.history.stage1.year,
+            event: t.expertise.history.stage1.event,
+            description: t.expertise.history.stage1.description
       }
 ];

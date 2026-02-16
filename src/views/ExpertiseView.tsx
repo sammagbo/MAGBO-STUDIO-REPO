@@ -1,9 +1,11 @@
-import { SERVICES_DATA, HISTORY_DATA } from '@/data/services';
+import { getServices, getHistory } from '@/data/services';
 import { Shield, Clock } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export const ExpertiseView = () => {
       const { t } = useLanguage();
+      const services = getServices(t);
+      const history = getHistory(t);
 
       return (
             <section className="py-24 bg-slate-950 border-t border-slate-900 relative px-6">
@@ -18,7 +20,7 @@ export const ExpertiseView = () => {
                               </div>
 
                               <div className="space-y-6">
-                                    {SERVICES_DATA.map((service) => (
+                                    {services.map((service) => (
                                           <div key={service.id} className="bg-slate-900/50 border border-slate-800 p-6 rounded hover:border-emerald-500/30 transition-colors group">
                                                 <div className="flex items-start gap-4">
                                                       <div className="p-3 bg-slate-950 border border-slate-800 rounded group-hover:border-emerald-500/50 transition-colors">
@@ -48,7 +50,7 @@ export const ExpertiseView = () => {
                               </div>
 
                               <div className="relative border-l border-slate-800 ml-3 space-y-12">
-                                    {HISTORY_DATA.map((item, index) => (
+                                    {history.map((item, index) => (
                                           <div key={index} className="relative pl-8">
                                                 <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-slate-950 border border-emerald-500 mb-2" />
 

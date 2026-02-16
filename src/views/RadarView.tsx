@@ -1,12 +1,13 @@
 import { Radar, Disc, PlayCircle, StopCircle, Info } from 'lucide-react';
-import { RADAR_DATA, RadarQuadrant } from '@/data/radar';
+import { getRadarData, RadarQuadrant } from '@/data/radar';
 import { useLanguage } from '@/context/LanguageContext';
 
 export const RadarView = () => {
       const { t } = useLanguage();
+      const radarData = getRadarData(t);
 
       const renderQuadrant = (quadrant: RadarQuadrant, title: string, icon: React.ReactNode, colorClass: string, bgClass: string) => {
-            const items = RADAR_DATA.filter(item => item.quadrant === quadrant);
+            const items = radarData.filter(item => item.quadrant === quadrant);
 
             return (
                   <div className={`p-6 border border-slate-800 rounded bg-opacity-30 ${bgClass} relative overflow-hidden group`}>
