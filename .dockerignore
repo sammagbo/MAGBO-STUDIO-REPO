@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.github
+.env
+Dockerfile
+.dockerignore
+npm-debug.log
+yarn-error.log
+coverage
+test
+e2e
