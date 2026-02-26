@@ -1,26 +1,56 @@
+@import '@fontsource/inter';
+@import '@fontsource/bebas-neue';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 2 6 23; /* slate-950 */
-    --foreground: 248 250 252; /* slate-50 */
+    --background: 244 244 244;
+    --foreground: 0 0 0;
   }
 
   body {
-    @apply bg-slate-950 text-slate-50;
+    @apply bg-anyflow-bg text-anyflow-black font-body;
     font-feature-settings: "rlig" 1, "calt" 1;
+    overscroll-behavior: none;
+  }
+
+  /* Lenis recommended CSS */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
   }
 }
 
-/* Custom Scrollbar for Technical Feel */
+/* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
-  width: 8px;
+  display: none;
 }
-::-webkit-scrollbar-track {
-  @apply bg-slate-950;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-slate-800 rounded-full hover:bg-slate-700 transition-colors;
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  cursor: none !important;
+  /* Prepare for custom cursor */
 }

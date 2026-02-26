@@ -9,19 +9,17 @@ export default {
                   colors: {
                         background: "var(--background)",
                         foreground: "var(--foreground)",
-                        // Explicitly mapping the requested palette
-                        slate: {
-                              950: '#020617', // Institutional Dark Background
-                              900: '#0f172a', // Surfaces
-                        },
-                        emerald: {
-                              500: '#10b981', // Operational / Success
-                        },
-                        red: {
-                              500: '#ef4444', // Critical / Alert
+                        // New Anyflow Palette
+                        anyflow: {
+                              bg: '#F4F4F4',
+                              lime: '#BBFD6A',
+                              black: '#000000',
+                              grey: '#E5E5E5'
                         }
                   },
                   fontFamily: {
+                        display: ['"Bebas Neue"', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
                         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
                   },
             },

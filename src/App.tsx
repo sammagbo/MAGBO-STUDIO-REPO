@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { MainLayout } from '@/layout/MainLayout';
 import { HeroSection } from '@/components/HeroSection';
+import { CVSection } from '@/components/CVSection';
+import { ProcessSection } from '@/components/ProcessSection';
+import { CapabilitiesSection } from '@/components/CapabilitiesSection';
 import { ProjectsView } from '@/views/ProjectsView';
 import { ExpertiseView } from '@/views/ExpertiseView';
 import { RadarView } from '@/views/RadarView';
@@ -13,8 +17,32 @@ import { ContactView } from '@/views/ContactView';
 import { CommandPalette } from '@/components/CommandPalette';
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { LanguageProvider } from '@/context/LanguageContext';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+      useEffect(() => {
+            const lenis = new Lenis({
+                  lerp: 0.08,
+                  smoothWheel: true,
+            });
+
+            lenis.on('scroll', ScrollTrigger.update);
+
+            gsap.ticker.add((time) => {
+                  lenis.raf(time * 1000);
+            });
+
+            gsap.ticker.lagSmoothing(0);
+
+            return () => {
+                  lenis.destroy();
+            };
+      }, []);
+
       return (
             <LanguageProvider>
                   <HelmetProvider>
@@ -23,6 +51,9 @@ function App() {
                               <MainLayout>
                                     <CommandPalette />
                                     <HeroSection />
+                                    <CVSection />
+                                    <ProcessSection />
+                                    <CapabilitiesSection />
                                     <div id="projects">
                                           <ProjectsView />
                                     </div>
