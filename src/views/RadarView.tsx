@@ -10,7 +10,7 @@ export const RadarView = () => {
             const items = radarData.filter(item => item.quadrant === quadrant);
 
             return (
-                  <div className={`p-6 border border-slate-800 rounded bg-opacity-30 ${bgClass} relative overflow-hidden group`}>
+                  <div className={`p-6 border border-slate-800 rounded bg-opacity-30 ${bgClass} relative overflow-hidden group glow-lime-hover`}>
                         <div className="flex items-center gap-3 mb-6">
                               <div className={`p-2 rounded bg-slate-950 border border-slate-800 ${colorClass}`}>
                                     {icon}

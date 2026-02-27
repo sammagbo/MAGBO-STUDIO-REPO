@@ -18,9 +18,9 @@ export default {
                         }
                   },
                   fontFamily: {
-                        display: ['"Bebas Neue"', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+                        display: ['Syne', 'sans-serif'],
+                        body: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
                   },
             },
       },

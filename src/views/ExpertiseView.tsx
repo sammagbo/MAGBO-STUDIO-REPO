@@ -21,7 +21,7 @@ export const ExpertiseView = () => {
 
                               <div className="space-y-6">
                                     {services.map((service) => (
-                                          <div key={service.id} className="bg-slate-900/50 border border-slate-800 p-6 rounded hover:border-emerald-500/30 transition-colors group">
+                                          <div key={service.id} className="bg-slate-900/50 border border-slate-800 p-6 rounded hover:border-emerald-500/30 transition-colors group glow-lime-hover">
                                                 <div className="flex items-start gap-4">
                                                       <div className="p-3 bg-slate-950 border border-slate-800 rounded group-hover:border-emerald-500/50 transition-colors">
                                                             <service.icon className="w-6 h-6 text-emerald-500" />

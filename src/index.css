@@ -1,9 +1,20 @@
-@import '@fontsource/inter';
-@import '@fontsource/bebas-neue';
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .glow-lime {
+    box-shadow: 0 0 20px rgba(187, 253, 106, 0.12), 0 0 60px rgba(187, 253, 106, 0.05);
+  }
+  .glow-lime-hover {
+    transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glow-lime-hover:hover {
+    box-shadow: 0 0 25px rgba(187, 253, 106, 0.18), 0 0 80px rgba(187, 253, 106, 0.08);
+  }
+}
 
 @layer base {
   :root {

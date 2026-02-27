@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Terminal, Lock, Loader2, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { sanitizeHTML, validateEmail } from '@/utils/security';
 
 export const ContactView = () => {
       const { t } = useLanguage();
@@ -9,6 +10,18 @@ export const ContactView = () => {
 
       const handleSubmit = (e: React.FormEvent) => {
             e.preventDefault();
+            const form = e.target as HTMLFormElement;
+            const formData = new FormData(form);
+
+            // Sanitize all inputs before processing
+            const name = sanitizeHTML(formData.get('name') as string || '');
+            const email = formData.get('email') as string || '';
+            const message = sanitizeHTML(formData.get('message') as string || '');
+
+            // Validate email format
+            if (!validateEmail(email)) return;
+            if (!name || !message) return;
+
             setStatus('ENCRYPTING');
 
             // Simulate encryption/sending delay

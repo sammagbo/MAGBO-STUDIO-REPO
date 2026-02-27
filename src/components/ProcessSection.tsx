@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export const ProcessSection = () => {
+      const { t } = useLanguage();
       const sectionRef = useRef<HTMLElement>(null);
       const textRefs = useRef<(HTMLHeadingElement | null)[]>([]);
 
@@ -45,10 +47,10 @@ export const ProcessSection = () => {
                   </div>
 
                   <div className="container mx-auto z-10 w-full flex flex-col justify-center items-start md:items-center text-left md:text-center perspective-[1000px]">
-                        <h2 className="font-display font-black text-[18vw] md:text-[14vw] leading-[0.85] tracking-tighter uppercase w-full max-w-[1400px]">
-                              <div className="overflow-hidden"><div ref={el => textRefs.current[0] = el} className="origin-bottom transform-gpu">WE BELIEVE <span className="text-anyflow-lime drop-shadow-sm">IN A</span></div></div>
-                              <div className="overflow-hidden"><div ref={el => textRefs.current[1] = el} className="origin-bottom transform-gpu text-anyflow-lime mix-blend-difference drop-shadow-md">PROCESS</div></div>
-                              <div className="overflow-hidden"><div ref={el => textRefs.current[2] = el} className="origin-bottom transform-gpu">THAT WORKS.</div></div>
+                        <h2 className="font-display font-black text-[10vw] md:text-[6.5vw] leading-[0.85] tracking-tighter uppercase w-full max-w-[1400px]">
+                              <div className="overflow-hidden"><div ref={el => textRefs.current[0] = el} className="origin-bottom transform-gpu">{t.surface.process_line1} <span className="text-anyflow-lime drop-shadow-sm">{t.surface.process_line1_accent}</span></div></div>
+                              <div className="overflow-hidden"><div ref={el => textRefs.current[1] = el} className="origin-bottom transform-gpu text-anyflow-lime mix-blend-difference drop-shadow-md">{t.surface.process_line2}</div></div>
+                              <div className="overflow-hidden"><div ref={el => textRefs.current[2] = el} className="origin-bottom transform-gpu">{t.surface.process_line3}</div></div>
                         </h2>
                   </div>
             </section>

@@ -7,7 +7,7 @@ export interface TechItem {
       description: string;
 }
 
-export const getRadarData = (t: any): TechItem[] => {
+export const getRadarData = (t: Record<string, any>): TechItem[] => {
       return [
             // ADOPT - Production Ready
             { id: 'react', name: t.radar.items.react.name, quadrant: 'adopt', description: t.radar.items.react.description },

@@ -69,7 +69,7 @@ export const HeroSection = () => {
                                           {t.hero.description || "We design immersive, motion-driven systems that command attention and guide users to act. Clean builds. Sharp strategy. Zero fluff."}
                                     </p>
                                     <button className="bg-anyflow-lime text-black font-display font-bold uppercase tracking-wide text-xl px-6 py-2 shadow-sm hover:scale-105 transition-transform duration-300">
-                                          LET'S TALK
+                                          {t.surface.hero_cta}
                                     </button>
 
                                     {/* Left decorative Hexagons */}
@@ -78,11 +78,11 @@ export const HeroSection = () => {
 
                               {/* Right Column (Massive Text) */}
                               <div className="w-full md:w-[65%] flex flex-col md:pl-12 pt-24 md:pt-0 relative z-10 perspective-[1000px]">
-                                    <h1 className="font-display font-black text-[15vw] md:text-[11vw] leading-[0.85] tracking-tight uppercase flex flex-col whitespace-nowrap">
-                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[0] = el} className="inline-block origin-bottom transform-gpu">YOUR SYSTEMS</span></div>
-                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[1] = el} className="inline-block origin-bottom transform-gpu text-anyflow-lime drop-shadow-md">DESERVE</span><span ref={el => textRefs.current[2] = el} className="inline-block origin-bottom transform-gpu pl-[2vw]">MORE</span></div>
-                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[3] = el} className="inline-block origin-bottom transform-gpu">THAN A NORMAL</span></div>
-                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[4] = el} className="inline-block origin-bottom transform-gpu">INTERFACE.</span></div>
+                                    <h1 className="font-display font-black text-[10vw] md:text-[5.5vw] leading-[0.85] tracking-tight uppercase flex flex-col">
+                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[0] = el} className="inline-block origin-bottom transform-gpu">{t.surface.hero_line1}</span></div>
+                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[1] = el} className="inline-block origin-bottom transform-gpu text-anyflow-lime drop-shadow-md">{t.surface.hero_line2_accent}</span><span ref={el => textRefs.current[2] = el} className="inline-block origin-bottom transform-gpu pl-[2vw]">{t.surface.hero_line2_end}</span></div>
+                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[3] = el} className="inline-block origin-bottom transform-gpu">{t.surface.hero_line3}</span></div>
+                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[4] = el} className="inline-block origin-bottom transform-gpu">{t.surface.hero_line4}</span></div>
                                     </h1>
                               </div>
 
@@ -95,7 +95,7 @@ export const HeroSection = () => {
                                     }}
                               >
                                     {/* Using a large & symbol customized to look 3D and thick */}
-                                    <span className="font-display font-black text-[30vw] md:text-[25vw] text-anyflow-lime leading-none select-none tracking-tighter opacity-95">
+                                    <span className="font-display font-black text-[18vw] md:text-[10vw] text-anyflow-lime leading-none select-none tracking-tighter opacity-95">
                                           &
                                     </span>
                               </div>

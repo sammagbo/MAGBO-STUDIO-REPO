@@ -50,7 +50,7 @@ export const ProjectsView = () => {
             <section ref={containerRef} className="py-40 bg-anyflow-lime px-6 font-body relative overflow-hidden">
 
                   {/* Huge background text */}
-                  <h2 ref={titleRef} className="absolute left-6 top-10 text-[20vw] font-display font-black leading-none opacity-10 tracking-tighter text-black pointer-events-none whitespace-nowrap">
+                  <h2 ref={titleRef} className="absolute left-6 top-10 text-[14vw] font-display font-black leading-none opacity-10 tracking-tighter text-black pointer-events-none">
                         OUR WORK
                   </h2>
 

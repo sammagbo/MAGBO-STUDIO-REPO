@@ -25,6 +25,12 @@ export const SEOHelmet = () => {
                   <meta property="twitter:description" content={t.meta.description} />
                   <meta property="twitter:image" content="https://magbo.studio/og-image.jpg" />
 
+                  {/* Content Security Policy — defense-in-depth (primary CSP via vercel.json) */}
+                  <meta
+                        httpEquiv="Content-Security-Policy"
+                        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://vitals.vercel-insights.com https://www.google-analytics.com; frame-ancestors 'none';"
+                  />
+
                   {/* Theme Color for mobile browsers */}
                   <meta name="theme-color" content="#020617" />
             </Helmet>

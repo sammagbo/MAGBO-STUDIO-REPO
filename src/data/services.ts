@@ -1,6 +1,7 @@
 import { Server, Workflow, Cpu, GitMerge } from 'lucide-react';
+import type { Service, HistoryEntry } from './types';
 
-export const getServices = (t: any) => [
+export const getServices = (t: Record<string, any>): Service[] => [
       {
             id: 'backend',
             title: t.expertise.list.backend.title,
@@ -31,7 +32,7 @@ export const getServices = (t: any) => [
       }
 ];
 
-export const getHistory = (t: any) => [
+export const getHistory = (t: Record<string, any>): HistoryEntry[] => [
       {
             year: t.expertise.history.stage3.year,
             event: t.expertise.history.stage3.event,

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export const CapabilitiesSection = () => {
+      const { t } = useLanguage();
       const sectionRef = useRef<HTMLElement>(null);
       const containerRef = useRef<HTMLDivElement>(null);
 
@@ -30,7 +32,7 @@ export const CapabilitiesSection = () => {
 
                   {/* Absolute Label */}
                   <div className="absolute top-12 left-12 z-20 hidden md:block">
-                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-anyflow-lime">[ CAPABILITIES ]</span>
+                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-anyflow-lime">{t.surface.capabilities_label}</span>
                   </div>
 
                   {/* Horizontal Scroll Container */}
@@ -45,16 +47,16 @@ export const CapabilitiesSection = () => {
                                     <div className="absolute w-[40vh] h-[40vh] rounded-full border border-anyflow-lime/20" />
                               </div>
 
-                              <h2 className="font-display font-black text-[20vw] md:text-[15vw] leading-[0.85] tracking-tighter uppercase relative z-10 text-center drop-shadow-2xl">
-                                    BUILT<br />
-                                    <span className="text-anyflow-lime">DIFFERENT</span>
+                              <h2 className="font-display font-black text-[14vw] md:text-[9vw] leading-[0.85] tracking-tighter uppercase relative z-10 text-center drop-shadow-2xl">
+                                    {t.surface.capabilities_title}<br />
+                                    <span className="text-anyflow-lime">{t.surface.capabilities_title_accent}</span>
                               </h2>
                         </div>
 
                         {/* Engineering Slide */}
                         <div className="capability-item w-screen h-full flex flex-col justify-center items-start shrink-0 px-12 md:px-32 relative group">
-                              <h3 className="font-display font-bold text-6xl md:text-8xl text-transparent stroke-text mb-8 opacity-50 group-hover:opacity-100 transition-opacity duration-500 uppercase">01 // Engineering</h3>
-                              <h2 className="font-display font-black text-5xl md:text-7xl mb-12 uppercase text-white max-w-4xl">Full-Stack Architecture & Cloud Infrastructure</h2>
+                              <h3 className="font-display font-bold text-6xl md:text-8xl text-transparent stroke-text mb-8 opacity-50 group-hover:opacity-100 transition-opacity duration-500 uppercase">{t.surface.capabilities_slide1_label}</h3>
+                              <h2 className="font-display font-black text-5xl md:text-7xl mb-12 uppercase text-white max-w-4xl">{t.surface.capabilities_slide1_title}</h2>
                               <div className="flex flex-wrap gap-4 max-w-3xl">
                                     {['React/Next.js/TS', 'Node.js/Go', 'PostgreSQL/Prisma', 'AWS/GCP/Vercel'].map((tech) => (
                                           <span key={tech} className="px-6 py-4 border border-white/20 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-anyflow-lime hover:text-black transition-colors">{tech}</span>
@@ -64,8 +66,8 @@ export const CapabilitiesSection = () => {
 
                         {/* Motion Slide */}
                         <div className="capability-item w-screen h-full flex flex-col justify-center items-start shrink-0 px-12 md:px-32 relative group">
-                              <h3 className="font-display font-bold text-6xl md:text-8xl text-transparent stroke-text mb-8 opacity-50 group-hover:opacity-100 transition-opacity duration-500 uppercase">02 // Motion</h3>
-                              <h2 className="font-display font-black text-5xl md:text-7xl mb-12 uppercase text-white max-w-4xl">Immersive Web Experiences & Animations</h2>
+                              <h3 className="font-display font-bold text-6xl md:text-8xl text-transparent stroke-text mb-8 opacity-50 group-hover:opacity-100 transition-opacity duration-500 uppercase">{t.surface.capabilities_slide2_label}</h3>
+                              <h2 className="font-display font-black text-5xl md:text-7xl mb-12 uppercase text-white max-w-4xl">{t.surface.capabilities_slide2_title}</h2>
                               <div className="flex flex-wrap gap-4 max-w-3xl">
                                     {['GSAP ScrollTrigger', 'Framer Motion', 'Three.js / WebGL', 'Lenis Smooth Scroll'].map((tech) => (
                                           <span key={tech} className="px-6 py-4 border border-white/20 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-anyflow-lime hover:text-black transition-colors">{tech}</span>

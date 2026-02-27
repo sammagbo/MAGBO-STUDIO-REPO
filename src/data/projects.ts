@@ -1,6 +1,6 @@
-import { Project } from './types';
+import { Project, type TranslationProjects } from './types';
 
-export const getProjects = (t: any): Project[] => {
+export const getProjects = (t: { projects: TranslationProjects }): Project[] => {
       return [
             {
                   id: 'VOTE_GUARD',

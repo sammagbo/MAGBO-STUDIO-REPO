@@ -36,7 +36,7 @@ export const LabsView = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                               {labs.map((lab) => (
-                                    <div key={lab.id} className="group relative bg-slate-900/50 border border-slate-800 p-6 hover:border-emerald-500/30 transition-all hover:bg-slate-900">
+                                    <div key={lab.id} className="group relative bg-slate-900/50 border border-slate-800 p-6 hover:border-emerald-500/30 transition-all hover:bg-slate-900 glow-lime-hover">
                                           <div className="flex items-start justify-between mb-4">
                                                 <div className="p-2 bg-slate-950 rounded border border-slate-800 text-emerald-500 group-hover:text-emerald-400 group-hover:border-emerald-500/30 transition-colors">
                                                       {lab.icon}

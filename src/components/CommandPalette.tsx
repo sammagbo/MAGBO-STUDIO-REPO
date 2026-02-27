@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Command } from 'cmdk';
 import { Search, Monitor, Terminal, FileText, LifeBuoy, Zap } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const CommandPalette = () => {
+      const { t } = useLanguage();
       const [open, setOpen] = useState(false);
 
       // Toggle with CMD+K or CTRL+K
@@ -31,7 +33,7 @@ export const CommandPalette = () => {
                               <div className="flex items-center border-b border-slate-800 px-3">
                                     <Search className="w-5 h-5 text-slate-500 mr-2" />
                                     <Command.Input
-                                          placeholder="Type a command or search..."
+                                          placeholder={t.commands.placeholder}
                                           className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-slate-500 disabled:cursor-not-allowed disabled:opacity-50 text-slate-100 font-mono"
                                     />
                                     <div className="flex items-center gap-1 text-[10px] font-mono text-slate-500 bg-slate-950 px-2 py-1 rounded border border-slate-800">
@@ -41,49 +43,49 @@ export const CommandPalette = () => {
 
                               <Command.List className="max-h-[300px] overflow-y-auto p-2 scrollbar-hide">
                                     <Command.Empty className="py-6 text-center text-sm text-slate-500 font-mono">
-                                          No results found.
+                                          {t.commands.no_results}
                                     </Command.Empty>
 
-                                    <Command.Group heading="Navigation" className="px-2 text-xs font-mono text-slate-500 mb-2">
+                                    <Command.Group heading={t.commands.nav_group} className="px-2 text-xs font-mono text-slate-500 mb-2">
                                           <Command.Item
-                                                onSelect={() => { console.log('projects'); setOpen(false); }}
+                                                onSelect={() => { document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); setOpen(false); }}
                                                 className="flex items-center gap-2 px-2 py-2 rounded cursor-pointer text-slate-300 aria-selected:bg-emerald-500/10 aria-selected:text-emerald-500 transition-colors"
                                           >
                                                 <Monitor className="w-4 h-4" />
-                                                <span>Go to Projects</span>
+                                                <span>{t.commands.go_projects}</span>
                                           </Command.Item>
                                           <Command.Item
-                                                onSelect={() => { console.log('contact'); setOpen(false); }}
+                                                onSelect={() => { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); setOpen(false); }}
                                                 className="flex items-center gap-2 px-2 py-2 rounded cursor-pointer text-slate-300 aria-selected:bg-emerald-500/10 aria-selected:text-emerald-500 transition-colors"
                                           >
                                                 <Terminal className="w-4 h-4" />
-                                                <span>Initiate Contact Protocol</span>
+                                                <span>{t.commands.initiate_contact}</span>
                                           </Command.Item>
                                     </Command.Group>
 
                                     <Command.Separator className="h-px bg-slate-800 my-1 mx-2" />
 
-                                    <Command.Group heading="System Actions" className="px-2 text-xs font-mono text-slate-500 mb-2 mt-2">
+                                    <Command.Group heading={t.commands.system_group} className="px-2 text-xs font-mono text-slate-500 mb-2 mt-2">
                                           <Command.Item
                                                 onSelect={() => { alert('Downloading CV...'); setOpen(false); }}
                                                 className="flex items-center gap-2 px-2 py-2 rounded cursor-pointer text-slate-300 aria-selected:bg-emerald-500/10 aria-selected:text-emerald-500 transition-colors"
                                           >
                                                 <FileText className="w-4 h-4" />
-                                                <span>Download System Specs (CV)</span>
+                                                <span>{t.commands.download_cv}</span>
                                           </Command.Item>
                                           <Command.Item
                                                 onSelect={() => { alert('High Contrast Mode Toggled'); setOpen(false); }}
                                                 className="flex items-center gap-2 px-2 py-2 rounded cursor-pointer text-slate-300 aria-selected:bg-emerald-500/10 aria-selected:text-emerald-500 transition-colors"
                                           >
                                                 <Zap className="w-4 h-4" />
-                                                <span>Toggle High Contrast</span>
+                                                <span>{t.commands.toggle_contrast}</span>
                                           </Command.Item>
                                           <Command.Item
-                                                onSelect={() => { console.log('support'); setOpen(false); }}
+                                                onSelect={() => { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); setOpen(false); }}
                                                 className="flex items-center gap-2 px-2 py-2 rounded cursor-pointer text-slate-300 aria-selected:bg-emerald-500/10 aria-selected:text-emerald-500 transition-colors"
                                           >
                                                 <LifeBuoy className="w-4 h-4" />
-                                                <span>Contact Support</span>
+                                                <span>{t.commands.contact_support}</span>
                                           </Command.Item>
                                     </Command.Group>
                               </Command.List>
