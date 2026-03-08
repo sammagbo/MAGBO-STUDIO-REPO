@@ -4,8 +4,6 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { MainLayout } from '@/layout/MainLayout';
 import { HeroSection } from '@/components/HeroSection';
 import { CVSection } from '@/components/CVSection';
-import { ProcessSection } from '@/components/ProcessSection';
-import { CapabilitiesSection } from '@/components/CapabilitiesSection';
 import { CommandPalette } from '@/components/CommandPalette';
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { NoiseOverlay } from '@/components/NoiseOverlay';
@@ -17,12 +15,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Lazy-load below-the-fold views to reduce initial bundle size
 const ProjectsView = lazy(() => import('@/views/ProjectsView').then(m => ({ default: m.ProjectsView })));
-const ExpertiseView = lazy(() => import('@/views/ExpertiseView').then(m => ({ default: m.ExpertiseView })));
-const RadarView = lazy(() => import('@/views/RadarView').then(m => ({ default: m.RadarView })));
 const StatusView = lazy(() => import('@/views/StatusView').then(m => ({ default: m.StatusView })));
 const IntelView = lazy(() => import('@/views/IntelView').then(m => ({ default: m.IntelView })));
-const LabsView = lazy(() => import('@/views/LabsView').then(m => ({ default: m.LabsView })));
-const ArchiveView = lazy(() => import('@/views/ArchiveView').then(m => ({ default: m.ArchiveView })));
 const ContactView = lazy(() => import('@/views/ContactView').then(m => ({ default: m.ContactView })));
 const TerminalView = lazy(() => import('@/components/TerminalView').then(m => ({ default: m.TerminalView })));
 
@@ -63,7 +57,7 @@ function App() {
       // Global Ctrl+` (backtick/tilde) listener for CLI mode toggle
       useEffect(() => {
             const handleKeyDown = (e: KeyboardEvent) => {
-                  if (e.ctrlKey && (e.key === '`' || e.key === '~')) {
+                  if ((e.ctrlKey || e.metaKey) && (e.key === '`' || e.key === '~')) {
                         e.preventDefault();
                         setCliMode(prev => {
                               const next = !prev;
@@ -99,29 +93,13 @@ function App() {
                                                 <CommandPalette />
                                                 <HeroSection />
                                                 <CVSection />
-                                                <ProcessSection />
-                                                <CapabilitiesSection />
                                                 <Suspense fallback={<SectionFallback />}>
                                                       <div id="projects">
                                                             <ProjectsView />
                                                       </div>
-                                                      <div id="labs">
-                                                            <LabsView />
-                                                      </div>
-                                                      <div id="expertise">
-                                                            <ExpertiseView />
-                                                      </div>
-                                                      <div id="tech-radar">
-                                                            <RadarView />
-                                                      </div>
-                                                      <div id="status">
+                                                      <div id="core">
                                                             <StatusView />
-                                                      </div>
-                                                      <div id="intel">
                                                             <IntelView />
-                                                      </div>
-                                                      <div id="archive">
-                                                            <ArchiveView />
                                                       </div>
                                                       <div id="contact">
                                                             <ContactView />

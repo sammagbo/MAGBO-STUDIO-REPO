@@ -28,8 +28,27 @@ export const SEOHelmet = () => {
                   {/* Content Security Policy — defense-in-depth (primary CSP via vercel.json) */}
                   <meta
                         httpEquiv="Content-Security-Policy"
-                        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://vitals.vercel-insights.com https://www.google-analytics.com; frame-ancestors 'none';"
+                        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://api.github.com https://vitals.vercel-insights.com https://www.google-analytics.com; frame-ancestors 'none';"
                   />
+
+                  {/* Structured Data (JSON-LD) for SEO */}
+                  <script type="application/ld+json">
+                        {`
+                              {
+                                    "@context": "https://schema.org",
+                                    "@type": "ProfessionalService",
+                                    "name": "MAGBO STUDIO",
+                                    "image": "https://magbo.studio/og-image.jpg",
+                                    "description": "${t.meta.description}",
+                                    "url": "https://magbo.studio",
+                                    "founder": {
+                                          "@type": "Person",
+                                          "name": "Sammy K Magbo",
+                                          "jobTitle": "Security \u0026 Software Architect"
+                                    }
+                              }
+                        `}
+                  </script>
 
                   {/* Theme Color for mobile browsers */}
                   <meta name="theme-color" content="#020617" />

@@ -1,138 +1,172 @@
-import React, { useState } from 'react';
-import { Terminal, Lock, Loader2, CheckCircle2 } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
-import { sanitizeHTML, validateEmail } from '@/utils/security';
+import { useState } from 'react';
+import { Terminal, Lock, Send, CheckCircle2 } from 'lucide-react';
+import { cn } from '@/utils/cn';
 
 export const ContactView = () => {
-      const { t } = useLanguage();
-      const [status, setStatus] = useState<'IDLE' | 'ENCRYPTING' | 'SENT'>('IDLE');
-      const [charCount, setCharCount] = useState(0);
+      const [status, setStatus] = useState<'idle' | 'encrypting' | 'sent'>('idle');
 
-      const handleSubmit = (e: React.FormEvent) => {
+      const handleSubmit = async (e: React.FormEvent) => {
             e.preventDefault();
-            const form = e.target as HTMLFormElement;
-            const formData = new FormData(form);
+            if (status !== 'idle') return;
 
-            // Sanitize all inputs before processing
-            const name = sanitizeHTML(formData.get('name') as string || '');
-            const email = formData.get('email') as string || '';
-            const message = sanitizeHTML(formData.get('message') as string || '');
+            setStatus('encrypting');
 
-            // Validate email format
-            if (!validateEmail(email)) return;
-            if (!name || !message) return;
+            try {
+                  const form = e.target as HTMLFormElement;
+                  const id = (form.elements.namedItem('id') as HTMLInputElement).value;
+                  const comms = (form.elements.namedItem('comms') as HTMLInputElement).value;
+                  const payload = (form.elements.namedItem('payload') as HTMLTextAreaElement).value;
 
-            setStatus('ENCRYPTING');
+                  const res = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id, comms, payload })
+                  });
 
-            // Simulate encryption/sending delay
-            setTimeout(() => {
-                  setStatus('SENT');
-            }, 2000);
+                  if (!res.ok) {
+                        throw new Error('Transmission Failed');
+                  }
+
+                  setStatus('sent');
+                  setTimeout(() => {
+                        setStatus('idle');
+                        form.reset();
+                  }, 4000);
+            } catch (error) {
+                  console.error(error);
+                  setStatus('idle');
+                  alert('Communication link disrupted. Try again later.');
+            }
       };
 
       return (
-            <section className="py-24 px-6 bg-slate-950 flex items-center justify-center border-t border-slate-900">
-                  <div className="w-full max-w-2xl">
+            <section className="relative min-h-[80svh] py-32 px-6 md:px-12 bg-core-bg text-core-text font-mono border-t border-white/5">
+                  <div className="max-w-[1000px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                        <div className="mb-10 text-center">
-                              <h2 className="text-3xl font-bold text-white mb-2">{t.contact.title}</h2>
-                              <p className="text-slate-400 font-mono text-sm">{t.contact.subtitle}</p>
+                        {/* Terminal Header */}
+                        <div>
+                              <div className="text-anyflow-lime text-xs tracking-widest uppercase mb-6 flex items-center gap-3">
+                                    <Lock className="w-4 h-4 text-anyflow-lime" />
+                                    SECURE_CHANNEL_ESTABLISHED
+                              </div>
+                              <h2 className="font-display font-extrabold text-[3.5rem] md:text-[5rem] leading-[1] tracking-tighter uppercase text-white mb-8">
+                                    INITIATE
+                                    <br />
+                                    <span className="text-core-dim">PROTOCOL</span>
+                              </h2>
+                              <p className="text-sm text-core-dim leading-relaxed max-w-sm">
+                                    All communications are end-to-end encrypted. Enter parameters below to establish a secure handshake.
+                              </p>
+
+                              <div className="mt-12 space-y-4">
+                                    <div className="flex items-center gap-4 text-xs font-mono text-core-dim">
+                                          <div className="w-2 h-2 rounded-full bg-anyflow-lime/50"></div>
+                                          <span>RSA-4096 Key Exchange</span>
+                                    </div>
+                                    <div className="flex items-center gap-4 text-xs font-mono text-core-dim">
+                                          <div className="w-2 h-2 rounded-full bg-anyflow-lime/50"></div>
+                                          <span>Zero-Knowledge Architecture</span>
+                                    </div>
+                                    <div className="flex items-center gap-4 text-xs font-mono text-core-dim">
+                                          <div className="w-2 h-2 rounded-full bg-anyflow-lime/50"></div>
+                                          <span>Traffic Obfuscation Active</span>
+                                    </div>
+                              </div>
                         </div>
 
-                        <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden shadow-2xl relative">
-                              {/* Terminal Header */}
-                              <div className="bg-slate-950 border-b border-slate-800 p-3 flex items-center gap-2">
-                                    <div className="flex gap-1.5">
-                                          <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                                          <div className="w-3 h-3 rounded-full bg-amber-500/50" />
-                                          <div className="w-3 h-3 rounded-full bg-emerald-500/50" />
+                        {/* Terminal Form */}
+                        <div className="bg-core-surface border border-core-border rounded-2xl p-8 relative overflow-hidden shadow-2xl">
+                              {/* Terminal top bar */}
+                              <div className="flex items-center gap-2 mb-8 border-b border-core-border pb-4">
+                                    <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
+                                    <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+                                    <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
+                                    <div className="ml-4 text-[10px] text-core-dim tracking-widest flex items-center gap-2">
+                                          <Terminal className="w-3 h-3" />
+                                          root@magbo-core:~#
                                     </div>
-                                    <div className="ml-4 text-xs font-mono text-slate-500 flex items-center gap-2">
-                                          <Lock className="w-3 h-3" />
-                                          {t.contact.secure_channel}
+                              </div>
+
+                              <form onSubmit={handleSubmit} className="space-y-6">
+                                    <div className="space-y-2">
+                                          <label htmlFor="id" className="text-xs text-core-dim tracking-widest uppercase">
+                                                Entity_ID [Name]
+                                          </label>
+                                          <input
+                                                type="text"
+                                                id="id"
+                                                required
+                                                disabled={status !== 'idle'}
+                                                className="w-full bg-core-bg border border-core-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-anyflow-lime/50 transition-colors disabled:opacity-50"
+                                                placeholder="Enter identifier..."
+                                          />
                                     </div>
-                              </div>
 
-                              {/* Terminal Body */}
-                              <div className="p-8">
-                                    {status === 'SENT' ? (
-                                          <div className="flex flex-col items-center justify-center py-12 text-emerald-500 animate-in fade-in duration-500">
-                                                <CheckCircle2 className="w-16 h-16 mb-6" />
-                                                <h3 className="text-2xl font-bold mb-2">{t.contact.success.title}</h3>
-                                                <p className="text-slate-400 font-mono text-center max-w-sm">
-                                                      {t.contact.success.message}
-                                                </p>
-                                                <button
-                                                      onClick={() => { setStatus('IDLE'); setCharCount(0); }}
-                                                      className="mt-8 text-xs text-emerald-500/50 hover:text-emerald-500 underline underline-offset-4"
-                                                >
-                                                      {t.contact.success.new}
-                                                </button>
-                                          </div>
-                                    ) : (
-                                          <form onSubmit={handleSubmit} className="space-y-6">
-                                                <div className="space-y-2">
-                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">{t.contact.identification}</label>
-                                                      <input
-                                                            required
-                                                            type="text"
-                                                            className="w-full bg-slate-950 border border-slate-700 text-slate-100 p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-mono placeholder:text-slate-700"
-                                                            placeholder={t.contact.placeholders.id}
-                                                      />
-                                                </div>
+                                    <div className="space-y-2">
+                                          <label htmlFor="comms" className="text-xs text-core-dim tracking-widest uppercase">
+                                                Comms_Vector [Email]
+                                          </label>
+                                          <input
+                                                type="email"
+                                                id="comms"
+                                                required
+                                                disabled={status !== 'idle'}
+                                                className="w-full bg-core-bg border border-core-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-anyflow-lime/50 transition-colors disabled:opacity-50"
+                                                placeholder="Enter secure comms vector..."
+                                          />
+                                    </div>
 
-                                                <div className="space-y-2">
-                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">{t.contact.email}</label>
-                                                      <input
-                                                            required
-                                                            type="email"
-                                                            className="w-full bg-slate-950 border border-slate-700 text-slate-100 p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-mono placeholder:text-slate-700"
-                                                            placeholder={t.contact.placeholders.email}
-                                                      />
-                                                </div>
+                                    <div className="space-y-2">
+                                          <label htmlFor="payload" className="text-xs text-core-dim tracking-widest uppercase">
+                                                Encrypted_Payload [Message]
+                                          </label>
+                                          <textarea
+                                                id="payload"
+                                                required
+                                                disabled={status !== 'idle'}
+                                                rows={4}
+                                                className="w-full bg-core-bg border border-core-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-anyflow-lime/50 transition-colors resize-none disabled:opacity-50"
+                                                placeholder="Enter transmission payload..."
+                                          ></textarea>
+                                    </div>
 
-                                                <div className="space-y-2">
-                                                      <label className="text-xs font-mono text-emerald-500 uppercase tracking-wider block">{t.contact.briefing}</label>
-                                                      <textarea
-                                                            required
-                                                            rows={5}
-                                                            maxLength={2000}
-                                                            onChange={(e) => setCharCount(e.target.value.length)}
-                                                            className="w-full bg-slate-950 border border-slate-700 text-slate-100 p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-mono placeholder:text-slate-700"
-                                                            placeholder={t.contact.placeholders.briefing}
-                                                      />
-                                                      <div className="text-right text-xs text-slate-600 font-mono transition-colors duration-300">
-                                                            <span className={charCount > 1800 ? "text-amber-500" : ""}>{charCount}</span>/2000
-                                                      </div>
-                                                </div>
+                                    <button
+                                          type="submit"
+                                          disabled={status !== 'idle'}
+                                          className={cn(
+                                                'w-full py-4 text-xs font-bold tracking-widest uppercase rounded-lg flex items-center justify-center gap-3 transition-all duration-300',
+                                                status === 'idle'
+                                                      ? 'bg-anyflow-lime text-black hover:bg-anyflow-lime/90 hover:scale-[1.02] active:scale-95'
+                                                      : status === 'encrypting'
+                                                            ? 'bg-anyflow-lime/20 text-anyflow-lime border border-anyflow-lime/50 cursor-wait'
+                                                            : 'bg-transparent text-anyflow-lime border border-anyflow-lime'
+                                          )}
+                                    >
+                                          {status === 'idle' && (
+                                                <>
+                                                      <Send className="w-4 h-4" />
+                                                      SEND_ENCRYPTED
+                                                </>
+                                          )}
+                                          {status === 'encrypting' && (
+                                                <>
+                                                      <span className="w-4 h-4 border-2 border-anyflow-lime border-t-transparent rounded-full animate-spin"></span>
+                                                      ENCRYPTING_DATA...
+                                                </>
+                                          )}
+                                          {status === 'sent' && (
+                                                <>
+                                                      <CheckCircle2 className="w-4 h-4" />
+                                                      TRANSMISSION_COMPLETE
+                                                </>
+                                          )}
+                                    </button>
+                              </form>
 
-                                                <button
-                                                      disabled={status === 'ENCRYPTING'}
-                                                      type="submit"
-                                                      className="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold py-4 rounded transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
-                                                >
-                                                      {status === 'ENCRYPTING' ? (
-                                                            <>
-                                                                  <Loader2 className="w-5 h-5 animate-spin" />
-                                                                  {t.contact.button.encrypting}
-                                                            </>
-                                                      ) : (
-                                                            <>
-                                                                  <Terminal className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                                                  {t.contact.button.initiate}
-                                                            </>
-                                                      )}
-                                                </button>
-                                          </form>
-                                    )}
-                              </div>
-
-                              {/* Terminal Footer */}
-                              <div className="bg-slate-950 border-t border-slate-800 p-2 px-4 flex justify-between items-center text-[10px] font-mono text-slate-600">
-                                    <span>{t.contact.encryption_label}</span>
-                                    <span className="animate-pulse text-emerald-900">• {t.contact.link_active}</span>
-                              </div>
+                              {/* Overlay scanline effect specifically for the terminal box */}
+                              <div className="absolute inset-0 pointer-events-none opacity-10 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px]"></div>
                         </div>
+
                   </div>
             </section>
       );

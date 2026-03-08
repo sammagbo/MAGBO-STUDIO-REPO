@@ -1,67 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+/* ── Local Fonts loaded via main.tsx (prevents render blocking) ── */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .glow-lime {
-    box-shadow: 0 0 20px rgba(187, 253, 106, 0.12), 0 0 60px rgba(187, 253, 106, 0.05);
-  }
-  .glow-lime-hover {
-    transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .glow-lime-hover:hover {
-    box-shadow: 0 0 25px rgba(187, 253, 106, 0.18), 0 0 80px rgba(187, 253, 106, 0.08);
-  }
+/* ── CSS Variables ── */
+:root {
+  /* Surface */
+  --surface-bg: #F4F4F4;
+  --surface-text: #000000;
+  --accent: #BBFD6A;
+  /* Core */
+  --core-bg: #0a0a0a;
+  --core-surface: #1a1a2e;
+  --core-card: #22223b;
+  --core-text: #e0e0e0;
+  --core-dim: #888888;
+  --core-border: rgba(255, 255, 255, 0.08);
 }
 
-@layer base {
-  :root {
-    --background: 244 244 244;
-    --foreground: 0 0 0;
-  }
-
-  body {
-    @apply bg-anyflow-bg text-anyflow-black font-body;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    overscroll-behavior: none;
-  }
-
-  /* Lenis recommended CSS */
-  html.lenis,
-  html.lenis body {
-    height: auto;
-  }
-
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-
-  .lenis.lenis-smooth iframe {
-    pointer-events: none;
-  }
+/* ── Global Reset ── */
+html {
+  scroll-behavior: auto;
+  /* Lenis handles this */
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--surface-bg);
+  color: var(--surface-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-  display: none;
+  width: 6px;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-* {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-  cursor: none !important;
-  /* Prepare for custom cursor */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+/* ── Custom Cursor ── */
+/* Uncomment below when CustomCursor component is active */
+/* * { cursor: none !important; } */
+
+/* ── Utility: Stroke Text ── */
+.stroke-text {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.15);
+  color: transparent;
+}
+
+.stroke-text-white {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
 }

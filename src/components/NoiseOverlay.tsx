@@ -4,7 +4,7 @@ export const NoiseOverlay = () => {
                   className="fixed inset-0 z-[9999] pointer-events-none"
                   style={{
                         mixBlendMode: 'overlay',
-                        opacity: 0.035,
+                        opacity: 0.04,
                   }}
             >
                   <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">

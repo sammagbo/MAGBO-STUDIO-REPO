@@ -1,105 +1,146 @@
-import { useRef, useEffect } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ArrowDownRight } from 'lucide-react';
 
 gsap.registerPlugin(useGSAP);
 
 export const HeroSection = () => {
-      const { t } = useLanguage();
       const containerRef = useRef<HTMLElement>(null);
-      const textRefs = useRef<(HTMLHeadingElement | HTMLSpanElement | null)[]>([]);
-      const floatingElementRef = useRef<HTMLDivElement>(null);
-      const leftContentRef = useRef<HTMLDivElement>(null);
 
       useGSAP(() => {
-            const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+            const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-            // Animate headers in right column
-            tl.fromTo(textRefs.current,
-                  { y: 150, opacity: 0, rotationX: -15 },
-                  { y: 0, opacity: 1, rotationX: 0, duration: 1.2, stagger: 0.1 }
-            )
-                  // Left content fade in
-                  .fromTo(leftContentRef.current,
-                        { opacity: 0, x: -30 },
-                        { opacity: 1, x: 0, duration: 1 },
-                        "-=0.8"
-                  )
-                  // Floating element pop in
-                  .fromTo(floatingElementRef.current,
-                        { scale: 0, rotation: -45, opacity: 0 },
-                        { scale: 1, rotation: 15, opacity: 1, duration: 1.5, ease: "elastic.out(1, 0.5)" },
-                        "-=0.6"
-                  );
+            // Background massive text reveal (Standard: y: 110% -> 0%)
+            tl.fromTo('.hero-bg-text',
+                  { y: '110%', opacity: 0, rotateZ: 2 },
+                  { y: '0%', opacity: 1, rotateZ: 0, duration: 1.8, stagger: 0.1 },
+                  0.2
+            );
+
+            // Caricature placeholder reveal
+            tl.fromTo('.hero-image-placeholder',
+                  { scale: 0.9, opacity: 0, y: 50 },
+                  { scale: 1, opacity: 1, y: 0, duration: 1.5 },
+                  0.5
+            );
+
+            // Foreground overlapping text reveal
+            tl.fromTo('.hero-fg-text',
+                  { y: '110%', opacity: 0 },
+                  { y: '0%', opacity: 1, duration: 1.4, stagger: 0.15 },
+                  0.7
+            );
+
+            // UI elements fade in
+            tl.fromTo('.hero-ui',
+                  { opacity: 0 },
+                  { opacity: 1, duration: 1, stagger: 0.1 },
+                  1.2
+            );
 
       }, { scope: containerRef });
 
-      // Mouse parallax for floating element
-      useEffect(() => {
-            const handleMouseMove = (e: MouseEvent) => {
-                  if (!floatingElementRef.current) return;
-                  const x = (e.clientX / window.innerWidth - 0.5) * 40;
-                  const y = (e.clientY / window.innerHeight - 0.5) * 40;
-
-                  gsap.to(floatingElementRef.current, {
-                        x: x,
-                        y: y,
-                        rotation: 15 + (x * 0.2),
-                        duration: 1,
-                        ease: "power2.out"
-                  });
-            };
-
-            window.addEventListener('mousemove', handleMouseMove);
-            return () => window.removeEventListener('mousemove', handleMouseMove);
-      }, []);
-
       return (
-            <section ref={containerRef} id="hero" className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#F4F4F4]">
-                  {/* Subtle Hexagon Pattern Background (Anyflow style) */}
-                  <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'103.92304845413264\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M30 103.92304845413264L0 86.60254037844386 V51.96152422706632L30 34.64101615137754L60 51.96152422706632V86.60254037844386Z\' fill=\'none\' stroke=\'%23000000\' stroke-width=\'1\'/%3E%3Cpath d=\'M30 34.64101615137754L0 17.32050807568877 V-17.32050807568877L30 -34.64101615137754L60 -17.32050807568877V17.32050807568877Z\' fill=\'none\' stroke=\'%23000000\' stroke-width=\'1\'/%3E%3C/svg%3E")', backgroundSize: '120px 207px', backgroundPosition: 'center' }}></div>
+            <section ref={containerRef} className="relative min-h-[100svh] w-full bg-[#0a0a0a] overflow-hidden flex flex-col items-center justify-center">
 
-                  <div className="container mx-auto px-6 z-10 w-full">
-                        <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full h-full relative border-l border-black/5 pl-4 md:pl-0 mx-auto max-w-[1600px]">
+                  {/* Layer 0: Aesthetic Background & Glows */}
+                  <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+                        <div className="absolute top-0 bottom-0 left-[15%] w-px bg-white/10" />
+                        <div className="absolute top-0 bottom-0 right-[15%] w-px bg-white/10" />
+                        <div className="absolute top-[25%] left-0 right-0 h-px bg-white/10" />
+                        <div className="absolute top-[75%] left-0 right-0 h-px bg-white/10" />
+                  </div>
+                  <div className="hero-ui absolute -top-[10%] -left-[10%] w-[40vw] h-[40vw] bg-anyflow-lime/10 blur-[120px] rounded-full pointer-events-none z-0" />
+                  <div className="hero-ui absolute -bottom-[10%] -right-[10%] w-[40vw] h-[40vw] bg-[#F5A623]/10 blur-[120px] rounded-full pointer-events-none z-0" />
 
-                              {/* Left Column */}
-                              <div ref={leftContentRef} className="w-full md:w-[35%] flex flex-col items-start gap-8 mt-12 md:mt-0 relative z-20 md:pr-12 md:border-r border-black/10 h-full justify-center">
-                                    <p className="text-xl md:text-2xl font-body font-medium leading-tight max-w-[400px]">
-                                          {t.hero.description || "We design immersive, motion-driven systems that command attention and guide users to act. Clean builds. Sharp strategy. Zero fluff."}
-                                    </p>
-                                    <button className="bg-anyflow-lime text-black font-display font-bold uppercase tracking-wide text-xl px-6 py-2 shadow-sm hover:scale-105 transition-transform duration-300">
-                                          {t.surface.hero_cta}
-                                    </button>
+                  {/* Layer 1: Background Typography (Behind Image) */}
+                  <div className="absolute inset-0 flex flex-col justify-between py-[15vh] px-4 md:px-12 z-0 pointer-events-none select-none overflow-hidden">
+                        <h1 className="hero-bg-text font-display font-extrabold uppercase leading-[0.8] tracking-tighter text-[#1a1a1a]"
+                              style={{ fontSize: 'clamp(5rem, 14vw, 20rem)' }}>
+                              YOUR
+                        </h1>
+                        <h1 className="hero-bg-text font-display font-extrabold uppercase leading-[0.8] tracking-tighter text-[#1a1a1a] text-right"
+                              style={{ fontSize: 'clamp(5rem, 14vw, 20rem)' }}>
+                              SYSTEMS
+                        </h1>
+                  </div>
 
-                                    {/* Left decorative Hexagons */}
-                                    <div className="hidden md:block absolute bottom-[-40%] left-0 w-64 h-64 border-[0.5px] border-anyflow-lime/40 rounded-full blur-[2px] pointer-events-none"></div>
-                              </div>
+                  {/* Layer 2: The Caricature / Image Container */}
+                  <div className="hero-image-placeholder relative z-10 w-[85vw] h-[60svh] max-w-[600px] flex items-end justify-center mb-8">
+                        <div className="w-full h-full border border-anyflow-lime/40 bg-[#111111]/80 backdrop-blur-sm rounded-[2rem] md:rounded-t-[4rem] group flex flex-col items-center justify-end overflow-hidden relative shadow-2xl">
 
-                              {/* Right Column (Massive Text) */}
-                              <div className="w-full md:w-[65%] flex flex-col md:pl-12 pt-24 md:pt-0 relative z-10 perspective-[1000px]">
-                                    <h1 className="font-display font-black text-[10vw] md:text-[5.5vw] leading-[0.85] tracking-tight uppercase flex flex-col">
-                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[0] = el} className="inline-block origin-bottom transform-gpu">{t.surface.hero_line1}</span></div>
-                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[1] = el} className="inline-block origin-bottom transform-gpu text-anyflow-lime drop-shadow-md">{t.surface.hero_line2_accent}</span><span ref={el => textRefs.current[2] = el} className="inline-block origin-bottom transform-gpu pl-[2vw]">{t.surface.hero_line2_end}</span></div>
-                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[3] = el} className="inline-block origin-bottom transform-gpu">{t.surface.hero_line3}</span></div>
-                                          <div className="overflow-hidden inline-block"><span ref={el => textRefs.current[4] = el} className="inline-block origin-bottom transform-gpu">{t.surface.hero_line4}</span></div>
-                                    </h1>
-                              </div>
+                              {/* Scanning Line Animation Effect */}
+                              <div className="absolute top-0 left-0 w-full h-[2px] bg-anyflow-lime shadow-[0_0_15px_rgba(187,253,106,0.8)] animate-[slideDown_3s_ease-in-out_infinite] opacity-50 z-20 pointer-events-none" />
 
-                              {/* Center Floating 3D Element Simulation (Green '&' or Shape) */}
-                              <div
-                                    ref={floatingElementRef}
-                                    className="absolute left-[30%] md:left-[35%] top-[60%] md:top-[45%] -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none hidden sm:flex justify-center items-center drop-shadow-2xl"
-                                    style={{
-                                          textShadow: '0px 10px 20px rgba(0,0,0,0.15), 4px 4px 0px #9ee558, 8px 8px 0px #7ab343'
+                              {/* User Caricature */}
+                              <img
+                                    src="/avatar.png"
+                                    alt="Sammy K Magbo"
+                                    className="w-full h-full object-cover object-bottom relative z-10 grayscale contrast-125 brightness-90 drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+                                    onError={(e) => {
+                                          // Fallback to placeholder if image not found
+                                          e.currentTarget.style.display = 'none';
+                                          const fallback = document.getElementById('fallback-placeholder');
+                                          if (fallback) fallback.style.display = 'flex';
                                     }}
-                              >
-                                    {/* Using a large & symbol customized to look 3D and thick */}
-                                    <span className="font-display font-black text-[18vw] md:text-[10vw] text-anyflow-lime leading-none select-none tracking-tighter opacity-95">
-                                          &
-                                    </span>
-                              </div>
+                              />
 
+                              {/* Fallback Placeholder (shown if avatar.png is missing) */}
+                              <div id="fallback-placeholder" className="absolute inset-0 flex-col items-center justify-center p-8 text-center text-anyflow-lime font-mono text-xs md:text-sm hidden tracking-[0.2em]">
+                                    <div className="w-16 h-16 border border-anyflow-lime rounded-full flex items-center justify-center mb-4 bg-anyflow-lime/5">
+                                          <span className="animate-pulse text-xl">📸</span>
+                                    </div>
+                                    <p className="mb-2 uppercase font-bold text-white">Image Missing</p>
+                                    <p className="text-anyflow-lime/70 leading-relaxed max-w-xs normal-case tracking-normal">
+                                          Save your image as <span className="text-white font-bold">public/avatar.png</span> in your repository.
+                                    </p>
+                              </div>
+                        </div>
+                  </div>
+
+                  {/* Layer 3: Foreground Typography (Overlaps the Image) */}
+                  <div className="absolute inset-0 flex flex-col justify-center items-center z-20 pointer-events-none">
+
+                        <div className="absolute top-[45%] w-full flex justify-center px-2 overflow-hidden">
+                              <span className="hero-fg-text font-display font-extrabold uppercase text-transparent tracking-tighter bg-clip-text bg-gradient-to-br from-anyflow-lime to-[#bbfd6a]/40"
+                                    style={{
+                                          fontSize: 'clamp(4rem, 11vw, 14rem)',
+                                          WebkitTextStroke: '2px #bbfd6a',
+                                          lineHeight: '0.8',
+                                          filter: 'drop-shadow(0 0 20px rgba(187,253,106,0.3))'
+                                    }}>
+                                    DESERVE
+                              </span>
+                        </div>
+
+                        <div className="absolute top-[65%] w-full flex justify-center px-4 overflow-hidden">
+                              <span className="hero-fg-text font-display font-extrabold uppercase text-white tracking-widest mix-blend-exclusion"
+                                    style={{
+                                          fontSize: 'clamp(2.5rem, 8vw, 10rem)',
+                                          lineHeight: '0.8',
+                                    }}>
+                                    MORE.
+                              </span>
+                        </div>
+                  </div>
+
+                  {/* Layer 4: Technical UI Overlays */}
+                  <div className="hero-ui absolute top-6 left-6 md:left-12 flex flex-col gap-1 z-30 font-mono text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em]">
+                        <span className="text-anyflow-lime">MAGBO STUDIO_</span>
+                        <span>ELITE ARCHITECTURE</span>
+                  </div>
+
+                  <div className="hero-ui absolute top-6 right-6 md:right-12 hidden md:flex flex-col gap-1 text-right z-30 font-mono text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em]">
+                        <span>[ LAYERED_AESTHETIC ]</span>
+                        <span>SYS_TIME: {new Date().toISOString().split('T')[0]}</span>
+                  </div>
+
+                  {/* Scroll Indication CTA */}
+                  <div className="hero-ui absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30 font-mono text-xs text-anyflow-lime uppercase tracking-[0.2em] cursor-pointer pointer-events-auto hover:text-white transition-colors group">
+                        <span>Initiate Sequence</span>
+                        <div className="w-8 h-8 rounded-full border border-anyflow-lime group-hover:border-white flex items-center justify-center bg-black transition-colors">
+                              <ArrowDownRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform" />
                         </div>
                   </div>
             </section>

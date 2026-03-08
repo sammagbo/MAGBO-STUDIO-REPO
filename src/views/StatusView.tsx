@@ -1,124 +1,92 @@
-import { useState, useEffect } from 'react';
-import { Shield, Activity, Server, CheckCircle2, History } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
+import { METRICS } from '@/data/constants';
+import { Activity, ServerCrash, Shield, Zap, GitCommit } from 'lucide-react';
 
 export const StatusView = () => {
-      const { t } = useLanguage();
-      const [threatCount, setThreatCount] = useState(14502);
-
-      useEffect(() => {
-            const interval = setInterval(() => {
-                  setThreatCount(prev => prev + Math.floor(Math.random() * 3));
-            }, 3000);
-            return () => clearInterval(interval);
-      }, []);
-
-      const services = [
-            { id: 'api', name: t.status.services.api, status: 'operational' },
-            { id: 'portals', name: t.status.services.portals, status: 'operational' },
-            { id: 'encryption', name: t.status.services.encryption, status: 'secure' },
-      ];
-
       return (
-            <section className="py-24 bg-slate-950 px-6 font-sans border-t border-slate-900">
-                  <div className="container mx-auto max-w-5xl">
-
-                        <div className="flex items-center gap-2 mb-12 text-emerald-500">
-                              <Activity className="w-5 h-5" />
-                              <h2 className="font-mono font-bold tracking-widest text-slate-100">{t.status.title}</h2>
+            <section className="relative py-24 px-6 md:px-12 bg-core-bg text-core-text font-mono border-t border-white/5">
+                  <div className="max-w-[1400px] mx-auto w-full">
+                        {/* Header */}
+                        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8 pb-8 border-b border-core-border">
+                              <div>
+                                    <div className="text-anyflow-lime text-xs tracking-widest uppercase mb-4 flex items-center gap-3">
+                                          <span className="w-2 h-2 bg-anyflow-lime rounded-full animate-pulse shadow-[0_0_10px_rgba(187,253,106,0.5)]"></span>
+                                          SYS_STATUS: ONLINE
+                                    </div>
+                                    <h2 className="font-display font-extrabold text-[3rem] md:text-[5rem] leading-[1] tracking-tighter uppercase text-white">
+                                          SYSTEM CORE
+                                    </h2>
+                              </div>
+                              <p className="text-xs text-core-dim tracking-widest max-w-[200px] text-right">
+                                    LIVE TELEMETRY FROM GLOBAL INFRASTRUCTURE
+                              </p>
                         </div>
 
                         {/* Metrics Dashboard */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                              {/* Uptime */}
-                              <div className="bg-slate-900/50 border border-slate-800 p-6 rounded relative overflow-hidden group">
-                                    <div className="flex justify-between items-start mb-4">
-                                          <span className="text-xs font-mono text-slate-500 uppercase">{t.status.uptime}</span>
-                                          <Activity className="w-4 h-4 text-emerald-500" />
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                              {/* Central Uptime Panel */}
+                              <div
+                                    className="col-span-1 sm:col-span-2 lg:col-span-2 bg-core-surface border border-core-border p-8 rounded-2xl flex flex-col justify-between hover:scale-[0.98] transition-transform duration-300"
+                              >
+                                    <div className="flex items-center justify-between mb-12">
+                                          <Activity className="text-anyflow-lime w-6 h-6" />
+                                          <span className="text-[10px] tracking-widest uppercase text-core-dim">UPTIME_90D</span>
                                     </div>
-                                    <div className="text-4xl font-bold text-slate-100 mb-2">99.99%</div>
-
-                                    {/* Fake Graph */}
-                                    <div className="h-8 flex items-end gap-1">
-                                          {[...Array(20)].map((_, i) => (
-                                                <div
-                                                      key={i}
-                                                      className="w-full bg-emerald-500/20 rounded-t-sm"
-                                                      style={{ height: `${Math.random() * 60 + 40}%` }}
-                                                />
-                                          ))}
-                                    </div>
-                              </div>
-
-                              {/* Latency */}
-                              <div className="bg-slate-900/50 border border-slate-800 p-6 rounded relative overflow-hidden group">
-                                    <div className="flex justify-between items-start mb-4">
-                                          <span className="text-xs font-mono text-slate-500 uppercase">{t.status.latency}</span>
-                                          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                                    </div>
-                                    <div className="text-4xl font-bold text-slate-100 mb-2">24ms</div>
-                                    <div className="text-xs text-slate-500 font-mono">Global CDN Average</div>
-                              </div>
-
-                              {/* Threats */}
-                              <div className="bg-slate-900/50 border border-slate-800 p-6 rounded relative overflow-hidden group">
-                                    <div className="flex justify-between items-start mb-4">
-                                          <span className="text-xs font-mono text-slate-500 uppercase">{t.status.threats}</span>
-                                          <Shield className="w-4 h-4 text-emerald-500" />
-                                    </div>
-                                    <div className="text-4xl font-bold text-slate-100 mb-2 font-mono">
-                                          {threatCount.toLocaleString()}
-                                    </div>
-                                    <div className="text-xs text-emerald-500/80 font-mono flex items-center gap-1">
-                                          <Shield className="w-3 h-3" />
-                                          Active Protection
-                                    </div>
-                              </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                              {/* Services List */}
-                              <div className="lg:col-span-2">
-                                    <h3 className="text-sm font-bold text-slate-400 mb-6 flex items-center gap-2">
-                                          <Server className="w-4 h-4" />
-                                          SYSTEM_SERVICES
-                                    </h3>
-                                    <div className="space-y-4">
-                                          {services.map(service => (
-                                                <div key={service.id} className="flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded">
-                                                      <div className="flex items-center gap-4">
-                                                            <div className={`w-2 h-2 rounded-full ${service.status === 'secure' ? 'bg-emerald-500' : 'bg-emerald-500 animate-pulse'}`} />
-                                                            <span className="font-mono text-slate-300 text-sm">{service.name}</span>
-                                                      </div>
-                                                      <div className="flex items-center gap-2 text-emerald-500 text-xs font-bold uppercase tracking-wider">
-                                                            {service.status === 'operational' ? t.status.operational : t.status.secure}
-                                                            <CheckCircle2 className="w-4 h-4" />
-                                                      </div>
-                                                </div>
-                                          ))}
-                                    </div>
-                              </div>
-
-                              {/* Incident History */}
-                              <div>
-                                    <h3 className="text-sm font-bold text-slate-400 mb-6 flex items-center gap-2">
-                                          <History className="w-4 h-4" />
-                                          {t.status.history}
-                                    </h3>
-                                    <div className="relative border-l border-slate-800 ml-2 space-y-8">
-                                          <div className="relative pl-6">
-                                                <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600" />
-                                                <div className="text-xs text-slate-500 font-mono mb-1">2024-03-10 // 04:00 UTC</div>
-                                                <div className="text-slate-300 text-sm mb-2">{t.status.maintenance}</div>
-                                                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-900/20 text-emerald-500 text-[10px] font-bold uppercase border border-emerald-500/20">
-                                                      <CheckCircle2 className="w-3 h-3" />
-                                                      {t.status.resolved}
-                                                </div>
+                                    <div>
+                                          <div className="font-display font-bold text-7xl text-white tracking-tighter mb-2">
+                                                {METRICS.uptime}
+                                          </div>
+                                          <div className="text-anyflow-lime text-sm uppercase tracking-widest">
+                                                Operational
                                           </div>
                                     </div>
                               </div>
-                        </div>
 
+                              {/* Secondary Panels */}
+                              <div className="flex flex-col gap-4">
+                                    <div className="bg-core-surface border border-core-border p-6 rounded-2xl flex-1 flex flex-col justify-between">
+                                          <Zap className="text-core-dim w-5 h-5 mb-6" />
+                                          <div>
+                                                <div className="text-sm text-core-dim mb-1">LATENCY</div>
+                                                <div className="text-2xl text-white font-bold">{METRICS.latency}</div>
+                                          </div>
+                                    </div>
+                                    <div className="bg-core-surface border border-core-border p-6 rounded-2xl flex-1 flex flex-col justify-between">
+                                          <GitCommit className="text-core-dim w-5 h-5 mb-6" />
+                                          <div>
+                                                <div className="text-sm text-core-dim mb-1">DEPLOYMENTS</div>
+                                                <div className="text-2xl text-white font-bold">{METRICS.deploymentsThisMonth} <span className="text-xs text-core-dim">/mo</span></div>
+                                          </div>
+                                    </div>
+                              </div>
+
+                              <div className="flex flex-col gap-4">
+                                    <div className="bg-core-surface border border-anyflow-lime/20 p-6 rounded-2xl flex-1 flex flex-col justify-between relative overflow-hidden">
+                                          <div className="absolute inset-0 bg-anyflow-lime/5"></div>
+                                          <Shield className="text-anyflow-lime w-5 h-5 mb-6 relative z-10" />
+                                          <div className="relative z-10">
+                                                <div className="text-sm text-anyflow-lime/80 mb-1">SECURITY SCORE</div>
+                                                <div className="text-2xl text-anyflow-lime font-bold">{METRICS.securityScore}</div>
+                                          </div>
+                                    </div>
+                                    <div className="bg-core-surface border border-core-border p-6 rounded-2xl flex-1 flex flex-col justify-between">
+                                          <ServerCrash className="text-core-dim w-5 h-5 mb-6" />
+                                          <div>
+                                                <div className="text-sm text-core-dim mb-1">LAST INCIDENT</div>
+                                                <div className="text-sm text-white font-bold">{METRICS.lastIncident}</div>
+                                          </div>
+                                    </div>
+                              </div>
+
+                              {/* Graph Placeholder */}
+                              <div className="col-span-1 sm:col-span-2 lg:col-span-1 bg-core-surface border border-core-border p-6 rounded-2xl flex flex-col justify-between opacity-50 grayscale">
+                                    <div className="text-xs text-core-dim tracking-widest mb-6">NETWORK_TRAFFIC</div>
+                                    <div className="flex items-end gap-1 h-20">
+                                          {[40, 70, 45, 90, 65, 85, 30, 60, 50, 80].map((h, i) => (
+                                                <div key={i} className="flex-1 bg-core-border rounded-t-sm" style={{ height: `${h}%` }}></div>
+                                          ))}
+                                    </div>
+                              </div>
+                        </div>
                   </div>
             </section>
       );

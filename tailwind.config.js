@@ -1,28 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-      content: [
-            "./index.html",
-            "./src/**/*.{js,ts,jsx,tsx}",
-      ],
+      content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
       theme: {
             extend: {
                   colors: {
-                        background: "var(--background)",
-                        foreground: "var(--foreground)",
-                        // New Anyflow Palette
-                        anyflow: {
-                              bg: '#F4F4F4',
-                              lime: '#BBFD6A',
-                              black: '#000000',
-                              grey: '#E5E5E5'
-                        }
+                        // THE SURFACE — Light luxurious
+                        'anyflow-bg': '#F4F4F4',
+                        'anyflow-black': '#000000',
+                        'anyflow-lime': '#BBFD6A',
+                        // THE CORE — Dark hacker
+                        'core-bg': '#0a0a0a',
+                        'core-surface': '#1a1a2e',
+                        'core-card': '#22223b',
+                        'core-text': '#e0e0e0',
+                        'core-dim': '#888888',
+                        'core-border': 'rgba(255,255,255,0.08)',
                   },
                   fontFamily: {
-                        display: ['Syne', 'sans-serif'],
+                        display: ['"Syne"', 'sans-serif'],
                         body: ['"Space Grotesk"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                   },
             },
       },
       plugins: [],
-}
+};
