@@ -28,11 +28,12 @@ export const ProjectsView = () => {
                         {/* Projects Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                               {PROJECTS.map((project, index) => (
-                                    <ProjectCard
-                                          key={project.id}
-                                          project={project}
-                                          index={index}
-                                    />
+                                    <div key={project.id} className={index % 2 === 1 ? "md:mt-32" : ""}>
+                                          <ProjectCard
+                                                project={project}
+                                                index={index}
+                                          />
+                                    </div>
                               ))}
                         </div>
                   </div>

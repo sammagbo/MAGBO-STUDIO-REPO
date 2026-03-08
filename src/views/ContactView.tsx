@@ -97,7 +97,7 @@ export const ContactView = () => {
                                                 id="id"
                                                 required
                                                 disabled={status !== 'idle'}
-                                                className="w-full bg-core-bg border border-core-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-anyflow-lime/50 transition-colors disabled:opacity-50"
+                                                className="w-full bg-transparent border-b-2 border-core-border rounded-none px-0 py-3 text-white text-sm focus:outline-none focus:bg-anyflow-lime focus:text-black focus:placeholder-black/50 focus:px-4 transition-all disabled:opacity-50"
                                                 placeholder="Enter identifier..."
                                           />
                                     </div>
@@ -111,7 +111,7 @@ export const ContactView = () => {
                                                 id="comms"
                                                 required
                                                 disabled={status !== 'idle'}
-                                                className="w-full bg-core-bg border border-core-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-anyflow-lime/50 transition-colors disabled:opacity-50"
+                                                className="w-full bg-transparent border-b-2 border-core-border rounded-none px-0 py-3 text-white text-sm focus:outline-none focus:bg-anyflow-lime focus:text-black focus:placeholder-black/50 focus:px-4 transition-all disabled:opacity-50"
                                                 placeholder="Enter secure comms vector..."
                                           />
                                     </div>
@@ -125,7 +125,7 @@ export const ContactView = () => {
                                                 required
                                                 disabled={status !== 'idle'}
                                                 rows={4}
-                                                className="w-full bg-core-bg border border-core-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-anyflow-lime/50 transition-colors resize-none disabled:opacity-50"
+                                                className="w-full bg-transparent border-b-2 border-core-border rounded-none px-0 py-3 text-white text-sm focus:outline-none focus:bg-anyflow-lime focus:text-black focus:placeholder-black/50 focus:px-4 transition-all resize-none disabled:opacity-50"
                                                 placeholder="Enter transmission payload..."
                                           ></textarea>
                                     </div>
@@ -150,8 +150,8 @@ export const ContactView = () => {
                                           )}
                                           {status === 'encrypting' && (
                                                 <>
-                                                      <span className="w-4 h-4 border-2 border-anyflow-lime border-t-transparent rounded-full animate-spin"></span>
-                                                      ENCRYPTING_DATA...
+                                                      <span className="w-3 h-5 bg-anyflow-lime animate-[pulse_0.5s_ease-in-out_infinite]"></span>
+                                                      ENCRYPTING_DATA
                                                 </>
                                           )}
                                           {status === 'sent' && (
