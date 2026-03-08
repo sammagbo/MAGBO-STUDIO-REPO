@@ -5,7 +5,7 @@
 
 export const PROFILE = {
       name: 'Sammy K Magbo',
-      role: 'Junior AI Fullstack Engineer & Security Architect',
+      role: 'Prompt Engineer',
       location: 'São Paulo, BR',
       ops: 'Remote — Global',
       bio: 'I design and build critical software systems where security is not optional. From governance platforms to real-time monitoring, I architect solutions that operate under pressure — with zero compromise on code quality, performance, or user experience.',

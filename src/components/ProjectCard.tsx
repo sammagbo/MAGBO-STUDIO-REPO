@@ -1,5 +1,5 @@
 import { ExternalLink, Lock } from 'lucide-react';
-import type { Project } from '@/data/constants';
+import type { Project } from '@/hooks/useData';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
@@ -39,7 +39,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
                               <div className="font-mono text-anyflow-lime text-xs tracking-widest uppercase">
                                     [{project.sector}]
                               </div>
-                              <div className="font-mono text-white/40 text-xs px-3 py-1 rounded-full border border-white/10 flex items-center gap-2">
+                              <div className="font-mono text-core-muted text-xs px-3 py-1 rounded-full border border-white/10 flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-anyflow-lime animate-pulse"></span>
                                     {project.status}
                               </div>
@@ -49,7 +49,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
                               {project.codename}
                         </h3>
 
-                        <p className="font-body text-gray-400 text-lg leading-relaxed mb-12">
+                        <p className="font-body text-core-muted text-lg leading-relaxed mb-12">
                               {project.description}
                         </p>
                   </div>
@@ -57,7 +57,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
                   <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-8 border-t border-white/10">
                         <div className="flex flex-wrap gap-2">
                               {project.stack.map(tech => (
-                                    <span key={tech} className="font-mono text-[10px] tracking-wider uppercase bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-white/70">
+                                    <span key={tech} className="font-mono text-[10px] tracking-wider uppercase bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-core-text">
                                           {tech}
                                     </span>
                               ))}

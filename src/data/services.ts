@@ -1,6 +1,7 @@
 import { Server, Workflow, Cpu, GitMerge } from 'lucide-react';
 import type { Service, HistoryEntry } from './types';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getServices = (t: Record<string, any>): Service[] => [
       {
             id: 'backend',
@@ -32,6 +33,7 @@ export const getServices = (t: Record<string, any>): Service[] => [
       }
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getHistory = (t: Record<string, any>): HistoryEntry[] => [
       {
             year: t.expertise.history.stage3.year,

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Terminal, Lock, Send, CheckCircle2 } from 'lucide-react';
 import { cn } from '@/utils/cn';
+import { ScrambleText } from '@/components/ScrambleText';
 
 export const ContactView = () => {
       const [status, setStatus] = useState<'idle' | 'encrypting' | 'sent'>('idle');
@@ -123,6 +124,7 @@ export const ContactView = () => {
                                           <textarea
                                                 id="payload"
                                                 required
+                                                maxLength={2000}
                                                 disabled={status !== 'idle'}
                                                 rows={4}
                                                 className="w-full bg-transparent border-b-2 border-core-border rounded-none px-0 py-3 text-white text-sm focus:outline-none focus:bg-anyflow-lime focus:text-black focus:placeholder-black/50 focus:px-4 transition-all resize-none disabled:opacity-50"
@@ -149,10 +151,10 @@ export const ContactView = () => {
                                                 </>
                                           )}
                                           {status === 'encrypting' && (
-                                                <>
-                                                      <span className="w-3 h-5 bg-anyflow-lime animate-[pulse_0.5s_ease-in-out_infinite]"></span>
-                                                      ENCRYPTING_DATA
-                                                </>
+                                                <span className="flex items-center justify-center gap-3">
+                                                      <span className="w-3 h-5 bg-anyflow-lime animate-[pulse_0.2s_ease-in-out_infinite]"></span>
+                                                      <ScrambleText text="ENCRYPTING_PAYLOAD..." active={true} speed={50} />
+                                                </span>
                                           )}
                                           {status === 'sent' && (
                                                 <>

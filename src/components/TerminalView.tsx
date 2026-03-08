@@ -172,13 +172,13 @@ export const TerminalView = ({ onExit }: TerminalViewProps) => {
                               { type: 'output', text: '' }
                         ];
 
-                        data.forEach((repo: any) => {
+                        data.forEach((repo: { name: string; language: string | null; description: string | null }) => {
                               const desc = repo.description ? `: ${repo.description.substring(0, 40)}...` : '';
                               newLines.push({ type: 'output', text: `  > ${repo.name.padEnd(20)} [${repo.language || 'Mixed'}]${desc}` });
                         });
                         newLines.push({ type: 'output', text: '' });
                         setHistory(prev => [...prev, ...newLines]);
-                  } catch (e) {
+                  } catch {
                         setHistory(prev => [...prev, { type: 'error', text: '  [ERR] Failed to pull remote data. Connection intercepted.' }]);
                   }
                   return;

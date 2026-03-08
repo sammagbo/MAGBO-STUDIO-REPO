@@ -1,7 +1,8 @@
-import { METRICS } from '@/data/constants';
+import { useMetrics } from '@/hooks/useData';
 import { Activity, ServerCrash, Shield, Zap, GitCommit } from 'lucide-react';
 
 export const StatusView = () => {
+      const METRICS = useMetrics();
       return (
             <section className="relative py-24 px-6 md:px-12 bg-core-bg text-core-text font-mono border-t border-white/5">
                   <div className="max-w-[1400px] mx-auto w-full">

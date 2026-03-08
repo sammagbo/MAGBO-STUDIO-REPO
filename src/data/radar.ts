@@ -7,6 +7,7 @@ export interface TechItem {
       description: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getRadarData = (t: Record<string, any>): TechItem[] => {
       return [
             // ADOPT - Production Ready

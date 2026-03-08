@@ -1,9 +1,10 @@
-import { INTEL_BRIEFINGS } from '@/data/constants';
+import { useIntelBriefings } from '@/hooks/useData';
 import { Terminal, ChevronRight } from 'lucide-react';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
 export const IntelView = () => {
+      const INTEL_BRIEFINGS = useIntelBriefings();
       // Helper function for TLP tag styling
       const getTlpStyle = (tlp: string) => {
             if (tlp === 'TLP:AMBER') return 'text-amber-500 border-amber-500/30 bg-amber-500/10';

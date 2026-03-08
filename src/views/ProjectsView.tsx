@@ -1,7 +1,8 @@
-import { PROJECTS } from '@/data/constants';
+import { useProjects } from '@/hooks/useData';
 import { ProjectCard } from '@/components/ProjectCard';
 
 export const ProjectsView = () => {
+      const PROJECTS = useProjects();
       return (
             <section
                   id="projects-section"
@@ -17,7 +18,7 @@ export const ProjectsView = () => {
                                     <h2 className="font-display font-extrabold text-[4rem] md:text-[6rem] leading-[0.9] tracking-tighter uppercase">
                                           CONFIDENTIAL
                                           <br />
-                                          <span className="text-black/30 font-display">OPERATIONS</span>
+                                          <span className="text-black/60 font-display">OPERATIONS</span>
                                     </h2>
                               </div>
                               <p className="font-body max-w-sm text-lg font-medium">
@@ -28,7 +29,7 @@ export const ProjectsView = () => {
                         {/* Projects Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                               {PROJECTS.map((project, index) => (
-                                    <div key={project.id} className={index % 2 === 1 ? "md:mt-32" : ""}>
+                                    <div key={project.id} className={`${index % 2 === 1 ? "md:mt-32" : ""} will-change-transform`}>
                                           <ProjectCard
                                                 project={project}
                                                 index={index}

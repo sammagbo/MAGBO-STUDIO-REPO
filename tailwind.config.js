@@ -13,7 +13,8 @@ export default {
                         'core-surface': '#1a1a2e',
                         'core-card': '#22223b',
                         'core-text': '#e0e0e0',
-                        'core-dim': '#888888',
+                        'core-dim': '#a3a3a3',
+                        'core-muted': '#9ca3af',
                         'core-border': 'rgba(255,255,255,0.08)',
                   },
                   fontFamily: {

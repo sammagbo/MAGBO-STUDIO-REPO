@@ -1,9 +1,11 @@
-import { PROFILE, SKILLS } from '@/data/constants';
+import { useProfile, useSkills } from '@/hooks/useData';
 import { Download, ShieldCheck, MapPin, Cpu } from 'lucide-react';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
 export const CVSection = () => {
+      const PROFILE = useProfile();
+      const SKILLS = useSkills();
       const containerRef = useRef<HTMLElement>(null);
       const card1Ref = useRef<HTMLDivElement>(null);
       const card2Ref = useRef<HTMLDivElement>(null);
@@ -56,10 +58,10 @@ export const CVSection = () => {
                                           <h3 className="font-display font-bold text-4xl tracking-tighter mb-2">
                                                 {PROFILE.name}
                                           </h3>
-                                          <p className="font-mono text-sm tracking-wide text-gray-500 mb-6 uppercase">
+                                          <p className="font-mono text-sm tracking-wide text-core-dim mb-6 uppercase">
                                                 {PROFILE.role}
                                           </p>
-                                          <div className="flex items-center gap-2 text-gray-600">
+                                          <div className="flex items-center gap-2 text-core-dim">
                                                 <MapPin className="w-4 h-4" />
                                                 <span className="text-sm font-medium">{PROFILE.location} / {PROFILE.ops}</span>
                                           </div>
@@ -87,7 +89,7 @@ export const CVSection = () => {
                                           <h3 className="font-display font-bold text-white text-3xl tracking-tighter">
                                                 CAPABILITIES
                                           </h3>
-                                          <div className="bg-white/10 text-white/50 font-mono text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">
+                                          <div className="bg-white/10 text-core-muted font-mono text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">
                                                 STACK: 003
                                           </div>
                                     </div>
