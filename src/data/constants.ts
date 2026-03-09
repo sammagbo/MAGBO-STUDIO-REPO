@@ -24,6 +24,7 @@ export interface Project {
       description: string;
       stack: string[];
       status: string;
+      link?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -58,6 +59,24 @@ export const PROJECTS: Project[] = [
             description: 'Cinematic media interface with GPU-accelerated animations, Spotify API integration, and real-time audio visualization.',
             stack: ['React', 'GSAP', 'Spotify API', 'WebGL'],
             status: 'ACTIVE',
+      },
+      {
+            id: 'meeting-manager',
+            codename: 'MEETING_MANAGER',
+            sector: 'SaaS Application',
+            description: 'Time and attendance control system. A practical solution for managing meetings and tracking schedules.',
+            stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+            status: 'ACTIVE',
+            link: 'https://www.meetingmanager.site/#/login',
+      },
+      {
+            id: 'the-talk-fashion',
+            codename: 'THE_TALK_FASHION',
+            sector: 'Media Platform',
+            description: 'A podcast website by Mijean Rochus focusing on fashion. Features a sleek design and media playback capabilities.',
+            stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
+            status: 'ACTIVE',
+            link: 'https://www.thetalkfashion.com/',
       },
 ];
 

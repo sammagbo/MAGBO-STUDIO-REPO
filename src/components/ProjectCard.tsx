@@ -62,9 +62,15 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
                                     </span>
                               ))}
                         </div>
-                        <button className="w-16 h-16 rounded-full bg-anyflow-lime text-black flex items-center justify-center flex-shrink-0 group-hover:scale-110 active:scale-95 transition-transform">
-                              <ExternalLink className="w-6 h-6 group-hover:rotate-45 transition-transform" />
-                        </button>
+                        {project.link ? (
+                              <a href={project.link} target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-full bg-anyflow-lime text-black flex items-center justify-center flex-shrink-0 group-hover:scale-110 active:scale-95 transition-transform">
+                                    <ExternalLink className="w-6 h-6 group-hover:rotate-45 transition-transform" />
+                              </a>
+                        ) : (
+                              <button className="w-16 h-16 rounded-full bg-anyflow-lime text-black flex items-center justify-center flex-shrink-0 group-hover:scale-110 active:scale-95 transition-transform">
+                                    <ExternalLink className="w-6 h-6 group-hover:rotate-45 transition-transform" />
+                              </button>
+                        )}
                   </div>
             </div>
       );

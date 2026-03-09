@@ -62,6 +62,18 @@ export const TRANSLATIONS = {
                               type: 'High Performance UI',
                               stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
+                        meeting_manager: {
+                              title: 'MEETING_MANAGER',
+                              description: 'Time and attendance control system. A practical solution for managing meetings and tracking schedules.',
+                              type: 'SaaS Application',
+                              stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+                        },
+                        the_talk_fashion: {
+                              title: 'THE_TALK_FASHION',
+                              description: 'A podcast website by Mijean Rochus focusing on fashion. Features a sleek design and media playback capabilities.',
+                              type: 'Media Platform',
+                              stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
+                        },
                   }
             },
             labs: {
@@ -104,6 +116,8 @@ export const TRANSLATIONS = {
                         core_sync: 'CORE_SYNC // FULL-STACK MIGRATION & DATA SYNCHRONIZATION ORCHESTRATOR',
                         media_ops: 'MEDIA_OPS // DIGITAL SIGNAL PROCESSING & AUDIOVISUAL RENDERING',
                         java_init: 'JAVA_INIT // ROBUST BACKEND REFERENCE ARCHITECTURE',
+                        meeting_manager: 'MEETING_MANAGER // TIME & ATTENDANCE CONTROL SAAS',
+                        the_talk_fashion: 'THE_TALK_FASHION // FASHION PODCAST PLATFORM',
                   }
             },
             expertise: {
@@ -331,6 +345,18 @@ export const TRANSLATIONS = {
                               type: 'UI Alta Performance',
                               stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
+                        meeting_manager: {
+                              title: 'MEETING_MANAGER',
+                              description: 'Sistema de controle de tempo e assistência. Uma solução prática para gerenciar reuniões e rastrear horários.',
+                              type: 'SaaS Application',
+                              stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+                        },
+                        the_talk_fashion: {
+                              title: 'THE_TALK_FASHION',
+                              description: 'Site de podcast por Mijean Rochus focado em moda. Apresenta um design elegante e reprodução de mídia.',
+                              type: 'Plataforma de Mídia',
+                              stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
+                        },
                   }
             },
             labs: {
@@ -373,6 +399,8 @@ export const TRANSLATIONS = {
                         core_sync: 'CORE_SYNC // ORQUESTRADOR DE SINCRONIZAÇÃO DE DADOS',
                         media_ops: 'MEDIA_OPS // PROCESSAMENTO DE SINAL DIGITAL E RENDERIZAÇÃO AV',
                         java_init: 'JAVA_INIT // ARQUITETURA DE REFERÊNCIA BACKEND ROBUSTA',
+                        meeting_manager: 'MEETING_MANAGER // CONTROLE DE TEMPO E ASSISTÊNCIA SAAS',
+                        the_talk_fashion: 'THE_TALK_FASHION // PLATAFORMA DE PODCAST DE MODA',
                   }
             },
             expertise: {
@@ -600,6 +628,18 @@ export const TRANSLATIONS = {
                               type: 'UI Alto Rendimiento',
                               stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
+                        meeting_manager: {
+                              title: 'MEETING_MANAGER',
+                              description: 'Sistema de control de tiempo y asistencia. Una solución práctica para gestionar reuniones y rastrear horarios.',
+                              type: 'Aplicación SaaS',
+                              stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+                        },
+                        the_talk_fashion: {
+                              title: 'THE_TALK_FASHION',
+                              description: 'Sitio de podcast por Mijean Rochus centrado en la moda. Cuenta con un diseño elegante y capacidades de reproducción de medios.',
+                              type: 'Plataforma de Medios',
+                              stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
+                        },
                   }
             },
             labs: {
@@ -642,6 +682,8 @@ export const TRANSLATIONS = {
                         core_sync: 'CORE_SYNC // ORQUESTADOR DE SINCRONIZACIÓN DE DATOS',
                         media_ops: 'MEDIA_OPS // PROCESAMIENTO DE SEÑALES DIGITALES',
                         java_init: 'JAVA_INIT // ARQUITECTURA DE REFERENCIA BACKEND ROBUSTA',
+                        meeting_manager: 'MEETING_MANAGER // CONTROL DE TIEMPO Y ASISTENCIA SAAS',
+                        the_talk_fashion: 'THE_TALK_FASHION // PLATAFORMA DE PODCAST DE MODA',
                   }
             },
             expertise: {
@@ -869,6 +911,18 @@ export const TRANSLATIONS = {
                               type: 'UI Haute Performance',
                               stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
                         },
+                        meeting_manager: {
+                              title: 'MEETING_MANAGER',
+                              description: 'Système de contrôle du temps et des présences. Une solution pratique pour gérer les réunions et suivre les horaires.',
+                              type: 'Application SaaS',
+                              stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+                        },
+                        the_talk_fashion: {
+                              title: 'THE_TALK_FASHION',
+                              description: 'Un site de podcast par Mijean Rochus axé sur la mode. Dispose d\'un design élégant et de capacités de lecture multimédia.',
+                              type: 'Plateforme Média',
+                              stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
+                        },
                   }
             },
             labs: {
@@ -911,6 +965,8 @@ export const TRANSLATIONS = {
                         core_sync: 'CORE_SYNC // ORCHESTRATEUR DE SYNCHRONISATION DE DONNÉES',
                         media_ops: 'MEDIA_OPS // TRAITEMENT DU SIGNAL NUMÉRIQUE',
                         java_init: 'JAVA_INIT // ARCHITECTURE DE RÉFÉRENCE BACKEND ROBUSTE',
+                        meeting_manager: 'MEETING_MANAGER // CONTRÔLE DU TEMPS ET DES PRÉSENCES SAAS',
+                        the_talk_fashion: 'THE_TALK_FASHION // PLATEFORME DE PODCAST DE MODE',
                   }
             },
             expertise: {

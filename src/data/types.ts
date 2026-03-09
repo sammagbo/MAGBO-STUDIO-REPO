@@ -15,6 +15,7 @@ export interface Project {
       status: 'Production' | 'Completed' | 'Live' | 'Concept' | 'Development';
       stack: string[];
       accessLevel: 'Public' | 'Restricted' | 'Confidential';
+      link?: string;
 }
 
 // ── Services / Expertise ──────────────────────────────────────────────
@@ -96,5 +97,7 @@ export interface TranslationProjects {
             sector_watch: TranslationProjectItem;
             core_sync: TranslationProjectItem;
             media_ops: TranslationProjectItem;
+            meeting_manager: TranslationProjectItem;
+            the_talk_fashion: TranslationProjectItem;
       };
 }

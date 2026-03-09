@@ -37,6 +37,26 @@ export const getProjects = (t: { projects: TranslationProjects }): Project[] => 
                   status: 'Live',
                   stack: t.projects.list.media_ops.stack,
                   accessLevel: 'Public'
+            },
+            {
+                  id: 'MEETING_MANAGER',
+                  title: t.projects.list.meeting_manager.title,
+                  description: t.projects.list.meeting_manager.description,
+                  type: t.projects.list.meeting_manager.type,
+                  status: 'Live',
+                  stack: t.projects.list.meeting_manager.stack,
+                  accessLevel: 'Public',
+                  link: 'https://www.meetingmanager.site/#/login'
+            },
+            {
+                  id: 'THE_TALK_FASHION',
+                  title: t.projects.list.the_talk_fashion.title,
+                  description: t.projects.list.the_talk_fashion.description,
+                  type: t.projects.list.the_talk_fashion.type,
+                  status: 'Live',
+                  stack: t.projects.list.the_talk_fashion.stack,
+                  accessLevel: 'Public',
+                  link: 'https://www.thetalkfashion.com/'
             }
       ];
 };
