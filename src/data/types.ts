@@ -99,5 +99,6 @@ export interface TranslationProjects {
             media_ops: TranslationProjectItem;
             meeting_manager: TranslationProjectItem;
             the_talk_fashion: TranslationProjectItem;
+            satisystem: TranslationProjectItem;
       };
 }

@@ -57,6 +57,15 @@ export const getProjects = (t: { projects: TranslationProjects }): Project[] => 
                   stack: t.projects.list.the_talk_fashion.stack,
                   accessLevel: 'Public',
                   link: 'https://www.thetalkfashion.com/'
+            },
+            {
+                  id: 'SATISYSTEM',
+                  title: t.projects.list.satisystem.title,
+                  description: t.projects.list.satisystem.description,
+                  type: t.projects.list.satisystem.type,
+                  status: 'Completed',
+                  stack: t.projects.list.satisystem.stack,
+                  accessLevel: 'Public'
             }
       ];
 };

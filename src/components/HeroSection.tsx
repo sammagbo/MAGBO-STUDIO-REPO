@@ -2,11 +2,13 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { PROFILE, SKILLS } from '../data/constants';
+import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(useGSAP);
 
 export const HeroSection = () => {
       const containerRef = useRef<HTMLElement>(null);
+      const { t } = useLanguage();
 
       useGSAP(() => {
             const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
@@ -75,7 +77,7 @@ export const HeroSection = () => {
                   repeat: -1,
                   yoyo: true,
                   ease: 'power1.inOut',
-            });
+              });
 
       }, { scope: containerRef });
 
@@ -98,8 +100,14 @@ export const HeroSection = () => {
                               <div className="hero-text-line mb-3">
                                     <span className="font-display font-bold italic text-[#BBFD6A]"
                                           style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-                                          Hello
+                                          {t.hero.title_start}
                                     </span>
+                                    {t.hero.title_gradient && (
+                                          <span className="font-display font-bold italic text-white ml-2"
+                                                style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+                                                {t.hero.title_gradient}
+                                          </span>
+                                    )}
                                     <span className="inline-block w-3 h-3 bg-[#BBFD6A] rounded-full ml-1 mb-1" />
                               </div>
 
@@ -108,26 +116,26 @@ export const HeroSection = () => {
                                     <div className="hidden lg:block w-12 h-[2px] bg-white/40" />
                                     <span className="font-body text-white/80 tracking-wide"
                                           style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)' }}>
-                                          I'm Sammy K. Magbo
+                                          I'm {PROFILE.name}
                                     </span>
-                              </div>
+                               </div>
 
                               {/* Role / Title */}
                               <h1 className="hero-text-line font-display font-extrabold text-white leading-[1.05] tracking-tight mb-8"
                                     style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4rem)' }}>
-                                    Prompt<br />
-                                    <span className="text-white">Engineer</span>
+                                    {t.hero.title_middle}<br />
+                                    <span className="text-white">{t.hero.title_end}</span>
                               </h1>
 
                               {/* Action Buttons */}
                               <div className="flex items-center gap-4 flex-wrap justify-center lg:justify-start">
                                     <a href="#projects"
                                           className="hero-btn px-7 py-3 bg-[#BBFD6A] text-black font-body font-semibold text-sm tracking-wide rounded-md hover:bg-[#d0fe99] transition-all duration-300 hover:shadow-[0_0_30px_rgba(187,253,106,0.3)]">
-                                          Got a project?
+                                          {t.hero.cta_primary}
                                     </a>
                                     <a href="#cv"
                                           className="hero-btn px-7 py-3 border border-white/30 text-white font-body font-semibold text-sm tracking-wide rounded-md hover:border-white/60 hover:bg-white/5 transition-all duration-300">
-                                          My resume
+                                          {t.surface.nav_cv}
                                     </a>
                               </div>
                         </div>

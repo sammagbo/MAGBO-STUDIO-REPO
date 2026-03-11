@@ -4,17 +4,18 @@
  */
 
 export const PROFILE = {
-      name: 'Sammy K Magbo',
-      role: 'Prompt Engineer',
-      location: 'São Paulo, BR',
+      name: 'Sam Magbo',
+      role: 'Technology & Innovation Professional | Systems Implementation | Computer Science',
+      location: 'Rio de Janeiro, BR',
       ops: 'Remote — Global',
-      bio: 'I design and build critical software systems where security is not optional. From governance platforms to real-time monitoring, I architect solutions that operate under pressure — with zero compromise on code quality, performance, or user experience.',
+      bio: 'Professional with solid experience in technology, innovation, and project management, working in both public and private sectors. I integrate my background in Computer Science with practical experience in systems implementation, process modernization, and operational management.',
 } as const;
 
 export const SKILLS = [
       'React', 'TypeScript', 'Java', 'Spring Boot', 'Node.js',
       'PostgreSQL', 'Docker', 'AWS', 'Zero-Trust', 'GSAP',
       'Next.js', 'Tailwind CSS', 'Three.js', 'REST APIs',
+      'Project Management', 'Strategic Planning', 'Multilingual Communication',
 ] as const;
 
 export interface Project {
@@ -77,6 +78,14 @@ export const PROJECTS: Project[] = [
             stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
             status: 'ACTIVE',
             link: 'https://www.thetalkfashion.com/',
+      },
+      {
+            id: 'satisystem',
+            codename: 'SATISYSTEM',
+            sector: 'Academic Research',
+            description: 'Final project for Computer Science graduation. A system focused on technical solutions and innovation.',
+            stack: ['Java', 'AI Logic', 'Weka', 'Academic'],
+            status: 'COMPLETED',
       },
 ];
 
