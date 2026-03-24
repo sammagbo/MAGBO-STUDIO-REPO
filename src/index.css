@@ -31,6 +31,7 @@ body {
   color: var(--surface-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
@@ -68,6 +69,20 @@ body {
   color: transparent;
 }
 
+/* ── CRT Phosphor Glow ── */
+.phosphor-glow {
+  text-shadow:
+    0 0 8px rgba(187, 253, 106, 0.4),
+    0 0 20px rgba(187, 253, 106, 0.15);
+}
+
+/* ── Buttery Transitions for Dark Sections ── */
+.bg-core-bg button,
+.bg-core-bg [class*="card"],
+[style*="background-color: #0a0a0a"] button {
+  transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 /* ── Keyframes ── */
 @keyframes tickerScroll {
   0% { transform: translateX(0); }
@@ -77,4 +92,74 @@ body {
 @keyframes slideDown {
   0%, 100% { top: 0; }
   50% { top: 100%; }
+}
+
+/* ── CRT Flicker (subtle scanline opacity wobble) ── */
+@keyframes crtFlicker {
+  0%, 100% { opacity: 0.6; }
+  8% { opacity: 0.58; }
+  15% { opacity: 0.62; }
+  23% { opacity: 0.57; }
+  35% { opacity: 0.61; }
+  42% { opacity: 0.55; }
+  50% { opacity: 0.6; }
+  58% { opacity: 0.63; }
+  67% { opacity: 0.56; }
+  75% { opacity: 0.6; }
+  83% { opacity: 0.58; }
+  92% { opacity: 0.62; }
+}
+
+/* ── CRT Power-Off ── */
+@keyframes crtOff {
+  0% {
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+  40% {
+    transform: scaleY(0.005) scaleX(1.1);
+    filter: brightness(3);
+    opacity: 1;
+  }
+  70% {
+    transform: scaleY(0.005) scaleX(0.3);
+    filter: brightness(2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleY(0) scaleX(0);
+    filter: brightness(0);
+    opacity: 0;
+  }
+}
+
+/* ── CRT Power-On ── */
+@keyframes crtOn {
+  0% {
+    transform: scaleY(0) scaleX(0);
+    filter: brightness(0);
+    opacity: 0;
+  }
+  30% {
+    transform: scaleY(0.005) scaleX(0.3);
+    filter: brightness(2);
+    opacity: 0.8;
+  }
+  60% {
+    transform: scaleY(0.005) scaleX(1.1);
+    filter: brightness(3);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+}
+
+/* ── Phosphor Line Pulse (for shutdown overlay) ── */
+@keyframes phosphorPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(187, 253, 106, 0.6), 0 0 40px rgba(187, 253, 106, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(187, 253, 106, 0.9), 0 0 60px rgba(187, 253, 106, 0.5); }
 }

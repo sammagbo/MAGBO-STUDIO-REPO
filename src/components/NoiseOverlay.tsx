@@ -1,10 +1,11 @@
 export const NoiseOverlay = () => {
       return (
             <div
-                  className="fixed inset-0 z-[9999] pointer-events-none"
+                  className="fixed inset-0 z-[9990] pointer-events-none"
                   style={{
                         mixBlendMode: 'overlay',
                         opacity: 0.04,
+                        willChange: 'opacity',
                   }}
                   aria-hidden="true"
             >

@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { trackEvent } from '@/utils/telemetry';
 import { sanitizeCommand } from '@/utils/security';
 import { SAMMY_DATA } from '@/data/terminal';
+import gsap from 'gsap';
 
 // ── Boot Sequence ─────────────────────────────────────────────────────
 const BOOT_LINES = [
@@ -87,17 +88,48 @@ export const TerminalView = ({ onExit }: TerminalViewProps) => {
       const scrollRef = useRef<HTMLDivElement>(null);
       const bottomRef = useRef<HTMLDivElement>(null);
 
-      // ── Boot Sequence ────────────────────────────────────────────────
+      // ── Boot Sequence (choreographed) ─────────────────────────────────
       useEffect(() => {
             if (!isBooting) return;
             if (bootIndex >= BOOT_LINES.length) {
                   setIsBooting(false);
                   return;
             }
+
+            // System log lines (0-5): 80ms stagger
+            // Empty line before banner (6): 60ms
+            // ASCII banner block (7-12): 200ms pause then dump as single block
+            // Welcome text (13+): 100ms stagger
+            let delay: number;
+            if (bootIndex < 6) {
+                  delay = 80;
+            } else if (bootIndex === 6) {
+                  delay = 60;
+            } else if (bootIndex === 7) {
+                  // Dump entire ASCII banner as a single block after a dramatic pause
+                  const timer = setTimeout(() => {
+                        const bannerLines: HistoryLine[] = [];
+                        for (let i = 7; i <= 12; i++) {
+                              if (i < BOOT_LINES.length) {
+                                    bannerLines.push({ type: 'system', text: BOOT_LINES[i] });
+                              }
+                        }
+                        setHistory(prev => [...prev, ...bannerLines]);
+                        setBootIndex(13); // skip past the banner
+                  }, 200);
+                  return () => clearTimeout(timer);
+            } else if (bootIndex > 7 && bootIndex <= 12) {
+                  // Already handled by the block dump above
+                  setBootIndex(13);
+                  return;
+            } else {
+                  delay = 100;
+            }
+
             const timer = setTimeout(() => {
                   setHistory(prev => [...prev, { type: 'system', text: BOOT_LINES[bootIndex] }]);
                   setBootIndex(prev => prev + 1);
-            }, bootIndex < 6 ? 80 : 40);
+            }, delay);
             return () => clearTimeout(timer);
       }, [isBooting, bootIndex]);
 
@@ -108,10 +140,19 @@ export const TerminalView = ({ onExit }: TerminalViewProps) => {
             }
       }, [history]);
 
-      // ── Focus Input After Boot ────────────────────────────────────────
+      // ── Focus Input + Fade-In Welcome Text After Boot ─────────────────
       useEffect(() => {
-            if (!isBooting && inputRef.current) {
-                  inputRef.current.focus();
+            if (!isBooting) {
+                  inputRef.current?.focus();
+                  // GSAP fade-in the last few history lines (welcome text)
+                  const container = scrollRef.current;
+                  if (container) {
+                        const lastLines = container.querySelectorAll('.terminal-line:nth-last-child(-n+4)');
+                        gsap.fromTo(lastLines,
+                              { opacity: 0, y: 6 },
+                              { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out' }
+                        );
+                  }
             }
       }, [isBooting]);
 
@@ -246,11 +287,11 @@ export const TerminalView = ({ onExit }: TerminalViewProps) => {
                   onClick={() => inputRef.current?.focus()}
                   style={{ backgroundColor: '#0a0a0a', color: '#BBFD6A', cursor: 'text' }}
             >
-                  {/* CRT Scanlines overlay */}
+                  {/* CRT Scanlines overlay with flicker */}
                   <div className="absolute inset-0 pointer-events-none z-10"
                         style={{
                               background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(187,253,106,0.04) 2px, rgba(187,253,106,0.04) 4px)',
-                              opacity: 0.6,
+                              animation: 'crtFlicker 4s ease-in-out infinite',
                         }}
                   />
 
@@ -262,9 +303,9 @@ export const TerminalView = ({ onExit }: TerminalViewProps) => {
                   />
 
                   {/* Terminal content */}
-                  <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 pb-2 relative z-20">
+                  <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 pb-2 relative z-20 phosphor-glow">
                         {history.map((line, i) => (
-                              <div key={i} className="leading-6 whitespace-pre-wrap break-all"
+                              <div key={i} className="terminal-line leading-6 whitespace-pre-wrap break-all"
                                     style={{
                                           color: line.type === 'input' ? '#60a5fa'
                                                 : line.type === 'error' ? '#f87171'

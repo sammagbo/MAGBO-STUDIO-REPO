@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState, useCallback, lazy, Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { MainLayout } from '@/layout/MainLayout';
@@ -7,6 +7,7 @@ import { CVSection } from '@/components/CVSection';
 import { CommandPalette } from '@/components/CommandPalette';
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { NoiseOverlay } from '@/components/NoiseOverlay';
+import { CRTShutdown } from '@/components/CRTShutdown';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { trackEvent } from '@/utils/telemetry';
 import Lenis from 'lenis';
@@ -22,6 +23,10 @@ const TerminalView = lazy(() => import('@/components/TerminalView').then(m => ({
 
 gsap.registerPlugin(ScrollTrigger);
 
+// ── Transition State Machine ──────────────────────────────────────────
+// gui → shutting-down → cli → booting-gui → gui
+type TransitionPhase = 'gui' | 'shutting-down' | 'cli' | 'booting-gui';
+
 // Minimal loading spinner for lazy-loaded sections
 const SectionFallback = () => (
       <div className="min-h-[50vh] flex items-center justify-center">
@@ -30,11 +35,29 @@ const SectionFallback = () => (
 );
 
 function App() {
-      const [cliMode, setCliMode] = useState(false);
+      const [phase, setPhase] = useState<TransitionPhase>('gui');
+
+      // Derived booleans for readability
+      const showGUI = phase === 'gui' || phase === 'shutting-down';
+      const showCLI = phase === 'cli' || phase === 'booting-gui';
+      const isTransitioning = phase === 'shutting-down' || phase === 'booting-gui';
+
+      // ── CRT Transition Callbacks ──────────────────────────────────────
+      const handleShutdownComplete = useCallback(() => {
+            setPhase('cli');
+      }, []);
+
+      const handleBootComplete = useCallback(() => {
+            setPhase('gui');
+      }, []);
+
+      const handleCLIExit = useCallback(() => {
+            setPhase('booting-gui');
+      }, []);
 
       // Lenis smooth scroll (only when GUI mode active)
       useEffect(() => {
-            if (cliMode) return;
+            if (phase !== 'gui') return;
 
             const lenis = new Lenis({
                   lerp: 0.08,
@@ -52,25 +75,27 @@ function App() {
             return () => {
                   lenis.destroy();
             };
-      }, [cliMode]);
+      }, [phase]);
 
       // Global Ctrl+` (backtick/tilde) listener for CLI mode toggle
       useEffect(() => {
             const handleKeyDown = (e: KeyboardEvent) => {
+                  // Block toggle during transition
+                  if (isTransitioning) return;
+
                   if ((e.ctrlKey || e.metaKey) && (e.key === '`' || e.key === '~')) {
                         e.preventDefault();
-                        setCliMode(prev => {
-                              const next = !prev;
-                              if (next) {
-                                    trackEvent('CLI_ACTIVATED', { trigger: 'keyboard', shortcut: 'Ctrl+~' });
-                              }
-                              return next;
-                        });
+                        if (phase === 'gui') {
+                              trackEvent('CLI_ACTIVATED', { trigger: 'keyboard', shortcut: 'Ctrl+~' });
+                              setPhase('shutting-down');
+                        } else if (phase === 'cli') {
+                              setPhase('booting-gui');
+                        }
                   }
             };
             document.addEventListener('keydown', handleKeyDown);
             return () => document.removeEventListener('keydown', handleKeyDown);
-      }, []);
+      }, [phase, isTransitioning]);
 
       return (
             <LanguageProvider>
@@ -78,16 +103,27 @@ function App() {
                         <ErrorBoundary>
                               <SEOHelmet />
 
-                              {/* CLI MODE — Hacker Switch */}
-                              {cliMode && (
+                              {/* CRT Transition Overlay */}
+                              {phase === 'shutting-down' && (
+                                    <CRTShutdown direction="off" onComplete={handleShutdownComplete} />
+                              )}
+                              {phase === 'booting-gui' && (
+                                    <CRTShutdown direction="on" onComplete={handleBootComplete} />
+                              )}
+
+                              {/* CLI MODE — Hacker Terminal */}
+                              {showCLI && (
                                     <Suspense fallback={<div className="fixed inset-0 bg-black" />}>
-                                          <TerminalView onExit={() => setCliMode(false)} />
+                                          <TerminalView onExit={handleCLIExit} />
                                     </Suspense>
                               )}
 
                               {/* GUI MODE — Normal Site */}
-                              {!cliMode && (
-                                    <>
+                              {showGUI && (
+                                    <div style={{
+                                          visibility: phase === 'shutting-down' ? 'hidden' : 'visible',
+                                          position: phase === 'shutting-down' ? 'fixed' : 'relative',
+                                    }}>
                                           <NoiseOverlay />
                                           <MainLayout>
                                                 <CommandPalette />
@@ -106,7 +142,7 @@ function App() {
                                                       </div>
                                                 </Suspense>
                                           </MainLayout>
-                                    </>
+                                    </div>
                               )}
 
                         </ErrorBoundary>
