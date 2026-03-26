@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, Globe, TerminalSquare } from 'lucide-react';
 import { CustomCursor } from '@/components/CustomCursor';
+import { Logo } from '@/components/Logo';
 import { useLanguage } from '@/context/LanguageContext';
 import type { Language } from '@/data/translations';
 
@@ -34,67 +35,70 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                               {children}
                         </main>
 
-                        {/* Floating Pill Bottom Navigation */}
-                        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-full px-4 flex justify-center pointer-events-none">
-                              <nav className="bg-anyflow-black text-white px-2 py-2 rounded-full flex items-center shadow-2xl shadow-anyflow-lime/5 pointer-events-auto border border-white/5">
-
-                                    {/* Menu Button */}
-                                    <button
-                                          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-                                          className="flex items-center gap-3 px-5 py-3 rounded-full hover:bg-white/10 transition-colors font-mono text-xs uppercase tracking-widest border-r border-white/10 mr-2"
+                        {/* Top Navigation Bar - Industrial Retro-futuristic */}
+                        <header className="fixed top-0 left-0 w-full z-50 border-b border-core-border bg-[#050505]/90 backdrop-blur-md">
+                              <div className="max-w-[1920px] mx-auto px-6 h-16 flex items-center justify-between">
+                                    
+                                    {/* Left: Logo */}
+                                    <button 
+                                          onClick={() => scrollToSection('hero')} 
+                                          className="hover:opacity-80 transition-opacity flex items-center gap-3"
                                     >
-                                          {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-                                          <span className="hidden sm:inline">Menu</span>
+                                          <Logo />
+                                          <span className="font-display font-bold text-xl tracking-widest hidden sm:block">MAGBO</span>
                                     </button>
 
-                                    {/* Language Selector */}
-                                    <div className="relative border-r border-white/10 mr-2">
-                                          <button
-                                                onClick={() => setIsLangOpen(!isLangOpen)}
-                                                className="flex items-center gap-2 px-4 py-3 rounded-full hover:bg-white/10 transition-colors text-xs font-mono uppercase tracking-widest"
-                                          >
-                                                <Globe className="w-4 h-4 text-anyflow-lime" />
-                                                <span>{language}</span>
-                                          </button>
-
-                                          {isLangOpen && (
-                                                <div
-                                                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-core-card border border-core-border rounded-xl p-1 shadow-2xl"
+                                    {/* Right: Actions */}
+                                    <nav className="flex items-center gap-4">
+                                          {/* Language Selector */}
+                                          <div className="relative border-r border-core-border pr-4 hidden sm:block">
+                                                <button
+                                                      onClick={() => setIsLangOpen(!isLangOpen)}
+                                                      className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest hover:text-anyflow-lime transition-colors"
                                                 >
-                                                      {LANG_OPTIONS.map((opt) => (
-                                                            <button
-                                                                  key={opt.code}
-                                                                  onClick={() => { setLanguage(opt.code); setIsLangOpen(false); }}
-                                                                  className={`block w-full px-4 py-2 text-xs font-mono tracking-wider rounded-lg transition-colors ${language === opt.code
-                                                                        ? 'bg-anyflow-lime text-black font-bold'
-                                                                        : 'text-white/70 hover:bg-white/10 hover:text-white'
-                                                                        }`}
-                                                            >
-                                                                  {opt.label}
-                                                            </button>
-                                                      ))}
-                                                </div>
-                                          )}
-                                    </div>
+                                                      <Globe className="w-4 h-4" />
+                                                      <span>{language}</span>
+                                                </button>
 
-                                    {/* Logo */}
-                                    <div className="px-6 font-display font-bold text-xl tracking-tighter">
-                                          <button onClick={() => scrollToSection('hero')} className="hover:text-anyflow-lime transition-colors">
-                                                MAGBO
+                                                {isLangOpen && (
+                                                      <div className="absolute top-full mt-4 right-0 bg-[#050505] border border-core-border p-1 shadow-2xl min-w-[100px]">
+                                                            {LANG_OPTIONS.map((opt) => (
+                                                                  <button
+                                                                        key={opt.code}
+                                                                        onClick={() => { setLanguage(opt.code); setIsLangOpen(false); }}
+                                                                        className={`block w-full px-4 py-2 text-xs font-mono tracking-wider text-left transition-colors ${language === opt.code
+                                                                              ? 'bg-anyflow-lime text-black font-bold'
+                                                                              : 'text-white/70 hover:bg-white/10 hover:text-white'
+                                                                              }`}
+                                                                  >
+                                                                        {opt.label}
+                                                                  </button>
+                                                            ))}
+                                                      </div>
+                                                )}
+                                          </div>
+
+                                          {/* Menu Button */}
+                                          <button
+                                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                                className="flex items-center gap-2 hover:text-anyflow-lime transition-colors font-mono text-xs uppercase tracking-widest"
+                                          >
+                                                <span className="hidden sm:inline">MENU</span>
+                                                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                                           </button>
-                                    </div>
 
-                                    {/* Terminal Contact CTA */}
-                                    <button
-                                          onClick={() => scrollToSection('contact')}
-                                          className="bg-anyflow-lime text-black px-6 py-3 rounded-full font-mono font-bold text-xs tracking-widest hover:scale-105 active:scale-95 transition-transform ml-2 flex items-center gap-2"
-                                    >
-                                          <TerminalSquare className="w-4 h-4" />
-                                          <span className="hidden sm:inline">INIT_CONTACT</span>
-                                    </button>
-                              </nav>
-                        </div>
+                                          {/* Terminal CTA */}
+                                          <button
+                                                onClick={() => scrollToSection('contact')}
+                                                className="bg-anyflow-lime text-black px-4 py-2 ml-2 font-mono font-bold text-xs tracking-widest hover:bg-[#d0fe99] active:scale-95 transition-all flex items-center gap-2"
+                                                style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)' }}
+                                          >
+                                                <TerminalSquare className="w-4 h-4" />
+                                                <span className="hidden md:inline">INIT</span>
+                                          </button>
+                                    </nav>
+                              </div>
+                        </header>
 
                         {/* Minimalist Overlay Menu */}
                         {
@@ -107,7 +111,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                           />
 
-                                          <div className="relative z-50 bg-core-bg rounded-[2rem] p-8 md:p-12 w-[90%] max-w-2xl shadow-2xl border border-core-border pointer-events-auto">
+                                          <div className="relative z-50 bg-[#050505] rounded-sm p-8 md:p-12 w-[90%] max-w-2xl shadow-[0_0_50px_rgba(187,253,106,0.1)] border border-core-border pointer-events-auto">
                                                 <div className="flex flex-col gap-2">
                                                       {[
                                                             { id: 'hero', label: '001 THE SURFACE' },
@@ -119,7 +123,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                                             <button
                                                                   key={item.id}
                                                                   onClick={() => scrollToSection(item.id)}
-                                                                  className="group w-full py-4 px-6 rounded-xl hover:bg-core-surface flex items-center justify-between text-left transition-colors"
+                                                                  className="group w-full py-4 px-6 border-b border-core-border last:border-0 hover:bg-[#09090b] flex items-center justify-between text-left transition-colors"
                                                             >
                                                                   <span className="font-display font-bold text-2xl text-white tracking-tighter uppercase group-hover:text-anyflow-lime transition-colors">
                                                                         {item.label.split(' ')[1]}

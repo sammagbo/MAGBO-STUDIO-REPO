@@ -8,6 +8,8 @@ import { CommandPalette } from '@/components/CommandPalette';
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { NoiseOverlay } from '@/components/NoiseOverlay';
 import { CRTShutdown } from '@/components/CRTShutdown';
+import { BootSequence } from '@/components/BootSequence';
+import { DataStream } from '@/components/DataStream';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { trackEvent } from '@/utils/telemetry';
 import Lenis from 'lenis';
@@ -24,8 +26,8 @@ const TerminalView = lazy(() => import('@/components/TerminalView').then(m => ({
 gsap.registerPlugin(ScrollTrigger);
 
 // ── Transition State Machine ──────────────────────────────────────────
-// gui → shutting-down → cli → booting-gui → gui
-type TransitionPhase = 'gui' | 'shutting-down' | 'cli' | 'booting-gui';
+// boot → gui → shutting-down → cli → booting-gui → gui
+type TransitionPhase = 'boot' | 'gui' | 'shutting-down' | 'cli' | 'booting-gui';
 
 // Minimal loading spinner for lazy-loaded sections
 const SectionFallback = () => (
@@ -35,7 +37,7 @@ const SectionFallback = () => (
 );
 
 function App() {
-      const [phase, setPhase] = useState<TransitionPhase>('gui');
+      const [phase, setPhase] = useState<TransitionPhase>('boot');
 
       // Derived booleans for readability
       const showGUI = phase === 'gui' || phase === 'shutting-down';
@@ -103,6 +105,11 @@ function App() {
                         <ErrorBoundary>
                               <SEOHelmet />
 
+                              {/* Initial Boot Sequence */}
+                              {phase === 'boot' && (
+                                    <BootSequence onComplete={() => setPhase('gui')} />
+                              )}
+
                               {/* CRT Transition Overlay */}
                               {phase === 'shutting-down' && (
                                     <CRTShutdown direction="off" onComplete={handleShutdownComplete} />
@@ -125,6 +132,7 @@ function App() {
                                           position: phase === 'shutting-down' ? 'fixed' : 'relative',
                                     }}>
                                           <NoiseOverlay />
+                                          <DataStream />
                                           <MainLayout>
                                                 <CommandPalette />
                                                 <HeroSection />
