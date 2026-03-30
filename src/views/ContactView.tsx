@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Terminal, Lock, Send, CheckCircle2 } from 'lucide-react';
 import { cn } from '@/utils/cn';
 import { ScrambleText } from '@/components/ScrambleText';
+import { Scanlines } from '@/components/Scanlines';
 
 export const ContactView = () => {
       const [status, setStatus] = useState<'idle' | 'encrypting' | 'sent'>('idle');
@@ -76,7 +77,7 @@ export const ContactView = () => {
                         </div>
 
                         {/* Terminal Form */}
-                        <div className="bg-core-surface border border-core-border rounded-2xl p-8 relative overflow-hidden shadow-2xl">
+                        <div className="bg-core-surface border border-core-border p-8 relative overflow-hidden shadow-2xl bevel-cut">
                               {/* Terminal top bar */}
                               <div className="flex items-center gap-2 mb-8 border-b border-core-border pb-4">
                                     <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
@@ -136,7 +137,7 @@ export const ContactView = () => {
                                           type="submit"
                                           disabled={status !== 'idle'}
                                           className={cn(
-                                                'w-full py-4 text-xs font-bold tracking-widest uppercase rounded-lg flex items-center justify-center gap-3 transition-all duration-300',
+                                                'w-full py-4 text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-3 transition-all duration-300',
                                                 status === 'idle'
                                                       ? 'bg-anyflow-lime text-black hover:bg-anyflow-lime/90 hover:scale-[1.02] active:scale-95'
                                                       : status === 'encrypting'
@@ -165,8 +166,8 @@ export const ContactView = () => {
                                     </button>
                               </form>
 
-                              {/* Overlay scanline effect specifically for the terminal box */}
-                              <div className="absolute inset-0 pointer-events-none opacity-10 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px]"></div>
+                              {/* Overlay scanline effect */}
+                              <Scanlines />
                         </div>
 
                   </div>

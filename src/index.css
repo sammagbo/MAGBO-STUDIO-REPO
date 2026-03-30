@@ -6,17 +6,24 @@
 
 /* ── CSS Variables ── */
 :root {
-  /* Surface */
-  --surface-bg: #F4F4F4;
-  --surface-text: #000000;
+  /* Unified Industrial Dark Theme */
+  --surface-bg: #050505;
+  --surface-text: #e4e4e7;
   --accent: #BBFD6A;
-  /* Core */
-  --core-bg: #0a0a0a;
-  --core-surface: #1a1a2e;
-  --core-card: #22223b;
-  --core-text: #e0e0e0;
-  --core-dim: #888888;
-  --core-border: rgba(255, 255, 255, 0.08);
+  --accent-dim: rgba(187, 253, 106, 0.15);
+  
+  --core-bg: #09090b;
+  --core-surface: #121214;
+  --core-card: #1a1a1c;
+  --core-text: #e4e4e7;
+  --core-dim: #71717a;
+  --core-border: rgba(255, 255, 255, 0.15);
+
+  /* Industrial Clip-path: top-right bevel cut */
+  --clip-bevel: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  --clip-bevel-sm: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  /* Double bevel: top-right and bottom-left */
+  --clip-bevel-double: polygon(0 16px, 16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
 }
 
 /* ── Global Reset ── */
@@ -51,14 +58,51 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--accent);
-  border-radius: 3px;
+  border-radius: 0;
 }
 
-/* ── Custom Cursor ── */
-/* Uncomment below when CustomCursor component is active */
-/* * { cursor: none !important; } */
+/* ── Industrial Utility Classes ── */
 
-/* ── Utility: Stroke Text ── */
+/* Bevel-cut panels — the signature angular element */
+.bevel-cut {
+  clip-path: var(--clip-bevel);
+}
+
+.bevel-cut-sm {
+  clip-path: var(--clip-bevel-sm);
+}
+
+.bevel-cut-double {
+  clip-path: var(--clip-bevel-double);
+}
+
+/* Left accent bar — industrial emphasis */
+.industrial-border {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+/* Scanline overlay effect — CRT texture */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.5) 50%
+  );
+  background-size: 100% 4px;
+  animation: crtFlicker 8s ease-in-out infinite;
+}
+
+/* Utility: Stroke Text */
 .stroke-text {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.15);
   color: transparent;
@@ -74,6 +118,12 @@ body {
   text-shadow:
     0 0 8px rgba(187, 253, 106, 0.4),
     0 0 20px rgba(187, 253, 106, 0.15);
+}
+
+.phosphor-glow-box {
+  box-shadow:
+    0 0 20px rgba(187, 253, 106, 0.15),
+    inset 0 0 30px rgba(187, 253, 106, 0.05);
 }
 
 /* ── Buttery Transitions for Dark Sections ── */
@@ -96,18 +146,18 @@ body {
 
 /* ── CRT Flicker (subtle scanline opacity wobble) ── */
 @keyframes crtFlicker {
-  0%, 100% { opacity: 0.6; }
-  8% { opacity: 0.58; }
-  15% { opacity: 0.62; }
-  23% { opacity: 0.57; }
-  35% { opacity: 0.61; }
-  42% { opacity: 0.55; }
-  50% { opacity: 0.6; }
-  58% { opacity: 0.63; }
-  67% { opacity: 0.56; }
-  75% { opacity: 0.6; }
-  83% { opacity: 0.58; }
-  92% { opacity: 0.62; }
+  0%, 100% { opacity: 0.06; }
+  8% { opacity: 0.055; }
+  15% { opacity: 0.065; }
+  23% { opacity: 0.05; }
+  35% { opacity: 0.06; }
+  42% { opacity: 0.048; }
+  50% { opacity: 0.06; }
+  58% { opacity: 0.065; }
+  67% { opacity: 0.052; }
+  75% { opacity: 0.06; }
+  83% { opacity: 0.055; }
+  92% { opacity: 0.065; }
 }
 
 /* ── CRT Power-Off ── */

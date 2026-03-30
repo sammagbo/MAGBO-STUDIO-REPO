@@ -18,76 +18,9 @@ export const SKILLS = [
       'Project Management', 'Strategic Planning', 'Multilingual Communication',
 ] as const;
 
-export interface Project {
-      id: string;
-      codename: string;
-      sector: string;
-      description: string;
-      stack: string[];
-      status: string;
-      link?: string;
-}
 
-export const PROJECTS: Project[] = [
-      {
-            id: 'vote-guard',
-            codename: 'PROTOCOL: VOTE_GUARD',
-            sector: 'Critical Governance',
-            description: 'Electronic voting system with real-time state machine logic, strict quorum control, council mode, and automated legal PDF report generation.',
-            stack: ['React', 'State Logic', 'PDF Gen', 'TypeScript'],
-            status: 'DEPLOYED',
-      },
-      {
-            id: 'sector-watch',
-            codename: 'SECTOR_WATCH',
-            sector: 'Physical Security',
-            description: 'IoT-driven physical security monitoring platform with QR-based access control, real-time sensor dashboards, and incident reporting.',
-            stack: ['IoT Logic', 'QR Code', 'React', 'Node.js'],
-            status: 'ACTIVE',
-      },
-      {
-            id: 'core-sync',
-            codename: 'CORE_SYNC',
-            sector: 'Fullstack Infrastructure',
-            description: 'Enterprise-grade fullstack synchronization platform connecting React frontends to Spring Boot microservices through resilient REST APIs.',
-            stack: ['React', 'Spring Boot', 'API Rest', 'PostgreSQL'],
-            status: 'DEPLOYED',
-      },
-      {
-            id: 'media-ops',
-            codename: 'MEDIA_OPS',
-            sector: 'High Performance UI',
-            description: 'Cinematic media interface with GPU-accelerated animations, Spotify API integration, and real-time audio visualization.',
-            stack: ['React', 'GSAP', 'Spotify API', 'WebGL'],
-            status: 'ACTIVE',
-      },
-      {
-            id: 'meeting-manager',
-            codename: 'MEETING_MANAGER',
-            sector: 'SaaS Application',
-            description: 'Time and attendance control system. A practical solution for managing meetings and tracking schedules.',
-            stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-            status: 'ACTIVE',
-            link: 'https://www.meetingmanager.site/#/login',
-      },
-      {
-            id: 'the-talk-fashion',
-            codename: 'THE_TALK_FASHION',
-            sector: 'Media Platform',
-            description: 'A podcast website by Mijean Rochus focusing on fashion. Features a sleek design and media playback capabilities.',
-            stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
-            status: 'ACTIVE',
-            link: 'https://www.thetalkfashion.com/',
-      },
-      {
-            id: 'satisystem',
-            codename: 'SATISYSTEM',
-            sector: 'Academic Research',
-            description: 'Final project for Computer Science graduation. A system focused on technical solutions and innovation.',
-            stack: ['Java', 'AI Logic', 'Weka', 'Academic'],
-            status: 'COMPLETED',
-      },
-];
+
+
 
 export const METRICS = {
       uptime: '99.99%',

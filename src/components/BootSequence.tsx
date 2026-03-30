@@ -71,12 +71,19 @@ export const BootSequence = ({ onComplete }: BootSequenceProps) => {
                         </div>
 
                   </div>
-                  {/* Subtle noise over boot screen */}
-                  <div className="pointer-events-none fixed inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
+                  {/* Noise overlay */}
+                  <div className="pointer-events-none fixed inset-0 opacity-[0.03] mix-blend-overlay" aria-hidden="true">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                              <filter id="boot-noise">
+                                    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
+                              </filter>
+                              <rect width="100%" height="100%" filter="url(#boot-noise)" />
+                        </svg>
+                  </div>
                   
                   <style dangerouslySetInnerHTML={{__html: `
                         .glow-text {
-                              text-shadow: 0 0 10px rgba(204, 218, 0, 0.4);
+                              text-shadow: 0 0 10px rgba(187, 253, 106, 0.4), 0 0 20px rgba(187, 253, 106, 0.15);
                         }
                   `}} />
             </div>

@@ -55,34 +55,47 @@ export const HeroSection = () => {
                   1.2
             );
 
-            // Continuous rotation for outer ring
+            // ── Scroll-driven ring behaviors (replaces perpetual rotation) ──
+            // Outer ring: rotates slowly with page scroll
             gsap.to('.hero-ring-outer', {
-                  rotation: 360,
-                  duration: 30,
-                  repeat: -1,
+                  rotation: 90,
                   ease: 'none',
+                  scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: 2,
+                  }
             });
 
-            // Counter-rotation for middle ring
+            // Middle ring: counter-rotates on scroll
             gsap.to('.hero-ring-middle', {
-                  rotation: -360,
-                  duration: 45,
-                  repeat: -1,
+                  rotation: -60,
                   ease: 'none',
+                  scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: 3,
+                  }
             });
 
+            // Chevrons: subtle pulse on scroll instead of perpetual loop
             gsap.to('.hero-chevron-group', {
-                  x: 8,
-                  duration: 1.5,
-                  repeat: -1,
-                  yoyo: true,
-                  ease: 'power1.inOut',
-              });
+                  x: 6,
+                  ease: 'none',
+                  scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: 1,
+                  }
+            });
 
       }, { scope: containerRef });
 
       return (
-            <section ref={containerRef} className="relative min-h-[100svh] w-full bg-[#0a0a0a] overflow-hidden flex flex-col">
+            <section ref={containerRef} id="hero" className="relative min-h-[100svh] w-full bg-[#0a0a0a] overflow-hidden flex flex-col">
 
                   {/* ─── Background Ambient Glows ─── */}
                   <div className="absolute inset-0 z-0 pointer-events-none">
@@ -91,10 +104,10 @@ export const HeroSection = () => {
                   </div>
 
                   {/* ─── Main Content ─── */}
-                  <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center lg:items-center justify-center px-6 md:px-12 lg:px-20 pt-20 pb-8 gap-8 lg:gap-4">
+                  <div className="relative z-10 flex-1 w-full h-full flex items-center justify-center">
 
                         {/* ─── Left: Text Content ─── */}
-                        <div className="flex-1 flex flex-col justify-center items-center lg:items-start text-center lg:text-left max-w-xl lg:max-w-none">
+                        <div className="absolute left-[5%] top-[20%] lg:top-[25%] z-20 flex flex-col items-start text-left max-w-3xl mix-blend-difference pointer-events-none">
 
                               {/* Hello with accent dot */}
                               <div className="hero-text-line mb-3">
@@ -108,7 +121,7 @@ export const HeroSection = () => {
                                                 {t.hero.title_gradient}
                                           </span>
                                     )}
-                                    <span className="inline-block w-3 h-3 bg-[#BBFD6A] rounded-full ml-1 mb-1" />
+                                    <span className="inline-block w-3 h-3 bg-[#BBFD6A] ml-1 mb-1" />
                               </div>
 
                               {/* Name with left accent line */}
@@ -116,41 +129,42 @@ export const HeroSection = () => {
                                     <div className="hidden lg:block w-12 h-[2px] bg-white/40" />
                                     <span className="font-body text-white/80 tracking-wide"
                                           style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)' }}>
-                                          I'm {PROFILE.name}
+                                          I'm Sammy K. Magbo
                                     </span>
                                </div>
 
                               {/* Role / Title */}
                               <h1 className="hero-text-line font-display font-extrabold text-white leading-[1.05] tracking-tight mb-8"
                                     style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4rem)' }}>
-                                    {t.hero.title_middle}<br />
-                                    <span className="text-white">{t.hero.title_end}</span>
+                                    Prompt<br />
+                                    <span className="text-white">Engineer</span>
                               </h1>
 
-                              {/* Action Buttons */}
-                              <div className="flex items-center gap-4 flex-wrap justify-center lg:justify-start">
+                              {/* Action Buttons — angular, not rounded */}
+                              <div className="flex items-center gap-6 pointer-events-auto">
                                     <a href="#projects"
-                                          className="hero-btn px-7 py-3 bg-[#BBFD6A] text-black font-body font-semibold text-sm tracking-wide rounded-md hover:bg-[#d0fe99] transition-all duration-300 hover:shadow-[0_0_30px_rgba(187,253,106,0.3)]">
-                                          {t.hero.cta_primary}
+                                          className="hero-btn px-7 py-3 bg-[#BBFD6A] text-black font-body font-semibold text-sm tracking-wide hover:bg-[#d0fe99] transition-all duration-300 hover:shadow-[0_0_30px_rgba(187,253,106,0.3)]"
+                                          style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%)' }}>
+                                          Got a project?
                                     </a>
                                     <a href="#cv"
-                                          className="hero-btn px-7 py-3 border border-white/30 text-white font-body font-semibold text-sm tracking-wide rounded-md hover:border-white/60 hover:bg-white/5 transition-all duration-300">
-                                          {t.surface.nav_cv}
+                                          className="hero-btn px-7 py-3 border border-white/30 text-white font-body font-semibold text-sm tracking-wide hover:border-white/60 hover:bg-white/5 transition-all duration-300"
+                                          style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%)' }}>
+                                          My resume
                                     </a>
                               </div>
                         </div>
 
                         {/* ─── Right: Photo with Decorative Elements ─── */}
-                        <div className="flex-1 flex items-center justify-center relative">
+                        <div className="absolute right-[-10%] lg:right-[5%] top-[10%] lg:top-[15%] z-10 flex items-center justify-center opacity-80 pointer-events-none">
 
-                              {/* Outer rotating ring — tall ellipse around full body */}
+                              {/* Outer ring — dashed, scroll-driven rotation */}
                               <div className="hero-ring hero-ring-outer absolute w-[80vw] max-w-[550px] h-[100vw] max-h-[700px] rounded-full border-2 border-dashed border-[#BBFD6A]/25 pointer-events-none" />
 
-                              {/* Middle solid ring — body-fitting ellipse, counter-rotates */}
-                              <div className="hero-ring hero-ring-middle absolute w-[70vw] max-w-[480px] h-[88vw] max-h-[620px] rounded-full border-[3px] border-[#BBFD6A]/50 pointer-events-none"
-                                    style={{ boxShadow: '0 0 80px rgba(187,253,106,0.15), inset 0 0 60px rgba(187,253,106,0.06)' }} />
+                              {/* Middle solid ring — counter-rotates on scroll */}
+                              <div className="hero-ring hero-ring-middle absolute w-[70vw] max-w-[480px] h-[88vw] max-h-[620px] rounded-full border-[3px] border-[#BBFD6A]/50 pointer-events-none phosphor-glow-box" />
 
-                              {/* Inner glow ring — subtle ellipse glow */}
+                              {/* Inner glow ring */}
                               <div className="hero-ring absolute w-[60vw] max-w-[420px] h-[75vw] max-h-[540px] rounded-full bg-gradient-to-br from-[#BBFD6A]/8 to-transparent pointer-events-none" />
 
                               {/* Decorative Chevrons (right side) */}
@@ -195,10 +209,9 @@ export const HeroSection = () => {
                   <div className="hero-skills-ticker relative z-10 w-full border-t border-white/10 bg-[#0a0a0a]/80 backdrop-blur-sm">
                         <div className="overflow-hidden py-4 md:py-5">
                               <div className="flex animate-[tickerScroll_25s_linear_infinite] whitespace-nowrap">
-                                    {/* Double the skills for seamless loop */}
                                     {[...SKILLS, ...SKILLS].map((skill, i) => (
                                           <span key={i} className="flex items-center mx-6 md:mx-10 text-white/50 font-body text-sm md:text-base tracking-[0.15em] uppercase shrink-0">
-                                                <span className="inline-block w-1.5 h-1.5 bg-[#BBFD6A]/50 rounded-full mr-3" />
+                                                <span className="inline-block w-1.5 h-1.5 bg-[#BBFD6A]/50 mr-3" />
                                                 {skill}
                                           </span>
                                     ))}

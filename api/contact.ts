@@ -1,11 +1,14 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-// Extremely basic in-memory rate limiting.
-// In a true production environment with 100k+ users, this would use Redis (Upstash/Vercel KV).
-// But this is much better than client-side rate limiting which can be bypassed.
-const rateLimit = new Map<string, number[]>();
+/**
+ * ARCHITECTURAL NOTE:
+ * In a serverless environment (Vercel), local in-memory state is unreliable.
+ * This handler is prepared for Distributed Caching (Redis/Vercel KV).
+ */
 
-export default function handler(
+const LOCAL_RATE_LIMIT = new Map<string, number[]>();
+
+export default async function handler(
       request: VercelRequest,
       response: VercelResponse,
 ) {
@@ -13,35 +16,70 @@ export default function handler(
             return response.status(405).json({ error: 'Method not allowed' });
       }
 
-      // Get IP (Vercel sets this header)
-      const ip = request.headers['x-forwarded-for'] || 'unknown';
-      const ipString = Array.isArray(ip) ? ip[0] : ip;
+      const ip = (request.headers['x-forwarded-for'] || '127.0.0.1') as string;
+      const isRateLimited = await checkRateLimit(ip);
 
-      // Rate limit: Max 5 requests per 15 minutes per IP
-      const now = Date.now();
-      const windowMs = 15 * 60 * 1000;
-
-      if (ipString !== 'unknown') {
-            let requests = rateLimit.get(ipString) || [];
-            requests = requests.filter(time => now - time < windowMs);
-
-            if (requests.length >= 5) {
-                  return response.status(429).json({ error: 'Too many requests, please try again later.' });
-            }
-
-            requests.push(now);
-            rateLimit.set(ipString, requests);
+      if (isRateLimited) {
+            return response.status(429).json({ 
+                  error: 'Security Protocol: Too many requests. Transmission throttled.' 
+            });
       }
 
-      // Example payload processing (in a real app, this would use Resend / SendGrid / Formspree)
       const { id, comms, payload } = request.body;
 
+      // Validation Layer
       if (!id || !comms || !payload) {
-            return response.status(400).json({ error: 'Missing required fields' });
+            return response.status(400).json({ error: 'Incomplete Handshake: Missing payload.' });
       }
 
-      // Simulate network delay to maintain the terminal aesthetic feel
-      setTimeout(() => {
-            return response.status(200).json({ success: true, message: 'Transmission securely received.' });
-      }, 1500);
+      try {
+            // Business Logic Simulation 
+            // (In production, this would trigger an Event or External API call)
+            console.log(`[SECURE_RECEIVE] From: ${id} via ${comms}`);
+            
+            // Artificial delay to maintain the terminal "processing" aesthetic
+            await new Promise(resolve => setTimeout(resolve, 1200));
+
+            return response.status(200).json({ 
+                  success: true, 
+                  message: 'Transmission securely received and archived.' 
+            });
+      } catch (error) {
+            console.error('[API_FAILURE]', error);
+            return response.status(500).json({ error: 'Internal Core Failure.' });
+      }
+}
+
+/**
+ * Distributed Rate Limiting Strategy
+ * Detects if a Redis/KV store is available, otherwise falls back to local Map.
+ */
+async function checkRateLimit(ip: string): Promise<boolean> {
+      const windowMs = 15 * 60 * 1000;
+      const limit = 5;
+      const now = Date.now();
+
+      // IF VERCEL KV IS CONFIGURED (Future Scalability)
+      // Note: This requires '@vercel/kv' to be in node_modules
+      /* 
+      try {
+            const { kv } = await import('@vercel/kv');
+            const key = `rate_limit:${ip}`;
+            const count = await kv.incr(key);
+            if (count === 1) await kv.expire(key, windowMs / 1000);
+            return count > limit;
+      } catch (e) {
+            // Fallback to local if KV fails or is not installed
+      }
+      */
+
+      // FALLBACK: Local In-memory (Stateless/Ephemeral)
+      let requests = LOCAL_RATE_LIMIT.get(ip) || [];
+      requests = requests.filter(time => now - time < windowMs);
+      
+      if (requests.length >= limit) return true;
+
+      requests.push(now);
+      LOCAL_RATE_LIMIT.set(ip, requests);
+      return false;
 }

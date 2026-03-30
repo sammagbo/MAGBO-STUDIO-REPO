@@ -1,32 +1,32 @@
-import React from 'react';
-
 export const Logo = ({ className = '' }: { className?: string }) => {
       return (
             <svg
                   viewBox="0 0 100 60"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`w-auto h-8 ${className}`}
+                  className={`w-auto h-8 transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(187,253,106,0.5)] ${className}`}
             >
                   {/*
-        Industrial 'MS' Logo Concept
-        M incorporates an upward arrow
-        S forms a play button
-        Sharp angles, no curves.
-        */}
-                  {/* The 'M' with an upward-pointing right stem */}
+                  Industrial 'MS' Logo — Simplified geometric letterforms
+                  M: clean angular construction
+                  S: sharp directional block
+                  */}
+
+                  {/* The 'M' — simplified angular */}
                   <path
-                        d="M10,50 L10,20 L25,40 L40,10 L40,30 L50,10 L50,50 L40,50 L40,35 L25,55 L10,35 Z"
+                        d="M5,55 L5,10 L25,35 L45,10 L45,55 L35,55 L35,28 L25,43 L15,28 L15,55 Z"
                         fill="currentColor"
                   />
-                  {/* The 'S' shaped like a sharp play button block */}
+
+                  {/* The 'S' — angular play/forward symbol */}
                   <path
-                        d="M60,10 L90,30 L60,50 L60,40 L75,30 L60,20 Z"
+                        d="M55,10 L90,32.5 L55,55 L55,42 L72,32.5 L55,23 Z"
                         fill="currentColor"
                   />
-                  {/* Upward green arrow explicitly overlaid to show growth/tech */}
+
+                  {/* Accent mark — top of M, growth indicator */}
                   <path
-                        d="M40,10 L50,10 L45,0 Z"
+                        d="M22,10 L25,3 L28,10 Z"
                         className="text-anyflow-lime fill-current"
                   />
             </svg>

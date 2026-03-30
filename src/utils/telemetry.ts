@@ -15,7 +15,6 @@ interface EventProperties {
 
 /**
  * Dispatches a tracking event to the available analytics provider.
- * Priority: Vercel Analytics > Google Analytics (gtag) > PostHog > console (dev only)
  */
 export function trackEvent(eventName: string, properties?: EventProperties): void {
       try {
@@ -47,4 +46,28 @@ export function trackEvent(eventName: string, properties?: EventProperties): voi
       } catch {
             // Swallow all errors — telemetry must never crash the app
       }
+}
+
+/**
+ * ARCHITECTURAL OBSERVABILITY:
+ * Tracks the duration of a specific system action (e.g., transition, lazy load).
+ */
+export function trackActionDuration(actionName: string, durationMs: number, properties?: EventProperties): void {
+      trackEvent(`${actionName}_DURATION`, {
+            ...properties,
+            duration_ms: durationMs,
+            performance_tier: durationMs < 300 ? 'optimal' : durationMs < 1000 ? 'nominal' : 'degraded'
+      });
+}
+
+/**
+ * ARCHITECTURAL HEALTH:
+ * Tracks system health status (e.g., cold start, transition failure).
+ */
+export function trackHealthStatus(system: string, status: 'HEALTHY' | 'DEGRADED' | 'FAILED', details?: string): void {
+      trackEvent('SYS_HEALTH', {
+            system,
+            status,
+            details: details || 'No additional data.'
+      });
 }

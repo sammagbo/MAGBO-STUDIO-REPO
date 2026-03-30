@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const DataStream = () => {
       const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -16,10 +16,10 @@ export const DataStream = () => {
             window.addEventListener('resize', resize);
             resize();
 
-            // Characters for the stream: binary + tech hex
-            const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789§±#¶'.split('');
+            const chars = '01ABCDEF0123456789§±#¶'.split('');
             const fontSize = 14;
-            const columns = canvas.width / fontSize;
+            // Reduce density: use 2x spacing between columns
+            const columns = Math.floor(canvas.width / (fontSize * 2));
             const drops: number[] = [];
 
             for (let x = 0; x < columns; x++) {
@@ -27,40 +27,51 @@ export const DataStream = () => {
             }
 
             let animationFrameId: number;
+            let frameCount = 0;
+            let isVisible = true;
+
+            // Pause when tab is not visible
+            const handleVisibility = () => {
+                  isVisible = !document.hidden;
+            };
+            document.addEventListener('visibilitychange', handleVisibility);
 
             const draw = () => {
-                  // Translucent black background creates trail effect
+                  animationFrameId = requestAnimationFrame(draw);
+
+                  // Throttle to ~30fps by skipping every other frame
+                  frameCount++;
+                  if (frameCount % 2 !== 0 || !isVisible) return;
+
                   ctx.fillStyle = 'rgba(5, 5, 5, 0.05)';
                   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                  ctx.fillStyle = '#CCDA00'; // anyflow-lime color
-                  ctx.font = `${fontSize}px monospace`;
+                  ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
 
                   for (let i = 0; i < drops.length; i++) {
                         const text = chars[Math.floor(Math.random() * chars.length)];
-                        
-                        // Occasionally render a fading white character for 'sparkle'
-                        if (Math.random() > 0.95) {
-                              ctx.fillStyle = '#FFFFFF';
-                        } else {
-                              ctx.fillStyle = '#CCDA00';
-                        }
-                        
-                        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-                        // Reset drop to top randomly
+                        // Occasional white sparkle
+                        if (Math.random() > 0.95) {
+                              ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+                        } else {
+                              ctx.fillStyle = '#BBFD6A';
+                        }
+
+                        ctx.fillText(text, i * fontSize * 2, drops[i] * fontSize);
+
                         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                               drops[i] = 0;
                         }
                         drops[i]++;
                   }
-                  animationFrameId = requestAnimationFrame(draw);
             };
 
             draw();
 
             return () => {
                   window.removeEventListener('resize', resize);
+                  document.removeEventListener('visibilitychange', handleVisibility);
                   cancelAnimationFrame(animationFrameId);
             };
       }, []);
@@ -68,7 +79,7 @@ export const DataStream = () => {
       return (
             <canvas
                   ref={canvasRef}
-                  className="fixed inset-0 pointer-events-none opacity-20 z-0"
+                  className="fixed inset-0 pointer-events-none opacity-[0.15] z-0"
                   style={{ mixBlendMode: 'screen' }}
             />
       );

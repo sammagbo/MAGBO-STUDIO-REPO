@@ -111,7 +111,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                           />
 
-                                          <div className="relative z-50 bg-[#050505] rounded-sm p-8 md:p-12 w-[90%] max-w-2xl shadow-[0_0_50px_rgba(187,253,106,0.1)] border border-core-border pointer-events-auto">
+                                          <div className="relative z-50 bg-[#050505] p-8 md:p-12 w-[90%] max-w-2xl shadow-[0_0_50px_rgba(187,253,106,0.1)] border border-core-border pointer-events-auto bevel-cut">
                                                 <div className="flex flex-col gap-2">
                                                       {[
                                                             { id: 'hero', label: '001 THE SURFACE' },
