@@ -1,129 +1,100 @@
 /**
  * MAGBO STUDIO — Centralized data constants.
- * Zero hardcoded strings in components.
+ * Real project data from GitHub. Clean, recruiter-friendly.
  */
 
 export const PROFILE = {
-      name: 'Sam Magbo',
-      role: 'Technology & Innovation Professional | Systems Implementation | Computer Science',
+      name: 'Sammy K Magbo',
+      role: 'Software Engineer & Security Architect',
       location: 'Rio de Janeiro, BR',
       ops: 'Remote — Global',
-      bio: 'Professional with solid experience in technology, innovation, and project management, working in both public and private sectors. I integrate my background in Computer Science with practical experience in systems implementation, process modernization, and operational management.',
+      bio: 'I build resilient software for critical environments. With a Computer Science background and hands-on experience in systems implementation, process modernization, and operational management across public and private sectors, I focus on crafting architectures that are as secure as they are scalable.',
+      email: 'sammagbo@gmail.com',
+      linkedin: 'https://www.linkedin.com/in/sammagbo',
+      github: 'https://github.com/sammagbo',
 } as const;
 
-export const SKILLS = [
+export const SKILLS = {
+      frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GSAP', 'Three.js'],
+      backend: ['Java', 'Spring Boot', 'Node.js', 'REST APIs', 'PostgreSQL'],
+      infrastructure: ['Docker', 'AWS', 'CI/CD', 'Nginx', 'Vercel'],
+      other: ['Zero-Trust Architecture', 'Security Architecture', 'Project Management', 'Multilingual (FR/PT/EN/ES)'],
+} as const;
+
+export const SKILLS_FLAT = [
       'React', 'TypeScript', 'Java', 'Spring Boot', 'Node.js',
-      'PostgreSQL', 'Docker', 'AWS', 'Zero-Trust', 'GSAP',
-      'Next.js', 'Tailwind CSS', 'Three.js', 'REST APIs',
-      'Project Management', 'Strategic Planning', 'Multilingual Communication',
+      'PostgreSQL', 'Docker', 'AWS', 'Next.js', 'GSAP',
+      'Tailwind CSS', 'REST APIs', 'Security Architecture', 'CI/CD',
 ] as const;
 
 export interface Project {
       id: string;
-      codename: string;
-      sector: string;
+      name: string;
       description: string;
       stack: string[];
-      status: string;
-      link?: string;
+      github: string;
+      live?: string;
+      language: string;
 }
 
 export const PROJECTS: Project[] = [
       {
-            id: 'vote-guard',
-            codename: 'PROTOCOL: VOTE_GUARD',
-            sector: 'Critical Governance',
-            description: 'Electronic voting system with real-time state machine logic, strict quorum control, council mode, and automated legal PDF report generation.',
-            stack: ['React', 'State Logic', 'PDF Gen', 'TypeScript'],
-            status: 'DEPLOYED',
+            id: 'magbo-studio',
+            name: 'MAGBO Studio',
+            description: 'Personal portfolio and engineering showcase. Built with React, TypeScript, GSAP animations, and Tailwind CSS on a dark premium design system.',
+            stack: ['React', 'TypeScript', 'GSAP', 'Tailwind CSS'],
+            github: 'https://github.com/sammagbo/MAGBO-STUDIO-REPO',
+            language: 'TypeScript',
       },
       {
-            id: 'sector-watch',
-            codename: 'SECTOR_WATCH',
-            sector: 'Physical Security',
-            description: 'IoT-driven physical security monitoring platform with QR-based access control, real-time sensor dashboards, and incident reporting.',
-            stack: ['IoT Logic', 'QR Code', 'React', 'Node.js'],
-            status: 'ACTIVE',
+            id: 'controle-de-acesso',
+            name: 'Controle de Acesso',
+            description: 'IoT-driven physical security and access control system for an educational institution. Features QR-based access, sector monitoring dashboards, and real-time tracking.',
+            stack: ['JavaScript', 'IoT', 'QR Code', 'Dashboard'],
+            github: 'https://github.com/sammagbo/Controle-de-Acesso',
+            live: 'https://sammagbo.github.io/controle-de-acesso',
+            language: 'JavaScript',
       },
       {
-            id: 'core-sync',
-            codename: 'CORE_SYNC',
-            sector: 'Fullstack Infrastructure',
-            description: 'Enterprise-grade fullstack synchronization platform connecting React frontends to Spring Boot microservices through resilient REST APIs.',
-            stack: ['React', 'Spring Boot', 'API Rest', 'PostgreSQL'],
-            status: 'DEPLOYED',
+            id: 'ccc-cdi',
+            name: 'CCC CDI Platform',
+            description: 'Full-stack access control and management system for the CDI organizational center. TypeScript frontend with real-time state management.',
+            stack: ['TypeScript', 'React', 'State Management'],
+            github: 'https://github.com/sammagbo/ccc_cdi',
+            language: 'TypeScript',
       },
       {
-            id: 'media-ops',
-            codename: 'MEDIA_OPS',
-            sector: 'High Performance UI',
-            description: 'Cinematic media interface with GPU-accelerated animations, Spotify API integration, and real-time audio visualization.',
-            stack: ['React', 'GSAP', 'Spotify API', 'WebGL'],
-            status: 'ACTIVE',
+            id: 'french-lms',
+            name: 'French LMS',
+            description: 'Language learning management system for French education. Full-stack architecture with Spring Boot backend and React frontend.',
+            stack: ['TypeScript', 'React', 'Spring Boot', 'Vercel'],
+            github: 'https://github.com/sammagbo/french-lms-web',
+            live: 'https://french-lms-cl83.vercel.app',
+            language: 'TypeScript',
       },
       {
-            id: 'meeting-manager',
-            codename: 'MEETING_MANAGER',
-            sector: 'SaaS Application',
-            description: 'Time and attendance control system. A practical solution for managing meetings and tracking schedules.',
-            stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-            status: 'ACTIVE',
-            link: 'https://www.meetingmanager.site/#/login',
+            id: 'the-talk',
+            name: 'The Talk Fashion',
+            description: 'A podcast platform for fashion content by Mijean Rochus. Sleek media interface with audio playback capabilities and modern design.',
+            stack: ['React', 'JavaScript', 'Vite', 'Tailwind CSS'],
+            github: 'https://github.com/sammagbo/the-talk',
+            live: 'https://www.thetalkfashion.com/',
+            language: 'JavaScript',
       },
       {
-            id: 'the-talk-fashion',
-            codename: 'THE_TALK_FASHION',
-            sector: 'Media Platform',
-            description: 'A podcast website by Mijean Rochus focusing on fashion. Features a sleek design and media playback capabilities.',
-            stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
-            status: 'ACTIVE',
-            link: 'https://www.thetalkfashion.com/',
+            id: 'magbo-studio-backend',
+            name: 'Magbo Studio Backend',
+            description: 'Spring Boot backend architecture for enterprise applications. Clean Architecture patterns, domain isolation, and strict persistence policies.',
+            stack: ['Java', 'Spring Boot', 'Clean Arch', 'PostgreSQL'],
+            github: 'https://github.com/sammagbo/magbo-studio',
+            language: 'Java',
       },
       {
-            id: 'satisystem',
-            codename: 'SATISYSTEM',
-            sector: 'Academic Research',
-            description: 'Final project for Computer Science graduation. A system focused on technical solutions and innovation.',
-            stack: ['Java', 'AI Logic', 'Weka', 'Academic'],
-            status: 'COMPLETED',
-      },
-];
-
-export const METRICS = {
-      uptime: '99.99%',
-      latency: '24ms',
-      deploymentsThisMonth: 47,
-      securityScore: 'A+',
-      lastIncident: 'None (142 days)',
-} as const;
-
-export const INTEL_BRIEFINGS = [
-      {
-            id: 'intel-001',
-            title: 'Zero-Trust Architecture in React SPAs',
-            tlp: 'TLP:WHITE' as const,
-            date: '2026-02-15',
-            summary: 'Implementation patterns for zero-trust auth in single-page applications using token rotation and request signing.',
-      },
-      {
-            id: 'intel-002',
-            title: 'Supply Chain Attack Vectors in npm',
-            tlp: 'TLP:AMBER' as const,
-            date: '2026-01-28',
-            summary: 'Analysis of recent supply chain compromises targeting popular npm packages and mitigation strategies.',
-      },
-      {
-            id: 'intel-003',
-            title: 'GSAP Performance Profiling at Scale',
-            tlp: 'TLP:WHITE' as const,
-            date: '2026-01-10',
-            summary: 'Benchmarking GPU-accelerated GSAP timelines across 500+ DOM nodes with ScrollTrigger observers.',
-      },
-      {
-            id: 'intel-004',
-            title: 'Spring Boot Hardening Checklist',
-            tlp: 'TLP:AMBER' as const,
-            date: '2025-12-20',
-            summary: 'Production hardening guide for Spring Boot APIs covering CORS, CSRF, rate limiting, and header security.',
+            id: 'floresta-unity',
+            name: 'Floresta Unity',
+            description: 'Environmental simulation game built with Unity and C#. Explores ecological themes through interactive 3D experiences.',
+            stack: ['C#', 'Unity', '3D', 'Game Dev'],
+            github: 'https://github.com/sammagbo/Floresta_Unity',
+            language: 'C#',
       },
 ];

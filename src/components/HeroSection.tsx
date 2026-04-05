@@ -1,209 +1,165 @@
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { PROFILE, SKILLS } from '../data/constants';
-import { useLanguage } from '@/context/LanguageContext';
+import { PROFILE, SKILLS_FLAT } from '@/data/constants';
+import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 
 gsap.registerPlugin(useGSAP);
 
 export const HeroSection = () => {
       const containerRef = useRef<HTMLElement>(null);
-      const { t } = useLanguage();
 
       useGSAP(() => {
-            const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+            const tl = gsap.timeline({ defaults: { ease: 'expo.out', duration: 1.2 } });
 
-            // Decorative rings scale in
-            tl.fromTo('.hero-ring',
-                  { scale: 0, opacity: 0 },
-                  { scale: 1, opacity: 1, duration: 1.4, stagger: 0.15 },
-                  0
+            tl.fromTo('.hero-greeting',
+                  { y: 40, opacity: 0 },
+                  { y: 0, opacity: 1 },
+                  0.2
             );
 
-            // Photo reveal
-            tl.fromTo('.hero-photo',
-                  { scale: 1.1, opacity: 0, y: 60 },
-                  { scale: 1, opacity: 1, y: 0, duration: 1.6, ease: 'power3.out' },
-                  0.3
+            tl.fromTo('.hero-name',
+                  { y: 60, opacity: 0 },
+                  { y: 0, opacity: 1, duration: 1.4 },
+                  0.4
             );
 
-            // Decorative arrows
-            tl.fromTo('.hero-arrow',
-                  { x: -30, opacity: 0 },
-                  { x: 0, opacity: 1, duration: 1, stagger: 0.1 },
-                  0.6
+            tl.fromTo('.hero-role',
+                  { y: 40, opacity: 0 },
+                  { y: 0, opacity: 1 },
+                  0.7
             );
 
-            // Text reveal - staggered from left
-            tl.fromTo('.hero-text-line',
-                  { x: -80, opacity: 0 },
-                  { x: 0, opacity: 1, duration: 1.2, stagger: 0.12 },
-                  0.5
+            tl.fromTo('.hero-bio',
+                  { y: 30, opacity: 0 },
+                  { y: 0, opacity: 1, duration: 1 },
+                  0.9
             );
 
-            // Buttons fade in
-            tl.fromTo('.hero-btn',
+            tl.fromTo('.hero-cta',
                   { y: 20, opacity: 0 },
                   { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 },
-                  1.0
+                  1.1
             );
 
-            // Skills ticker fade in
-            tl.fromTo('.hero-skills-ticker',
-                  { opacity: 0, y: 20 },
-                  { opacity: 1, y: 0, duration: 1 },
-                  1.2
+            tl.fromTo('.hero-socials',
+                  { y: 20, opacity: 0 },
+                  { y: 0, opacity: 1, duration: 0.8 },
+                  1.3
             );
 
-            // Continuous rotation for outer ring
-            gsap.to('.hero-ring-outer', {
-                  rotation: 360,
-                  duration: 30,
-                  repeat: -1,
-                  ease: 'none',
-            });
+            tl.fromTo('.hero-ticker',
+                  { opacity: 0 },
+                  { opacity: 1, duration: 1 },
+                  1.5
+            );
 
-            // Counter-rotation for middle ring
-            gsap.to('.hero-ring-middle', {
-                  rotation: -360,
-                  duration: 45,
-                  repeat: -1,
-                  ease: 'none',
-            });
+            tl.fromTo('.hero-scroll-hint',
+                  { opacity: 0, y: -10 },
+                  { opacity: 1, y: 0, duration: 0.8 },
+                  1.7
+            );
 
-            gsap.to('.hero-chevron-group', {
-                  x: 8,
+            // Continuous bounce for scroll arrow
+            gsap.to('.hero-scroll-arrow', {
+                  y: 6,
                   duration: 1.5,
                   repeat: -1,
                   yoyo: true,
                   ease: 'power1.inOut',
-              });
+            });
 
       }, { scope: containerRef });
 
       return (
-            <section ref={containerRef} className="relative min-h-[100svh] w-full bg-[#0a0a0a] overflow-hidden flex flex-col">
+            <section ref={containerRef} id="hero" className="relative min-h-[100svh] w-full bg-dark-bg flex flex-col">
 
-                  {/* ─── Background Ambient Glows ─── */}
-                  <div className="absolute inset-0 z-0 pointer-events-none">
-                        <div className="absolute top-[10%] left-[20%] w-[35vw] h-[35vw] bg-[#BBFD6A]/8 blur-[180px] rounded-full" />
-                        <div className="absolute bottom-[5%] right-[10%] w-[30vw] h-[30vw] bg-[#BBFD6A]/5 blur-[140px] rounded-full" />
+                  {/* ─── Ambient gradient glow ─── */}
+                  <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                        <div className="absolute top-[10%] left-[30%] w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] bg-accent-blue/[0.04] blur-[150px] rounded-full" />
+                        <div className="absolute top-[40%] right-[10%] w-[35vw] h-[35vw] max-w-[500px] max-h-[500px] bg-accent-purple/[0.03] blur-[120px] rounded-full" />
+                        <div className="absolute bottom-[10%] left-[10%] w-[30vw] h-[30vw] max-w-[400px] max-h-[400px] bg-accent-cyan/[0.02] blur-[100px] rounded-full" />
                   </div>
 
                   {/* ─── Main Content ─── */}
-                  <div className="relative z-10 flex-1 flex flex-col lg:flex-row items-center lg:items-center justify-center px-6 md:px-12 lg:px-20 pt-20 pb-8 gap-8 lg:gap-4">
+                  <div className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-32 pt-32 pb-16 max-w-[1200px] mx-auto w-full">
 
-                        {/* ─── Left: Text Content ─── */}
-                        <div className="flex-1 flex flex-col justify-center items-center lg:items-start text-center lg:text-left max-w-xl lg:max-w-none">
-
-                              {/* Hello with accent dot */}
-                              <div className="hero-text-line mb-3">
-                                    <span className="font-display font-bold italic text-[#BBFD6A]"
-                                          style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-                                          {t.hero.title_start}
-                                    </span>
-                                    {t.hero.title_gradient && (
-                                          <span className="font-display font-bold italic text-white ml-2"
-                                                style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
-                                                {t.hero.title_gradient}
-                                          </span>
-                                    )}
-                                    <span className="inline-block w-3 h-3 bg-[#BBFD6A] rounded-full ml-1 mb-1" />
-                              </div>
-
-                              {/* Name with left accent line */}
-                              <div className="hero-text-line flex items-center gap-4 mb-2">
-                                    <div className="hidden lg:block w-12 h-[2px] bg-white/40" />
-                                    <span className="font-body text-white/80 tracking-wide"
-                                          style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.6rem)' }}>
-                                          I'm {PROFILE.name}
-                                    </span>
-                               </div>
-
-                              {/* Role / Title */}
-                              <h1 className="hero-text-line font-display font-extrabold text-white leading-[1.05] tracking-tight mb-8"
-                                    style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4rem)' }}>
-                                    {t.hero.title_middle}<br />
-                                    <span className="text-white">{t.hero.title_end}</span>
-                              </h1>
-
-                              {/* Action Buttons */}
-                              <div className="flex items-center gap-4 flex-wrap justify-center lg:justify-start">
-                                    <a href="#projects"
-                                          className="hero-btn px-7 py-3 bg-[#BBFD6A] text-black font-body font-semibold text-sm tracking-wide rounded-md hover:bg-[#d0fe99] transition-all duration-300 hover:shadow-[0_0_30px_rgba(187,253,106,0.3)]">
-                                          {t.hero.cta_primary}
-                                    </a>
-                                    <a href="#cv"
-                                          className="hero-btn px-7 py-3 border border-white/30 text-white font-body font-semibold text-sm tracking-wide rounded-md hover:border-white/60 hover:bg-white/5 transition-all duration-300">
-                                          {t.surface.nav_cv}
-                                    </a>
-                              </div>
+                        {/* Greeting line */}
+                        <div className="hero-greeting mb-6 opacity-0">
+                              <span className="inline-flex items-center gap-2 text-dark-muted font-mono text-xs tracking-[0.25em] uppercase">
+                                    <span className="w-2 h-2 rounded-full accent-dot animate-pulse" />
+                                    Available for work — {PROFILE.location}
+                              </span>
                         </div>
 
-                        {/* ─── Right: Photo with Decorative Elements ─── */}
-                        <div className="flex-1 flex items-center justify-center relative">
+                        {/* Name */}
+                        <h1 className="hero-name font-display font-extrabold text-white leading-[0.95] tracking-tight mb-6 opacity-0"
+                              style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)' }}>
+                              {PROFILE.name}<span className="gradient-text">.</span>
+                        </h1>
 
-                              {/* Outer rotating ring — tall ellipse around full body */}
-                              <div className="hero-ring hero-ring-outer absolute w-[80vw] max-w-[550px] h-[100vw] max-h-[700px] rounded-full border-2 border-dashed border-[#BBFD6A]/25 pointer-events-none" />
+                        {/* Role */}
+                        <p className="hero-role font-body leading-relaxed mb-8 opacity-0"
+                              style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}>
+                              <span className="gradient-text font-medium">{PROFILE.role}</span>
+                        </p>
 
-                              {/* Middle solid ring — body-fitting ellipse, counter-rotates */}
-                              <div className="hero-ring hero-ring-middle absolute w-[70vw] max-w-[480px] h-[88vw] max-h-[620px] rounded-full border-[3px] border-[#BBFD6A]/50 pointer-events-none"
-                                    style={{ boxShadow: '0 0 80px rgba(187,253,106,0.15), inset 0 0 60px rgba(187,253,106,0.06)' }} />
+                        {/* Bio */}
+                        <p className="hero-bio font-body text-dark-secondary leading-relaxed max-w-2xl mb-12 opacity-0"
+                              style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)' }}>
+                              {PROFILE.bio}
+                        </p>
 
-                              {/* Inner glow ring — subtle ellipse glow */}
-                              <div className="hero-ring absolute w-[60vw] max-w-[420px] h-[75vw] max-h-[540px] rounded-full bg-gradient-to-br from-[#BBFD6A]/8 to-transparent pointer-events-none" />
+                        {/* CTAs */}
+                        <div className="flex items-center gap-6 flex-wrap mb-12">
+                              <a href="#work"
+                                    className="hero-cta px-8 py-3.5 bg-accent-blue text-white font-body font-medium text-sm tracking-wide rounded-full hover:bg-accent-blue-light hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] transition-all duration-400 opacity-0">
+                                    View Work
+                              </a>
+                              <a href="#contact"
+                                    className="hero-cta px-8 py-3.5 border border-white/20 text-white font-body font-medium text-sm tracking-wide rounded-full hover:border-accent-blue/50 hover:text-accent-blue-light transition-all duration-300 opacity-0">
+                                    Get in touch →
+                              </a>
+                        </div>
 
-                              {/* Decorative Chevrons (right side) */}
-                              <div className="hero-arrow hero-chevron-group absolute right-0 lg:-right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 pointer-events-none">
-                                    {[...Array(3)].map((_, i) => (
-                                          <svg key={i} width="20" height="30" viewBox="0 0 20 30" className="text-[#BBFD6A]/35">
-                                                <polyline points="2,2 18,15 2,28" fill="none" stroke="currentColor" strokeWidth="2" />
-                                          </svg>
-                                    ))}
-                              </div>
-
-                              {/* Decorative Chevrons (left side, mirrored) */}
-                              <div className="hero-arrow absolute left-0 lg:left-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 pointer-events-none">
-                                    {[...Array(2)].map((_, i) => (
-                                          <svg key={i} width="20" height="30" viewBox="0 0 20 30" className="text-white/10 rotate-180">
-                                                <polyline points="2,2 18,15 2,28" fill="none" stroke="currentColor" strokeWidth="2" />
-                                          </svg>
-                                    ))}
-                              </div>
-
-                              {/* The Photo */}
-                              <div className="hero-photo relative z-10 w-[75vw] max-w-[500px]">
-                                    <img
-                                          src="/avatar_new.png"
-                                          alt={PROFILE.name}
-                                          className="w-full h-auto object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.9)]"
-                                          onError={(e) => {
-                                                e.currentTarget.style.display = 'none';
-                                                const fallback = document.getElementById('hero-fallback');
-                                                if (fallback) fallback.style.display = 'flex';
-                                          }}
-                                    />
-                                    <div id="hero-fallback" className="hidden w-full aspect-[3/4] flex-col items-center justify-center text-center text-white/40 font-mono text-xs">
-                                          <span className="text-3xl mb-2">📸</span>
-                                          <p>Save your photo as<br /><span className="text-white font-bold">public/avatar.png</span></p>
-                                    </div>
-                              </div>
+                        {/* Social links */}
+                        <div className="hero-socials flex items-center gap-5 opacity-0">
+                              <a href={PROFILE.github} target="_blank" rel="noopener noreferrer"
+                                    className="text-dark-muted hover:text-accent-blue-light transition-colors duration-300"
+                                    aria-label="GitHub">
+                                    <Github className="w-5 h-5" />
+                              </a>
+                              <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer"
+                                    className="text-dark-muted hover:text-accent-blue-light transition-colors duration-300"
+                                    aria-label="LinkedIn">
+                                    <Linkedin className="w-5 h-5" />
+                              </a>
+                              <a href={`mailto:${PROFILE.email}`}
+                                    className="text-dark-muted hover:text-accent-blue-light transition-colors duration-300"
+                                    aria-label="Email">
+                                    <Mail className="w-5 h-5" />
+                              </a>
                         </div>
                   </div>
 
-                  {/* ─── Bottom: Skills Ticker ─── */}
-                  <div className="hero-skills-ticker relative z-10 w-full border-t border-white/10 bg-[#0a0a0a]/80 backdrop-blur-sm">
-                        <div className="overflow-hidden py-4 md:py-5">
-                              <div className="flex animate-[tickerScroll_25s_linear_infinite] whitespace-nowrap">
-                                    {/* Double the skills for seamless loop */}
-                                    {[...SKILLS, ...SKILLS].map((skill, i) => (
-                                          <span key={i} className="flex items-center mx-6 md:mx-10 text-white/50 font-body text-sm md:text-base tracking-[0.15em] uppercase shrink-0">
-                                                <span className="inline-block w-1.5 h-1.5 bg-[#BBFD6A]/50 rounded-full mr-3" />
+                  {/* ─── Skills Ticker ─── */}
+                  <div className="hero-ticker relative z-10 w-full border-t border-accent-blue/10 opacity-0">
+                        <div className="overflow-hidden py-4">
+                              <div className="flex animate-[tickerScroll_30s_linear_infinite] whitespace-nowrap">
+                                    {[...SKILLS_FLAT, ...SKILLS_FLAT].map((skill, i) => (
+                                          <span key={i} className="flex items-center mx-8 text-dark-muted font-body text-xs tracking-[0.2em] uppercase shrink-0">
+                                                <span className="inline-block w-1 h-1 bg-accent-blue/40 rounded-full mr-3" />
                                                 {skill}
                                           </span>
                                     ))}
                               </div>
                         </div>
+                  </div>
+
+                  {/* ─── Scroll hint ─── */}
+                  <div className="hero-scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-0">
+                        <span className="text-dark-muted font-mono text-[10px] tracking-widest uppercase">Scroll</span>
+                        <ArrowDown className="hero-scroll-arrow w-4 h-4 text-accent-blue/60" />
                   </div>
             </section>
       );

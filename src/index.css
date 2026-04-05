@@ -1,47 +1,53 @@
-/* ── Local Fonts loaded via main.tsx (prevents render blocking) ── */
+/* ── MAGBO STUDIO — Premium Dark Design System ── */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── CSS Variables ── */
+/* ── Design Tokens ── */
 :root {
-  /* Surface */
-  --surface-bg: #F4F4F4;
-  --surface-text: #000000;
-  --accent: #BBFD6A;
-  /* Core */
-  --core-bg: #0a0a0a;
-  --core-surface: #1a1a2e;
-  --core-card: #22223b;
-  --core-text: #e0e0e0;
-  --core-dim: #888888;
-  --core-border: rgba(255, 255, 255, 0.08);
+  --bg: #050505;
+  --bg-elevated: #0a0a0a;
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.16);
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --accent: #E5E7EB;
+
+  /* ── Color Accents ── */
+  --accent-blue: #6366F1;
+  --accent-blue-light: #818CF8;
+  --accent-purple: #A78BFA;
+  --accent-cyan: #22D3EE;
+  --accent-gradient: linear-gradient(135deg, #6366F1, #A78BFA, #22D3EE);
+  --accent-gradient-warm: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+  --accent-glow: rgba(99, 102, 241, 0.15);
 }
 
 /* ── Global Reset ── */
 html {
-  scroll-behavior: auto;
-  /* Lenis handles this */
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  background-color: var(--surface-bg);
-  color: var(--surface-text);
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--accent);
-  color: #000;
+  background: rgba(99, 102, 241, 0.3);
+  color: #fff;
 }
 
-/* ── Scrollbar ── */
+/* ── Scrollbar (ultra-thin, accent-tinted) ── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,32 +55,87 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 3px;
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 2px;
 }
 
-/* ── Custom Cursor ── */
-/* Uncomment below when CustomCursor component is active */
-/* * { cursor: none !important; } */
-
-/* ── Utility: Stroke Text ── */
-.stroke-text {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.15);
-  color: transparent;
-}
-
-.stroke-text-white {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-  color: transparent;
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
 }
 
 /* ── Keyframes ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes tickerScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes slideDown {
-  0%, 100% { top: 0; }
-  50% { top: 100%; }
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Utility Classes ── */
+.glass {
+  background: rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.bento-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bento-card:hover {
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.06);
+}
+
+.gradient-text {
+  background: var(--accent-gradient);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+.accent-dot {
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+}
+
+.accent-border {
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.accent-glow {
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.08);
+}
+
+/* ── Focus styles ── */
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid rgba(99, 102, 241, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
