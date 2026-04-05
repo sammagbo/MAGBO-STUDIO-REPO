@@ -32,7 +32,6 @@ export const ContactSection = () => {
             e.preventDefault();
             setStatus('sending');
             
-            // Open email client with pre-filled data
             const subject = encodeURIComponent(`Portfolio Contact — ${formData.name}`);
             const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
             window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
@@ -50,16 +49,16 @@ export const ContactSection = () => {
             <section ref={containerRef} id="contact" className="relative py-32 lg:py-40 px-6 md:px-12 lg:px-20 xl:px-32 bg-dark-bg">
 
                   {/* Subtle section divider glow */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-accent-pink/20 to-transparent" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-mg-pink/20 to-transparent" />
 
                   {/* Background accent glow */}
-                  <div className="absolute bottom-0 right-[10%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-accent-blue/[0.03] blur-[150px] rounded-full pointer-events-none" />
+                  <div className="absolute bottom-0 right-[10%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-mg-blue/[0.03] blur-[150px] rounded-full pointer-events-none" />
 
                   <div className="max-w-[1200px] mx-auto w-full relative z-10">
 
                         {/* Section Label */}
                         <div className="contact-animate mb-4">
-                              <span className="text-accent-pink font-mono text-xs tracking-[0.25em] uppercase">
+                              <span className="text-mg-pink font-mono text-xs tracking-[0.25em] uppercase">
                                     04 — Contact
                               </span>
                         </div>
@@ -67,11 +66,11 @@ export const ContactSection = () => {
                         {/* Big CTA */}
                         <h2 className="contact-animate font-display font-bold text-white leading-tight tracking-tight mb-6"
                               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
-                              Let's <span className="gradient-text">work together</span>.
+                              Let's <span className="marker-pink">work together</span>.
                         </h2>
 
                         <p className="contact-animate text-dark-secondary font-body text-base lg:text-lg max-w-xl mb-12 leading-relaxed">
-                              I'm open to new opportunities, freelance projects, and interesting collaborations.
+                              I'm open to <span className="marker-green">new opportunities</span>, freelance projects, and interesting collaborations.
                               Fill out the form or reach out directly.
                         </p>
 
@@ -91,7 +90,7 @@ export const ContactSection = () => {
                                                       required
                                                       value={formData.name}
                                                       onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
-                                                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-accent-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(99,102,241,0.1)] transition-all duration-300"
+                                                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300"
                                                       placeholder="Your name"
                                                 />
                                           </div>
@@ -105,7 +104,7 @@ export const ContactSection = () => {
                                                       required
                                                       value={formData.email}
                                                       onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
-                                                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-accent-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(99,102,241,0.1)] transition-all duration-300"
+                                                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300"
                                                       placeholder="your@email.com"
                                                 />
                                           </div>
@@ -121,7 +120,7 @@ export const ContactSection = () => {
                                                 rows={5}
                                                 value={formData.message}
                                                 onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
-                                                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-accent-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(99,102,241,0.1)] transition-all duration-300 resize-none"
+                                                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300 resize-none"
                                                 placeholder="Tell me about your project..."
                                           />
                                     </div>
@@ -131,8 +130,8 @@ export const ContactSection = () => {
                                           disabled={status !== 'idle'}
                                           className={`inline-flex items-center gap-3 px-8 py-4 font-body font-medium text-sm rounded-full transition-all duration-400
                                                 ${status === 'sent'
-                                                      ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                                                      : 'bg-accent-blue text-white hover:bg-accent-blue-light hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]'
+                                                      ? 'bg-mg-green/20 text-mg-green border border-mg-green/30'
+                                                      : 'bg-mg-blue text-white hover:bg-mg-blue/80 hover:shadow-[0_0_30px_rgba(30,136,229,0.3)]'
                                                 }
                                                 disabled:opacity-60 disabled:cursor-not-allowed`}
                                     >
@@ -147,7 +146,7 @@ export const ContactSection = () => {
                                     <div className="bento-card p-6">
                                           <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-4">Or reach out directly</h3>
                                           <a href={`mailto:${PROFILE.email}`}
-                                                className="flex items-center gap-3 text-accent-blue-light font-body text-sm hover:text-white transition-colors duration-300 mb-3 group">
+                                                className="flex items-center gap-3 text-mg-blue font-body text-sm hover:text-white transition-colors duration-300 mb-3 group">
                                                 <Mail className="w-4 h-4" />
                                                 {PROFILE.email}
                                                 <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -158,13 +157,13 @@ export const ContactSection = () => {
                                           <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-4">Social</h3>
                                           <div className="space-y-3">
                                                 <a href={PROFILE.github} target="_blank" rel="noopener noreferrer"
-                                                      className="flex items-center gap-3 text-dark-muted hover:text-accent-blue-light transition-colors duration-300 font-body text-sm group">
+                                                      className="flex items-center gap-3 text-dark-muted hover:text-mg-blue transition-colors duration-300 font-body text-sm group">
                                                       <Github className="w-4 h-4" />
                                                       GitHub
                                                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-auto" />
                                                 </a>
                                                 <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer"
-                                                      className="flex items-center gap-3 text-dark-muted hover:text-accent-blue-light transition-colors duration-300 font-body text-sm group">
+                                                      className="flex items-center gap-3 text-dark-muted hover:text-mg-blue transition-colors duration-300 font-body text-sm group">
                                                       <Linkedin className="w-4 h-4" />
                                                       LinkedIn
                                                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-auto" />
@@ -172,7 +171,7 @@ export const ContactSection = () => {
                                           </div>
                                     </div>
 
-                                    <div className="bento-card p-6 border-accent-blue/10">
+                                    <div className="bento-card p-6">
                                           <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-2">Location</h3>
                                           <p className="text-dark-muted font-body text-sm">{PROFILE.location}</p>
                                           <p className="text-dark-muted font-body text-xs mt-1">{PROFILE.ops}</p>

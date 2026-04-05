@@ -16,14 +16,23 @@
   --text-muted: #6B7280;
   --accent: #E5E7EB;
 
-  /* ── Color Accents ── */
-  --accent-blue: #6366F1;
-  --accent-blue-light: #818CF8;
-  --accent-purple: #A78BFA;
-  --accent-cyan: #22D3EE;
-  --accent-gradient: linear-gradient(135deg, #6366F1, #A78BFA, #22D3EE);
-  --accent-gradient-warm: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
-  --accent-glow: rgba(99, 102, 241, 0.15);
+  /* ── MAGBO Palette ── */
+  --c-red: #E53935;
+  --c-orange: #FB8C00;
+  --c-brown: #8D6E63;
+  --c-yellow: #FDD835;
+  --c-green: #7CB342;
+  --c-turquoise: #26C6DA;
+  --c-blue: #1E88E5;
+  --c-violet: #8E24AA;
+  --c-pink: #EC407A;
+  --c-white: #FAFAFA;
+  --c-gray: #9E9E9E;
+  --c-black: #212121;
+
+  /* ── Derived accents ── */
+  --accent-gradient: linear-gradient(135deg, var(--c-blue), var(--c-violet), var(--c-turquoise));
+  --accent-gradient-warm: linear-gradient(135deg, var(--c-orange) 0%, var(--c-red) 50%, var(--c-pink) 100%);
 }
 
 /* ── Global Reset ── */
@@ -41,7 +50,7 @@ body {
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(30, 136, 229, 0.3);
   color: #fff;
 }
 
@@ -55,12 +64,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(30, 136, 229, 0.3);
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.5);
+  background: rgba(30, 136, 229, 0.5);
 }
 
 /* ── Keyframes ── */
@@ -106,8 +115,8 @@ body {
 }
 
 .bento-card:hover {
-  border-color: rgba(99, 102, 241, 0.25);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.06);
+  border-color: rgba(30, 136, 229, 0.25);
+  box-shadow: 0 0 30px rgba(30, 136, 229, 0.06);
 }
 
 .gradient-text {
@@ -120,22 +129,90 @@ body {
 }
 
 .accent-dot {
-  background: var(--accent-blue);
-  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+  background: var(--c-green);
+  box-shadow: 0 0 8px rgba(124, 179, 66, 0.5);
 }
 
 .accent-border {
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(30, 136, 229, 0.3);
 }
 
 .accent-glow {
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.08);
+  box-shadow: 0 0 40px rgba(30, 136, 229, 0.08);
+}
+
+/* ──────────────────────────────────────────────────
+   HIGHLIGHTER MARKERS — text-marker effect
+   Emulates real marker pen highlighting behind text.
+   Usage: <span class="marker-orange">your text</span>
+   ────────────────────────────────────────────────── */
+.marker-red {
+  background: linear-gradient(180deg, transparent 55%, rgba(229, 57, 53, 0.35) 55%, rgba(229, 57, 53, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-orange {
+  background: linear-gradient(180deg, transparent 55%, rgba(251, 140, 0, 0.35) 55%, rgba(251, 140, 0, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-brown {
+  background: linear-gradient(180deg, transparent 55%, rgba(141, 110, 99, 0.35) 55%, rgba(141, 110, 99, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-yellow {
+  background: linear-gradient(180deg, transparent 55%, rgba(253, 216, 53, 0.35) 55%, rgba(253, 216, 53, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-green {
+  background: linear-gradient(180deg, transparent 55%, rgba(124, 179, 66, 0.35) 55%, rgba(124, 179, 66, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-turquoise {
+  background: linear-gradient(180deg, transparent 55%, rgba(38, 198, 218, 0.35) 55%, rgba(38, 198, 218, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-blue {
+  background: linear-gradient(180deg, transparent 55%, rgba(30, 136, 229, 0.35) 55%, rgba(30, 136, 229, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-violet {
+  background: linear-gradient(180deg, transparent 55%, rgba(142, 36, 170, 0.35) 55%, rgba(142, 36, 170, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-pink {
+  background: linear-gradient(180deg, transparent 55%, rgba(236, 64, 122, 0.35) 55%, rgba(236, 64, 122, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
 }
 
 /* ── Focus styles ── */
 a:focus-visible,
 button:focus-visible {
-  outline: 1px solid rgba(99, 102, 241, 0.5);
+  outline: 1px solid rgba(30, 136, 229, 0.5);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* ── Profile Photo ── */
+.photo-frame {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  transition: border-color 0.4s ease;
+}
+
+.photo-frame:hover {
+  border-color: rgba(30, 136, 229, 0.3);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%) contrast(1.05);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.photo-frame:hover img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.03);
 }

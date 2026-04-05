@@ -7,10 +7,10 @@ import { ExternalLink, Github } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const LANG_COLORS: Record<string, string> = {
-      TypeScript: 'border-accent-blue/40 text-accent-blue',
-      JavaScript: 'border-yellow-500/40 text-yellow-400',
-      Java: 'border-orange-500/40 text-orange-400',
-      'C#': 'border-green-500/40 text-green-400',
+      TypeScript: 'border-mg-blue/50 text-mg-blue',
+      JavaScript: 'border-mg-yellow/50 text-mg-yellow',
+      Java: 'border-mg-orange/50 text-mg-orange',
+      'C#': 'border-mg-green/50 text-mg-green',
 };
 
 export const WorkSection = () => {
@@ -38,13 +38,13 @@ export const WorkSection = () => {
             <section ref={containerRef} id="work" className="relative py-32 lg:py-40 px-6 md:px-12 lg:px-20 xl:px-32 bg-dark-bg">
 
                   {/* Subtle section divider glow */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-accent-purple/20 to-transparent" />
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-mg-violet/20 to-transparent" />
 
                   <div className="max-w-[1200px] mx-auto w-full">
 
                         {/* Section Label */}
                         <div className="work-animate mb-4">
-                              <span className="text-accent-purple font-mono text-xs tracking-[0.25em] uppercase">
+                              <span className="text-mg-violet font-mono text-xs tracking-[0.25em] uppercase">
                                     02 — Work
                               </span>
                         </div>
@@ -53,10 +53,10 @@ export const WorkSection = () => {
                         <div className="work-animate flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
                               <h2 className="font-display font-bold text-white leading-tight tracking-tight"
                                     style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
-                                    Selected <span className="gradient-text">Projects</span>
+                                    Selected <span className="marker-violet">Projects</span>
                               </h2>
                               <a href="https://github.com/sammagbo" target="_blank" rel="noopener noreferrer"
-                                    className="text-dark-muted font-body text-sm hover:text-accent-blue-light transition-colors duration-300 flex items-center gap-2">
+                                    className="text-dark-muted font-body text-sm hover:text-mg-blue transition-colors duration-300 flex items-center gap-2">
                                     <Github className="w-4 h-4" />
                                     View all on GitHub
                               </a>
@@ -76,13 +76,13 @@ export const WorkSection = () => {
                                                 </span>
                                                 <div className="flex items-center gap-3">
                                                       <a href={project.github} target="_blank" rel="noopener noreferrer"
-                                                            className="text-dark-muted hover:text-accent-blue-light transition-colors duration-300"
+                                                            className="text-dark-muted hover:text-mg-blue transition-colors duration-300"
                                                             aria-label={`GitHub: ${project.name}`}>
                                                             <Github className="w-4 h-4" />
                                                       </a>
                                                       {project.live && (
                                                             <a href={project.live} target="_blank" rel="noopener noreferrer"
-                                                                  className="text-dark-muted hover:text-accent-cyan transition-colors duration-300"
+                                                                  className="text-dark-muted hover:text-mg-turquoise transition-colors duration-300"
                                                                   aria-label={`Live: ${project.name}`}>
                                                                   <ExternalLink className="w-4 h-4" />
                                                             </a>
@@ -92,7 +92,7 @@ export const WorkSection = () => {
 
                                           {/* Title */}
                                           <div className="flex-1">
-                                                <h3 className="font-display font-bold text-white text-xl lg:text-2xl mb-3 group-hover:text-accent-blue-light transition-colors duration-300">
+                                                <h3 className="font-display font-bold text-white text-xl lg:text-2xl mb-3 group-hover:text-mg-blue transition-colors duration-300">
                                                       {project.name}
                                                 </h3>
                                                 <p className="text-dark-muted font-body text-sm leading-relaxed mb-6">
@@ -103,7 +103,7 @@ export const WorkSection = () => {
                                           {/* Tech Tags */}
                                           <div className="flex flex-wrap gap-2 pt-6 border-t border-white/[0.06]">
                                                 {project.stack.map(tech => (
-                                                      <span key={tech} className="font-mono text-[10px] tracking-wider uppercase text-dark-secondary px-2.5 py-1 border border-white/[0.08] rounded-full hover:border-accent-blue/30 hover:text-accent-blue-light transition-all duration-300">
+                                                      <span key={tech} className="font-mono text-[10px] tracking-wider uppercase text-dark-secondary px-2.5 py-1 border border-white/[0.08] rounded-full hover:border-mg-blue/30 hover:text-mg-blue transition-all duration-300">
                                                             {tech}
                                                       </span>
                                                 ))}
