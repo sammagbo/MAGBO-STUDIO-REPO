@@ -82,15 +82,15 @@ export const EXPERIENCE: Experience[] = [
       },
       {
             id: 'cl20',
-            role: 'Coordinator — Language Programs (C.L. 2.0)',
-            company: 'Universidade Veiga de Almeida',
+            role: 'Founder — C.L. 2.0 (Language Courses)',
+            company: 'Universidade Veiga de Almeida — Iniciação ao Empreendedorismo',
             location: 'Rio de Janeiro, BR',
             period: 'Jan 2018 — Sep 2020',
-            type: 'freelance',
+            type: 'entrepreneurship',
             bullets: [
-                  'Managed multilingual education programs (English, Spanish, French, Italian)',
-                  'Developed bilingual education strategies and curriculum frameworks',
-                  'Coordinated academic projects linking technology and language learning',
+                  'University entrepreneurship project focused on multilingual education (English, Spanish, French, Italian)',
+                  'Developed the business model, bilingual curriculum strategy, and operational framework',
+                  'Bridged technology and language learning through academic-led initiatives',
             ],
       },
       {
