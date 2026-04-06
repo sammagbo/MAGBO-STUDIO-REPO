@@ -1,55 +1,62 @@
-/* ── Local Fonts loaded via main.tsx (prevents render blocking) ── */
+/* ── MAGBO STUDIO — Premium Dark Design System ── */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── CSS Variables ── */
+/* ── Design Tokens ── */
 :root {
-  /* Unified Industrial Dark Theme */
-  --surface-bg: #050505;
-  --surface-text: #e4e4e7;
-  --accent: #BBFD6A;
-  --accent-dim: rgba(187, 253, 106, 0.15);
-  
-  --core-bg: #09090b;
-  --core-surface: #121214;
-  --core-card: #1a1a1c;
-  --core-text: #e4e4e7;
-  --core-dim: #71717a;
-  --core-border: rgba(255, 255, 255, 0.15);
+  --bg: #050505;
+  --bg-elevated: #0a0a0a;
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.16);
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --accent: #E5E7EB;
 
-  /* Industrial Clip-path: top-right bevel cut */
-  --clip-bevel: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
-  --clip-bevel-sm: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-  /* Double bevel: top-right and bottom-left */
-  --clip-bevel-double: polygon(0 16px, 16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+  /* ── MAGBO Palette ── */
+  --c-red: #E53935;
+  --c-orange: #FB8C00;
+  --c-brown: #8D6E63;
+  --c-yellow: #FDD835;
+  --c-green: #7CB342;
+  --c-turquoise: #26C6DA;
+  --c-blue: #1E88E5;
+  --c-violet: #8E24AA;
+  --c-pink: #EC407A;
+  --c-white: #FAFAFA;
+  --c-gray: #9E9E9E;
+  --c-black: #212121;
+
+  /* ── Derived accents ── */
+  --accent-gradient: linear-gradient(135deg, var(--c-blue), var(--c-violet), var(--c-turquoise));
+  --accent-gradient-warm: linear-gradient(135deg, var(--c-orange) 0%, var(--c-red) 50%, var(--c-pink) 100%);
 }
 
 /* ── Global Reset ── */
 html {
-  scroll-behavior: auto;
-  /* Lenis handles this */
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
-  background-color: var(--surface-bg);
-  color: var(--surface-text);
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--accent);
-  color: #000;
+  background: rgba(30, 136, 229, 0.3);
+  color: #fff;
 }
 
-/* ── Scrollbar ── */
+/* ── Scrollbar (ultra-thin, accent-tinted) ── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -57,159 +64,155 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 0;
+  background: rgba(30, 136, 229, 0.3);
+  border-radius: 2px;
 }
 
-/* ── Industrial Utility Classes ── */
-
-/* Bevel-cut panels — the signature angular element */
-.bevel-cut {
-  clip-path: var(--clip-bevel);
-}
-
-.bevel-cut-sm {
-  clip-path: var(--clip-bevel-sm);
-}
-
-.bevel-cut-double {
-  clip-path: var(--clip-bevel-double);
-}
-
-/* Left accent bar — industrial emphasis */
-.industrial-border {
-  border-left: 4px solid var(--accent);
-  padding-left: 1.5rem;
-}
-
-/* Scanline overlay effect — CRT texture */
-.scanlines {
-  position: relative;
-}
-
-.scanlines::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.06;
-  background: linear-gradient(
-    to bottom,
-    transparent 50%,
-    rgba(0, 0, 0, 0.5) 50%
-  );
-  background-size: 100% 4px;
-  animation: crtFlicker 8s ease-in-out infinite;
-}
-
-/* Utility: Stroke Text */
-.stroke-text {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.15);
-  color: transparent;
-}
-
-.stroke-text-white {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-  color: transparent;
-}
-
-/* ── CRT Phosphor Glow ── */
-.phosphor-glow {
-  text-shadow:
-    0 0 8px rgba(187, 253, 106, 0.4),
-    0 0 20px rgba(187, 253, 106, 0.15);
-}
-
-.phosphor-glow-box {
-  box-shadow:
-    0 0 20px rgba(187, 253, 106, 0.15),
-    inset 0 0 30px rgba(187, 253, 106, 0.05);
-}
-
-/* ── Buttery Transitions for Dark Sections ── */
-.bg-core-bg button,
-.bg-core-bg [class*="card"],
-[style*="background-color: #0a0a0a"] button {
-  transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 136, 229, 0.5);
 }
 
 /* ── Keyframes ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes tickerScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes slideDown {
-  0%, 100% { top: 0; }
-  50% { top: 100%; }
+@keyframes subtlePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
 }
 
-/* ── CRT Flicker (subtle scanline opacity wobble) ── */
-@keyframes crtFlicker {
-  0%, 100% { opacity: 0.06; }
-  8% { opacity: 0.055; }
-  15% { opacity: 0.065; }
-  23% { opacity: 0.05; }
-  35% { opacity: 0.06; }
-  42% { opacity: 0.048; }
-  50% { opacity: 0.06; }
-  58% { opacity: 0.065; }
-  67% { opacity: 0.052; }
-  75% { opacity: 0.06; }
-  83% { opacity: 0.055; }
-  92% { opacity: 0.065; }
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* ── CRT Power-Off ── */
-@keyframes crtOff {
-  0% {
-    transform: scaleY(1) scaleX(1);
-    filter: brightness(1);
-    opacity: 1;
-  }
-  40% {
-    transform: scaleY(0.005) scaleX(1.1);
-    filter: brightness(3);
-    opacity: 1;
-  }
-  70% {
-    transform: scaleY(0.005) scaleX(0.3);
-    filter: brightness(2);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scaleY(0) scaleX(0);
-    filter: brightness(0);
-    opacity: 0;
-  }
+/* ── Utility Classes ── */
+.glass {
+  background: rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-/* ── CRT Power-On ── */
-@keyframes crtOn {
-  0% {
-    transform: scaleY(0) scaleX(0);
-    filter: brightness(0);
-    opacity: 0;
-  }
-  30% {
-    transform: scaleY(0.005) scaleX(0.3);
-    filter: brightness(2);
-    opacity: 0.8;
-  }
-  60% {
-    transform: scaleY(0.005) scaleX(1.1);
-    filter: brightness(3);
-    opacity: 1;
-  }
-  100% {
-    transform: scaleY(1) scaleX(1);
-    filter: brightness(1);
-    opacity: 1;
-  }
+.bento-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* ── Phosphor Line Pulse (for shutdown overlay) ── */
-@keyframes phosphorPulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(187, 253, 106, 0.6), 0 0 40px rgba(187, 253, 106, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(187, 253, 106, 0.9), 0 0 60px rgba(187, 253, 106, 0.5); }
+.bento-card:hover {
+  border-color: rgba(30, 136, 229, 0.25);
+  box-shadow: 0 0 30px rgba(30, 136, 229, 0.06);
+}
+
+.gradient-text {
+  background: var(--accent-gradient);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+.accent-dot {
+  background: var(--c-green);
+  box-shadow: 0 0 8px rgba(124, 179, 66, 0.5);
+}
+
+.accent-border {
+  border-color: rgba(30, 136, 229, 0.3);
+}
+
+.accent-glow {
+  box-shadow: 0 0 40px rgba(30, 136, 229, 0.08);
+}
+
+/* ──────────────────────────────────────────────────
+   HIGHLIGHTER MARKERS — text-marker effect
+   Emulates real marker pen highlighting behind text.
+   Usage: <span class="marker-orange">your text</span>
+   ────────────────────────────────────────────────── */
+.marker-red {
+  background: linear-gradient(180deg, transparent 55%, rgba(229, 57, 53, 0.35) 55%, rgba(229, 57, 53, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-orange {
+  background: linear-gradient(180deg, transparent 55%, rgba(251, 140, 0, 0.35) 55%, rgba(251, 140, 0, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-brown {
+  background: linear-gradient(180deg, transparent 55%, rgba(141, 110, 99, 0.35) 55%, rgba(141, 110, 99, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-yellow {
+  background: linear-gradient(180deg, transparent 55%, rgba(253, 216, 53, 0.35) 55%, rgba(253, 216, 53, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-green {
+  background: linear-gradient(180deg, transparent 55%, rgba(124, 179, 66, 0.35) 55%, rgba(124, 179, 66, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-turquoise {
+  background: linear-gradient(180deg, transparent 55%, rgba(38, 198, 218, 0.35) 55%, rgba(38, 198, 218, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-blue {
+  background: linear-gradient(180deg, transparent 55%, rgba(30, 136, 229, 0.35) 55%, rgba(30, 136, 229, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-violet {
+  background: linear-gradient(180deg, transparent 55%, rgba(142, 36, 170, 0.35) 55%, rgba(142, 36, 170, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+.marker-pink {
+  background: linear-gradient(180deg, transparent 55%, rgba(236, 64, 122, 0.35) 55%, rgba(236, 64, 122, 0.35) 90%, transparent 90%);
+  padding: 0 4px;
+}
+
+/* ── Focus styles ── */
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid rgba(30, 136, 229, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Profile Photo ── */
+.photo-frame {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  transition: border-color 0.4s ease;
+}
+
+.photo-frame:hover {
+  border-color: rgba(30, 136, 229, 0.3);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%) contrast(1.05);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.photo-frame:hover img {
+  filter: grayscale(0%) contrast(1);
+  transform: scale(1.03);
 }
