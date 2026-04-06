@@ -46,16 +46,16 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
                   <div className="relative z-10">
                         <div className="flex items-center justify-between mb-8 pb-8 border-b border-white/10">
                               <div className="font-mono text-anyflow-lime text-xs tracking-widest uppercase">
-                                    [{project.type}]
+                                    [{project.language}]
                               </div>
                               <div className="font-mono text-core-muted text-xs px-3 py-1 border border-white/10 flex items-center gap-2 bevel-cut-sm">
                                     <span className="w-2 h-2 bg-anyflow-lime animate-pulse" />
-                                    {project.status}
+                                    ONLINE
                               </div>
                         </div>
 
                         <h3 className="font-display font-bold text-4xl lg:text-5xl tracking-tighter mb-6 group-hover:text-anyflow-lime transition-colors">
-                              {project.title}
+                              {project.name}
                         </h3>
 
                         <p className="font-body text-core-muted text-lg leading-relaxed mb-12">
@@ -71,9 +71,9 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
                                     </span>
                               ))}
                         </div>
-                        {project.link ? (
+                        {project.live ? (
                               <a
-                                    href={project.link}
+                                    href={project.live}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="w-16 h-16 bg-anyflow-lime text-black flex items-center justify-center flex-shrink-0 group-hover:scale-110 active:scale-95 transition-transform bevel-cut-sm"

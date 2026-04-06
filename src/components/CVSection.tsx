@@ -1,4 +1,4 @@
-import { useProfile, useSkills } from '@/hooks/useData';
+import { useProfile, useSkillsFlat } from '@/hooks/useData';
 import { useLanguage } from '@/context/LanguageContext';
 import { Download, ShieldCheck, MapPin, Cpu, Briefcase, GraduationCap, Globe } from 'lucide-react';
 import { useRef, useEffect } from 'react';
@@ -7,7 +7,7 @@ import { Scanlines } from '@/components/Scanlines';
 
 export const CVSection = () => {
       const PROFILE = useProfile();
-      const SKILLS = useSkills();
+      const SKILLS = useSkillsFlat();
       const { t } = useLanguage();
       const containerRef = useRef<HTMLElement>(null);
       const card1Ref = useRef<HTMLDivElement>(null);
