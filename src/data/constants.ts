@@ -10,7 +10,7 @@ export const PROFILE = {
       ops: 'Remote — Global',
       bio: 'I build resilient software for critical environments. With a Computer Science background and hands-on experience in systems implementation, process modernization, and operational management across public and private sectors, I focus on crafting architectures that are as secure as they are scalable.',
       email: 'sammagbo@gmail.com',
-      linkedin: 'https://www.linkedin.com/in/sammagbo',
+      linkedin: 'https://www.linkedin.com/in/sam-magbo-02086555/',
       github: 'https://github.com/sammagbo',
 } as const;
 
