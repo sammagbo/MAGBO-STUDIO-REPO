@@ -45,7 +45,7 @@ export const WorkSection = () => {
                         {/* Section Label */}
                         <div className="work-animate mb-4">
                               <span className="text-mg-violet font-mono text-xs tracking-[0.25em] uppercase">
-                                    02 — Work
+                                    03 — Work
                               </span>
                         </div>
 
@@ -75,11 +75,13 @@ export const WorkSection = () => {
                                                       {project.language}
                                                 </span>
                                                 <div className="flex items-center gap-3">
+                                                      {project.github && (
                                                       <a href={project.github} target="_blank" rel="noopener noreferrer"
                                                             className="text-dark-muted hover:text-mg-blue transition-colors duration-300"
                                                             aria-label={`GitHub: ${project.name}`}>
                                                             <Github className="w-4 h-4" />
                                                       </a>
+                                                      )}
                                                       {project.live && (
                                                             <a href={project.live} target="_blank" rel="noopener noreferrer"
                                                                   className="text-dark-muted hover:text-mg-turquoise transition-colors duration-300"

@@ -53,26 +53,26 @@ export const HeroSection = () => {
                               {/* Name */}
                               <h1 className="hero-name font-display font-extrabold text-dark-text leading-[0.95] tracking-tight mb-6 opacity-0"
                                     style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)' }}>
-                                    Sammy K{'\n'}
+                                    Sam{'\n'}
                                     <span className="block">Magbo<span className="gradient-text">.</span></span>
                               </h1>
 
                               {/* Role with markers */}
                               <p className="hero-role font-body leading-relaxed mb-8 opacity-0"
                                     style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}>
-                                    <span className="marker-blue font-medium text-dark-text">Software Engineer</span>
-                                    {' & '}
-                                    <span className="marker-violet font-medium text-dark-text">Security Architect</span>
+                                    <span className="marker-blue font-medium text-dark-text">Technology & Innovation</span>
+                                    {' · '}
+                                    <span className="marker-violet font-medium text-dark-text">Project Management</span>
                               </p>
 
                               {/* Bio */}
                               <p className="hero-bio font-body text-dark-secondary leading-relaxed max-w-2xl mb-12 opacity-0"
                                     style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)' }}>
-                                    I build <span className="marker-turquoise">resilient software</span> for critical environments.
-                                    With a Computer Science background and hands-on experience in
-                                    <span className="marker-orange"> systems implementation</span>,
-                                    process modernization, and operational management across public and private sectors,
-                                    I focus on crafting architectures that are as{' '}
+                                    I implement <span className="marker-turquoise">resilient systems</span> across critical environments.
+                                    With a Computer Science degree and hands-on experience in
+                                    <span className="marker-orange"> IT governance</span>,
+                                    system modernization, and strategic project management across public and private sectors,
+                                    I deliver solutions that are as{' '}
                                     <span className="marker-green">secure</span> as they are{' '}
                                     <span className="marker-yellow">scalable</span>.
                               </p>

@@ -59,7 +59,7 @@ export const ContactSection = () => {
                         {/* Section Label */}
                         <div className="contact-animate mb-4">
                               <span className="text-mg-pink font-mono text-xs tracking-[0.25em] uppercase">
-                                    04 — Contact
+                                    05 — Contact
                               </span>
                         </div>
 

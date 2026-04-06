@@ -26,10 +26,10 @@ export const AboutSection = () => {
       }, []);
 
       const stats = [
-            { icon: Code2, value: '7+', label: 'Projects Shipped', color: 'text-mg-blue', dotColor: 'bg-mg-blue' },
-            { icon: Globe, value: '4', label: 'Languages Spoken', color: 'text-mg-orange', dotColor: 'bg-mg-orange' },
-            { icon: GraduationCap, value: 'B.Sc.', label: 'Computer Engineering', color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise' },
-            { icon: Briefcase, value: '4+', label: 'Years in Tech', color: 'text-mg-violet', dotColor: 'bg-mg-violet' },
+            { icon: Code2, value: '8+', label: 'Projects Shipped', color: 'text-mg-blue', dotColor: 'bg-mg-blue' },
+            { icon: Globe, value: '5', label: 'Languages Spoken', color: 'text-mg-orange', dotColor: 'bg-mg-orange' },
+            { icon: GraduationCap, value: 'B.Sc.', label: 'Computer Science', color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise' },
+            { icon: Briefcase, value: '10+', label: 'Years in Tech', color: 'text-mg-violet', dotColor: 'bg-mg-violet' },
       ];
 
       return (
@@ -54,21 +54,21 @@ export const AboutSection = () => {
                               <div>
                                     <h2 className="about-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-8"
                                           style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
-                                          Building <span className="marker-turquoise">resilient software</span> for critical environments.
+                                          Technology, innovation, and <span className="marker-turquoise">strategic execution</span>.
                                     </h2>
 
                                     <p className="about-animate text-dark-secondary font-body leading-relaxed mb-6 text-base">
-                                          I'm a <span className="marker-blue">fullstack engineer</span> with a focus on
-                                          <span className="marker-violet"> security architecture</span> and institutional-grade platforms.
-                                          My work spans from <span className="marker-orange">React SPAs</span> with GPU-accelerated animations
-                                          to <span className="marker-red">Spring Boot microservices</span> handling sensitive data flows.
+                                          I'm a <span className="marker-blue">Computer Science graduate</span> with experience spanning
+                                          <span className="marker-violet"> IT governance</span>, system modernization, and institutional-grade platform development.
+                                          My work bridges <span className="marker-orange">public sector innovation</span> —
+                                          from state-level IT master plans to <span className="marker-red">full-stack applications</span> serving educational networks.
                                     </p>
 
                                     <p className="about-animate text-dark-muted font-body leading-relaxed text-base">
-                                          Based in <span className="marker-green">Rio de Janeiro</span>, I work across time zones building
-                                          systems where uptime and data integrity are non-negotiable. I combine strong
-                                          technical execution with experience in <span className="marker-yellow">project management</span> and
-                                          multilingual communication (French, Portuguese, English, Spanish).
+                                          Based in <span className="marker-green">Rio de Janeiro</span>, I operate across cultures and languages
+                                          (French, Portuguese, English, Spanish, Italian) —
+                                          managing <span className="marker-yellow">multicultural teams</span> and delivering projects
+                                          where operational clarity and technical precision are non-negotiable.
                                     </p>
                               </div>
 

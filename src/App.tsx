@@ -4,6 +4,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { MainLayout } from '@/layout/MainLayout';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
+import { ExperienceSection } from '@/components/ExperienceSection';
 import { WorkSection } from '@/components/WorkSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { ContactSection } from '@/components/ContactSection';
@@ -78,6 +79,7 @@ function App() {
                               <MainLayout>
                                     <HeroSection />
                                     <AboutSection />
+                                    <ExperienceSection />
                                     <WorkSection />
                                     <SkillsSection />
                                     <ContactSection />

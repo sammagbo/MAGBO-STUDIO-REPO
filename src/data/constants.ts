@@ -1,14 +1,15 @@
 /**
  * MAGBO STUDIO — Centralized data constants.
- * Real project data from GitHub. Clean, recruiter-friendly.
+ * Real profile data sourced from LinkedIn + GitHub. Clean, recruiter-friendly.
  */
 
 export const PROFILE = {
-      name: 'Sammy K Magbo',
-      role: 'Software Engineer & Security Architect',
+      name: 'Sam Magbo',
+      role: 'Technology & Innovation Professional',
+      tagline: 'Systems Implementation · Project Management · Computer Science',
       location: 'Rio de Janeiro, BR',
-      ops: 'Remote — Global',
-      bio: 'I build resilient software for critical environments. With a Computer Science background and hands-on experience in systems implementation, process modernization, and operational management across public and private sectors, I focus on crafting architectures that are as secure as they are scalable.',
+      ops: 'Multisectoral · Multilingual',
+      bio: 'Technology and innovation professional with solid experience across public and private sectors. I combine a Computer Science background with multilingual fluency to manage multicultural environments and deliver impactful projects — from IT governance frameworks and system modernization to full-stack platforms and IoT security solutions.',
       email: 'sammagbo@gmail.com',
       linkedin: 'https://www.linkedin.com/in/sam-magbo-02086555/',
       github: 'https://github.com/sammagbo',
@@ -18,21 +19,131 @@ export const SKILLS = {
       frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GSAP', 'Three.js'],
       backend: ['Java', 'Spring Boot', 'Node.js', 'REST APIs', 'PostgreSQL'],
       infrastructure: ['Docker', 'AWS', 'CI/CD', 'Nginx', 'Vercel'],
-      other: ['Zero-Trust Architecture', 'Security Architecture', 'Project Management', 'Multilingual (FR/PT/EN/ES)'],
+      other: ['IT Governance', 'Project Management', 'Strategic Planning', 'Multilingual (FR/PT/EN/ES)'],
 } as const;
 
 export const SKILLS_FLAT = [
       'React', 'TypeScript', 'Java', 'Spring Boot', 'Node.js',
       'PostgreSQL', 'Docker', 'AWS', 'Next.js', 'GSAP',
-      'Tailwind CSS', 'REST APIs', 'Security Architecture', 'CI/CD',
+      'Tailwind CSS', 'REST APIs', 'IT Governance', 'CI/CD',
 ] as const;
+
+// ── Experience ──
+
+export interface Experience {
+      id: string;
+      role: string;
+      company: string;
+      location: string;
+      period: string;
+      type: 'full-time' | 'contract' | 'freelance' | 'entrepreneurship';
+      bullets: string[];
+}
+
+export const EXPERIENCE: Experience[] = [
+      {
+            id: 'aefe',
+            role: 'Vie Scolaire',
+            company: 'AEFE — Agence pour l\'enseignement français à l\'étranger',
+            location: 'Rio de Janeiro, BR',
+            period: 'Sep 2020 — Present',
+            type: 'full-time',
+            bullets: [
+                  'Multicultural and bilingual environment management across French educational institutions',
+                  'School and academic organization, strategic communication with families',
+                  'Preparation and coordination for international certifications (BAC, Brevet, PIX)',
+            ],
+      },
+      {
+            id: 'sedeics',
+            role: 'IT Development Agent — Strategic Projects',
+            company: 'Governo do Estado do Rio de Janeiro (SEDEICS)',
+            location: 'Rio de Janeiro, BR',
+            period: 'May 2022 — Jan 2026',
+            type: 'contract',
+            bullets: [
+                  'Led the PDTIC (IT Master Plan) initiative for IT governance and system modernization',
+                  'Managed cross-departmental technology infrastructure and data organization',
+                  'Delivered strategic IT reports and digital transformation roadmaps',
+            ],
+      },
+      {
+            id: 'noceci',
+            role: 'Managing Partner',
+            company: 'Noceci-Viagens',
+            location: 'Rio de Janeiro, BR',
+            period: 'Apr 2022 — Aug 2025',
+            type: 'entrepreneurship',
+            bullets: [
+                  'Administrative leadership and legal representation',
+                  'Management of human resources, financial operations, and technology stack',
+                  'Strategic planning and business development',
+            ],
+      },
+      {
+            id: 'cl20',
+            role: 'Coordinator — Language Programs (C.L. 2.0)',
+            company: 'Universidade Veiga de Almeida',
+            location: 'Rio de Janeiro, BR',
+            period: 'Jan 2018 — Sep 2020',
+            type: 'freelance',
+            bullets: [
+                  'Managed multilingual education programs (English, Spanish, French, Italian)',
+                  'Developed bilingual education strategies and curriculum frameworks',
+                  'Coordinated academic projects linking technology and language learning',
+            ],
+      },
+      {
+            id: 'maori',
+            role: 'Agent — Information Security',
+            company: 'MAORI do Brasil',
+            location: 'Rio de Janeiro, BR',
+            period: 'Apr 2012 — May 2017',
+            type: 'full-time',
+            bullets: [
+                  'Customer service and information security support for the DCNS project',
+                  'Operational execution in high-clearance environments',
+            ],
+      },
+];
+
+// ── Education ──
+
+export interface Education {
+      id: string;
+      degree: string;
+      field: string;
+      institution: string;
+      period: string;
+      note?: string;
+}
+
+export const EDUCATION: Education[] = [
+      {
+            id: 'uva',
+            degree: 'B.Sc.',
+            field: 'Computer Science',
+            institution: 'Universidade Veiga de Almeida',
+            period: '2018 — 2025',
+            note: 'Project Academic Manager (2018)',
+      },
+      {
+            id: 'iserj',
+            degree: 'Technical Diploma',
+            field: 'IT & Systems',
+            institution: 'ISERJ',
+            period: 'Completed',
+      },
+];
+
+// ── Projects ──
 
 export interface Project {
       id: string;
       name: string;
       description: string;
       stack: string[];
-      github: string;
+      github?: string;
       live?: string;
       language: string;
 }
@@ -44,6 +155,7 @@ export const PROJECTS: Project[] = [
             description: 'Personal portfolio and engineering showcase. Built with React, TypeScript, GSAP animations, and Tailwind CSS on a dark premium design system.',
             stack: ['React', 'TypeScript', 'GSAP', 'Tailwind CSS'],
             github: 'https://github.com/sammagbo/MAGBO-STUDIO-REPO',
+            live: 'https://sammagbo.github.io/MAGBO-STUDIO-REPO/',
             language: 'TypeScript',
       },
       {
@@ -71,6 +183,13 @@ export const PROJECTS: Project[] = [
             github: 'https://github.com/sammagbo/french-lms-web',
             live: 'https://french-lms-cl83.vercel.app',
             language: 'TypeScript',
+      },
+      {
+            id: 'satisystem',
+            name: 'SatiSystem',
+            description: 'Systems development project (TCC) focused on process automation and institutional management. Built as a capstone project at ISERJ.',
+            stack: ['PHP', 'MySQL', 'JavaScript'],
+            language: 'PHP',
       },
       {
             id: 'the-talk',

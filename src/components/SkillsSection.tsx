@@ -43,7 +43,7 @@ export const SkillsSection = () => {
                         {/* Section Label */}
                         <div className="skills-animate mb-4">
                               <span className="text-mg-turquoise font-mono text-xs tracking-[0.25em] uppercase">
-                                    03 — Expertise
+                                    04 — Expertise
                               </span>
                         </div>
 
