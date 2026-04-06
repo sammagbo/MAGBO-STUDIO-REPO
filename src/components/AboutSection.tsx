@@ -28,7 +28,7 @@ export const AboutSection = () => {
       const stats = [
             { icon: Code2, value: '8+', label: 'Projects Shipped', color: 'text-mg-blue', dotColor: 'bg-mg-blue' },
             { icon: Globe, value: '5', label: 'Languages Spoken', color: 'text-mg-orange', dotColor: 'bg-mg-orange' },
-            { icon: GraduationCap, value: 'B.Sc.', label: 'Computer Science', color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise' },
+            { icon: GraduationCap, value: 'Graduação', label: 'Ciência da Computação', color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise' },
             { icon: Briefcase, value: '10+', label: 'Years in Tech', color: 'text-mg-violet', dotColor: 'bg-mg-violet' },
       ];
 

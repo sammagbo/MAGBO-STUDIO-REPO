@@ -121,7 +121,7 @@ export interface Education {
 export const EDUCATION: Education[] = [
       {
             id: 'uva',
-            degree: 'B.Sc.',
+            degree: 'Bacharelado',
             field: 'Computer Science',
             institution: 'Universidade Veiga de Almeida',
             period: '2018 — 2025',
