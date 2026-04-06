@@ -51,7 +51,7 @@ export const HeroSection = () => {
                               </div>
 
                               {/* Name */}
-                              <h1 className="hero-name font-display font-extrabold text-white leading-[0.95] tracking-tight mb-6 opacity-0"
+                              <h1 className="hero-name font-display font-extrabold text-dark-text leading-[0.95] tracking-tight mb-6 opacity-0"
                                     style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)' }}>
                                     Sammy K{'\n'}
                                     <span className="block">Magbo<span className="gradient-text">.</span></span>
@@ -60,9 +60,9 @@ export const HeroSection = () => {
                               {/* Role with markers */}
                               <p className="hero-role font-body leading-relaxed mb-8 opacity-0"
                                     style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}>
-                                    <span className="marker-blue font-medium text-white">Software Engineer</span>
+                                    <span className="marker-blue font-medium text-dark-text">Software Engineer</span>
                                     {' & '}
-                                    <span className="marker-violet font-medium text-white">Security Architect</span>
+                                    <span className="marker-violet font-medium text-dark-text">Security Architect</span>
                               </p>
 
                               {/* Bio */}
@@ -80,11 +80,11 @@ export const HeroSection = () => {
                               {/* CTAs */}
                               <div className="flex items-center gap-6 flex-wrap mb-12">
                                     <a href="#work"
-                                          className="hero-cta px-8 py-3.5 bg-mg-blue text-white font-body font-medium text-sm tracking-wide rounded-full hover:bg-mg-blue/80 hover:shadow-[0_0_30px_rgba(30,136,229,0.3)] transition-all duration-400 opacity-0">
+                                          className="hero-cta px-8 py-3.5 bg-mg-blue text-dark-text font-body font-medium text-sm tracking-wide rounded-full hover:bg-mg-blue/80 hover:shadow-[0_0_30px_rgba(30,136,229,0.3)] transition-all duration-400 opacity-0">
                                           View Work
                                     </a>
                                     <a href="#contact"
-                                          className="hero-cta px-8 py-3.5 border border-white/20 text-white font-body font-medium text-sm tracking-wide rounded-full hover:border-mg-turquoise/50 hover:text-mg-turquoise transition-all duration-300 opacity-0">
+                                          className="hero-cta px-8 py-3.5 border border-dark-border text-dark-text font-body font-medium text-sm tracking-wide rounded-full hover:border-mg-turquoise/50 hover:text-mg-turquoise transition-all duration-300 opacity-0">
                                           Get in touch →
                                     </a>
                               </div>

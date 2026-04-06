@@ -51,7 +51,7 @@ export const WorkSection = () => {
 
                         {/* Section Title */}
                         <div className="work-animate flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-                              <h2 className="font-display font-bold text-white leading-tight tracking-tight"
+                              <h2 className="font-display font-bold text-dark-text leading-tight tracking-tight"
                                     style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
                                     Selected <span className="marker-violet">Projects</span>
                               </h2>
@@ -71,7 +71,7 @@ export const WorkSection = () => {
                                     >
                                           {/* Top: language badge + links */}
                                           <div className="flex items-center justify-between mb-8">
-                                                <span className={`font-mono text-[10px] tracking-[0.2em] uppercase px-3 py-1 border rounded-full ${LANG_COLORS[project.language] || 'border-white/[0.08] text-dark-muted'}`}>
+                                                <span className={`font-mono text-[10px] tracking-[0.2em] uppercase px-3 py-1 border rounded-full ${LANG_COLORS[project.language] || 'border-dark-border text-dark-muted'}`}>
                                                       {project.language}
                                                 </span>
                                                 <div className="flex items-center gap-3">
@@ -92,7 +92,7 @@ export const WorkSection = () => {
 
                                           {/* Title */}
                                           <div className="flex-1">
-                                                <h3 className="font-display font-bold text-white text-xl lg:text-2xl mb-3 group-hover:text-mg-blue transition-colors duration-300">
+                                                <h3 className="font-display font-bold text-dark-text text-xl lg:text-2xl mb-3 group-hover:text-mg-blue transition-colors duration-300">
                                                       {project.name}
                                                 </h3>
                                                 <p className="text-dark-muted font-body text-sm leading-relaxed mb-6">
@@ -101,9 +101,9 @@ export const WorkSection = () => {
                                           </div>
 
                                           {/* Tech Tags */}
-                                          <div className="flex flex-wrap gap-2 pt-6 border-t border-white/[0.06]">
+                                          <div className="flex flex-wrap gap-2 pt-6 border-t border-dark-border">
                                                 {project.stack.map(tech => (
-                                                      <span key={tech} className="font-mono text-[10px] tracking-wider uppercase text-dark-secondary px-2.5 py-1 border border-white/[0.08] rounded-full hover:border-mg-blue/30 hover:text-mg-blue transition-all duration-300">
+                                                      <span key={tech} className="font-mono text-[10px] tracking-wider uppercase text-dark-secondary px-2.5 py-1 border border-dark-border rounded-full hover:border-mg-blue/30 hover:text-mg-blue transition-all duration-300">
                                                             {tech}
                                                       </span>
                                                 ))}

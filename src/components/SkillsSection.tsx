@@ -48,7 +48,7 @@ export const SkillsSection = () => {
                         </div>
 
                         {/* Section Title */}
-                        <h2 className="skills-animate font-display font-bold text-white leading-tight tracking-tight mb-16"
+                        <h2 className="skills-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-16"
                               style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
                               Technologies & <span className="marker-turquoise">Skills</span>
                         </h2>
@@ -64,7 +64,7 @@ export const SkillsSection = () => {
                                                 {SKILLS[cat.key].map((skill) => (
                                                       <li key={skill} className="flex items-center gap-3 text-dark-text font-body text-sm group">
                                                             <span className={`w-1.5 h-1.5 rounded-full ${cat.dotColor} group-hover:shadow-[0_0_6px] transition-all duration-300 shrink-0`} />
-                                                            <span className="group-hover:text-white transition-colors duration-300">
+                                                            <span className="group-hover:text-dark-text transition-colors duration-300">
                                                                   {skill}
                                                             </span>
                                                       </li>

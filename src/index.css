@@ -35,6 +35,18 @@
   --accent-gradient-warm: linear-gradient(135deg, var(--c-orange) 0%, var(--c-red) 50%, var(--c-pink) 100%);
 }
 
+[data-theme='light'] {
+  --bg: #FAFAFA;
+  --bg-elevated: #FFFFFF;
+  --bg-card: rgba(0, 0, 0, 0.03);
+  --border: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(0, 0, 0, 0.15);
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #6B7280;
+  --accent: #111827;
+}
+
 /* ── Global Reset ── */
 html {
   scroll-behavior: auto; /* Lenis handles smooth scroll */

@@ -52,7 +52,7 @@ export const AboutSection = () => {
 
                               {/* Left: Text */}
                               <div>
-                                    <h2 className="about-animate font-display font-bold text-white leading-tight tracking-tight mb-8"
+                                    <h2 className="about-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-8"
                                           style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
                                           Building <span className="marker-turquoise">resilient software</span> for critical environments.
                                     </h2>

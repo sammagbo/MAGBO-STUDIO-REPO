@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const NAV_ITEMS = [
       { id: 'about', label: 'About' },
@@ -11,6 +11,30 @@ const NAV_ITEMS = [
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
       const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
       const [isScrolled, setIsScrolled] = useState(false);
+      const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+      useEffect(() => {
+            const savedTheme = localStorage.getItem('magbo-theme') as 'dark' | 'light';
+            if (savedTheme) {
+                  setTheme(savedTheme);
+                  if (savedTheme === 'light') {
+                        document.documentElement.setAttribute('data-theme', 'light');
+                  }
+            }
+      }, []);
+
+      const toggleTheme = () => {
+            setTheme(prev => {
+                  const newTheme = prev === 'dark' ? 'light' : 'dark';
+                  if (newTheme === 'light') {
+                        document.documentElement.setAttribute('data-theme', 'light');
+                  } else {
+                        document.documentElement.removeAttribute('data-theme');
+                  }
+                  localStorage.setItem('magbo-theme', newTheme);
+                  return newTheme;
+            });
+      };
 
       // Track scroll for nav background
       useEffect(() => {
@@ -35,7 +59,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                   {/* ─── Fixed Top Navigation ─── */}
                   <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                         isScrolled
-                              ? 'glass border-b border-white/[0.06]'
+                              ? 'glass border-b border-dark-border'
                               : 'bg-transparent'
                   }`}>
                         <div className="max-w-[1200px] mx-auto w-full px-6 md:px-12 lg:px-20 xl:px-32 py-5 flex items-center justify-between">
@@ -59,16 +83,32 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                                 {item.label}
                                           </button>
                                     ))}
+                                    <button
+                                          onClick={toggleTheme}
+                                          className="text-dark-muted hover:text-mg-orange transition-colors duration-300 ml-4"
+                                          aria-label="Toggle Theme"
+                                    >
+                                          {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                                    </button>
                               </div>
 
-                              {/* Mobile Menu Button */}
-                              <button
-                                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                    className="md:hidden text-white p-1"
-                                    aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-                              >
-                                    {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                              </button>
+                              {/* Mobile Menu Action Buttons */}
+                              <div className="md:hidden flex items-center gap-4">
+                                    <button
+                                          onClick={toggleTheme}
+                                          className="text-dark-text p-1 hover:text-mg-orange transition-colors"
+                                          aria-label="Toggle Theme"
+                                    >
+                                          {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                                    </button>
+                                    <button
+                                          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                          className="text-dark-text p-1"
+                                          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                                    >
+                                          {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                                    </button>
+                              </div>
                         </div>
                   </nav>
 
@@ -80,7 +120,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                           <button
                                                 key={item.id}
                                                 onClick={() => scrollToSection(item.id)}
-                                                className="font-display font-bold text-white text-3xl tracking-tight hover:text-dark-secondary transition-colors duration-300"
+                                                className="font-display font-bold text-dark-text text-3xl tracking-tight hover:text-dark-secondary transition-colors duration-300"
                                           >
                                                 {item.label}
                                           </button>

@@ -4,15 +4,15 @@ export default {
       theme: {
             extend: {
                   colors: {
-                        'dark-bg': '#050505',
-                        'dark-elevated': '#0a0a0a',
-                        'dark-card': 'rgba(255, 255, 255, 0.02)',
-                        'dark-border': 'rgba(255, 255, 255, 0.08)',
-                        'dark-border-hover': 'rgba(255, 255, 255, 0.16)',
-                        'dark-text': '#F3F4F6',
-                        'dark-secondary': '#9CA3AF',
-                        'dark-muted': '#6B7280',
-                        'dark-accent': '#E5E7EB',
+                        'dark-bg': 'var(--bg)',
+                        'dark-elevated': 'var(--bg-elevated)',
+                        'dark-card': 'var(--bg-card)',
+                        'dark-border': 'var(--border)',
+                        'dark-border-hover': 'var(--border-hover)',
+                        'dark-text': 'var(--text-primary)',
+                        'dark-secondary': 'var(--text-secondary)',
+                        'dark-muted': 'var(--text-muted)',
+                        'dark-accent': 'var(--accent)',
                         /* MAGBO Palette */
                         'mg-red': '#E53935',
                         'mg-orange': '#FB8C00',

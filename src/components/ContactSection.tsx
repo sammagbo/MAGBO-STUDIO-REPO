@@ -64,7 +64,7 @@ export const ContactSection = () => {
                         </div>
 
                         {/* Big CTA */}
-                        <h2 className="contact-animate font-display font-bold text-white leading-tight tracking-tight mb-6"
+                        <h2 className="contact-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-6"
                               style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
                               Let's <span className="marker-pink">work together</span>.
                         </h2>
@@ -90,7 +90,7 @@ export const ContactSection = () => {
                                                       required
                                                       value={formData.name}
                                                       onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
-                                                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300"
+                                                      className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3.5 text-dark-text font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300"
                                                       placeholder="Your name"
                                                 />
                                           </div>
@@ -104,7 +104,7 @@ export const ContactSection = () => {
                                                       required
                                                       value={formData.email}
                                                       onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
-                                                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300"
+                                                      className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3.5 text-dark-text font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300"
                                                       placeholder="your@email.com"
                                                 />
                                           </div>
@@ -120,7 +120,7 @@ export const ContactSection = () => {
                                                 rows={5}
                                                 value={formData.message}
                                                 onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
-                                                className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3.5 text-white font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300 resize-none"
+                                                className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3.5 text-dark-text font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300 resize-none"
                                                 placeholder="Tell me about your project..."
                                           />
                                     </div>
@@ -131,7 +131,7 @@ export const ContactSection = () => {
                                           className={`inline-flex items-center gap-3 px-8 py-4 font-body font-medium text-sm rounded-full transition-all duration-400
                                                 ${status === 'sent'
                                                       ? 'bg-mg-green/20 text-mg-green border border-mg-green/30'
-                                                      : 'bg-mg-blue text-white hover:bg-mg-blue/80 hover:shadow-[0_0_30px_rgba(30,136,229,0.3)]'
+                                                      : 'bg-mg-blue text-dark-text hover:bg-mg-blue/80 hover:shadow-[0_0_30px_rgba(30,136,229,0.3)]'
                                                 }
                                                 disabled:opacity-60 disabled:cursor-not-allowed`}
                                     >
@@ -146,7 +146,7 @@ export const ContactSection = () => {
                                     <div className="bento-card p-6">
                                           <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-4">Or reach out directly</h3>
                                           <a href={`mailto:${PROFILE.email}`}
-                                                className="flex items-center gap-3 text-mg-blue font-body text-sm hover:text-white transition-colors duration-300 mb-3 group">
+                                                className="flex items-center gap-3 text-mg-blue font-body text-sm hover:text-dark-text transition-colors duration-300 mb-3 group">
                                                 <Mail className="w-4 h-4" />
                                                 {PROFILE.email}
                                                 <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -180,7 +180,7 @@ export const ContactSection = () => {
                         </div>
 
                         {/* Footer */}
-                        <div className="contact-animate pt-12 border-t border-white/[0.06]">
+                        <div className="contact-animate pt-12 border-t border-dark-border">
                               <p className="text-dark-muted font-mono text-xs tracking-wide text-center">
                                     © {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
                               </p>
