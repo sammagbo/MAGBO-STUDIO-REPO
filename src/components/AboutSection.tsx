@@ -43,7 +43,7 @@ export const AboutSection = () => {
                         {/* Section Label */}
                         <div className="about-animate mb-8 flex items-center gap-4">
                               <div className="w-10 h-10 rounded-full border border-mg-blue/30 overflow-hidden shrink-0">
-                                    <img src="/profile.jpg" alt="Sam Magbo" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                                    <img src="/profile_real.png" alt="Sam Magbo" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                               </div>
                               <span className="text-mg-blue font-mono text-xs tracking-[0.25em] uppercase">
                                     01 — About

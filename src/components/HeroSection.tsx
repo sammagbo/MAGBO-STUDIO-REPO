@@ -122,7 +122,7 @@ export const HeroSection = () => {
                                     <div className="absolute -inset-1 border border-mg-turquoise/0 group-hover:border-mg-turquoise/20 transition-all duration-500 scale-105 opacity-0 group-hover:opacity-100 group-hover:scale-100 z-0" />
 
                                     <img
-                                          src="/profile.jpg"
+                                          src="/profile_real.png"
                                           alt="Sam Magbo — Technology & Innovation"
                                           className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                                           onError={(e) => {
