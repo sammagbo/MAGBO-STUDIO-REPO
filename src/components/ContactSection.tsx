@@ -265,7 +265,7 @@ export const ContactSection = () => {
                                           <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-2">{formT.location}</h3>
                                           <p className="text-dark-muted font-body text-sm">{PROFILE.location}</p>
                                           <p className="text-dark-muted font-body text-xs mt-1">
-                                                {{ pt: 'Multissetorial · Multilíngue', fr: 'Multisectoriel · Multilingue', es: 'Multisectorial · Multilingüe', sw: 'Kisekta · Lugha Nyingi' }[language] || PROFILE.ops}
+                                                {{ en: PROFILE.ops, pt: 'Multissetorial · Multilíngue', fr: 'Multisectoriel · Multilingue', es: 'Multisectorial · Multilingüe', sw: 'Kisekta · Lugha Nyingi' }[language] || PROFILE.ops}
                                           </p>
                                     </div>
                               </div>

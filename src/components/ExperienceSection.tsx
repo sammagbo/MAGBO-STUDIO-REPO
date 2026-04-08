@@ -57,7 +57,7 @@ export const ExperienceSection = () => {
 
                               <div className="space-y-16">
                                     {EXPERIENCE.map((exp) => {
-                                          const tExp = t.exp?.[exp.id] as any;
+                                          const tExp = (t.exp as any)?.[exp.id];
                                           return (
                                           <div key={exp.id} className="exp-animate relative pl-8 md:pl-20">
                                                 {/* Timeline dot */}
@@ -110,7 +110,7 @@ export const ExperienceSection = () => {
 
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
                                     {EDUCATION.map((edu) => {
-                                          const tEdu = t.edu?.[edu.id] as any;
+                                          const tEdu = (t.edu as any)?.[edu.id];
                                           return (
                                           <div key={edu.id} className="exp-animate border-l-2 border-mg-turquoise/30 pl-8 py-2">
                                                 <div className="flex items-baseline gap-3 mb-1">

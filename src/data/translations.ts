@@ -76,302 +76,6 @@ export const TRANSLATIONS = {
           "contact_badge": "05 — Initializing Connection",
           "contact_title": "Establish <span class=\"marker-turquoise\">Protocol</span>"
 },
-                        exp: {
-          "aefe": {
-                    "role": "Vie Scolaire",
-                    "bullets": [
-                              "Gestão de ambiente multicultural e bilíngue em instituições de ensino francesas",
-                              "Organização escolar e acadêmica, comunicação estratégica com as famílias",
-                              "Preparação e coordenação para certificações internacionais (BAC, Brevet, PIX)"
-                    ]
-          },
-          "sedeics": {
-                    "role": "Agente de Desenvolvimento de TI — Projetos Estratégicos",
-                    "bullets": [
-                              "Liderou a iniciativa do PDTIC (Plano Diretor de TI) para governança e modernização de sistemas",
-                              "Gerenciou infraestrutura tecnológica interdepartamental e organização de dados",
-                              "Entregou relatórios estratégicos de TI e roteiros de transformação digital"
-                    ]
-          },
-          "noceci": {
-                    "role": "Sócio Administrador",
-                    "bullets": [
-                              "Liderança administrativa e representação legal",
-                              "Gestão de recursos humanos, operações financeiras e stack tecnológico",
-                              "Planejamento estratégico e desenvolvimento de negócios"
-                    ]
-          },
-          "cl20": {
-                    "role": "Fundador — C.L. 2.0 (Cursos de Idiomas)",
-                    "bullets": [
-                              "Projeto universitário de empreendedorismo focado em educação multilíngue (Inglês, Espanhol, Francês, Italiano)",
-                              "Desenvolveu o modelo de negócio, currículo bilíngue e plano operacional",
-                              "Conectou tecnologia e aprendizagem de idiomas através de iniciativas lideradas por acadêmicos"
-                    ]
-          },
-          "maori": {
-                    "role": "Agente — Segurança da Informação",
-                    "bullets": [
-                              "Atendimento ao cliente e suporte em segurança da informação para o projeto DCNS",
-                              "Execução operacional em ambientes de alta confidencialidade"
-                    ]
-          }
-},
-            edu: {
-          "uva": {
-                    "degree": "Bacharelado",
-                    "field": "Ciência da Computação",
-                    "note": "Gerente Acadêmico de Projetos (2018)"
-          },
-          "iserj": {
-                    "degree": "Diploma Técnico",
-                    "field": "Sistemas e TI",
-                    "note": ""
-          }
-},
-            proj: {
-          "magbo-studio": "Portfólio pessoal e showcase de engenharia. Construído com React, TypeScript, GSAP e Tailwind CSS em um sistema de design premium escuro.",
-          "controle-de-acesso": "Sistema de controle de acesso e segurança física com base em IoT para uma instituição educacional. O sistema lê QR Code e provê dashboards por setor.",
-          "ccc-cdi": "Sistema de gestão e controle de acesso full-stack para o centro organizacional CDI. Frontend TypeScript com gestão de estado em tempo real.",
-          "french-lms": "Sistema de gestão de aprendizagem para o ensino de francês. Arquitetura full-stack com backend em Spring Boot e frontend em React.",
-          "satisystem": "Projeto de desenvolvimento de sistemas (TCC) focado na automação de processos e gestão institucional e de pontuações.",
-          "the-talk": "Uma plataforma de podcast para conteúdo de moda por Mijean Rochus. Interface estilística moderna com capacidades avançadas de áudio.",
-          "magbo-studio-backend": "Arquitetura de backend Spring Boot para aplicações corporativas. Padrões Clean Architecture, isolamento de domínio e políticas de persistência.",
-          "floresta-unity": "Jogo de simulação ambiental construído em Unity e C#. Explora temas ecológicos de forma interativa e complexa."
-},
-            ui: {
-          "experience_badge": "02 — Experiência",
-          "experience_title": "Trajetória <span class=\"marker-orange\">Profissional</span>",
-          "education_badge": "Educação",
-          "work_badge": "03 — Trabalhos Selecionados",
-          "work_title": "Logs de <span class=\"marker-blue\">Engenharia</span>",
-          "skills_badge": "04 — Habilidades e Expertise",
-          "skills_title": "Arsenal <span class=\"marker-red\">Técnico</span>",
-          "contact_badge": "05 — Iniciando Conexão",
-          "contact_title": "Estabelecer <span class=\"marker-turquoise\">Protocolo</span>"
-},
-                        exp: {
-          "aefe": {
-                    "role": "Vie Scolaire",
-                    "bullets": [
-                              "Gestión de ambiente multicultural y bilingüe en instituciones francesas",
-                              "Organización escolar y académica, comunicación estratégica",
-                              "Coordinación de certificaciones internacionales (BAC, Brevet)"
-                    ]
-          },
-          "sedeics": {
-                    "role": "Agente de Desarrollo IT — Proyectos Estratégicos",
-                    "bullets": [
-                              "Dirigió la iniciativa del Plan Maestro de TI para gobernanza y modernización",
-                              "Gestionó la infraestructura tecnológica interdepartamental",
-                              "Entregó hojas de ruta de transformación digital y reportes de TI"
-                    ]
-          },
-          "noceci": {
-                    "role": "Socio Administrador",
-                    "bullets": [
-                              "Liderazgo administrativo",
-                              "Gestión de recursos humanos, finanzas y tecnología",
-                              "Desarrollo de negocios"
-                    ]
-          },
-          "cl20": {
-                    "role": "Fundador — C.L. 2.0 (Cursos de Idiomas)",
-                    "bullets": [
-                              "Proyecto de emprendimiento enfocado en educación multilingüe",
-                              "Desarrolló modelo de negocio y currículo",
-                              "Unió tecnología y aprendizaje de idiomas"
-                    ]
-          },
-          "maori": {
-                    "role": "Agente — Seguridad de Información",
-                    "bullets": [
-                              "Atención al cliente y soporte para el proyecto DCNS",
-                              "Ejecución en ambientes de alta seguridad"
-                    ]
-          }
-},
-            edu: {
-          "uva": {
-                    "degree": "Bachillerato",
-                    "field": "Ciencias de la Computación",
-                    "note": "Gerente Académico de Proyectos (2018)"
-          },
-          "iserj": {
-                    "degree": "Diploma Técnico",
-                    "field": "TI y Sistemas",
-                    "note": ""
-          }
-},
-            proj: {
-          "magbo-studio": "Portafolio personal diseñado con React, TypeScript, Tailwind y GSAP.",
-          "controle-de-acesso": "Control de seguridad IoT y acceso para centros educativos.",
-          "ccc-cdi": "Sistema de gestión CDI y control de acceso Full-stack.",
-          "french-lms": "Plataforma LMS para el aprendizaje de francés con Spring Boot.",
-          "satisystem": "Sistema de recolección de puntos enfocado a escuelas.",
-          "the-talk": "Plataforma de moda y podcast desarrollada para Mijean Rochus.",
-          "magbo-studio-backend": "API para sistemas críticos usando Java y Spring Boot.",
-          "floresta-unity": "Juego Unity C# sobre ecosistemas forestales."
-},
-            ui: {
-          "experience_badge": "02 — Experiencia",
-          "experience_title": "Trayectoria <span class=\"marker-orange\">Profesional</span>",
-          "education_badge": "Educación",
-          "work_badge": "03 — Proyectos Recientes",
-          "work_title": "Registros de <span class=\"marker-blue\">Ingeniería</span>",
-          "skills_badge": "04 — Habilidades",
-          "skills_title": "Arsenal <span class=\"marker-red\">Técnico</span>",
-          "contact_badge": "05 — Iniciando Conexión",
-          "contact_title": "Establecer <span class=\"marker-turquoise\">Protocolo</span>"
-},
-                        exp: {
-          "aefe": {
-                    "role": "Vie Scolaire",
-                    "bullets": [
-                              "Gestion globale pour environnement multiculturel et francophone",
-                              "Organisation de la vie scolaire, communication avec les familles",
-                              "Certifications internationales (BAC, Brevet)"
-                    ]
-          },
-          "sedeics": {
-                    "role": "Agent de Dév. Informatique — Projets Stratég.",
-                    "bullets": [
-                              "Mise en oeuvre du Master Plan Informatique pour la gouvernance des SI",
-                              "Gestion des infrastructures interdépartementales",
-                              "Elaboration de feuilles de route stratégiques et transformation digitale"
-                    ]
-          },
-          "noceci": {
-                    "role": "Gérant et Partenaire",
-                    "bullets": [
-                              "Leadership administratif et représentation légale",
-                              "Gestion des RH, opérations financières, et de la pile technologique",
-                              "Développement commercial"
-                    ]
-          },
-          "cl20": {
-                    "role": "Fondateur — C.L. 2.0",
-                    "bullets": [
-                              "Projet de création d'entreprise pour cours de langues",
-                              "Développement du modèle économique",
-                              "Intégration technologique avec l'éducation"
-                    ]
-          },
-          "maori": {
-                    "role": "Agent de Sécurité de l'information",
-                    "bullets": [
-                              "Opérations support et sécurité DCNS",
-                              "Environnement à haute sécurité et clairance"
-                    ]
-          }
-},
-            edu: {
-          "uva": {
-                    "degree": "Licence",
-                    "field": "Science Informatique",
-                    "note": "Project Manager Académique (2018)"
-          },
-          "iserj": {
-                    "degree": "Diplôme Technique",
-                    "field": "Systèmes Informatiques",
-                    "note": ""
-          }
-},
-            proj: {
-          "magbo-studio": "Portefeuille personnel en React/TypeScript.",
-          "controle-de-acesso": "Système de sécurité physique basé sur l'IoT.",
-          "ccc-cdi": "Contrôle d'accès du centre organisationnel CDI.",
-          "french-lms": "Système LMS pour le Français par API.",
-          "satisystem": "Automatisation de processus de l'institution.",
-          "the-talk": "Plateforme multimédia / Podcast The Talk Fashion.",
-          "magbo-studio-backend": "Architecture backend métier robuste en Spring Boot.",
-          "floresta-unity": "Jeu Unity écologique interactif."
-},
-            ui: {
-          "experience_badge": "02 — Expérience",
-          "experience_title": "Parcours <span class=\"marker-orange\">Professionnel</span>",
-          "education_badge": "Éducation",
-          "work_badge": "03 — Projets Sélectionnés",
-          "work_title": "Registres <span class=\"marker-blue\">Techniques</span>",
-          "skills_badge": "04 — Compétences",
-          "skills_title": "Arsenal <span class=\"marker-red\">Technologique</span>",
-          "contact_badge": "05 — Connexion Initiale",
-          "contact_title": "Établir <span class=\"marker-turquoise\">le Protocole</span>"
-},
-                        exp: {
-          "aefe": {
-                    "role": "Vie Scolaire",
-                    "bullets": [
-                              "Usimamizi wa mazingira mbalimbali kwa taasisi za Kifaransa",
-                              "Mawasiliano ya kimkakati na familia",
-                              "Maandalizi kwa vyeti vya kimataifa"
-                    ]
-          },
-          "sedeics": {
-                    "role": "Wakala wa Teknolojia — Miradi Mikuu",
-                    "bullets": [
-                              "Aliwezesha maendeleo ya mfumo mkuu wa IT (PDTIC)",
-                              "Alisimamia miundombinu ya mfumo ya idara",
-                              "Aliwasilisha ripoti za mageuzi ya kidijitali"
-                    ]
-          },
-          "noceci": {
-                    "role": "Mkurugenzi Mshiriki",
-                    "bullets": [
-                              "Uongozi wasimamizi na mamlaka ya kisheria",
-                              "Usimamizi wa fedha, watu na teknolojia",
-                              "Mipango ya kimkakati ya biashara"
-                    ]
-          },
-          "cl20": {
-                    "role": "Mwanzilishi",
-                    "bullets": [
-                              "Mradi wa elimu ya lugha za kigeni katika chuo kikuu",
-                              "Aliunda mfumo wa kibiashara",
-                              "Teknolojia iliyojumuishwa na mafunzo"
-                    ]
-          },
-          "maori": {
-                    "role": "Afisa wa Usalama wa Taarifa",
-                    "bullets": [
-                              "Usalama na uhakiki wa mradi wa DCNS",
-                              "Utekelezaji kazi thabiti katika mazingira muhimu"
-                    ]
-          }
-},
-            edu: {
-          "uva": {
-                    "degree": "Shahada",
-                    "field": "Sayansi ya Kompyuta",
-                    "note": "Meneja Miradi ya Chuo (2018)"
-          },
-          "iserj": {
-                    "degree": "Shahada Ndogo",
-                    "field": "Teknolojia na Mifumo",
-                    "note": ""
-          }
-},
-            proj: {
-          "magbo-studio": "Ukurasa binafsi. Imeundwa na React, TypeScript na muundo mzuri.",
-          "controle-de-acesso": "Mfumo wa kudhibiti usalama kutumia IoT. Inajumuisha ufikiaji wa kutumia nambari ya QR.",
-          "ccc-cdi": "Programu ya kusimamia upatikanaji wa shirika na CDI.",
-          "french-lms": "Shule ya matumizi kwenye mtandao ya Kifaransa na Spring Boot.",
-          "satisystem": "Matumizi ya kuandaa shughuli kwa otomatiki za wanafunzi.",
-          "the-talk": "Sauti ya redio za mitindo kwa Mijean Rochus.",
-          "magbo-studio-backend": "Seva kuu ya Java kwa mifumo thabiti.",
-          "floresta-unity": "Mchezo rahisi wa kiikolojia kupitia Unity 3D."
-},
-            ui: {
-          "experience_badge": "02 — Uzoefu",
-          "experience_title": "Historia ya <span class=\"marker-orange\">Kikazi</span>",
-          "education_badge": "Elimu",
-          "work_badge": "03 — Kazi Bora",
-          "work_title": "Mifumo na <span class=\"marker-blue\">Uhadi</span>",
-          "skills_badge": "04 — Utaalamu",
-          "skills_title": "Silaha <span class=\"marker-red\">Téknolojia</span>",
-          "contact_badge": "05 — Anzisha Muunganisho",
-          "contact_title": "Sanidi <span class=\"marker-turquoise\">Itifaki</span>"
-},
             about: {
                   section_label: '01 — About',
                   title: 'Technology, innovation, and <span class="marker-turquoise">strategic execution</span>.',
@@ -551,6 +255,80 @@ export const TRANSLATIONS = {
                   latency: 'GLOBAL LATENCY',
                   threats: 'THREATS BLOCKED',
                   services: {
+                        exp: {
+          "aefe": {
+                    "role": "Vie Scolaire",
+                    "bullets": [
+                              "Gestión de ambiente multicultural y bilingüe en instituciones francesas",
+                              "Organización escolar y académica, comunicación estratégica",
+                              "Coordinación de certificaciones internacionales (BAC, Brevet)"
+                    ]
+          },
+          "sedeics": {
+                    "role": "Agente de Desarrollo IT — Proyectos Estratégicos",
+                    "bullets": [
+                              "Dirigió la iniciativa del Plan Maestro de TI para gobernanza y modernización",
+                              "Gestionó la infraestructura tecnológica interdepartamental",
+                              "Entregó hojas de ruta de transformación digital y reportes de TI"
+                    ]
+          },
+          "noceci": {
+                    "role": "Socio Administrador",
+                    "bullets": [
+                              "Liderazgo administrativo",
+                              "Gestión de recursos humanos, finanzas y tecnología",
+                              "Desarrollo de negocios"
+                    ]
+          },
+          "cl20": {
+                    "role": "Fundador — C.L. 2.0 (Cursos de Idiomas)",
+                    "bullets": [
+                              "Proyecto de emprendimiento enfocado en educación multilingüe",
+                              "Desarrolló modelo de negocio y currículo",
+                              "Unió tecnología y aprendizaje de idiomas"
+                    ]
+          },
+          "maori": {
+                    "role": "Agente — Seguridad de Información",
+                    "bullets": [
+                              "Atención al cliente y soporte para el proyecto DCNS",
+                              "Ejecución en ambientes de alta seguridad"
+                    ]
+          }
+},
+            edu: {
+          "uva": {
+                    "degree": "Bachillerato",
+                    "field": "Ciencias de la Computación",
+                    "note": "Gerente Académico de Proyectos (2018)"
+          },
+          "iserj": {
+                    "degree": "Diploma Técnico",
+                    "field": "TI y Sistemas",
+                    "note": ""
+          }
+},
+            proj: {
+          "magbo-studio": "Portafolio personal diseñado con React, TypeScript, Tailwind y GSAP.",
+          "controle-de-acesso": "Control de seguridad IoT y acceso para centros educativos.",
+          "ccc-cdi": "Sistema de gestión CDI y control de acceso Full-stack.",
+          "french-lms": "Plataforma LMS para el aprendizaje de francés con Spring Boot.",
+          "satisystem": "Sistema de recolección de puntos enfocado a escuelas.",
+          "the-talk": "Plataforma de moda y podcast desarrollada para Mijean Rochus.",
+          "magbo-studio-backend": "API para sistemas críticos usando Java y Spring Boot.",
+          "floresta-unity": "Juego Unity C# sobre ecosistemas forestales."
+},
+            ui: {
+          "experience_badge": "02 — Experiencia",
+          "experience_title": "Trayectoria <span class=\"marker-orange\">Profesional</span>",
+          "education_badge": "Educación",
+          "work_badge": "03 — Proyectos Recientes",
+          "work_title": "Registros de <span class=\"marker-blue\">Ingeniería</span>",
+          "skills_badge": "04 — Habilidades",
+          "skills_title": "Arsenal <span class=\"marker-red\">Técnico</span>",
+          "contact_badge": "05 — Iniciando Conexión",
+          "contact_title": "Establecer <span class=\"marker-turquoise\">Protocolo</span>"
+},
                         api: 'API GATEWAY',
                         portals: 'CLIENT PORTALS',
                         encryption: 'ENCRYPTION MODULES',
@@ -668,6 +446,80 @@ export const TRANSLATIONS = {
             }
       },
       pt: {
+                        exp: {
+          "aefe": {
+                    "role": "Vie Scolaire",
+                    "bullets": [
+                              "Gestão de ambiente multicultural e bilíngue em instituições de ensino francesas",
+                              "Organização escolar e acadêmica, comunicação estratégica com as famílias",
+                              "Preparação e coordenação para certificações internacionais (BAC, Brevet, PIX)"
+                    ]
+          },
+          "sedeics": {
+                    "role": "Agente de Desenvolvimento de TI — Projetos Estratégicos",
+                    "bullets": [
+                              "Liderou a iniciativa do PDTIC (Plano Diretor de TI) para governança e modernização de sistemas",
+                              "Gerenciou infraestrutura tecnológica interdepartamental e organização de dados",
+                              "Entregou relatórios estratégicos de TI e roteiros de transformação digital"
+                    ]
+          },
+          "noceci": {
+                    "role": "Sócio Administrador",
+                    "bullets": [
+                              "Liderança administrativa e representação legal",
+                              "Gestão de recursos humanos, operações financeiras e stack tecnológico",
+                              "Planejamento estratégico e desenvolvimento de negócios"
+                    ]
+          },
+          "cl20": {
+                    "role": "Fundador — C.L. 2.0 (Cursos de Idiomas)",
+                    "bullets": [
+                              "Projeto universitário de empreendedorismo focado em educação multilíngue (Inglês, Espanhol, Francês, Italiano)",
+                              "Desenvolveu o modelo de negócio, currículo bilíngue e plano operacional",
+                              "Conectou tecnologia e aprendizagem de idiomas através de iniciativas lideradas por acadêmicos"
+                    ]
+          },
+          "maori": {
+                    "role": "Agente — Segurança da Informação",
+                    "bullets": [
+                              "Atendimento ao cliente e suporte em segurança da informação para o projeto DCNS",
+                              "Execução operacional em ambientes de alta confidencialidade"
+                    ]
+          }
+},
+            edu: {
+          "uva": {
+                    "degree": "Bacharelado",
+                    "field": "Ciência da Computação",
+                    "note": "Gerente Acadêmico de Projetos (2018)"
+          },
+          "iserj": {
+                    "degree": "Diploma Técnico",
+                    "field": "Sistemas e TI",
+                    "note": ""
+          }
+},
+            proj: {
+          "magbo-studio": "Portfólio pessoal e showcase de engenharia. Construído com React, TypeScript, GSAP e Tailwind CSS em um sistema de design premium escuro.",
+          "controle-de-acesso": "Sistema de controle de acesso e segurança física com base em IoT para uma instituição educacional. O sistema lê QR Code e provê dashboards por setor.",
+          "ccc-cdi": "Sistema de gestão e controle de acesso full-stack para o centro organizacional CDI. Frontend TypeScript com gestão de estado em tempo real.",
+          "french-lms": "Sistema de gestão de aprendizagem para o ensino de francês. Arquitetura full-stack com backend em Spring Boot e frontend em React.",
+          "satisystem": "Projeto de desenvolvimento de sistemas (TCC) focado na automação de processos e gestão institucional e de pontuações.",
+          "the-talk": "Uma plataforma de podcast para conteúdo de moda por Mijean Rochus. Interface estilística moderna com capacidades avançadas de áudio.",
+          "magbo-studio-backend": "Arquitetura de backend Spring Boot para aplicações corporativas. Padrões Clean Architecture, isolamento de domínio e políticas de persistência.",
+          "floresta-unity": "Jogo de simulação ambiental construído em Unity e C#. Explora temas ecológicos de forma interativa e complexa."
+},
+            ui: {
+          "experience_badge": "02 — Experiência",
+          "experience_title": "Trajetória <span class=\"marker-orange\">Profissional</span>",
+          "education_badge": "Educação",
+          "work_badge": "03 — Trabalhos Selecionados",
+          "work_title": "Logs de <span class=\"marker-blue\">Engenharia</span>",
+          "skills_badge": "04 — Habilidades e Expertise",
+          "skills_title": "Arsenal <span class=\"marker-red\">Técnico</span>",
+          "contact_badge": "05 — Iniciando Conexão",
+          "contact_title": "Estabelecer <span class=\"marker-turquoise\">Protocolo</span>"
+},
             about: {
                   section_label: '01 — Sobre',
                   title: 'Tecnologia, inovação e <span class="marker-turquoise">execução estratégica</span>.',
@@ -1260,6 +1112,80 @@ export const TRANSLATIONS = {
             }
       },
       fr: {
+                        exp: {
+          "aefe": {
+                    "role": "Vie Scolaire",
+                    "bullets": [
+                              "Gestion globale pour environnement multiculturel et francophone",
+                              "Organisation de la vie scolaire, communication avec les familles",
+                              "Certifications internationales (BAC, Brevet)"
+                    ]
+          },
+          "sedeics": {
+                    "role": "Agent de Dév. Informatique — Projets Stratég.",
+                    "bullets": [
+                              "Mise en oeuvre du Master Plan Informatique pour la gouvernance des SI",
+                              "Gestion des infrastructures interdépartementales",
+                              "Elaboration de feuilles de route stratégiques et transformation digitale"
+                    ]
+          },
+          "noceci": {
+                    "role": "Gérant et Partenaire",
+                    "bullets": [
+                              "Leadership administratif et représentation légale",
+                              "Gestion des RH, opérations financières, et de la pile technologique",
+                              "Développement commercial"
+                    ]
+          },
+          "cl20": {
+                    "role": "Fondateur — C.L. 2.0",
+                    "bullets": [
+                              "Projet de création d'entreprise pour cours de langues",
+                              "Développement du modèle économique",
+                              "Intégration technologique avec l'éducation"
+                    ]
+          },
+          "maori": {
+                    "role": "Agent de Sécurité de l'information",
+                    "bullets": [
+                              "Opérations support et sécurité DCNS",
+                              "Environnement à haute sécurité et clairance"
+                    ]
+          }
+},
+            edu: {
+          "uva": {
+                    "degree": "Licence",
+                    "field": "Science Informatique",
+                    "note": "Project Manager Académique (2018)"
+          },
+          "iserj": {
+                    "degree": "Diplôme Technique",
+                    "field": "Systèmes Informatiques",
+                    "note": ""
+          }
+},
+            proj: {
+          "magbo-studio": "Portefeuille personnel en React/TypeScript.",
+          "controle-de-acesso": "Système de sécurité physique basé sur l'IoT.",
+          "ccc-cdi": "Contrôle d'accès du centre organisationnel CDI.",
+          "french-lms": "Système LMS pour le Français par API.",
+          "satisystem": "Automatisation de processus de l'institution.",
+          "the-talk": "Plateforme multimédia / Podcast The Talk Fashion.",
+          "magbo-studio-backend": "Architecture backend métier robuste en Spring Boot.",
+          "floresta-unity": "Jeu Unity écologique interactif."
+},
+            ui: {
+          "experience_badge": "02 — Expérience",
+          "experience_title": "Parcours <span class=\"marker-orange\">Professionnel</span>",
+          "education_badge": "Éducation",
+          "work_badge": "03 — Projets Sélectionnés",
+          "work_title": "Registres <span class=\"marker-blue\">Techniques</span>",
+          "skills_badge": "04 — Compétences",
+          "skills_title": "Arsenal <span class=\"marker-red\">Technologique</span>",
+          "contact_badge": "05 — Connexion Initiale",
+          "contact_title": "Établir <span class=\"marker-turquoise\">le Protocole</span>"
+},
             about: {
                   section_label: '01 — À propos',
                   title: 'Technologie, innovation et <span class="marker-turquoise">exécution stratégique</span>.',
@@ -1556,6 +1482,80 @@ export const TRANSLATIONS = {
             }
       },
       sw: {
+                        exp: {
+          "aefe": {
+                    "role": "Vie Scolaire",
+                    "bullets": [
+                              "Usimamizi wa mazingira mbalimbali kwa taasisi za Kifaransa",
+                              "Mawasiliano ya kimkakati na familia",
+                              "Maandalizi kwa vyeti vya kimataifa"
+                    ]
+          },
+          "sedeics": {
+                    "role": "Wakala wa Teknolojia — Miradi Mikuu",
+                    "bullets": [
+                              "Aliwezesha maendeleo ya mfumo mkuu wa IT (PDTIC)",
+                              "Alisimamia miundombinu ya mfumo ya idara",
+                              "Aliwasilisha ripoti za mageuzi ya kidijitali"
+                    ]
+          },
+          "noceci": {
+                    "role": "Mkurugenzi Mshiriki",
+                    "bullets": [
+                              "Uongozi wasimamizi na mamlaka ya kisheria",
+                              "Usimamizi wa fedha, watu na teknolojia",
+                              "Mipango ya kimkakati ya biashara"
+                    ]
+          },
+          "cl20": {
+                    "role": "Mwanzilishi",
+                    "bullets": [
+                              "Mradi wa elimu ya lugha za kigeni katika chuo kikuu",
+                              "Aliunda mfumo wa kibiashara",
+                              "Teknolojia iliyojumuishwa na mafunzo"
+                    ]
+          },
+          "maori": {
+                    "role": "Afisa wa Usalama wa Taarifa",
+                    "bullets": [
+                              "Usalama na uhakiki wa mradi wa DCNS",
+                              "Utekelezaji kazi thabiti katika mazingira muhimu"
+                    ]
+          }
+},
+            edu: {
+          "uva": {
+                    "degree": "Shahada",
+                    "field": "Sayansi ya Kompyuta",
+                    "note": "Meneja Miradi ya Chuo (2018)"
+          },
+          "iserj": {
+                    "degree": "Shahada Ndogo",
+                    "field": "Teknolojia na Mifumo",
+                    "note": ""
+          }
+},
+            proj: {
+          "magbo-studio": "Ukurasa binafsi. Imeundwa na React, TypeScript na muundo mzuri.",
+          "controle-de-acesso": "Mfumo wa kudhibiti usalama kutumia IoT. Inajumuisha ufikiaji wa kutumia nambari ya QR.",
+          "ccc-cdi": "Programu ya kusimamia upatikanaji wa shirika na CDI.",
+          "french-lms": "Shule ya matumizi kwenye mtandao ya Kifaransa na Spring Boot.",
+          "satisystem": "Matumizi ya kuandaa shughuli kwa otomatiki za wanafunzi.",
+          "the-talk": "Sauti ya redio za mitindo kwa Mijean Rochus.",
+          "magbo-studio-backend": "Seva kuu ya Java kwa mifumo thabiti.",
+          "floresta-unity": "Mchezo rahisi wa kiikolojia kupitia Unity 3D."
+},
+            ui: {
+          "experience_badge": "02 — Uzoefu",
+          "experience_title": "Historia ya <span class=\"marker-orange\">Kikazi</span>",
+          "education_badge": "Elimu",
+          "work_badge": "03 — Kazi Bora",
+          "work_title": "Mifumo na <span class=\"marker-blue\">Uhadi</span>",
+          "skills_badge": "04 — Utaalamu",
+          "skills_title": "Silaha <span class=\"marker-red\">Téknolojia</span>",
+          "contact_badge": "05 — Anzisha Muunganisho",
+          "contact_title": "Sanidi <span class=\"marker-turquoise\">Itifaki</span>"
+},
             about: {
                   section_label: '01 — Kuhusu',
                   title: 'Teknolojia, ubunifu, na <span class="marker-turquoise">utekelezaji wa kimkakati</span>.',
