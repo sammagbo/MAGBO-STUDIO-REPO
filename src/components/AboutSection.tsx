@@ -2,11 +2,13 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Code2, Globe, GraduationCap, Briefcase } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const AboutSection = () => {
       const containerRef = useRef<HTMLElement>(null);
+      const { t } = useLanguage();
 
       useEffect(() => {
             const ctx = gsap.context(() => {
@@ -26,10 +28,10 @@ export const AboutSection = () => {
       }, []);
 
       const stats = [
-            { icon: Code2, value: '8+', label: 'Projects Shipped', color: 'text-mg-blue', dotColor: 'bg-mg-blue' },
-            { icon: Globe, value: '5', label: 'Languages Spoken', color: 'text-mg-orange', dotColor: 'bg-mg-orange' },
-            { icon: GraduationCap, value: 'Graduação', label: 'Ciência da Computação', color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise' },
-            { icon: Briefcase, value: '10+', label: 'Years in Tech', color: 'text-mg-violet', dotColor: 'bg-mg-violet' },
+            { icon: Code2, value: '8+', label: t.about.stats.projects, color: 'text-mg-blue', dotColor: 'bg-mg-blue' },
+            { icon: Globe, value: '5', label: t.about.stats.languages, color: 'text-mg-orange', dotColor: 'bg-mg-orange' },
+            { icon: GraduationCap, value: t.about.stats.grad, label: t.about.stats.cs, color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise' },
+            { icon: Briefcase, value: '10+', label: t.about.stats.years, color: 'text-mg-violet', dotColor: 'bg-mg-violet' },
       ];
 
       return (
@@ -46,7 +48,7 @@ export const AboutSection = () => {
                                     <img src="/profile_real.png" alt="Sam Magbo" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                               </div>
                               <span className="text-mg-blue font-mono text-xs tracking-[0.25em] uppercase">
-                                    01 — About
+                                    {t.about.section_label}
                               </span>
                         </div>
 
@@ -56,23 +58,17 @@ export const AboutSection = () => {
                               {/* Left: Text */}
                               <div>
                                     <h2 className="about-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-8"
-                                          style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
-                                          Technology, innovation, and <span className="marker-turquoise">strategic execution</span>.
-                                    </h2>
+                                          style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
+                                          dangerouslySetInnerHTML={{ __html: t.about.title }}
+                                    />
 
-                                    <p className="about-animate text-dark-secondary font-body leading-relaxed mb-6 text-base">
-                                          I'm a <span className="marker-blue">Computer Science graduate</span> with experience spanning
-                                          <span className="marker-violet"> IT governance</span>, system modernization, and institutional-grade platform development.
-                                          My work bridges <span className="marker-orange">public sector innovation</span> —
-                                          from state-level IT master plans to <span className="marker-red">full-stack applications</span> serving educational networks.
-                                    </p>
+                                    <p className="about-animate text-dark-secondary font-body leading-relaxed mb-6 text-base"
+                                          dangerouslySetInnerHTML={{ __html: t.about.p1 }}
+                                    />
 
-                                    <p className="about-animate text-dark-muted font-body leading-relaxed text-base">
-                                          Based in <span className="marker-green">Rio de Janeiro</span>, I operate across cultures and languages
-                                          (French, Portuguese, English, Spanish, Italian) —
-                                          managing <span className="marker-yellow">multicultural teams</span> and delivering projects
-                                          where operational clarity and technical precision are non-negotiable.
-                                    </p>
+                                    <p className="about-animate text-dark-muted font-body leading-relaxed text-base"
+                                          dangerouslySetInnerHTML={{ __html: t.about.p2 }}
+                                    />
                               </div>
 
                               {/* Right: Bento Stat Cards */}

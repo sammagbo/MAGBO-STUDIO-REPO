@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useExperience, useEducation } from '@/hooks/useData';
+import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,6 +10,7 @@ export const ExperienceSection = () => {
       const EXPERIENCE = useExperience();
       const EDUCATION = useEducation();
       const containerRef = useRef<HTMLElement>(null);
+      const { t } = useLanguage();
 
       useEffect(() => {
             const ctx = gsap.context(() => {
@@ -38,15 +40,15 @@ export const ExperienceSection = () => {
                         {/* Section Label */}
                         <div className="exp-animate mb-4">
                               <span className="text-mg-orange font-mono text-xs tracking-[0.25em] uppercase">
-                                    02 — Experience
+                                    {t.ui.experience_badge}
                               </span>
                         </div>
 
                         {/* Section Title */}
                         <h2 className="exp-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-20"
-                              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
-                              Professional <span className="marker-orange">Trajectory</span>
-                        </h2>
+                              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
+                              dangerouslySetInnerHTML={{ __html: t.ui.experience_title }}
+                        />
 
                         {/* ─── Timeline ─── */}
                         <div className="relative">
@@ -54,7 +56,9 @@ export const ExperienceSection = () => {
                               <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-mg-orange/30 via-dark-border to-transparent" />
 
                               <div className="space-y-16">
-                                    {EXPERIENCE.map((exp) => (
+                                    {EXPERIENCE.map((exp) => {
+                                          const tExp = t.exp?.[exp.id] as any;
+                                          return (
                                           <div key={exp.id} className="exp-animate relative pl-8 md:pl-20">
                                                 {/* Timeline dot */}
                                                 <div className="absolute left-0 md:left-8 top-1.5 -translate-x-1/2">
@@ -73,7 +77,7 @@ export const ExperienceSection = () => {
 
                                                 {/* Role */}
                                                 <h3 className="font-display font-bold text-dark-text text-xl lg:text-2xl tracking-tight mb-1">
-                                                      {exp.role}
+                                                      {tExp?.role || exp.role}
                                                 </h3>
 
                                                 {/* Company & Location */}
@@ -84,7 +88,7 @@ export const ExperienceSection = () => {
 
                                                 {/* Bullets */}
                                                 <ul className="space-y-2.5">
-                                                      {exp.bullets.map((bullet, i) => (
+                                                      {(tExp?.bullets || exp.bullets).map((bullet: string, i: number) => (
                                                             <li key={i} className="flex items-start gap-3 text-dark-muted font-body text-sm leading-relaxed">
                                                                   <span className="w-1 h-1 rounded-full bg-mg-orange/40 mt-2 shrink-0" />
                                                                   {bullet}
@@ -92,7 +96,7 @@ export const ExperienceSection = () => {
                                                       ))}
                                                 </ul>
                                           </div>
-                                    ))}
+                                    )})}
                               </div>
                         </div>
 
@@ -100,34 +104,36 @@ export const ExperienceSection = () => {
                         <div className="mt-32">
                               <div className="exp-animate mb-4">
                                     <span className="text-mg-turquoise font-mono text-xs tracking-[0.25em] uppercase">
-                                          Education
+                                          {t.ui.education_badge}
                                     </span>
                               </div>
 
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-                                    {EDUCATION.map((edu) => (
+                                    {EDUCATION.map((edu) => {
+                                          const tEdu = t.edu?.[edu.id] as any;
+                                          return (
                                           <div key={edu.id} className="exp-animate border-l-2 border-mg-turquoise/30 pl-8 py-2">
                                                 <div className="flex items-baseline gap-3 mb-1">
                                                       <span className="font-display font-bold text-dark-text text-xl tracking-tight">
-                                                            {edu.degree}
+                                                            {tEdu?.degree || edu.degree}
                                                       </span>
                                                       <span className="text-dark-muted font-mono text-xs tracking-wider">
                                                             {edu.period}
                                                       </span>
                                                 </div>
                                                 <p className="text-dark-secondary font-body text-sm mb-1">
-                                                      {edu.field}
+                                                      {tEdu?.field || edu.field}
                                                 </p>
                                                 <p className="text-dark-muted font-body text-sm">
                                                       {edu.institution}
                                                 </p>
-                                                {edu.note && (
+                                                {(tEdu?.note || edu.note) && (
                                                       <p className="text-mg-turquoise/60 font-mono text-[11px] mt-2 tracking-wide">
-                                                            {edu.note}
+                                                            {tEdu?.note || edu.note}
                                                       </p>
                                                 )}
                                           </div>
-                                    ))}
+                                    )})}
                               </div>
                         </div>
 

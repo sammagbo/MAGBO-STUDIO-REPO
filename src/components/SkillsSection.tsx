@@ -2,18 +2,43 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SKILLS } from '@/data/constants';
+import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CATEGORIES = [
-      { key: 'frontend' as const, label: 'Frontend', color: 'text-mg-blue', dotColor: 'bg-mg-blue/50', borderColor: 'border-mg-blue/20' },
-      { key: 'backend' as const, label: 'Backend', color: 'text-mg-orange', dotColor: 'bg-mg-orange/50', borderColor: 'border-mg-orange/20' },
-      { key: 'infrastructure' as const, label: 'Infrastructure', color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise/50', borderColor: 'border-mg-turquoise/20' },
-      { key: 'other' as const, label: 'Other', color: 'text-mg-violet', dotColor: 'bg-mg-violet/50', borderColor: 'border-mg-violet/20' },
+      { key: 'frontend' as const, color: 'text-mg-blue', dotColor: 'bg-mg-blue/50', borderColor: 'border-mg-blue/20' },
+      { key: 'backend' as const, color: 'text-mg-orange', dotColor: 'bg-mg-orange/50', borderColor: 'border-mg-orange/20' },
+      { key: 'infrastructure' as const, color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise/50', borderColor: 'border-mg-turquoise/20' },
+      { key: 'other' as const, color: 'text-mg-violet', dotColor: 'bg-mg-violet/50', borderColor: 'border-mg-violet/20' },
 ];
 
 export const SkillsSection = () => {
       const containerRef = useRef<HTMLElement>(null);
+      const { t, language } = useLanguage();
+
+      const LABELS: Record<string, Record<string, string>> = {
+            frontend: { en: 'Frontend', pt: 'Frontend', es: 'Frontend', fr: 'Frontend', sw: 'Mbele (Frontend)' },
+            backend: { en: 'Backend', pt: 'Backend', es: 'Backend', fr: 'Backend', sw: 'Nyuma (Backend)' },
+            infrastructure: { en: 'Infrastructure', pt: 'Infraestrutura', es: 'Infraestructura', fr: 'Infrastructure', sw: 'Miundombinu' },
+            other: { en: 'Other', pt: 'Outros', es: 'Otros', fr: 'Autres', sw: 'Nyingine' },
+      };
+
+      const trSkill = (skill: string) => {
+            if (skill === 'IT Governance') return {
+                  en: 'IT Governance', pt: 'Governança de TI', es: 'Gobernanza de TI', fr: 'Gouvernance Informatique', sw: 'Utawala wa TEHAMA'
+            }[language] || skill;
+            if (skill === 'Project Management') return {
+                  en: 'Project Management', pt: 'Gestão de Projetos', es: 'Gestión de Proyectos', fr: 'Gestion de Projet', sw: 'Usimamizi wa Miradi'
+            }[language] || skill;
+            if (skill === 'Strategic Planning') return {
+                  en: 'Strategic Planning', pt: 'Planejamento Estratégico', es: 'Planificación Estratégica', fr: 'Planification Stratégique', sw: 'Mipango Mikakati'
+            }[language] || skill;
+            if (skill === 'Multilingual (FR/PT/EN/ES)') return {
+                  en: 'Multilingual (FR/PT/EN/ES)', pt: 'Multilíngue (FR/PT/EN/ES)', es: 'Multilingüe (FR/PT/EN/ES)', fr: 'Multilingue (FR/PT/EN/ES)', sw: 'Lugha Nyingi (FR/PT/EN/ES)'
+            }[language] || skill;
+            return skill;
+      };
 
       useEffect(() => {
             const ctx = gsap.context(() => {
@@ -43,29 +68,29 @@ export const SkillsSection = () => {
                         {/* Section Label */}
                         <div className="skills-animate mb-4">
                               <span className="text-mg-turquoise font-mono text-xs tracking-[0.25em] uppercase">
-                                    04 — Expertise
+                                    {t.ui.skills_badge}
                               </span>
                         </div>
 
                         {/* Section Title */}
                         <h2 className="skills-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-16"
-                              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
-                              Technologies & <span className="marker-turquoise">Skills</span>
-                        </h2>
+                              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
+                              dangerouslySetInnerHTML={{ __html: t.ui.skills_title }}
+                        />
 
                         {/* Skills Grid — 4 category columns */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                               {CATEGORIES.map((cat) => (
                                     <div key={cat.key} className="skills-animate">
                                           <h3 className={`${cat.color} font-body text-sm font-medium uppercase tracking-wider mb-6 pb-3 border-b ${cat.borderColor}`}>
-                                                {cat.label}
+                                                {LABELS[cat.key][language] || LABELS[cat.key].en}
                                           </h3>
                                           <ul className="space-y-3">
                                                 {SKILLS[cat.key].map((skill) => (
                                                       <li key={skill} className="flex items-center gap-3 text-dark-text font-body text-sm group">
                                                             <span className={`w-1.5 h-1.5 rounded-full ${cat.dotColor} group-hover:shadow-[0_0_6px] transition-all duration-300 shrink-0`} />
                                                             <span className="group-hover:text-dark-text transition-colors duration-300">
-                                                                  {skill}
+                                                                  {trSkill(skill)}
                                                             </span>
                                                       </li>
                                                 ))}

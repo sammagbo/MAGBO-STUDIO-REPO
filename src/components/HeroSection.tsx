@@ -3,11 +3,13 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { PROFILE, SKILLS_FLAT } from '@/data/constants';
 import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(useGSAP);
 
 export const HeroSection = () => {
       const containerRef = useRef<HTMLElement>(null);
+      const { t } = useLanguage();
 
       useGSAP(() => {
             const tl = gsap.timeline({ defaults: { ease: 'expo.out', duration: 1.2 } });
@@ -46,46 +48,40 @@ export const HeroSection = () => {
                               <div className="hero-greeting mb-6 opacity-0">
                                     <span className="inline-flex items-center gap-2 text-dark-muted font-mono text-xs tracking-[0.25em] uppercase">
                                           <span className="w-2 h-2 rounded-full accent-dot animate-pulse" />
-                                          Available for work — {PROFILE.location}
+                                          {t.hero.status} — {PROFILE.location}
                                     </span>
                               </div>
 
                               {/* Name */}
                               <h1 className="hero-name font-display font-extrabold text-dark-text leading-[0.95] tracking-tight mb-6 opacity-0"
                                     style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)' }}>
-                                    Sam{'\n'}
-                                    <span className="block">Magbo<span className="gradient-text">.</span></span>
+                                    {t.hero.title_start}{'\n'}
+                                    <span className="block">{t.hero.title_gradient}<span className="gradient-text">.</span></span>
                               </h1>
 
                               {/* Role with markers */}
                               <p className="hero-role font-body leading-relaxed mb-8 opacity-0"
                                     style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}>
-                                    <span className="marker-blue font-medium text-dark-text">Technology & Innovation</span>
-                                    {' · '}
-                                    <span className="marker-violet font-medium text-dark-text">Project Management</span>
+                                    <span className="marker-blue font-medium text-dark-text">{t.hero.title_middle}</span>
+                                    {' '}
+                                    <span className="marker-violet font-medium text-dark-text">{t.hero.title_end}</span>
                               </p>
 
                               {/* Bio */}
                               <p className="hero-bio font-body text-dark-secondary leading-relaxed max-w-2xl mb-12 opacity-0"
-                                    style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)' }}>
-                                    I implement <span className="marker-turquoise">resilient systems</span> across critical environments.
-                                    With a Computer Science degree and hands-on experience in
-                                    <span className="marker-orange"> IT governance</span>,
-                                    system modernization, and strategic project management across public and private sectors,
-                                    I deliver solutions that are as{' '}
-                                    <span className="marker-green">secure</span> as they are{' '}
-                                    <span className="marker-yellow">scalable</span>.
-                              </p>
+                                    style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.05rem)' }}
+                                    dangerouslySetInnerHTML={{ __html: t.hero.description }}
+                              />
 
                               {/* CTAs */}
                               <div className="flex items-center gap-6 flex-wrap mb-12">
                                     <a href="#work"
                                           className="hero-cta px-8 py-3.5 bg-mg-blue text-dark-text font-body font-medium text-sm tracking-wide rounded-full hover:bg-mg-blue/80 hover:shadow-[0_0_30px_rgba(30,136,229,0.3)] transition-all duration-400 opacity-0">
-                                          View Work
+                                          {t.surface?.nav_work || 'View Work'}
                                     </a>
                                     <a href="#contact"
                                           className="hero-cta px-8 py-3.5 border border-dark-border text-dark-text font-body font-medium text-sm tracking-wide rounded-full hover:border-mg-turquoise/50 hover:text-mg-turquoise transition-all duration-300 opacity-0">
-                                          Get in touch →
+                                          {t.hero.cta_primary} →
                                     </a>
                               </div>
 

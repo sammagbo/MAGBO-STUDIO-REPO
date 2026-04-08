@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useProjects } from '@/hooks/useData';
 import { ExternalLink, Github } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,7 @@ const LANG_COLORS: Record<string, string> = {
 export const WorkSection = () => {
       const PROJECTS = useProjects();
       const containerRef = useRef<HTMLElement>(null);
+      const { t } = useLanguage();
 
       useEffect(() => {
             const ctx = gsap.context(() => {
@@ -45,26 +47,28 @@ export const WorkSection = () => {
                         {/* Section Label */}
                         <div className="work-animate mb-4">
                               <span className="text-mg-violet font-mono text-xs tracking-[0.25em] uppercase">
-                                    03 — Work
+                                    {t.ui.work_badge}
                               </span>
                         </div>
 
                         {/* Section Title */}
                         <div className="work-animate flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
                               <h2 className="font-display font-bold text-dark-text leading-tight tracking-tight"
-                                    style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
-                                    Selected <span className="marker-violet">Projects</span>
-                              </h2>
+                                    style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
+                                    dangerouslySetInnerHTML={{ __html: t.ui.work_title }}
+                              />
                               <a href="https://github.com/sammagbo" target="_blank" rel="noopener noreferrer"
                                     className="text-dark-muted font-body text-sm hover:text-mg-blue transition-colors duration-300 flex items-center gap-2">
                                     <Github className="w-4 h-4" />
-                                    View all on GitHub
+                                    {t.surface?.footer_social || 'View all on GitHub'}
                               </a>
                         </div>
 
                         {/* Projects Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                              {PROJECTS.map((project) => (
+                              {PROJECTS.map((project) => {
+                                    const tProjDesc = t.proj?.[project.id] as string;
+                                    return (
                                     <div
                                           key={project.id}
                                           className="work-animate bento-card p-8 lg:p-10 flex flex-col justify-between group min-h-[280px]"
@@ -98,7 +102,7 @@ export const WorkSection = () => {
                                                       {project.name}
                                                 </h3>
                                                 <p className="text-dark-muted font-body text-sm leading-relaxed mb-6">
-                                                      {project.description}
+                                                      {tProjDesc || project.description}
                                                 </p>
                                           </div>
 
@@ -111,7 +115,7 @@ export const WorkSection = () => {
                                                 ))}
                                           </div>
                                     </div>
-                              ))}
+                              )})}
                         </div>
                   </div>
             </section>

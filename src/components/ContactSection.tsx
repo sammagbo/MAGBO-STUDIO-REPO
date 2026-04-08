@@ -3,13 +3,104 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PROFILE } from '@/data/constants';
 import { Github, Linkedin, Mail, ArrowUpRight, Send, Check, Loader2 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const FORM_T: Record<string, any> = {
+      en: {
+            title: "Let's <span class='marker-pink'>work together</span>.",
+            description: "I'm open to <span class='marker-green'>new opportunities</span>, freelance projects, and interesting collaborations. Fill out the form or reach out directly.",
+            name: "Name",
+            email: "Email",
+            message: "Message",
+            placeholderName: "Your name",
+            placeholderEmail: "your@email.com",
+            placeholderMessage: "Tell me about your project...",
+            send: "Send Message",
+            sending: "Sending...",
+            sent: "Message Sent!",
+            orReach: "Or reach out directly",
+            social: "Social",
+            location: "Location",
+            allRights: "All rights reserved."
+      },
+      pt: {
+            title: "Vamos <span class='marker-pink'>trabalhar juntos</span>.",
+            description: "Estou aberto a <span class='marker-green'>novas oportunidades</span>, projetos freelance e colaborações interessantes. Preencha o formulário ou entre em contato diretamente.",
+            name: "Nome",
+            email: "E-mail",
+            message: "Mensagem",
+            placeholderName: "Seu nome",
+            placeholderEmail: "seu@email.com",
+            placeholderMessage: "Me conte sobre o seu projeto...",
+            send: "Enviar Mensagem",
+            sending: "Enviando...",
+            sent: "Mensagem Enviada!",
+            orReach: "Ou entre em contato diretamente",
+            social: "Redes Sociais",
+            location: "Localização",
+            allRights: "Todos os direitos reservados."
+      },
+      es: {
+            title: "Trabajemos <span class='marker-pink'>juntos</span>.",
+            description: "Estoy abierto a <span class='marker-green'>nuevas oportunidades</span>, proyectos independientes e interesantes colaboraciones. Llene el formulario.",
+            name: "Nombre",
+            email: "Correo",
+            message: "Mensaje",
+            placeholderName: "Su nombre",
+            placeholderEmail: "su@correo.com",
+            placeholderMessage: "Hábleme de su proyecto...",
+            send: "Enviar Mensaje",
+            sending: "Enviando...",
+            sent: "¡Mensaje Enviado!",
+            orReach: "O contáctenos directamente",
+            social: "Redes Sociales",
+            location: "Ubicación",
+            allRights: "Todos los derechos reservados."
+      },
+      fr: {
+            title: "Travaillons <span class='marker-pink'>ensemble</span>.",
+            description: "Je suis ouvert aux <span class='marker-green'>opportunités de collaboration</span>, de freelance et autres projets intéressants. Remplissez le formulaire.",
+            name: "Nom",
+            email: "Email",
+            message: "Message",
+            placeholderName: "Votre nom",
+            placeholderEmail: "votre@email.com",
+            placeholderMessage: "Parlez-moi de votre projet...",
+            send: "Envoyer",
+            sending: "Envoi en cours...",
+            sent: "Message envoyé !",
+            orReach: "Ou contactez directement",
+            social: "Réseaux Sociaux",
+            location: "Localisation",
+            allRights: "Tous droits réservés."
+      },
+      sw: {
+            title: "Tufanye kazi <span class='marker-pink'>pamoja</span>.",
+            description: "Nipo tayari kwa <span class='marker-green'>fursa mpya</span> au miradi huru. Jaza fomu au nitumie ujumbe.",
+            name: "Jina",
+            email: "Barua pepe",
+            message: "Ujumbe",
+            placeholderName: "Jina lako",
+            placeholderEmail: "yako@email.com",
+            placeholderMessage: "Nieleze kuhusu mradi wako...",
+            send: "Tuma",
+            sending: "Inatuma...",
+            sent: "Imetumwa!",
+            orReach: "Au nitumie moja kwa moja",
+            social: "Mitandao",
+            location: "Mahali",
+            allRights: "Haki zote zimehifadhiwa."
+      }
+};
 
 export const ContactSection = () => {
       const containerRef = useRef<HTMLElement>(null);
       const [formData, setFormData] = useState({ name: '', email: '', message: '' });
       const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+      const { t, language } = useLanguage();
+      const formT = FORM_T[language] || FORM_T.en;
 
       useEffect(() => {
             const ctx = gsap.context(() => {
@@ -59,20 +150,19 @@ export const ContactSection = () => {
                         {/* Section Label */}
                         <div className="contact-animate mb-4">
                               <span className="text-mg-pink font-mono text-xs tracking-[0.25em] uppercase">
-                                    05 — Contact
+                                    {t.ui.contact_badge}
                               </span>
                         </div>
 
                         {/* Big CTA */}
                         <h2 className="contact-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-6"
-                              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
-                              Let's <span className="marker-pink">work together</span>.
-                        </h2>
+                              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
+                              dangerouslySetInnerHTML={{ __html: formT.title }}
+                        />
 
-                        <p className="contact-animate text-dark-secondary font-body text-base lg:text-lg max-w-xl mb-12 leading-relaxed">
-                              I'm open to <span className="marker-green">new opportunities</span>, freelance projects, and interesting collaborations.
-                              Fill out the form or reach out directly.
-                        </p>
+                        <p className="contact-animate text-dark-secondary font-body text-base lg:text-lg max-w-xl mb-12 leading-relaxed"
+                              dangerouslySetInnerHTML={{ __html: formT.description }}
+                        />
 
                         {/* Two columns: Form + Sidebar */}
                         <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 mb-16">
@@ -82,7 +172,7 @@ export const ContactSection = () => {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                           <div>
                                                 <label htmlFor="contact-name" className="block text-dark-muted font-mono text-xs tracking-wider uppercase mb-2">
-                                                      Name
+                                                      {formT.name}
                                                 </label>
                                                 <input
                                                       id="contact-name"
@@ -91,12 +181,12 @@ export const ContactSection = () => {
                                                       value={formData.name}
                                                       onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
                                                       className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3.5 text-dark-text font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300"
-                                                      placeholder="Your name"
+                                                      placeholder={formT.placeholderName}
                                                 />
                                           </div>
                                           <div>
                                                 <label htmlFor="contact-email" className="block text-dark-muted font-mono text-xs tracking-wider uppercase mb-2">
-                                                      Email
+                                                      {formT.email}
                                                 </label>
                                                 <input
                                                       id="contact-email"
@@ -105,14 +195,14 @@ export const ContactSection = () => {
                                                       value={formData.email}
                                                       onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
                                                       className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3.5 text-dark-text font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300"
-                                                      placeholder="your@email.com"
+                                                      placeholder={formT.placeholderEmail}
                                                 />
                                           </div>
                                     </div>
 
                                     <div>
                                           <label htmlFor="contact-message" className="block text-dark-muted font-mono text-xs tracking-wider uppercase mb-2">
-                                                Message
+                                                {formT.message}
                                           </label>
                                           <textarea
                                                 id="contact-message"
@@ -121,7 +211,7 @@ export const ContactSection = () => {
                                                 value={formData.message}
                                                 onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
                                                 className="w-full bg-dark-card border border-dark-border rounded-xl px-4 py-3.5 text-dark-text font-body text-sm placeholder:text-dark-muted/50 focus:border-mg-blue/50 focus:outline-none focus:shadow-[0_0_20px_rgba(30,136,229,0.1)] transition-all duration-300 resize-none"
-                                                placeholder="Tell me about your project..."
+                                                placeholder={formT.placeholderMessage}
                                           />
                                     </div>
 
@@ -135,16 +225,16 @@ export const ContactSection = () => {
                                                 }
                                                 disabled:opacity-60 disabled:cursor-not-allowed`}
                                     >
-                                          {status === 'idle' && <><Send className="w-4 h-4" /> Send Message</>}
-                                          {status === 'sending' && <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>}
-                                          {status === 'sent' && <><Check className="w-4 h-4" /> Message Sent!</>}
+                                          {status === 'idle' && <><Send className="w-4 h-4" /> {formT.send}</>}
+                                          {status === 'sending' && <><Loader2 className="w-4 h-4 animate-spin" /> {formT.sending}</>}
+                                          {status === 'sent' && <><Check className="w-4 h-4" /> {formT.sent}</>}
                                     </button>
                               </form>
 
                               {/* Sidebar: Direct Links */}
                               <div className="contact-animate space-y-6">
                                     <div className="bento-card p-6">
-                                          <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-4">Or reach out directly</h3>
+                                          <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-4">{formT.orReach}</h3>
                                           <a href={`mailto:${PROFILE.email}`}
                                                 className="flex items-center gap-3 text-mg-blue font-body text-sm hover:text-dark-text transition-colors duration-300 mb-3 group">
                                                 <Mail className="w-4 h-4" />
@@ -154,7 +244,7 @@ export const ContactSection = () => {
                                     </div>
 
                                     <div className="bento-card p-6">
-                                          <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-4">Social</h3>
+                                          <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-4">{formT.social}</h3>
                                           <div className="space-y-3">
                                                 <a href={PROFILE.github} target="_blank" rel="noopener noreferrer"
                                                       className="flex items-center gap-3 text-dark-muted hover:text-mg-blue transition-colors duration-300 font-body text-sm group">
@@ -172,9 +262,11 @@ export const ContactSection = () => {
                                     </div>
 
                                     <div className="bento-card p-6">
-                                          <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-2">Location</h3>
+                                          <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-2">{formT.location}</h3>
                                           <p className="text-dark-muted font-body text-sm">{PROFILE.location}</p>
-                                          <p className="text-dark-muted font-body text-xs mt-1">{PROFILE.ops}</p>
+                                          <p className="text-dark-muted font-body text-xs mt-1">
+                                                {{ pt: 'Multissetorial · Multilíngue', fr: 'Multisectoriel · Multilingue', es: 'Multisectorial · Multilingüe', sw: 'Kisekta · Lugha Nyingi' }[language] || PROFILE.ops}
+                                          </p>
                                     </div>
                               </div>
                         </div>
@@ -182,7 +274,7 @@ export const ContactSection = () => {
                         {/* Footer */}
                         <div className="contact-animate pt-12 border-t border-dark-border">
                               <p className="text-dark-muted font-mono text-xs tracking-wide text-center">
-                                    © {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
+                                    © {new Date().getFullYear()} {PROFILE.name}. {formT.allRights}
                               </p>
                         </div>
                   </div>
