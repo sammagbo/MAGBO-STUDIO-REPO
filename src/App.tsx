@@ -10,6 +10,7 @@ import { SkillsSection } from '@/components/SkillsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { SEOHelmet } from '@/components/SEOHelmet';
 import { trackEvent } from '@/utils/telemetry';
+import { LanguageProvider } from '@/context/LanguageContext';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -63,31 +64,33 @@ function App() {
       }, []);
 
       return (
-            <HelmetProvider>
-                  <ErrorBoundary>
-                        <SEOHelmet />
+            <LanguageProvider>
+                  <HelmetProvider>
+                        <ErrorBoundary>
+                              <SEOHelmet />
 
-                        {/* CLI MODE — Hacker Switch (Easter Egg) */}
-                        {cliMode && (
-                              <Suspense fallback={<div className="fixed inset-0 bg-black" />}>
-                                    <TerminalView onExit={() => setCliMode(false)} />
-                              </Suspense>
-                        )}
+                              {/* CLI MODE — Hacker Switch (Easter Egg) */}
+                              {cliMode && (
+                                    <Suspense fallback={<div className="fixed inset-0 bg-black" />}>
+                                          <TerminalView onExit={() => setCliMode(false)} />
+                                    </Suspense>
+                              )}
 
-                        {/* GUI MODE — Premium Portfolio */}
-                        {!cliMode && (
-                              <MainLayout>
-                                    <HeroSection />
-                                    <AboutSection />
-                                    <ExperienceSection />
-                                    <WorkSection />
-                                    <SkillsSection />
-                                    <ContactSection />
-                              </MainLayout>
-                        )}
+                              {/* GUI MODE — Premium Portfolio */}
+                              {!cliMode && (
+                                    <MainLayout>
+                                          <HeroSection />
+                                          <AboutSection />
+                                          <ExperienceSection />
+                                          <WorkSection />
+                                          <SkillsSection />
+                                          <ContactSection />
+                                    </MainLayout>
+                              )}
 
-                  </ErrorBoundary>
-            </HelmetProvider>
+                        </ErrorBoundary>
+                  </HelmetProvider>
+            </LanguageProvider>
       );
 }
 
