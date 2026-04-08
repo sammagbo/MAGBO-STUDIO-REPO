@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-
-const NAV_ITEMS = [
-      { id: 'about', label: 'About' },
-      { id: 'experience', label: 'Experience' },
-      { id: 'work', label: 'Work' },
-      { id: 'skills', label: 'Skills' },
-      { id: 'contact', label: 'Contact' },
-];
+import { useLanguage } from '@/context/LanguageContext';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
+      const { t } = useLanguage();
       const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
       const [isScrolled, setIsScrolled] = useState(false);
       const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+      const NAV_ITEMS = [
+            { id: 'about', label: t.nav.expertise || 'About' },
+            { id: 'experience', label: t.surface?.cv_experience || 'Experience' },
+            { id: 'work', label: t.nav.projects || 'Work' },
+            { id: 'skills', label: t.nav.tech_radar || 'Skills' },
+            { id: 'contact', label: t.nav.contact || 'Contact' },
+      ];
 
       useEffect(() => {
             const savedTheme = localStorage.getItem('magbo-theme') as 'dark' | 'light';
@@ -79,22 +82,26 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                           <button
                                                 key={item.id}
                                                 onClick={() => scrollToSection(item.id)}
-                                                className="text-dark-muted font-body text-sm hover:text-mg-blue transition-colors duration-300"
+                                                className="text-dark-muted font-body text-sm hover:text-mg-blue transition-colors duration-300 capitalize"
                                           >
                                                 {item.label}
                                           </button>
                                     ))}
-                                    <button
-                                          onClick={toggleTheme}
-                                          className="text-dark-muted hover:text-mg-orange transition-colors duration-300 ml-4"
-                                          aria-label="Toggle Theme"
-                                    >
-                                          {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                                    </button>
+                                    <div className="flex items-center gap-4 ml-4">
+                                          <LanguageSwitcher />
+                                          <button
+                                                onClick={toggleTheme}
+                                                className="text-dark-muted hover:text-mg-orange transition-colors duration-300"
+                                                aria-label="Toggle Theme"
+                                          >
+                                                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                                          </button>
+                                    </div>
                               </div>
 
                               {/* Mobile Menu Action Buttons */}
                               <div className="md:hidden flex items-center gap-4">
+                                    <LanguageSwitcher />
                                     <button
                                           onClick={toggleTheme}
                                           className="text-dark-text p-1 hover:text-mg-orange transition-colors"

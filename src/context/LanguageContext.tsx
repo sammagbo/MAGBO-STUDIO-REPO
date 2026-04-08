@@ -15,7 +15,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
       useEffect(() => {
             const savedLang = localStorage.getItem('magbo_lang') as Language;
-            if (savedLang && ['en', 'pt', 'es', 'fr'].includes(savedLang)) {
+            if (savedLang && ['en', 'pt', 'es', 'fr', 'sw'].includes(savedLang)) {
                   setLanguageState(savedLang);
             }
       }, []);
