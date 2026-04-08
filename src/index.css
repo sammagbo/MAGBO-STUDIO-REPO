@@ -228,3 +228,12 @@ button:focus-visible {
   filter: grayscale(0%) contrast(1);
   transform: scale(1.03);
 }
+
+.bg-scanlines {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.5) 50%
+  );
+  background-size: 100% 4px;
+}

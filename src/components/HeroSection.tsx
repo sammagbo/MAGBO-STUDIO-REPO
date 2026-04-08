@@ -111,14 +111,21 @@ export const HeroSection = () => {
 
                         {/* Right: Profile Photo */}
                         <div className="hero-photo opacity-0 flex-shrink-0">
-                              <div className="photo-frame w-[280px] h-[340px] lg:w-[320px] lg:h-[400px] xl:w-[360px] xl:h-[440px]">
-                                    {/* Replace src with your actual photo path */}
+                              <div className="photo-frame w-[280px] h-[340px] lg:w-[320px] lg:h-[400px] xl:w-[360px] xl:h-[440px] relative group overflow-hidden">
+                                    {/* Scanline overlay for the photo */}
+                                    <div className="absolute inset-0 z-10 pointer-events-none bg-scanlines opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
+                                    
+                                    {/* Border frame */}
+                                    <div className="absolute inset-0 border border-mg-blue/20 group-hover:border-mg-blue/50 transition-colors duration-500 z-20" />
+                                    
+                                    {/* Glitch elements on hover */}
+                                    <div className="absolute -inset-1 border border-mg-turquoise/0 group-hover:border-mg-turquoise/20 transition-all duration-500 scale-105 opacity-0 group-hover:opacity-100 group-hover:scale-100 z-0" />
+
                                     <img
                                           src="/profile.jpg"
-                                          alt="Sammy K Magbo — Software Engineer"
-                                          className="w-full h-full"
+                                          alt="Sam Magbo — Technology & Innovation"
+                                          className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                                           onError={(e) => {
-                                                // Fallback: show styled initials if photo is missing
                                                 const target = e.currentTarget;
                                                 target.style.display = 'none';
                                                 const fallback = target.nextElementSibling as HTMLElement;
@@ -126,12 +133,19 @@ export const HeroSection = () => {
                                           }}
                                     />
                                     <div
-                                          className="hidden w-full h-full items-center justify-center bg-gradient-to-br from-mg-blue/10 to-mg-violet/10"
+                                          className="hidden w-full h-full items-center justify-center bg-dark-card border border-mg-blue/20"
                                           style={{ display: 'none' }}
                                     >
                                           <span className="font-display font-bold text-6xl lg:text-7xl gradient-text select-none">
                                                 SM
                                           </span>
+                                    </div>
+                                    
+                                    {/* Tech Label */}
+                                    <div className="absolute bottom-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                          <div className="bg-dark-bg/80 backdrop-blur-md px-3 py-1 border border-mg-blue/30 text-[10px] font-mono text-mg-blue uppercase tracking-widest">
+                                                ID: MAGBO_01
+                                          </div>
                                     </div>
                               </div>
                         </div>
