@@ -17,7 +17,7 @@ const LANG_COLORS: Record<string, string> = {
 export const WorkSection = () => {
       const PROJECTS = useProjects();
       const containerRef = useRef<HTMLElement>(null);
-      const { t } = useLanguage();
+      const { t, language } = useLanguage();
 
       useEffect(() => {
             const ctx = gsap.context(() => {

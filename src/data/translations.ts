@@ -249,96 +249,6 @@ export const TRANSLATIONS = {
                         soap: { name: 'SOAP', description: 'Heavy XML payload; prefer REST/gRPC.' },
                   }
             },
-            status: {
-                  title: 'SYSTEM_STATUS // TRUST_CENTER',
-                  uptime: 'SYSTEM UPTIME',
-                  latency: 'GLOBAL LATENCY',
-                  threats: 'THREATS BLOCKED',
-                  services: {
-                        exp: {
-          "aefe": {
-                    "role": "Vie Scolaire",
-                    "bullets": [
-                              "Gestión de ambiente multicultural y bilingüe en instituciones francesas",
-                              "Organización escolar y académica, comunicación estratégica",
-                              "Coordinación de certificaciones internacionales (BAC, Brevet)"
-                    ]
-          },
-          "sedeics": {
-                    "role": "Agente de Desarrollo IT — Proyectos Estratégicos",
-                    "bullets": [
-                              "Dirigió la iniciativa del Plan Maestro de TI para gobernanza y modernización",
-                              "Gestionó la infraestructura tecnológica interdepartamental",
-                              "Entregó hojas de ruta de transformación digital y reportes de TI"
-                    ]
-          },
-          "noceci": {
-                    "role": "Socio Administrador",
-                    "bullets": [
-                              "Liderazgo administrativo",
-                              "Gestión de recursos humanos, finanzas y tecnología",
-                              "Desarrollo de negocios"
-                    ]
-          },
-          "cl20": {
-                    "role": "Fundador — C.L. 2.0 (Cursos de Idiomas)",
-                    "bullets": [
-                              "Proyecto de emprendimiento enfocado en educación multilingüe",
-                              "Desarrolló modelo de negocio y currículo",
-                              "Unió tecnología y aprendizaje de idiomas"
-                    ]
-          },
-          "maori": {
-                    "role": "Agente — Seguridad de Información",
-                    "bullets": [
-                              "Atención al cliente y soporte para el proyecto DCNS",
-                              "Ejecución en ambientes de alta seguridad"
-                    ]
-          }
-},
-            edu: {
-          "uva": {
-                    "degree": "Bachillerato",
-                    "field": "Ciencias de la Computación",
-                    "note": "Gerente Académico de Proyectos (2018)"
-          },
-          "iserj": {
-                    "degree": "Diploma Técnico",
-                    "field": "TI y Sistemas",
-                    "note": ""
-          }
-},
-            proj: {
-          "magbo-studio": "Portafolio personal diseñado con React, TypeScript, Tailwind y GSAP.",
-          "controle-de-acesso": "Control de seguridad IoT y acceso para centros educativos.",
-          "ccc-cdi": "Sistema de gestión CDI y control de acceso Full-stack.",
-          "french-lms": "Plataforma LMS para el aprendizaje de francés con Spring Boot.",
-          "satisystem": "Sistema de recolección de puntos enfocado a escuelas.",
-          "the-talk": "Plataforma de moda y podcast desarrollada para Mijean Rochus.",
-          "magbo-studio-backend": "API para sistemas críticos usando Java y Spring Boot.",
-          "floresta-unity": "Juego Unity C# sobre ecosistemas forestales."
-},
-            ui: {
-          "experience_badge": "02 — Experiencia",
-          "experience_title": "Trayectoria <span class=\"marker-orange\">Profesional</span>",
-          "education_badge": "Educación",
-          "work_badge": "03 — Proyectos Recientes",
-          "work_title": "Registros de <span class=\"marker-blue\">Ingeniería</span>",
-          "skills_badge": "04 — Habilidades",
-          "skills_title": "Arsenal <span class=\"marker-red\">Técnico</span>",
-          "contact_badge": "05 — Iniciando Conexión",
-          "contact_title": "Establecer <span class=\"marker-turquoise\">Protocolo</span>"
-},
-                        api: 'API GATEWAY',
-                        portals: 'CLIENT PORTALS',
-                        encryption: 'ENCRYPTION MODULES',
-                  },
-                  history: 'INCIDENT HISTORY',
-                  operational: 'OPERATIONAL',
-                  secure: 'SECURE',
-                  maintenance: 'MAINTENANCE - SECURITY PATCHING',
-                  resolved: 'RESOLVED',
-            },
             intel: {
                   title: 'INTELLIGENCE_BRIEFINGS',
                   subtitle: 'T.L.P. // AMBER // WHITE',
@@ -693,22 +603,6 @@ export const TRANSLATIONS = {
                         soap: { name: 'SOAP', description: 'Payload XML pesado; preferir REST/gRPC.' },
                   }
             },
-            status: {
-                  title: 'STATUS_SISTEMA // CENTRO_CONFIANÇA',
-                  uptime: 'UPTIME SISTEMA',
-                  latency: 'LATÊNCIA GLOBAL',
-                  threats: 'AMEAÇAS BLOQUEADAS',
-                  services: {
-                        api: 'GATEWAY API',
-                        portals: 'PORTAIS CLIENTE',
-                        encryption: 'MÓDULOS CRIPTOGRAFIA',
-                  },
-                  history: 'HISTÓRICO INCIDENTES',
-                  operational: 'OPERACIONAL',
-                  secure: 'SEGURO',
-                  maintenance: 'MANUTENÇÃO - PATCH SEGURANÇA',
-                  resolved: 'RESOLVIDO',
-            },
             intel: {
                   title: 'BRIEFINGS_INTELIGÊNCIA',
                   subtitle: 'T.L.P. // AMBER // WHITE',
@@ -816,6 +710,80 @@ export const TRANSLATIONS = {
             }
       },
       es: {
+                        exp: {
+          "aefe": {
+                    "role": "Vie Scolaire",
+                    "bullets": [
+                              "Gestión de ambiente multicultural y bilingüe en instituciones francesas",
+                              "Organización escolar y académica, comunicación estratégica",
+                              "Coordinación de certificaciones internacionales (BAC, Brevet)"
+                    ]
+          },
+          "sedeics": {
+                    "role": "Agente de Desarrollo IT — Proyectos Estratégicos",
+                    "bullets": [
+                              "Dirigió la iniciativa del Plan Maestro de TI para gobernanza y modernización",
+                              "Gestionó la infraestructura tecnológica interdepartamental",
+                              "Entregó hojas de ruta de transformación digital y reportes de TI"
+                    ]
+          },
+          "noceci": {
+                    "role": "Socio Administrador",
+                    "bullets": [
+                              "Liderazgo administrativo",
+                              "Gestión de recursos humanos, finanzas y tecnología",
+                              "Desarrollo de negocios"
+                    ]
+          },
+          "cl20": {
+                    "role": "Fundador — C.L. 2.0 (Cursos de Idiomas)",
+                    "bullets": [
+                              "Proyecto de emprendimiento enfocado en educación multilingüe",
+                              "Desarrolló modelo de negocio y currículo",
+                              "Unió tecnología y aprendizaje de idiomas"
+                    ]
+          },
+          "maori": {
+                    "role": "Agente — Seguridad de Información",
+                    "bullets": [
+                              "Atención al cliente y soporte para el proyecto DCNS",
+                              "Ejecución en ambientes de alta seguridad"
+                    ]
+          }
+},
+            edu: {
+          "uva": {
+                    "degree": "Bachillerato",
+                    "field": "Ciencias de la Computación",
+                    "note": "Gerente Académico de Proyectos (2018)"
+          },
+          "iserj": {
+                    "degree": "Diploma Técnico",
+                    "field": "TI y Sistemas",
+                    "note": ""
+          }
+},
+            proj: {
+          "magbo-studio": "Portafolio personal diseñado con React, TypeScript, Tailwind y GSAP.",
+          "controle-de-acesso": "Control de seguridad IoT y acceso para centros educativos.",
+          "ccc-cdi": "Sistema de gestión CDI y control de acceso Full-stack.",
+          "french-lms": "Plataforma LMS para el aprendizaje de francés con Spring Boot.",
+          "satisystem": "Sistema de recolección de puntos enfocado a escuelas.",
+          "the-talk": "Plataforma de moda y podcast desarrollada para Mijean Rochus.",
+          "magbo-studio-backend": "API para sistemas críticos usando Java y Spring Boot.",
+          "floresta-unity": "Juego Unity C# sobre ecosistemas forestales."
+},
+            ui: {
+          "experience_badge": "02 — Experiencia",
+          "experience_title": "Trayectoria <span class=\"marker-orange\">Profesional</span>",
+          "education_badge": "Educación",
+          "work_badge": "03 — Proyectos Recientes",
+          "work_title": "Registros de <span class=\"marker-blue\">Ingeniería</span>",
+          "skills_badge": "04 — Habilidades",
+          "skills_title": "Arsenal <span class=\"marker-red\">Técnico</span>",
+          "contact_badge": "05 — Iniciando Conexión",
+          "contact_title": "Establecer <span class=\"marker-turquoise\">Protocolo</span>"
+},
             about: {
                   section_label: '01 — Sobre mí',
                   title: 'Tecnología, innovación y <span class="marker-turquoise">ejecución estratégica</span>.',
@@ -988,22 +956,6 @@ export const TRANSLATIONS = {
                         jquery: { name: 'jQuery', description: 'Redundante con APIs modernas del DOM.' },
                         soap: { name: 'SOAP', description: 'Payload XML pesado; preferir REST/gRPC.' },
                   }
-            },
-            status: {
-                  title: 'ESTADO_SISTEMA // CENTRO_CONFIANZA',
-                  uptime: 'TIEMPO ACTIVIDAD',
-                  latency: 'LATENCIA GLOBAL',
-                  threats: 'AMENAZAS BLOQUEADAS',
-                  services: {
-                        api: 'GATEWAY API',
-                        portals: 'PORTALES CLIENTE',
-                        encryption: 'MÓDULOS ENCRIPTACIÓN',
-                  },
-                  history: 'HISTORIAL INCIDENTES',
-                  operational: 'OPERATIVO',
-                  secure: 'SEGURO',
-                  maintenance: 'MANTENIMIENTO - PARCHE SEGURIDAD',
-                  resolved: 'RESUELTO',
             },
             intel: {
                   title: 'BRIEFINGS_INTELIGENCIA',
@@ -1359,22 +1311,6 @@ export const TRANSLATIONS = {
                         soap: { name: 'SOAP', description: 'Charge utile XML lourde ; préférer REST/gRPC.' },
                   }
             },
-            status: {
-                  title: 'STATUT_SYSTÈME // CENTRE_CONFIANCE',
-                  uptime: 'DISPONIBILITÉ SYSTÈME',
-                  latency: 'LATENCE MONDIALE',
-                  threats: 'MENACES BLOQUÉES',
-                  services: {
-                        api: 'PASSERELLE API',
-                        portals: 'PORTAILS CLIENTS',
-                        encryption: 'MODULES DE CRYPTAGE',
-                  },
-                  history: 'HISTORIQUE INCIDENTS',
-                  operational: 'OPÉRATIONNEL',
-                  secure: 'SÉCURISÉ',
-                  maintenance: 'MAINTENANCE - CORRECTIF SÉCURITÉ',
-                  resolved: 'RÉSOLU',
-            },
             intel: {
                   title: 'BRIEFINGS_RENSEIGNEMENT',
                   subtitle: 'T.L.P. // AMBRE // BLANC',
@@ -1728,22 +1664,6 @@ export const TRANSLATIONS = {
                         jquery: { name: 'jQuery', description: 'Zaidi ya lazima hewani mwa DOM ya leo.' },
                         soap: { name: 'SOAP', description: 'Mzigo mzito wa XML; ni bora REST/gRPC.' },
                   }
-            },
-            status: {
-                  title: 'HALI_YA_MFUMO // KITUO_CHA_UAMINIFU',
-                  uptime: 'MUDA WA UZIMA WA MFUMO',
-                  latency: 'UCHELEWAJI',
-                  threats: 'VITISHO VILIVYOZUILIWA',
-                  services: {
-                        api: 'API GATEWAY',
-                        portals: 'MIPANGO YA WATEJA',
-                        encryption: 'MODULI ZA USALAMA',
-                  },
-                  history: 'KUMBUKUMBU YA MATUKIO',
-                  operational: 'INAENDELEA LEO',
-                  secure: 'SALAMA',
-                  maintenance: 'MATENGENEZO - USAFIRISHAJI',
-                  resolved: 'IMETATULIWA',
             },
             intel: {
                   title: 'MAELEKEZO_YA_UPELELEZI',

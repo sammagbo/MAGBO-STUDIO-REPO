@@ -25,7 +25,7 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
           gsap: ['gsap', '@gsap/react'],
-          lenis: ['lenis', '@studio-freight/react-lenis'],
+          lenis: ['lenis'],
         },
       },
     },
