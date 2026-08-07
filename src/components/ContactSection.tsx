@@ -42,23 +42,6 @@ const FORM_T: Record<string, any> = {
             location: "Localização",
             allRights: "Todos os direitos reservados."
       },
-      es: {
-            title: "Trabajemos <span class='marker-pink'>juntos</span>.",
-            description: "Estoy abierto a <span class='marker-green'>nuevas oportunidades</span>, proyectos independientes e interesantes colaboraciones. Llene el formulario.",
-            name: "Nombre",
-            email: "Correo",
-            message: "Mensaje",
-            placeholderName: "Su nombre",
-            placeholderEmail: "su@correo.com",
-            placeholderMessage: "Hábleme de su proyecto...",
-            send: "Enviar Mensaje",
-            sending: "Enviando...",
-            sent: "¡Mensaje Enviado!",
-            orReach: "O contáctenos directamente",
-            social: "Redes Sociales",
-            location: "Ubicación",
-            allRights: "Todos los derechos reservados."
-      },
       fr: {
             title: "Travaillons <span class='marker-pink'>ensemble</span>.",
             description: "Je suis ouvert aux <span class='marker-green'>opportunités de collaboration</span>, de freelance et autres projets intéressants. Remplissez le formulaire.",
@@ -75,23 +58,6 @@ const FORM_T: Record<string, any> = {
             social: "Réseaux Sociaux",
             location: "Localisation",
             allRights: "Tous droits réservés."
-      },
-      sw: {
-            title: "Tufanye kazi <span class='marker-pink'>pamoja</span>.",
-            description: "Nipo tayari kwa <span class='marker-green'>fursa mpya</span> au miradi huru. Jaza fomu au nitumie ujumbe.",
-            name: "Jina",
-            email: "Barua pepe",
-            message: "Ujumbe",
-            placeholderName: "Jina lako",
-            placeholderEmail: "yako@email.com",
-            placeholderMessage: "Nieleze kuhusu mradi wako...",
-            send: "Tuma",
-            sending: "Inatuma...",
-            sent: "Imetumwa!",
-            orReach: "Au nitumie moja kwa moja",
-            social: "Mitandao",
-            location: "Mahali",
-            allRights: "Haki zote zimehifadhiwa."
       }
 };
 
@@ -265,7 +231,7 @@ export const ContactSection = () => {
                                           <h3 className="text-dark-secondary font-body text-sm font-medium uppercase tracking-wider mb-2">{formT.location}</h3>
                                           <p className="text-dark-muted font-body text-sm">{PROFILE.location}</p>
                                           <p className="text-dark-muted font-body text-xs mt-1">
-                                                {{ en: PROFILE.ops, pt: 'Multissetorial · Multilíngue', fr: 'Multisectoriel · Multilingue', es: 'Multisectorial · Multilingüe', sw: 'Kisekta · Lugha Nyingi' }[language] || PROFILE.ops}
+                                                {{ en: PROFILE.ops, pt: 'Multissetorial · Multilíngue', fr: 'Multisectoriel · Multilingue' }[language] || PROFILE.ops}
                                           </p>
                                     </div>
                               </div>

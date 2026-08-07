@@ -19,7 +19,7 @@ export const SKILLS = {
       frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GSAP', 'Three.js'],
       backend: ['Java', 'Spring Boot', 'Node.js', 'REST APIs', 'PostgreSQL'],
       infrastructure: ['Docker', 'AWS', 'CI/CD', 'Nginx', 'Vercel'],
-      other: ['IT Governance', 'Project Management', 'Strategic Planning', 'Multilingual (FR/PT/EN/ES)'],
+      other: ['IT Governance', 'Project Management', 'Strategic Planning', 'Multilingual (FR/PT/EN)'],
 } as const;
 
 export const SKILLS_FLAT = [

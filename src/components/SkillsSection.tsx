@@ -18,24 +18,24 @@ export const SkillsSection = () => {
       const { t, language } = useLanguage();
 
       const LABELS: Record<string, Record<string, string>> = {
-            frontend: { en: 'Frontend', pt: 'Frontend', es: 'Frontend', fr: 'Frontend', sw: 'Mbele (Frontend)' },
-            backend: { en: 'Backend', pt: 'Backend', es: 'Backend', fr: 'Backend', sw: 'Nyuma (Backend)' },
-            infrastructure: { en: 'Infrastructure', pt: 'Infraestrutura', es: 'Infraestructura', fr: 'Infrastructure', sw: 'Miundombinu' },
-            other: { en: 'Other', pt: 'Outros', es: 'Otros', fr: 'Autres', sw: 'Nyingine' },
+            frontend: { en: 'Frontend', pt: 'Frontend', fr: 'Frontend' },
+            backend: { en: 'Backend', pt: 'Backend', fr: 'Backend' },
+            infrastructure: { en: 'Infrastructure', pt: 'Infraestrutura', fr: 'Infrastructure' },
+            other: { en: 'Other', pt: 'Outros', fr: 'Autres' },
       };
 
       const trSkill = (skill: string) => {
             if (skill === 'IT Governance') return {
-                  en: 'IT Governance', pt: 'Governança de TI', es: 'Gobernanza de TI', fr: 'Gouvernance Informatique', sw: 'Utawala wa TEHAMA'
+                  en: 'IT Governance', pt: 'Governança de TI', fr: 'Gouvernance Informatique'
             }[language] || skill;
             if (skill === 'Project Management') return {
-                  en: 'Project Management', pt: 'Gestão de Projetos', es: 'Gestión de Proyectos', fr: 'Gestion de Projet', sw: 'Usimamizi wa Miradi'
+                  en: 'Project Management', pt: 'Gestão de Projetos', fr: 'Gestion de Projet'
             }[language] || skill;
             if (skill === 'Strategic Planning') return {
-                  en: 'Strategic Planning', pt: 'Planejamento Estratégico', es: 'Planificación Estratégica', fr: 'Planification Stratégique', sw: 'Mipango Mikakati'
+                  en: 'Strategic Planning', pt: 'Planejamento Estratégico', fr: 'Planification Stratégique'
             }[language] || skill;
-            if (skill === 'Multilingual (FR/PT/EN/ES)') return {
-                  en: 'Multilingual (FR/PT/EN/ES)', pt: 'Multilíngue (FR/PT/EN/ES)', es: 'Multilingüe (FR/PT/EN/ES)', fr: 'Multilingue (FR/PT/EN/ES)', sw: 'Lugha Nyingi (FR/PT/EN/ES)'
+            if (skill === 'Multilingual (FR/PT/EN)') return {
+                  en: 'Multilingual (FR/PT/EN)', pt: 'Multilíngue (FR/PT/EN)', fr: 'Multilingue (FR/PT/EN)'
             }[language] || skill;
             return skill;
       };

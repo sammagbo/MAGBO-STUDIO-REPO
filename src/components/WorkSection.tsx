@@ -60,7 +60,7 @@ export const WorkSection = () => {
                               <a href="https://github.com/sammagbo" target="_blank" rel="noopener noreferrer"
                                     className="text-dark-muted font-body text-sm hover:text-mg-blue transition-colors duration-300 flex items-center gap-2">
                                     <Github className="w-4 h-4" />
-                                    {{ pt: 'Ver tudo no GitHub', es: 'Ver todo en GitHub', fr: 'Voir tout sur GitHub', sw: 'Tazama yote kwenye GitHub' }[language as string] || 'View all on GitHub'}
+                                    {{ pt: 'Ver tudo no GitHub', fr: 'Voir tout sur GitHub' }[language as string] || 'View all on GitHub'}
                               </a>
                         </div>
 
