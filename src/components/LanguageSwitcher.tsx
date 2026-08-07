@@ -6,9 +6,7 @@ import { Language } from '@/data/translations';
 const LANGUAGES: { code: Language; label: string }[] = [
       { code: 'en', label: 'EN' },
       { code: 'pt', label: 'PT' },
-      { code: 'es', label: 'ES' },
       { code: 'fr', label: 'FR' },
-      { code: 'sw', label: 'SW' },
 ];
 
 export const LanguageSwitcher = () => {
