@@ -115,3 +115,13 @@ dist
 *.njsproj
 *.sln
 *.sw?
+
+# OS generated files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Scratch / test files
+test_write_unc.txt
