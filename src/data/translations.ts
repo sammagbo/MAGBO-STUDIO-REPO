@@ -93,11 +93,6 @@ export const TRANSLATIONS = {
                   labs: 'LABS',
                   archive: 'VAULT',
             },
-            meta: {
-                  title: 'MAGBO STUDIO | Elite Software Architecture',
-                  description: 'Specialized in Critical Infrastructure, GovTech & High-Security Systems. We architect institutional-grade platforms where failure is not an option.',
-                  keywords: 'Software Architecture, Java, Spring Boot, React, Security, GovTech, Critical Infrastructure',
-            },
             hero: {
                   status: 'RELOCATING TO BORDEAUX // SEPT 2026',
                   title_start: 'Sammy',
@@ -289,7 +284,6 @@ export const TRANSLATIONS = {
                   legal_terms: 'Terms of Engagement',
                   connect_title: 'CONNECT',
                   kernel_version: 'MAGBO_STUDIO_KERNEL_V1',
-                  tagline: 'Elite software engineering and security architecture for critical systems. Building resilience where failure is not an option.',
                   copyright: '© 2026 MAGBO STUDIO. ALL RIGHTS RESERVED.',
                   secure_connection: 'SECURE_CONNECTION_ESTABLISHED',
                   innovate: 'INNOVATE ALWAYS',
@@ -446,11 +440,6 @@ export const TRANSLATIONS = {
                   contact: 'CONTATO',
                   labs: 'LABS',
                   archive: 'VAULT',
-            },
-            meta: {
-                  title: 'MAGBO STUDIO | Arquitetura de Software de Elite',
-                  description: 'Especializado em Infraestrutura Crítica, GovTech e Sistemas de Alta Segurança. Arquitetamos plataformas de nível institucional onde falhar não é uma opção.',
-                  keywords: 'Arquitetura de Software, Java, Spring Boot, React, Segurança, GovTech, Infraestrutura Crítica',
             },
             hero: {
                   status: 'MUDANDO PARA BORDEAUX // SET 2026',
@@ -643,7 +632,6 @@ export const TRANSLATIONS = {
                   legal_terms: 'Termos de Engajamento',
                   connect_title: 'CONECTAR',
                   kernel_version: 'MAGBO_STUDIO_KERNEL_V1',
-                  tagline: 'Engenharia de software de elite e arquitetura de segurança para sistemas críticos. Construindo resiliência onde falhar não é uma opção.',
                   copyright: '© 2026 MAGBO STUDIO. TODOS OS DIREITOS RESERVADOS.',
                   secure_connection: 'CONEXÃO_SEGURA_ESTABELECIDA',
                   innovate: 'INOVE SEMPRE',
@@ -800,11 +788,6 @@ export const TRANSLATIONS = {
                   contact: 'CONTACT',
                   labs: 'LABS',
                   archive: 'COFFRE',
-            },
-            meta: {
-                  title: 'MAGBO STUDIO | Architecture Logicielle d\'Élite',
-                  description: 'Spécialisé dans les Infrastructures Critiques, GovTech et Systèmes de Haute Sécurité. Nous architecturons des plateformes de niveau institutionnel où l\'échec n\'est pas une option.',
-                  keywords: 'Architecture Logicielle, Java, Spring Boot, React, Sécurité, GovTech, Infrastructure Critique',
             },
             hero: {
                   status: 'INSTALLATION À BORDEAUX // SEPT. 2026',
@@ -997,7 +980,6 @@ export const TRANSLATIONS = {
                   legal_terms: 'Termes d\'Engagement',
                   connect_title: 'CONNECTER',
                   kernel_version: 'MAGBO_STUDIO_KERNEL_V1',
-                  tagline: 'Génie logiciel d\'élite et architecture de sécurité pour systèmes critiques. Construire la résilience là où l\'échec n\'est pas une option.',
                   copyright: '© 2026 MAGBO STUDIO. TOUS DROITS RÉSERVÉS.',
                   secure_connection: 'CONNEXION_SÉCURISÉE_ÉTABLIE',
                   innovate: 'INNOVER TOUJOURS',
