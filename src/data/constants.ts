@@ -23,9 +23,9 @@ export const SKILLS = {
 } as const;
 
 export const SKILLS_FLAT = [
-      'React', 'TypeScript', 'Java', 'Spring Boot', 'Node.js',
-      'PostgreSQL', 'Docker', 'AWS', 'Next.js', 'GSAP',
-      'Tailwind CSS', 'REST APIs', 'IT Governance', 'CI/CD',
+      'Java', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker',
+      'CI/CD', 'AWS', 'TypeScript', 'React', 'Next.js',
+      'Node.js', 'Tailwind CSS', 'GSAP', 'IT Governance',
 ] as const;
 
 // ── Experience ──
@@ -150,30 +150,20 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
       {
-            id: 'magbo-studio',
-            name: 'MAGBO Studio',
-            description: 'Personal portfolio and engineering showcase. Built with React, TypeScript, GSAP animations, and Tailwind CSS on a dark premium design system.',
-            stack: ['React', 'TypeScript', 'GSAP', 'Tailwind CSS'],
-            github: 'https://github.com/sammagbo/MAGBO-STUDIO-REPO',
-            live: 'https://sammagbo.github.io/MAGBO-STUDIO-REPO/',
-            language: 'TypeScript',
-      },
-      {
             id: 'controle-de-acesso',
-            name: 'Controle de Acesso',
-            description: 'IoT-driven physical security and access control system for an educational institution. Features QR-based access, sector monitoring dashboards, and real-time tracking.',
-            stack: ['JavaScript', 'IoT', 'QR Code', 'Dashboard'],
+            name: 'MAGBO Access Control',
+            description: 'Production access control and meal-entitlement system for a French international school. Spring Boot backend integrating Hikvision face and card terminals, with an Electron desktop client. Deployed on Docker; 900+ students, 190+ automated tests.',
+            stack: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Docker', 'Electron'],
             github: 'https://github.com/sammagbo/Controle-de-Acesso',
-            live: 'https://sammagbo.github.io/controle-de-acesso',
-            language: 'JavaScript',
+            language: 'Java',
       },
       {
-            id: 'ccc-cdi',
-            name: 'CCC CDI Platform',
-            description: 'Full-stack access control and management system for the CDI organizational center. TypeScript frontend with real-time state management.',
-            stack: ['TypeScript', 'React', 'State Management'],
-            github: 'https://github.com/sammagbo/ccc_cdi',
-            language: 'TypeScript',
+            id: 'magbo-studio-backend',
+            name: 'Magbo Studio Backend',
+            description: 'Spring Boot backend architecture for enterprise applications. Clean Architecture patterns, domain isolation, and strict persistence policies.',
+            stack: ['Java', 'Spring Boot', 'Clean Arch', 'PostgreSQL'],
+            github: 'https://github.com/sammagbo/magbo-studio',
+            language: 'Java',
       },
       {
             id: 'french-lms',
@@ -185,11 +175,21 @@ export const PROJECTS: Project[] = [
             language: 'TypeScript',
       },
       {
-            id: 'satisystem',
-            name: 'SatiSystem',
-            description: 'Systems development project (TCC) focused on process automation and institutional management. Built as a capstone project at ISERJ.',
-            stack: ['PHP', 'MySQL', 'JavaScript'],
-            language: 'PHP',
+            id: 'ccc-cdi',
+            name: 'CCC CDI Platform',
+            description: 'Full-stack access control and management system for the CDI organizational center. TypeScript frontend with real-time state management.',
+            stack: ['TypeScript', 'React', 'State Management'],
+            github: 'https://github.com/sammagbo/ccc_cdi',
+            language: 'TypeScript',
+      },
+      {
+            id: 'magbo-studio',
+            name: 'MAGBO Studio',
+            description: 'Personal portfolio and engineering showcase. Built with React, TypeScript, GSAP animations, and Tailwind CSS on a dark premium design system.',
+            stack: ['React', 'TypeScript', 'GSAP', 'Tailwind CSS'],
+            github: 'https://github.com/sammagbo/MAGBO-STUDIO-REPO',
+            live: 'https://sammagbo.com',
+            language: 'TypeScript',
       },
       {
             id: 'the-talk',
@@ -201,12 +201,11 @@ export const PROJECTS: Project[] = [
             language: 'JavaScript',
       },
       {
-            id: 'magbo-studio-backend',
-            name: 'Magbo Studio Backend',
-            description: 'Spring Boot backend architecture for enterprise applications. Clean Architecture patterns, domain isolation, and strict persistence policies.',
-            stack: ['Java', 'Spring Boot', 'Clean Arch', 'PostgreSQL'],
-            github: 'https://github.com/sammagbo/magbo-studio',
-            language: 'Java',
+            id: 'satisystem',
+            name: 'SatiSystem',
+            description: 'Systems development project (TCC) focused on process automation and institutional management. Built as a capstone project at ISERJ.',
+            stack: ['PHP', 'MySQL', 'JavaScript'],
+            language: 'PHP',
       },
       {
             id: 'floresta-unity',

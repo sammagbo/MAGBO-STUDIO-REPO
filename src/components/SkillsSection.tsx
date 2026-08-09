@@ -7,9 +7,9 @@ import { useLanguage } from '@/context/LanguageContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const CATEGORIES = [
-      { key: 'frontend' as const, color: 'text-mg-blue', dotColor: 'bg-mg-blue/50', borderColor: 'border-mg-blue/20' },
       { key: 'backend' as const, color: 'text-mg-orange', dotColor: 'bg-mg-orange/50', borderColor: 'border-mg-orange/20' },
       { key: 'infrastructure' as const, color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise/50', borderColor: 'border-mg-turquoise/20' },
+      { key: 'frontend' as const, color: 'text-mg-blue', dotColor: 'bg-mg-blue/50', borderColor: 'border-mg-blue/20' },
       { key: 'other' as const, color: 'text-mg-violet', dotColor: 'bg-mg-violet/50', borderColor: 'border-mg-violet/20' },
 ];
 

@@ -57,7 +57,7 @@ export const TRANSLATIONS = {
 },
             proj: {
           "magbo-studio": "Personal portfolio and engineering showcase. Built with React, TypeScript, GSAP animations, and Tailwind CSS on a dark premium design system.",
-          "controle-de-acesso": "IoT-driven physical security and access control system for an educational institution. Features QR-based access, sector monitoring dashboards, and real-time tracking.",
+          "controle-de-acesso": "Production access control and meal-entitlement system for a French international school. Spring Boot backend integrating Hikvision face and card terminals, with an Electron desktop client. Deployed on Docker; 900+ students, 190+ automated tests.",
           "ccc-cdi": "Full-stack access control and management system for the CDI organizational center. TypeScript frontend with real-time state management.",
           "french-lms": "Language learning management system for French education. Full-stack architecture with Spring Boot backend and React frontend.",
           "satisystem": "Systems development project (TCC) focused on process automation and institutional management. Built as a capstone project at ISERJ.",
@@ -405,7 +405,7 @@ export const TRANSLATIONS = {
 },
             proj: {
           "magbo-studio": "Portfólio pessoal e showcase de engenharia. Construído com React, TypeScript, GSAP e Tailwind CSS em um sistema de design premium escuro.",
-          "controle-de-acesso": "Sistema de controle de acesso e segurança física com base em IoT para uma instituição educacional. O sistema lê QR Code e provê dashboards por setor.",
+          "controle-de-acesso": "Sistema de controle de acesso e gestão de refeições em produção para uma escola internacional francesa. Backend Spring Boot integrado a terminais Hikvision de reconhecimento facial e cartão, com cliente desktop em Electron. Implantado em Docker; mais de 900 alunos e 190 testes automatizados.",
           "ccc-cdi": "Sistema de gestão e controle de acesso full-stack para o centro organizacional CDI. Frontend TypeScript com gestão de estado em tempo real.",
           "french-lms": "Sistema de gestão de aprendizagem para o ensino de francês. Arquitetura full-stack com backend em Spring Boot e frontend em React.",
           "satisystem": "Projeto de desenvolvimento de sistemas (TCC) focado na automação de processos e gestão institucional e de pontuações.",
@@ -753,7 +753,7 @@ export const TRANSLATIONS = {
 },
             proj: {
           "magbo-studio": "Portefeuille personnel en React/TypeScript.",
-          "controle-de-acesso": "Système de sécurité physique basé sur l'IoT.",
+          "controle-de-acesso": "Système de contrôle d'accès et de gestion des repas en production pour un établissement scolaire français à l'étranger. Backend Spring Boot intégré à des terminaux Hikvision (reconnaissance faciale et badge), avec un client de bureau Electron. Déployé sous Docker ; plus de 900 élèves et 190 tests automatisés.",
           "ccc-cdi": "Contrôle d'accès du centre organisationnel CDI.",
           "french-lms": "Système LMS pour le Français par API.",
           "satisystem": "Automatisation de processus de l'institution.",
