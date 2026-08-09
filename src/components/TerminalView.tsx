@@ -28,7 +28,7 @@ const BOOT_LINES = [
 // ── Static Command Data ───────────────────────────────────────────────
 const PROJECTS = [
       { code: 'VOTE_GUARD', type: 'Critical Governance', desc: 'Electronic voting system with real-time state machine logic, quorum control, and PDF report generation.' },
-      { code: 'SECTOR_WATCH', type: 'Physical Security', desc: 'QR-based access control infrastructure for educational institutions with sector-based monitoring.' },
+      { code: 'SECTOR_WATCH', type: 'Physical Security', desc: 'Production access control for a French international school. Spring Boot backend driving Hikvision face and card terminals, with an Electron client.' },
       { code: 'CORE_SYNC', type: 'Fullstack Infra', desc: 'Hybrid architecture with React + Spring Boot, migrating local persistence to secure APIs.' },
       { code: 'MEDIA_OPS', type: 'High Performance UI', desc: 'Media platform with Spotify API, GSAP magnetic physics, parallax effects, and technical SEO.' },
 ];

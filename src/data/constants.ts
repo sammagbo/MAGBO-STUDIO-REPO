@@ -9,7 +9,7 @@ export const PROFILE = {
       tagline: 'Systems Implementation · Project Management · Computer Science',
       location: 'Rio de Janeiro, BR',
       ops: 'Multisectoral · Multilingual',
-      bio: 'Technology and innovation professional with solid experience across public and private sectors. I combine a Computer Science background with multilingual fluency to manage multicultural environments and deliver impactful projects — from IT governance frameworks and system modernization to full-stack platforms and IoT security solutions.',
+      bio: 'Technology and innovation professional with solid experience across public and private sectors. I combine a Computer Science background with multilingual fluency to manage multicultural environments and deliver impactful projects — from IT governance frameworks and system modernization to full-stack platforms and production access control systems.',
       email: 'sammagbo@gmail.com',
       linkedin: 'https://www.linkedin.com/in/sam-magbo-02086555/',
       github: 'https://github.com/sammagbo',
