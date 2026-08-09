@@ -109,55 +109,6 @@ export const TRANSLATIONS = {
                         global: 'Operations Reach',
                   }
             },
-            projects: {
-                  title: 'CASE_LOGS // CLASSIFIED',
-                  restricted: 'Restricted Access',
-                  view_study: 'View Case Study',
-                  list: {
-                        vote_guard: {
-                              title: 'PROTOCOLE: VOTE_GUARD',
-                              description: 'Critical electronic voting system and high-stakes assembly management. Implements real-time state machine logic for timers, strict quorum control, President\'s Counsel mode, and precise legal PDF report generation.',
-                              type: 'Critical Governance',
-                              stack: ['React', 'State Logic', 'PDF Gen', 'Real-time'],
-                        },
-                        sector_watch: {
-                              title: 'SECTOR_WATCH',
-                              description: 'Physical security infrastructure for a French educational institution. Features QR Code logic for access control, sector-based dashboard for flow monitoring, and real-time student tracking.',
-                              type: 'Physical Security',
-                              stack: ['IoT Logic', 'QR Code', 'React', 'Dashboard'],
-                        },
-                        core_sync: {
-                              title: 'CORE_SYNC',
-                              description: 'Full-stack synchronization for a development center. Hybrid architecture integrating React Frontend with Spring Boot Backend, migrating local persistence to robust and secure APIs.',
-                              type: 'Fullstack Infra',
-                              stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
-                        },
-                        media_ops: {
-                              title: 'MEDIA_OPS',
-                              description: 'High-performance media platform. Deep integration with Spotify API, technical SEO optimization, and advanced GSAP animations with magnetic physics and parallax effects.',
-                              type: 'High Performance UI',
-                              stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
-                        },
-                        meeting_manager: {
-                              title: 'MEETING_MANAGER',
-                              description: 'Time and attendance control system. A practical solution for managing meetings and tracking schedules.',
-                              type: 'SaaS Application',
-                              stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-                        },
-                        the_talk_fashion: {
-                              title: 'THE_TALK_FASHION',
-                              description: 'A podcast website by Mijean Rochus focusing on fashion. Features a sleek design and media playback capabilities.',
-                              type: 'Media Platform',
-                              stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
-                        },
-                        satisystem: {
-                              title: 'SATISYSTEM',
-                              description: 'Final research project for Computer Science. Developed technical solutions and system implementations for academic excellence.',
-                              type: 'Academic/AI',
-                              stack: ['Java', 'Weka', 'AI Logic', 'Research'],
-                        },
-                  }
-            },
             labs: {
                   title: 'MAGBO_LABS // TACTICAL_OPS',
                   view_source: 'SOURCE_CODE',
@@ -456,55 +407,6 @@ export const TRANSLATIONS = {
                         global: 'Alcance Operacional',
                   }
             },
-            projects: {
-                  title: 'REGISTROS_CASOS // CONFIDENCIAL',
-                  restricted: 'Acesso Restrito',
-                  view_study: 'Ver Estudo de Caso',
-                  list: {
-                        vote_guard: {
-                              title: 'PROTOCOLO: VOTE_GUARD',
-                              description: 'Sistema crítico de votação eletrônica e gestão de assembleias de alto risco. Implementa lógica de máquina de estados em tempo real para timers, controle estrito de quórum, modo "President\'s Counsel" e geração precisa de relatórios legais em PDF.',
-                              type: 'Governança Crítica',
-                              stack: ['React', 'Lógica Estado', 'Ger. PDF', 'Tempo Real'],
-                        },
-                        sector_watch: {
-                              title: 'SECTOR_WATCH',
-                              description: 'Infraestrutura de segurança física para instituição de ensino francesa. Controle de acesso via lógica de QR Code, dashboard setorizado para monitoramento de fluxo e rastreamento de alunos em tempo real.',
-                              type: 'Segurança Física',
-                              stack: ['Lógica IoT', 'QR Code', 'React', 'Dashboard'],
-                        },
-                        core_sync: {
-                              title: 'CORE_SYNC',
-                              description: 'Sincronização Full-stack para centro de desenvolvimento. Arquitetura híbrida integrando Frontend React com Backend Spring Boot, migrando persistência local para APIs robustas e seguras.',
-                              type: 'Infra Fullstack',
-                              stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
-                        },
-                        media_ops: {
-                              title: 'MEDIA_OPS',
-                              description: 'Plataforma de mídia de alta performance visual. Integração profunda com Spotify API, otimização de SEO técnico e animações avançadas (GSAP) com física magnética e parallax.',
-                              type: 'UI Alta Performance',
-                              stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
-                        },
-                        meeting_manager: {
-                              title: 'MEETING_MANAGER',
-                              description: 'Sistema de controle de tempo e assistência. Uma solução prática para gerenciar reuniões e rastrear horários.',
-                              type: 'SaaS Application',
-                              stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-                        },
-                        the_talk_fashion: {
-                              title: 'THE_TALK_FASHION',
-                              description: 'Site de podcast por Mijean Rochus focado em moda. Apresenta um design elegante e reprodução de mídia.',
-                              type: 'Plataforma de Mídia',
-                              stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
-                        },
-                        satisystem: {
-                              title: 'SATISYSTEM',
-                              description: 'Projeto de pesquisa final para Ciência da Computação. Desenvolveu soluções técnicas e implementações de sistemas para excelência acadêmica.',
-                              type: 'Acadêmico/IA',
-                              stack: ['Java', 'Weka', 'Lógica IA', 'Pesquisa'],
-                        },
-                  }
-            },
             labs: {
                   title: 'MAGBO_LABS // OPS_TÁTICAS',
                   view_source: 'CÓDIGO FONTE',
@@ -801,55 +703,6 @@ export const TRANSLATIONS = {
                         uptime: 'Garantie de Disponibilité',
                         security: 'Données Compromises',
                         global: 'Portée Opérationnelle',
-                  }
-            },
-            projects: {
-                  title: 'JOURNAUX_CAS // CLASSIFIÉ',
-                  restricted: 'Accès Restreint',
-                  view_study: 'Voir l\'Étude de Cas',
-                  list: {
-                        vote_guard: {
-                              title: 'PROTOCOLE: VOTE_GUARD',
-                              description: 'Système de vote électronique critique et gestion d\'assemblées à haut risque. Implémente une logique de machine à états en temps réel pour les minuteurs, un contrôle strict du quorum, un mode "Conseil du Président" et une génération précise de rapports juridiques PDF.',
-                              type: 'Gouvernance Critique',
-                              stack: ['React', 'Logique d\'État', 'Gén. PDF', 'Temps Réel'],
-                        },
-                        sector_watch: {
-                              title: 'SECTOR_WATCH',
-                              description: 'Infrastructure de sécurité physique pour une institution éducative française. Fonctionne grâce à la logique de QR Code pour le contrôle d\'accès, un tableau de bord sectorisé pour la surveillance des flux et le suivi des étudiants en temps réel.',
-                              type: 'Sécurité Physique',
-                              stack: ['Logique IoT', 'QR Code', 'React', 'Tableau de Bord'],
-                        },
-                        core_sync: {
-                              title: 'CORE_SYNC',
-                              description: 'Synchronisation full-stack pour un centre de développement. Architecture hybride intégrant React Frontend et Spring Boot Backend, migrant la persistance locale vers des API robustes et sécurisées.',
-                              type: 'Infra Fullstack',
-                              stack: ['React', 'Spring Boot', 'Java', 'API Rest'],
-                        },
-                        media_ops: {
-                              title: 'MEDIA_OPS',
-                              description: 'Plateforme média haute performance. Intégration profonde avec l\'API Spotify, optimisation SEO technique et animations GSAP avancées avec physique magnétique et effets de parallaxe.',
-                              type: 'UI Haute Performance',
-                              stack: ['React', 'GSAP', 'Spotify API', 'Motion UX'],
-                        },
-                        meeting_manager: {
-                              title: 'MEETING_MANAGER',
-                              description: 'Système de contrôle du temps et des présences. Une solution pratique pour gérer les réunions et suivre les horaires.',
-                              type: 'Application SaaS',
-                              stack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-                        },
-                        the_talk_fashion: {
-                              title: 'THE_TALK_FASHION',
-                              description: 'Un site de podcast par Mijean Rochus axé sur la mode. Dispose d\'un design élégant et de capacités de lecture multimédia.',
-                              type: 'Plateforme Média',
-                              stack: ['React', 'Tailwind CSS', 'Vite', 'Frontend'],
-                        },
-                        satisystem: {
-                              title: 'SATISYSTEM',
-                              description: 'Projet de recherche final pour l\'informatique. Développé des solutions techniques et des implémentations de systèmes pour l\'excellence académique.',
-                              type: 'Académique/IA',
-                              stack: ['Java', 'Weka', 'Logique IA', 'Recherche'],
-                        },
                   }
             },
             labs: {
