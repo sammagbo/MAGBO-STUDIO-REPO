@@ -1045,6 +1045,14 @@
     [0,0,"d4308b31c8f35d670921b81356758c3026c7fe63","2026-09-04",0,"merge","","Merge docs/livre-finition",""],
     [0,0,"055819604e191ad170da3fa397adf5aa304fab89","2026-09-04",0,"merge","","Merge pull request #91 from sammagbo/fix/login-diagnosticable",""],
     [0,0,"a2f7f1f97093a696315bd25639a89c867f46e792","2026-09-04",1,"fix","","",""],
-    [0,0,"667579ecb9c11ccc27bc7baa9e6c03d9a11cc6de","2026-09-04",1,"revert","","",""]
+    [0,0,"667579ecb9c11ccc27bc7baa9e6c03d9a11cc6de","2026-09-04",1,"revert","","",""],
+    [3,3,"e8cfb4c0bd9b55727128cc5628a865fe32db481b","2026-10-10T14:06:34+02:00",6,"feat","data","generate public commit trace from GitHub repositories","Claude"],
+    [3,3,"8c369c5e9e3da98d5f7ea406e0a181dfba6da3e4","2026-10-10T14:40:20+02:00",5,"fix","data","detect merges by parent count and accept capitalised types","Claude"],
+    [3,3,"718d42ac1b248fff6def65bc9144afebc3d3c59d","2026-10-10T15:01:17+02:00",8,"feat","trace","add interactive public commit trace component","Claude"],
+    [3,3,"6158b49dea6cfcd0c268f0613bfbcb56c78b343b","2026-10-10T15:41:26+02:00",7,"feat","hero","replace the hero with the public commit trace","Claude"],
+    [3,3,"d9aacdd4157685abda57d6dd696a814b1cbbee90","2026-10-10T16:00:30+02:00",1,"fix","nav","keep the navigation readable over the dark hero","Claude"],
+    [3,3,"8bb7e45314d281c9842a6af54bee3aef217faf53","2026-10-10T16:53:13+02:00",1,"ci","data","refresh the commit trace daily","Claude"],
+    [3,3,"ad91d4c920d9a9b4e6e37adba0907adc7f79726d","2026-10-10T17:16:42+02:00",4,"feat","nav","align the navigation with the hero and simplify it","Claude"],
+    [3,3,"be718532a68e482035fcf6b68b480483a4a08a6d","2026-10-10T17:24:00+02:00",0,"merge","","Merge pull request #1 from sammagbo/feat/hero-trace",""]
   ]
 }
