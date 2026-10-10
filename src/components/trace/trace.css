@@ -65,7 +65,7 @@
 .ctrace .ct-play .ct-i-pause { display: none; }
 .ctrace[data-state="playing"] .ct-play .ct-i-play { display: none; }
 .ctrace[data-state="playing"] .ct-play .ct-i-pause { display: block; }
-.ctrace .ct-cap { flex: 1; margin: 0; min-height: 2.9em; display: flex; align-items: center; }
+.ctrace .ct-cap { flex: 1; margin: 0; min-height: var(--ct-cap-min, 2.9em); display: flex; align-items: center; }
 .ctrace .ct-cap b { color: var(--ct-fg); font-weight: 500; }
 .ctrace .ct-cap .ct-tap { display: none; }
 @media (hover: none) {
@@ -76,7 +76,7 @@
 .ctrace .ct-more { flex: none; color: var(--ct-fg); white-space: nowrap; text-decoration: underline; }
 
 /* projects: hover or select one to find its commits in the graph */
-.ctrace .ct-legend { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 20px; margin-top: 10px; font-size: 13px; line-height: 1.5; }
+.ctrace .ct-legend { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 20px; margin-top: 10px; font-size: 13px; line-height: 1.5; min-height: var(--ct-legend-min, 0px); }
 .ctrace .ct-legend button { background: none; border: 0; padding: 2px 0; font-size: 13px; color: var(--ct-muted); cursor: pointer; white-space: nowrap; border-radius: 2px; }
 .ctrace .ct-legend button span { margin-left: 6px; color: var(--ct-soft); font-variant-numeric: tabular-nums; }
 .ctrace .ct-legend button:hover,
@@ -85,9 +85,10 @@
 .ctrace .ct-legend button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--ct-muted); }
 .ctrace .ct-legend button:focus-visible { outline: 1px solid var(--ct-fg); outline-offset: 3px; }
 
-/* while the data loads: the same boxes, empty */
+/* while the data loads: the same boxes, empty.
+   A page can keep heights fixed from the first frame: --ct-legend-min and --ct-cap-min apply before and after loading. */
 .ctrace.ct-loading .ct-play { visibility: hidden; }
-.ctrace.ct-loading .ct-legend { min-height: calc(1.5em + 4px); }
+.ctrace.ct-loading .ct-legend { min-height: var(--ct-legend-min, calc(1.5em + 4px)); }
 
 @media (max-width: 820px) {
   .ctrace { margin-top: 28px; }
