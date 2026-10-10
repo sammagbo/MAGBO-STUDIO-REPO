@@ -1,0 +1,49 @@
+name: Commit trace
+
+# Regenerates src/data/commit-trace.json from the public repositories once a day, and commits it when it changed.
+# GitHub runs schedule and workflow_dispatch from the default branch only: this starts once it is on main.
+on:
+  schedule:
+    - cron: '17 5 * * *' # every day at 05:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: commit-trace
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      # Node and git only: no npm ci needed
+      - name: Test the data library
+        run: npm run test:data
+
+      - name: Regenerate the commit trace
+        run: npm run data:commits
+
+      # The commit is authored as the account owner: on the Hobby plan, Vercel only deploys the owner's commits.
+      # It changes only the JSON, so the generator leaves it out of the trace on the next run.
+      - name: Commit and push the new trace
+        run: |
+          if git diff --quiet -- src/data/commit-trace.json; then
+            echo "No new public commits."
+            exit 0
+          fi
+          git config user.name "Sam K. Magbo"
+          git config user.email "15736710+sammagbo@users.noreply.github.com"
+          git add src/data/commit-trace.json
+          git commit -m "chore(data): refresh commit trace"
+          git push
