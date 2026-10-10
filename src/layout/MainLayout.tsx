@@ -57,11 +57,25 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
             }
       };
 
+      // At the top of the page the bar is transparent over the hero, which stays dark in every theme.
+      // There, in both themes, it borrows the hero's text tones, and the language menu it holds keeps dark
+      // surfaces to match. Once scrolled, nothing is overridden.
+      const overDarkHero = !isScrolled
+            ? ({
+                  '--text-primary': '#F2F0EB',
+                  '--text-secondary': '#9A968F',
+                  '--text-muted': '#9A968F',
+                  '--bg': '#050505',
+                  '--bg-card': 'rgba(255, 255, 255, 0.02)',
+                  '--border': 'rgba(255, 255, 255, 0.08)',
+            } as React.CSSProperties)
+            : undefined;
+
       return (
             <div className="min-h-[100svh] flex flex-col font-body">
 
                   {/* ─── Fixed Top Navigation ─── */}
-                  <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+                  <nav style={overDarkHero} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                         isScrolled
                               ? 'glass border-b border-dark-border'
                               : 'bg-transparent'
