@@ -6,12 +6,12 @@
 
 /* ── Design Tokens ── */
 :root {
-  --bg: #050505;
+  --bg: #000000;
   --bg-elevated: #0a0a0a;
   --bg-card: rgba(255, 255, 255, 0.02);
   --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.16);
-  --text-primary: #F3F4F6;
+  --text-primary: #F2F0EB;
   --text-secondary: #9CA3AF;
   --text-muted: #6B7280;
   --accent: #E5E7EB;
