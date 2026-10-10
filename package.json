@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "data:commits": "node scripts/commit-trace/build.mjs",
-    "test:data": "node --test scripts/commit-trace/lib.test.mjs"
+    "test:data": "node --test scripts/commit-trace/lib.test.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
     "@fontsource/jetbrains-mono": "^5.2.8",
@@ -43,6 +44,7 @@
     "tailwindcss": "^3.4.17",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vitest": "^4.1.11"
   }
 }
