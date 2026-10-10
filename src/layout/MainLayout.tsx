@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import './MainLayout.css';
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
       const { t } = useLanguage();
@@ -10,11 +11,11 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
       const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
       const NAV_ITEMS = [
-            { id: 'about', label: t.nav.expertise || 'About' },
-            { id: 'experience', label: t.surface?.cv_experience || 'Experience' },
-            { id: 'work', label: t.nav.projects || 'Work' },
-            { id: 'skills', label: t.nav.tech_radar || 'Skills' },
-            { id: 'contact', label: t.nav.contact || 'Contact' },
+            { id: 'about', label: t.navbar.about },
+            { id: 'experience', label: t.navbar.experience },
+            { id: 'work', label: t.navbar.work },
+            { id: 'skills', label: t.navbar.skills },
+            { id: 'contact', label: t.navbar.contact },
       ];
 
       useEffect(() => {
@@ -60,58 +61,55 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
       return (
             <div className="min-h-[100svh] flex flex-col font-body">
 
-                  {/* ─── Fixed Top Navigation ─── */}
-                  <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                        isScrolled
-                              ? 'glass border-b border-dark-border'
-                              : 'bg-transparent'
-                  }`}>
-                        <div className="max-w-[1200px] mx-auto w-full px-6 md:px-12 lg:px-20 xl:px-32 py-5 flex items-center justify-between">
+                  {/* ─── Fixed Top Navigation: light on dark in both themes, on the hero's side margin ─── */}
+                  {/* Transparent over the hero at the top; a dark bar once scrolled, or while the mobile menu is open. */}
+                  <nav className={`site-nav${isScrolled || isMobileMenuOpen ? ' site-nav--solid' : ''}`}>
+                        <div className="site-nav__bar">
 
-                              {/* Logo */}
+                              {/* Name, back to the top */}
                               <button
                                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                    className="font-display font-bold text-lg tracking-tight gradient-text"
+                                    className="site-nav__name"
                               >
-                                    MAGBO
+                                    Sammy K. Magbo
                               </button>
 
                               {/* Desktop Nav */}
-                              <div className="hidden md:flex items-center gap-8">
+                              <div className="site-nav__links hidden md:flex">
                                     {NAV_ITEMS.map((item) => (
                                           <button
                                                 key={item.id}
                                                 onClick={() => scrollToSection(item.id)}
-                                                className="text-dark-muted font-body text-sm hover:text-mg-blue transition-colors duration-300 capitalize"
+                                                className="site-nav__link"
                                           >
                                                 {item.label}
                                           </button>
                                     ))}
-                                    <div className="flex items-center gap-4 ml-4">
-                                          <LanguageSwitcher />
-                                          <button
-                                                onClick={toggleTheme}
-                                                className="text-dark-muted hover:text-mg-orange transition-colors duration-300"
-                                                aria-label="Toggle Theme"
-                                          >
-                                                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                                          </button>
-                                    </div>
                               </div>
-
-                              {/* Mobile Menu Action Buttons */}
-                              <div className="md:hidden flex items-center gap-4">
+                              <div className="site-nav__controls hidden md:flex">
                                     <LanguageSwitcher />
                                     <button
                                           onClick={toggleTheme}
-                                          className="text-dark-text p-1 hover:text-mg-orange transition-colors"
+                                          className="site-nav__icon"
+                                          aria-label="Toggle Theme"
+                                    >
+                                          {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                                    </button>
+                              </div>
+
+                              {/* Mobile Menu Action Buttons */}
+                              <div className="site-nav__controls flex md:hidden">
+                                    <LanguageSwitcher />
+                                    <button
+                                          onClick={toggleTheme}
+                                          className="site-nav__icon site-nav__icon--strong p-1"
                                           aria-label="Toggle Theme"
                                     >
                                           {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                                     </button>
                                     <button
                                           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                          className="text-dark-text p-1"
+                                          className="site-nav__icon site-nav__icon--strong p-1"
                                           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                                     >
                                           {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

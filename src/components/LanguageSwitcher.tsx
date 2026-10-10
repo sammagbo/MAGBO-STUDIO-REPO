@@ -29,7 +29,7 @@ export const LanguageSwitcher = () => {
             <div className="relative inline-block text-left" ref={dropdownRef}>
                   <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="flex items-center gap-2 text-dark-muted hover:text-mg-blue transition-colors duration-300 font-mono text-sm px-2 py-1 rounded-sm focus:outline-none"
+                        className="site-nav__lang"
                         aria-label="Select Language"
                   >
                         <Globe className="w-4 h-4" />
@@ -37,8 +37,8 @@ export const LanguageSwitcher = () => {
                   </button>
 
                   {isOpen && (
-                        <div className="absolute right-0 mt-2 w-24 bg-dark-bg border border-dark-border shadow-lg rounded-sm overflow-hidden z-50">
-                              <div className="py-1">
+                        <div className="site-nav__lang-menu">
+                              <div>
                                     {LANGUAGES.map((lang) => (
                                           <button
                                                 key={lang.code}
@@ -46,11 +46,7 @@ export const LanguageSwitcher = () => {
                                                       setLanguage(lang.code);
                                                       setIsOpen(false);
                                                 }}
-                                                className={`w-full text-left px-4 py-2 text-xs font-mono transition-colors ${
-                                                      language === lang.code
-                                                            ? 'text-mg-blue bg-dark-card'
-                                                            : 'text-dark-muted hover:bg-dark-card hover:text-dark-text'
-                                                }`}
+                                                className={`site-nav__lang-item${language === lang.code ? ' is-current' : ''}`}
                                           >
                                                 {lang.label}
                                           </button>

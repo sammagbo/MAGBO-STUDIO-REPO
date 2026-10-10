@@ -1,0 +1,104 @@
+/* The public commit trace, ported from the approved prototype (portfolio-hero-geral.html).
+   Every rule lives under .ctrace; classes and variables carry a ct- prefix so the site's own never collide. */
+
+.ctrace {
+  --ct-bg: #000000;
+  --ct-fg: #F2F0EB;
+  --ct-muted: #9A968F;
+  --ct-soft: #66625C;
+  --ct-rule: #1F1E1C;
+  --ct-edge: #34322F;
+  --ct-red: #FF3D2E;
+  position: relative;
+  flex: none;
+  padding-bottom: 22px;
+  color: var(--ct-fg);
+}
+.ctrace a { color: inherit; }
+.ctrace button { font: inherit; color: inherit; }
+
+/* ── graph ── */
+.ctrace .ct-stage { position: relative; }
+.ctrace .ct-wave { display: block; width: 100%; height: clamp(110px, 16vh, 150px); overflow: visible; }
+.ctrace .ct-lit > g { transition: opacity .15s ease; }
+.ctrace .ct-scrub { position: absolute; left: 0; right: 0; top: -6px; height: 160px; cursor: crosshair; outline: none; touch-action: pan-y; }
+.ctrace .ct-scrub:focus-visible { outline: 1px solid var(--ct-fg); outline-offset: 8px; border-radius: 4px; }
+
+/* go-live label, beside the red line */
+.ctrace .ct-prod { position: absolute; font-size: 13px; line-height: 1.35; color: var(--ct-muted); white-space: nowrap; font-variant-numeric: tabular-nums; pointer-events: none; }
+.ctrace .ct-prod b { display: block; color: var(--ct-fg); font-weight: 500; }
+.ctrace .ct-prod .ct-s,
+.ctrace .ct-prod.ct-short .ct-l { display: none; }
+.ctrace .ct-prod.ct-short .ct-s { display: inline; }
+
+/* first and last commit, under the bars */
+.ctrace .ct-marks { position: relative; height: 40px; margin-top: 12px; font-size: 13px; line-height: 1.35; color: var(--ct-muted); font-variant-numeric: tabular-nums; }
+.ctrace .ct-marks > span { position: absolute; top: 0; white-space: nowrap; }
+.ctrace .ct-marks b { display: block; color: var(--ct-fg); font-weight: 500; }
+.ctrace .ct-start { left: 0; }
+.ctrace .ct-end { right: 0; text-align: right; }
+
+/* separator: a vertical line under the pointer (or the playhead) that reads the date */
+.ctrace .ct-sep { position: absolute; top: -4px; left: 0; width: 1px; background: var(--ct-fg); opacity: .8; pointer-events: none; display: none; z-index: 2; }
+.ctrace .ct-seplabel { position: absolute; top: 0; left: 0; height: 40px; padding: 0 10px; background: var(--ct-bg); white-space: nowrap; pointer-events: none; display: none; z-index: 2; }
+.ctrace .ct-seplabel span { display: block; }
+
+/* inspector: the commit under the pointer, or the one pinned by a click */
+.ctrace .ct-card { position: absolute; top: 0; left: 0; width: min(370px, 92%); background: var(--ct-bg); border: 1px solid var(--ct-edge); border-radius: 10px; padding: 14px 16px 15px; opacity: 0; visibility: hidden; transition: opacity .15s ease, visibility .15s; z-index: 3; }
+.ctrace .ct-card.ct-on { opacity: 1; visibility: visible; }
+.ctrace .ct-card-top { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--ct-soft); font-variant-numeric: tabular-nums; }
+.ctrace .ct-card-top b { color: var(--ct-fg); font-weight: 500; }
+.ctrace .ct-msg { margin: 8px 0 6px; font-size: 16px; line-height: 1.4; color: var(--ct-fg); overflow-wrap: anywhere; }
+.ctrace .ct-meta { margin: 8px 0 10px; font-size: 13px; line-height: 1.45; color: var(--ct-muted); }
+.ctrace .ct-msg + .ct-meta { margin-top: 0; }
+.ctrace .ct-card a { font-size: 13px; color: var(--ct-fg); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--ct-soft); }
+.ctrace .ct-hint { margin: 0; font-size: 13px; color: var(--ct-soft); }
+.ctrace .ct-card.ct-pinned .ct-hint,
+.ctrace .ct-card:not(.ct-pinned) a { display: none; }
+
+/* player bar */
+.ctrace .ct-caption { display: flex; align-items: center; gap: 20px; border-top: 1px solid var(--ct-rule); padding-top: 14px; margin-top: 6px; font-size: 14px; color: var(--ct-muted); }
+.ctrace .ct-play { flex: none; display: inline-flex; align-items: center; gap: 10px; background: none; border: 1px solid var(--ct-edge); border-radius: 6px; padding: 8px 14px 8px 11px; font-size: 14px; font-weight: 500; cursor: pointer; }
+.ctrace .ct-play:hover { border-color: var(--ct-muted); }
+.ctrace .ct-play:focus-visible { outline: 1px solid var(--ct-fg); outline-offset: 3px; }
+.ctrace .ct-play svg { width: 12px; height: 12px; display: block; }
+.ctrace .ct-play .ct-i-pause { display: none; }
+.ctrace[data-state="playing"] .ct-play .ct-i-play { display: none; }
+.ctrace[data-state="playing"] .ct-play .ct-i-pause { display: block; }
+.ctrace .ct-cap { flex: 1; margin: 0; min-height: var(--ct-cap-min, 2.9em); display: flex; align-items: center; }
+.ctrace .ct-cap b { color: var(--ct-fg); font-weight: 500; }
+.ctrace .ct-cap .ct-tap { display: none; }
+@media (hover: none) {
+  .ctrace .ct-cap .ct-hov { display: none; }
+  .ctrace .ct-cap .ct-tap { display: inline; }
+}
+/* the prototype's link kept the browser's underline, which the site's reset removes */
+.ctrace .ct-more { flex: none; color: var(--ct-fg); white-space: nowrap; text-decoration: underline; }
+
+/* projects: hover or select one to find its commits in the graph */
+.ctrace .ct-legend { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 20px; margin-top: 10px; font-size: 13px; line-height: 1.5; min-height: var(--ct-legend-min, 0px); }
+.ctrace .ct-legend button { background: none; border: 0; padding: 2px 0; font-size: 13px; color: var(--ct-muted); cursor: pointer; white-space: nowrap; border-radius: 2px; }
+.ctrace .ct-legend button span { margin-left: 6px; color: var(--ct-soft); font-variant-numeric: tabular-nums; }
+.ctrace .ct-legend button:hover,
+.ctrace .ct-legend button.ct-on { color: var(--ct-fg); }
+.ctrace .ct-legend button.ct-on span { color: var(--ct-muted); }
+.ctrace .ct-legend button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--ct-muted); }
+.ctrace .ct-legend button:focus-visible { outline: 1px solid var(--ct-fg); outline-offset: 3px; }
+
+/* while the data loads: the same boxes, empty.
+   A page can keep heights fixed from the first frame: --ct-legend-min and --ct-cap-min apply before and after loading. */
+.ctrace.ct-loading .ct-play { visibility: hidden; }
+.ctrace.ct-loading .ct-legend { min-height: var(--ct-legend-min, calc(1.5em + 4px)); }
+
+@media (max-width: 820px) {
+  .ctrace { margin-top: 28px; }
+  .ctrace .ct-marks { height: auto; min-height: 36px; display: flex; justify-content: space-between; gap: 16px; }
+  .ctrace .ct-marks > span { position: static; }
+  /* below the dates, and only for a pinned commit */
+  .ctrace .ct-card { position: relative; top: auto !important; left: 0 !important; width: auto; margin: 14px 0 4px; display: none; }
+  .ctrace .ct-card.ct-on.ct-pinned { display: block; }
+  .ctrace .ct-caption { flex-wrap: wrap; gap: 12px; }
+  .ctrace .ct-cap { flex-basis: 100%; order: 2; min-height: 0; }
+  .ctrace .ct-more { order: 3; }
+  .ctrace .ct-legend { gap: 2px 16px; margin-top: 14px; }
+}

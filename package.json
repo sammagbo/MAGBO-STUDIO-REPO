@@ -7,9 +7,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "data:commits": "node scripts/commit-trace/build.mjs",
+    "test:data": "node --test scripts/commit-trace/lib.test.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@fontsource/funnel-display": "^5.3.0",
+    "@fontsource/funnel-sans": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",
     "@fontsource/syne": "^5.2.7",
@@ -41,6 +46,7 @@
     "tailwindcss": "^3.4.17",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vitest": "^4.1.11"
   }
 }

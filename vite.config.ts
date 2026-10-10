@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
@@ -29,5 +30,9 @@ export default defineConfig({
         },
       },
     },
-  }
+  },
+  test: {
+    // scripts/commit-trace has its own node:test suite (npm run test:data)
+    include: ['src/**/*.test.{ts,tsx}'],
+  },
 })

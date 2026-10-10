@@ -93,21 +93,20 @@ export const TRANSLATIONS = {
                   labs: 'LABS',
                   archive: 'VAULT',
             },
+            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            navbar: {
+                  about: 'About',
+                  experience: 'Experience',
+                  work: 'Projects',
+                  skills: 'Skills',
+                  contact: 'Contact',
+            },
             hero: {
-                  status: 'RELOCATING TO BORDEAUX // SEPT 2026',
-                  title_start: 'Sammy',
-                  title_gradient: 'K Magbo',
-                  title_middle: 'Software Engineer &',
-                  title_end: 'Problem Solver.',
-                  description: 'I solve problems with whatever the problem needs — across education, government, and private-sector IT. Computer Science background, with hands-on work in systems implementation, security architecture, and process modernization. Now focused on Java and Spring Boot backend development. Relocating to Bordeaux, France in September 2026.',
-                  cta_primary: 'INITIATE PROTOCOL',
-                  cta_secondary: 'VIEW CLASSIFIED DATA',
-                  stats: {
-                        systems: 'Mission Critical System',
-                        uptime: 'Uptime Guarantee',
-                        security: 'Compromised Data',
-                        global: 'Operations Reach',
-                  }
+                  h1_line1: 'I solve problems.',
+                  h1_line2: 'Right now, in Java.',
+                  lead_strong: 'Java / Spring Boot backend developer',
+                  lead_rest: ', settling in Bordeaux and looking for a permanent role (CDI). My latest problem: nearly a thousand students and a paper student card. The solution has been in production since July 2026.',
+                  cta_project: 'See the project',
             },
             labs: {
                   title: 'MAGBO_LABS // TACTICAL_OPS',
@@ -391,21 +390,20 @@ export const TRANSLATIONS = {
                   labs: 'LABS',
                   archive: 'VAULT',
             },
+            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            navbar: {
+                  about: 'Sobre',
+                  experience: 'Trajetória',
+                  work: 'Projetos',
+                  skills: 'Competências',
+                  contact: 'Contato',
+            },
             hero: {
-                  status: 'MUDANDO PARA BORDEAUX // SET 2026',
-                  title_start: 'Sammy',
-                  title_gradient: 'K Magbo',
-                  title_middle: 'Engenheiro de Software e',
-                  title_end: 'Solucionador de Problemas.',
-                  description: 'Resolvo problemas com o que o problema exigir — em educação, setor público e TI privada. Formação em Ciência da Computação, com experiência prática em implantação de sistemas, arquitetura de segurança e modernização de processos. Atualmente focado em desenvolvimento backend com Java e Spring Boot. Mudança para Bordeaux, França em setembro de 2026.',
-                  cta_primary: 'INICIAR PROTOCOLO',
-                  cta_secondary: 'VER DADOS CLASSIFICADOS',
-                  stats: {
-                        systems: 'Sistemas Críticos',
-                        uptime: 'Garantia de Uptime',
-                        security: 'Dados Comprometidos',
-                        global: 'Alcance Operacional',
-                  }
+                  h1_line1: 'Eu resolvo problemas.',
+                  h1_line2: 'No momento, em Java.',
+                  lead_strong: 'Desenvolvedor backend Java / Spring Boot',
+                  lead_rest: ', estou me mudando para Bordeaux e procuro uma vaga em CDI. Meu último problema: quase mil alunos e uma carteirinha de estudante em papel. A solução está em produção desde julho de 2026.',
+                  cta_project: 'Ver o projeto',
             },
             labs: {
                   title: 'MAGBO_LABS // OPS_TÁTICAS',
@@ -689,21 +687,20 @@ export const TRANSLATIONS = {
                   labs: 'LABS',
                   archive: 'COFFRE',
             },
+            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            navbar: {
+                  about: 'À propos',
+                  experience: 'Parcours',
+                  work: 'Projets',
+                  skills: 'Compétences',
+                  contact: 'Contact',
+            },
             hero: {
-                  status: 'INSTALLATION À BORDEAUX // SEPT. 2026',
-                  title_start: 'Sammy',
-                  title_gradient: 'K Magbo',
-                  title_middle: 'Ingénieur logiciel &',
-                  title_end: 'Résolution de problèmes.',
-                  description: 'Je résous des problèmes avec ce que le problème exige — dans l\'éducation, le secteur public et l\'informatique privée. Formation en informatique, avec une expérience concrète en déploiement de systèmes, architecture de sécurité et modernisation des processus. Actuellement centré sur le développement backend Java et Spring Boot. Installation à Bordeaux en septembre 2026.',
-                  cta_primary: 'INITIER PROTOCOLE',
-                  cta_secondary: 'VOIR DONNÉES CLASSIFIÉES',
-                  stats: {
-                        systems: 'Système Mission Critique',
-                        uptime: 'Garantie de Disponibilité',
-                        security: 'Données Compromises',
-                        global: 'Portée Opérationnelle',
-                  }
+                  h1_line1: 'Je résous des problèmes.',
+                  h1_line2: 'En ce moment, en Java.',
+                  lead_strong: 'Développeur backend Java / Spring Boot',
+                  lead_rest: ', je m\'installe à Bordeaux et je cherche un CDI. Mon dernier problème : près de mille élèves et une carte d\'élève en papier. La solution tourne en production depuis juillet 2026.',
+                  cta_project: 'Voir le projet',
             },
             labs: {
                   title: 'MAGBO_LABS // OPS_TACTIQUES',
