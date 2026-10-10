@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "data:commits": "node scripts/commit-trace/build.mjs",
+    "test:data": "node --test scripts/commit-trace/lib.test.mjs"
   },
   "dependencies": {
     "@fontsource/jetbrains-mono": "^5.2.8",
