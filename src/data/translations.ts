@@ -93,6 +93,14 @@ export const TRANSLATIONS = {
                   labs: 'LABS',
                   archive: 'VAULT',
             },
+            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            navbar: {
+                  about: 'About',
+                  experience: 'Experience',
+                  work: 'Projects',
+                  skills: 'Skills',
+                  contact: 'Contact',
+            },
             hero: {
                   h1_line1: 'I solve problems.',
                   h1_line2: 'Right now, in Java.',
@@ -382,6 +390,14 @@ export const TRANSLATIONS = {
                   labs: 'LABS',
                   archive: 'VAULT',
             },
+            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            navbar: {
+                  about: 'Sobre',
+                  experience: 'Trajetória',
+                  work: 'Projetos',
+                  skills: 'Competências',
+                  contact: 'Contato',
+            },
             hero: {
                   h1_line1: 'Eu resolvo problemas.',
                   h1_line2: 'No momento, em Java.',
@@ -670,6 +686,14 @@ export const TRANSLATIONS = {
                   contact: 'CONTACT',
                   labs: 'LABS',
                   archive: 'COFFRE',
+            },
+            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            navbar: {
+                  about: 'À propos',
+                  experience: 'Parcours',
+                  work: 'Projets',
+                  skills: 'Compétences',
+                  contact: 'Contact',
             },
             hero: {
                   h1_line1: 'Je résous des problèmes.',

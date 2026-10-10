@@ -1,0 +1,46 @@
+/* The fixed navigation, after the prototype (portfolio-hero-geral.html): the name on the left, links in grey,
+   languages on the right, on the hero's side margin. Light on dark in both themes and in every state. */
+
+.site-nav {
+  --sn-fg: #F2F0EB;
+  --sn-muted: #9A968F;
+  --sn-edge: #34322F;
+  --sn-pad: clamp(20px, 3.9vw, 56px); /* the hero's side margin */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  font-family: 'Funnel Sans', system-ui, sans-serif;
+  color: var(--sn-fg);
+  border-bottom: 1px solid transparent;
+  transition: background-color .5s ease, border-color .5s ease;
+}
+
+/* Transparent over the hero at the top. Once scrolled, or while the mobile menu is open, a dark bar of its own
+   (.glass is left as it is for whoever else uses it). */
+.site-nav--solid {
+  background-color: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-bottom-color: #1F1E1C;
+}
+
+.site-nav__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px var(--sn-pad); }
+.site-nav__name { padding: 0; background: none; font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--sn-fg); white-space: nowrap; }
+.site-nav__links { align-items: center; gap: 32px; }
+.site-nav__link { font-size: 15px; line-height: 1.5; color: var(--sn-muted); transition: color .2s ease; }
+.site-nav__controls { align-items: center; gap: 16px; }
+.site-nav__icon { display: inline-flex; color: var(--sn-muted); transition: color .2s ease; }
+.site-nav__icon--strong { color: var(--sn-fg); }
+.site-nav__link:hover,
+.site-nav__icon:hover,
+.site-nav__lang:hover { color: var(--sn-fg); }
+.site-nav button:focus-visible { outline: 1px solid var(--sn-fg); outline-offset: 3px; border-radius: 4px; }
+
+/* languages: the current one, and a menu that is always dark */
+.site-nav__lang { display: inline-flex; align-items: center; gap: 8px; padding: 4px 8px; font-size: 14px; line-height: 1.5; color: var(--sn-muted); transition: color .2s ease; }
+.site-nav__lang-menu { position: absolute; right: 0; z-index: 50; width: 96px; margin-top: 8px; padding: 4px 0; overflow: hidden; background-color: #000000; border: 1px solid var(--sn-edge); border-radius: 4px; }
+.site-nav__lang-item { display: block; width: 100%; padding: 8px 16px; text-align: left; font-size: 14px; line-height: 1.5; color: var(--sn-muted); transition: color .2s ease, background-color .2s ease; }
+.site-nav__lang-item:hover { color: var(--sn-fg); background-color: rgba(255, 255, 255, 0.04); }
+.site-nav__lang-item.is-current { color: var(--sn-fg); font-weight: 500; }
