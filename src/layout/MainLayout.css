@@ -27,7 +27,8 @@
 }
 
 .site-nav__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px var(--sn-pad); }
-.site-nav__name { padding: 0; background: none; font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--sn-fg); white-space: nowrap; }
+.site-nav__name { padding: 0; background: none; font-size: 16px; font-weight: 500; line-height: 1.5; color: var(--sn-fg); white-space: nowrap; display: inline-flex; align-items: center; gap: 10px; }
+.site-nav__mark { flex: none; display: block; }
 .site-nav__links { align-items: center; gap: 32px; }
 .site-nav__link { font-size: 15px; line-height: 1.5; color: var(--sn-muted); transition: color .2s ease; }
 .site-nav__controls { align-items: center; gap: 16px; }
