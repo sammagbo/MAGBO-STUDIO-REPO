@@ -188,7 +188,7 @@ export const PROJECTS: Project[] = [
             description: 'Personal portfolio and engineering showcase. Built with React, TypeScript, GSAP animations, and Tailwind CSS on a dark premium design system.',
             stack: ['React', 'TypeScript', 'GSAP', 'Tailwind CSS'],
             github: 'https://github.com/sammagbo/MAGBO-STUDIO-REPO',
-            live: 'https://sammagbo.com',
+            live: 'https://www.sammagbo.com',
             language: 'TypeScript',
       },
       {
