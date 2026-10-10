@@ -8,8 +8,9 @@ export default {
   // Commits whose author name (%an) matches one of these are left out.
   excludeAuthors: [/\[bot\]/],
 
-  // Conventional Commits types that are kept. Any other prefix gives type ''.
-  types: ['feat', 'fix', 'docs', 'test', 'refactor', 'chore', 'audit', 'handoff', 'sweep', 'style', 'perf', 'ci', 'build'],
+  // Conventional Commits types that are kept, read without regard to case. Any other prefix gives type ''.
+  // A commit with two or more parents is a merge whatever its subject says.
+  types: ['feat', 'fix', 'docs', 'test', 'refactor', 'chore', 'audit', 'handoff', 'sweep', 'style', 'perf', 'ci', 'build', 'merge'],
   typeAliases: { doc: 'docs', tests: 'test' },
 
   // Projects in display order; a project groups one or more public repositories.

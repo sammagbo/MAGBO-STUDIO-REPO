@@ -13,12 +13,15 @@ const MEETING = at('meeting');
 const SITE = at('site');
 
 // Two commits of this repository, byte for byte as
-//   git log --name-only --format=%x1e%H%x1f%aI%x1f%an%x1f%s%x1f%b%x1f
-// prints them, newest first: a merge, which lists no files, then a commit with a body and three files.
+//   git log --name-only --format=%x1e%H%x1f%P%x1f%aI%x1f%an%x1f%s%x1f%b%x1f
+// prints them, newest first: a merge, with two parents and no files, then a commit with a body and three files.
 const LOG =
-  '\x1efdb9a8a11bc761c96ede75ab77551a36a1a15277\x1f2026-08-07T20:25:17-03:00\x1fSam Magbo\x1f' +
+  '\x1efdb9a8a11bc761c96ede75ab77551a36a1a15277\x1f' +
+  'c65db2a46c56e782afd19ac1bbd141d65ca893cb c7f7cd57adbfc915bbd8044f9ef89a7163199aa9\x1f' +
+  '2026-08-07T20:25:17-03:00\x1fSam Magbo\x1f' +
   "Merge remote-tracking branch 'origin/chore/gitignore-cleanup'\x1f\x1f\n" +
-  '\x1ec7f7cd57adbfc915bbd8044f9ef89a7163199aa9\x1f2026-08-07T20:03:05-03:00\x1fSam Magbo\x1f' +
+  '\x1ec7f7cd57adbfc915bbd8044f9ef89a7163199aa9\x1f68556005401259758a4c5a8381ddfb680b602bfc\x1f' +
+  '2026-08-07T20:03:05-03:00\x1fSam Magbo\x1f' +
   'chore: ignore Thumbs.db and remove stray tracked files\x1f' +
   'Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\n\x1f\n' +
   '\n' +
@@ -26,8 +29,12 @@ const LOG =
   'src/data/Imagens/Thumbs.db\n' +
   'test_write_unc.txt\n';
 
+const ONE_PARENT = ['0'.repeat(40)];
+const TWO_PARENTS = ['0'.repeat(40), 'f'.repeat(40)];
+
 const commit = overrides => ({
   sha: '1'.repeat(40),
+  parents: ONE_PARENT,
   date: '2026-08-07T20:03:05-03:00',
   author: 'Sam Magbo',
   subject: 'feat: sample change',
@@ -53,21 +60,54 @@ test('parseLog reads every field, and a merge has no files', () => {
   assert.equal(rest.length, 0);
   assert.deepEqual(merge, {
     sha: 'fdb9a8a11bc761c96ede75ab77551a36a1a15277',
+    parents: ['c65db2a46c56e782afd19ac1bbd141d65ca893cb', 'c7f7cd57adbfc915bbd8044f9ef89a7163199aa9'],
     date: '2026-08-07T20:25:17-03:00',
     author: 'Sam Magbo',
     subject: "Merge remote-tracking branch 'origin/chore/gitignore-cleanup'",
     body: '',
     files: [],
   });
+  assert.deepEqual(chore.parents, ['68556005401259758a4c5a8381ddfb680b602bfc']);
   assert.equal(chore.subject, 'chore: ignore Thumbs.db and remove stray tracked files');
   assert.equal(chore.body, 'Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\n');
   assert.deepEqual(chore.files, ['.gitignore', 'src/data/Imagens/Thumbs.db', 'test_write_unc.txt']);
 });
 
 test('parseLog refuses output it does not understand', () => {
-  assert.throws(() => parseLog('\x1enot-a-hash\x1f2026-08-07T20:25:17-03:00\x1fSam\x1fx\x1f\x1f\n'), /unexpected commit hash/);
-  assert.throws(() => parseLog(`\x1e${'a'.repeat(40)}\x1f2026-08-07\x1fSam\x1fx\x1f\x1f\n`), /unexpected date/);
-  assert.throws(() => parseLog(`\x1e${'a'.repeat(40)}\x1f2026-08-07T20:25:17-03:00\x1fSam\x1fx\n`), /unexpected git log record/);
+  const sha = 'a'.repeat(40);
+  assert.throws(() => parseLog('\x1enot-a-hash\x1f\x1f2026-08-07T20:25:17-03:00\x1fSam\x1fx\x1f\x1f\n'), /unexpected commit hash/);
+  assert.throws(() => parseLog(`\x1e${sha}\x1fnot-a-parent\x1f2026-08-07T20:25:17-03:00\x1fSam\x1fx\x1f\x1f\n`), /unexpected parents/);
+  assert.throws(() => parseLog(`\x1e${sha}\x1f\x1f2026-08-07\x1fSam\x1fx\x1f\x1f\n`), /unexpected date/);
+  assert.throws(() => parseLog(`\x1e${sha}\x1f\x1f2026-08-07T20:25:17-03:00\x1fSam\x1fx\n`), /unexpected git log record/);
+});
+
+test('parseLog gives a root commit no parents', () => {
+  const [root] = parseLog(`\x1e${'a'.repeat(40)}\x1f\x1f2024-11-22T01:23:23-03:00\x1fSam\x1fInitial commit\x1f\x1f\n\nREADME.md\n`);
+  assert.deepEqual(root.parents, []);
+  assert.deepEqual(classify(root.subject, RULES, root.parents.length), { type: '', scope: '', message: 'Initial commit' });
+});
+
+test('a commit with two parents is a merge, even under a descriptive title', () => {
+  const log = `\x1e${'a'.repeat(40)}\x1f${TWO_PARENTS.join(' ')}\x1f2026-07-21T23:40:34-03:00\x1fSam Magbo\x1f` +
+    'Editorial redesign: sample palette and sample metrics\x1f\x1f\n';
+  const { kept } = applyRules(parseLog(log), context(TALK));
+  assert.deepEqual(kept.map(r => [r.type, r.scope, r.message, r.files]), [['merge', '', 'Editorial redesign: sample palette and sample metrics', 0]]);
+  assert.deepEqual(classify('Merge sample/branch - sample corrections', RULES, 2), { type: 'merge', scope: '', message: 'Merge sample/branch - sample corrections' });
+});
+
+test('"merge:" is a merge type, and with two parents the prefix leaves the message', () => {
+  assert.deepEqual(classify('merge: sample cleanup and fixes', RULES, 2), { type: 'merge', scope: '', message: 'sample cleanup and fixes' });
+  assert.deepEqual(classify('merge: sample cleanup and fixes', RULES), { type: 'merge', scope: '', message: 'sample cleanup and fixes' });
+  // a merge keeps the scope of a known prefix, and keeps an unknown prefix in its message
+  assert.deepEqual(classify('docs(readme): sample merge', RULES, 2), { type: 'merge', scope: 'readme', message: 'sample merge' });
+  assert.deepEqual(classify('security(prod): sample merge', RULES, 2), { type: 'merge', scope: '', message: 'security(prod): sample merge' });
+});
+
+test('a capitalised type is still read: Fix:, Feat:, Refactor:', () => {
+  assert.deepEqual(classify('Fix: sample bug', RULES), { type: 'fix', scope: '', message: 'sample bug' });
+  assert.deepEqual(classify('Feat: sample feature', RULES), { type: 'feat', scope: '', message: 'sample feature' });
+  assert.deepEqual(classify('Refactor(ui): sample architecture', RULES), { type: 'refactor', scope: 'ui', message: 'sample architecture' });
+  assert.deepEqual(classify('DOC: sample guide', RULES), { type: 'docs', scope: '', message: 'sample guide' });
 });
 
 test('classify reads type and scope, and the message loses the prefix', () => {

@@ -1,6 +1,6 @@
 // Pure functions behind the commit trace: no network, no disk, no clock.
 // build.mjs feeds them the output of
-//   git log --name-only --format=%x1e%H%x1f%aI%x1f%an%x1f%s%x1f%b%x1f
+//   git log --name-only --format=%x1e%H%x1f%P%x1f%aI%x1f%an%x1f%s%x1f%b%x1f
 
 export const SCHEMA = 1;
 
@@ -32,29 +32,33 @@ export function parseLog(text) {
   for (const record of text.split(RECORD)) {
     if (record.trim() === '') continue;
     const fields = record.split(FIELD);
-    if (fields.length !== 6) throw new Error(`unexpected git log record: ${JSON.stringify(record.slice(0, 120))}`);
-    const [sha, date, author, subject, body, names] = fields;
+    if (fields.length !== 7) throw new Error(`unexpected git log record: ${JSON.stringify(record.slice(0, 120))}`);
+    const [sha, parentList, date, author, subject, body, names] = fields;
     if (!SHA.test(sha)) throw new Error(`unexpected commit hash: ${JSON.stringify(sha)}`);
+    const parents = parentList.split(' ').filter(Boolean);
+    if (!parents.every(parent => SHA.test(parent))) throw new Error(`unexpected parents for ${sha}: ${JSON.stringify(parentList)}`);
     if (!ISO_DATE.test(date)) throw new Error(`unexpected date for ${sha}: ${JSON.stringify(date)}`);
     const files = names.split('\n').filter(line => line.trim() !== '');
-    commits.push({ sha, date, author, subject, body, files });
+    commits.push({ sha, parents, date, author, subject, body, files });
   }
   return commits;
 }
 
 /**
- * Reads the Conventional Commits prefix of a subject.
- * Merges, reverts and subjects without a known type keep the whole subject as their message.
+ * Reads the Conventional Commits prefix of a subject; the type is read without regard to case.
+ * A commit with two or more parents is a merge: a known prefix is removed from its message, any other
+ * subject stays whole. Merge and revert subjects, and subjects without a known type, stay whole too.
  */
-export function classify(subject, { types, typeAliases = {} }) {
+export function classify(subject, { types, typeAliases = {} }, parentCount = 1) {
   const text = cleanSubject(subject);
+  const match = CONVENTIONAL.exec(text);
+  const word = match ? match[1].toLowerCase() : '';
+  const type = Object.hasOwn(typeAliases, word) ? typeAliases[word] : word;
+  const known = match !== null && types.includes(type);
+  if (parentCount >= 2) return known ? { type: 'merge', scope: match[2] ?? '', message: match[3] } : { type: 'merge', scope: '', message: text };
   if (MERGE_PREFIXES.some(prefix => text.startsWith(prefix))) return { type: 'merge', scope: '', message: text };
   if (text.startsWith(REVERT_PREFIX)) return { type: 'revert', scope: '', message: text };
-  const match = CONVENTIONAL.exec(text);
-  if (match) {
-    const type = Object.hasOwn(typeAliases, match[1]) ? typeAliases[match[1]] : match[1];
-    if (types.includes(type)) return { type, scope: match[2] ?? '', message: match[3] };
-  }
+  if (known) return { type, scope: match[2] ?? '', message: match[3] };
   return { type: '', scope: '', message: text };
 }
 
@@ -93,7 +97,7 @@ export function applyRules(commits, { project, repo, output, excludeAuthors = []
       excluded.push({ ...brief, reason: 'output-only' });
       continue;
     }
-    const { type, scope, message } = classify(subject, { types, typeAliases });
+    const { type, scope, message } = classify(subject, { types, typeAliases }, commit.parents.length);
     const hide = hideMessages.some(pattern => matches(pattern, subject));
     if (hide) hidden += 1;
     kept.push({

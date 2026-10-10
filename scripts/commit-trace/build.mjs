@@ -13,7 +13,7 @@ import config from './config.mjs';
 import { applyRules, parseLog, serialize, sortCommits } from './lib.mjs';
 
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
-const LOG_FORMAT = '--format=%x1e%H%x1f%aI%x1f%an%x1f%s%x1f%b%x1f';
+const LOG_FORMAT = '--format=%x1e%H%x1f%P%x1f%aI%x1f%an%x1f%s%x1f%b%x1f';
 const TIMEOUT_MS = 2 * 60 * 1000;
 
 // git must fail instead of asking for a password: no terminal prompt, and no askpass helper either.
