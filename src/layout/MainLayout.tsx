@@ -71,6 +71,10 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                                     className="site-nav__name"
                               >
+                                    <svg className="site-nav__mark" width="24" height="24" viewBox="4 4 112 112" aria-hidden="true" focusable="false">
+                                          <circle cx="60" cy="60" r="50" fill="none" stroke="#48C3D2" strokeWidth="7" />
+                                          <path d="M 38 85 Q 38 35 50 35 Q 60 35 60 60 Q 60 35 70 35 Q 82 35 82 85" fill="none" stroke="#48C3D2" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
                                     Sammy K. Magbo
                               </button>
 

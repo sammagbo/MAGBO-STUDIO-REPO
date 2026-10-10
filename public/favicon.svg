@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 112 112">
+  <style>
+    .s { fill: none; stroke: #1F8C99; }
+    @media (prefers-color-scheme: dark) { .s { stroke: #48C3D2; } }
+  </style>
+  <circle class="s" cx="60" cy="60" r="50" stroke-width="7"/>
+  <path class="s" d="M 38 85 Q 38 35 50 35 Q 60 35 60 60 Q 60 35 70 35 Q 82 35 82 85" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
