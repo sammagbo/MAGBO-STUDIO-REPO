@@ -80,7 +80,7 @@ export const TRANSLATIONS = {
                   section_label: '01 — About',
                   title: 'Technology, innovation, and <span class="marker-turquoise">strategic execution</span>.',
                   p1: 'I\'m a <span class="marker-blue">Computer Science graduate</span> with experience spanning <span class="marker-violet"> IT governance</span>, system modernization, and institutional-grade platform development. My work bridges <span class="marker-orange">public sector innovation</span> — from state-level IT master plans to <span class="marker-red">full-stack applications</span> serving educational networks.',
-                  p2: 'Based in <span class="marker-green">Rio de Janeiro</span>, I operate across cultures and languages (French, Portuguese, English, Spanish, Italian) — managing <span class="marker-yellow">multicultural teams</span> and delivering projects where operational clarity and technical precision are non-negotiable.',
+                  p2: 'Settling in <span class="marker-green">Bordeaux</span>, I operate across cultures and languages (French, Portuguese, technical English) — managing <span class="marker-yellow">multicultural teams</span> and delivering projects where operational clarity and technical precision are non-negotiable.',
                   stats: { projects: 'Projects Shipped', languages: 'Languages Spoken', grad: 'B.Sc. Degree', cs: 'Computer Science', years: 'Years in Tech' }
             },
             nav: {
@@ -377,7 +377,7 @@ export const TRANSLATIONS = {
                   section_label: '01 — Sobre',
                   title: 'Tecnologia, inovação e <span class="marker-turquoise">execução estratégica</span>.',
                   p1: 'Sou <span class="marker-blue">formado em Ciência da Computação</span> com experiência abrangendo <span class="marker-violet"> governança de TI</span>, modernização de sistemas e desenvolvimento de plataformas de nível institucional. Meu trabalho conecta <span class="marker-orange">a inovação no setor público</span> — desde planos de TI em nível estadual até <span class="marker-red">aplicações full-stack</span>.',
-                  p2: 'Sediado no <span class="marker-green">Rio de Janeiro</span>, opero através de culturas e idiomas (Francês, Português, Inglês, Espanhol) — gerenciando <span class="marker-yellow">equipes multiculturais</span> e entregando projetos onde a clareza sempre é inegociável.',
+                  p2: 'De mudança para <span class="marker-green">Bordeaux</span>, opero através de culturas e idiomas (francês, português, inglês técnico) — gerenciando <span class="marker-yellow">equipes multiculturais</span> e entregando projetos onde a clareza sempre é inegociável.',
                   stats: { projects: 'Projetos Entregues', languages: 'Idiomas Falados', grad: 'Graduação', cs: 'Ciência da Computação', years: 'Anos de Experiência' }
             },
             nav: {
@@ -674,7 +674,7 @@ export const TRANSLATIONS = {
                   section_label: '01 — À propos',
                   title: 'Technologie, innovation et <span class="marker-turquoise">exécution stratégique</span>.',
                   p1: 'Je suis un <span class="marker-blue">diplômé en Informatique</span> avec une expérience couvrant <span class="marker-violet"> la gouvernance informatique</span>, la modernisation de systèmes et le développement de plateformes de niveau institutionnel. Mon travail relie <span class="marker-orange">l\'innovation du secteur public</span> — des plans informatiques d\'état aux <span class="marker-red">applications full-stack</span>.',
-                  p2: 'Basé à <span class="marker-green">Rio de Janeiro</span>, j\'opère à travers différentes cultures et langues (Français, Portugais, Anglais, Espagnol) — gérant des <span class="marker-yellow">équipes multiculturelles</span> et livrant des projets avec une précision non négociable.',
+                  p2: 'En train de m\'installer à <span class="marker-green">Bordeaux</span>, j\'opère à travers différentes cultures et langues (français, portugais, anglais technique) — gérant des <span class="marker-yellow">équipes multiculturelles</span> et livrant des projets avec une précision non négociable.',
                   stats: { projects: 'Projets Livrés', languages: 'Langues Parlées', grad: 'Diplôme', cs: 'Informatique', years: 'Années d\'Expérience' }
             },
             nav: {
