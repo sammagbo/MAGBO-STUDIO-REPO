@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code2, Globe, GraduationCap, Briefcase } from 'lucide-react';
+import { Code2, Globe, GraduationCap } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -28,10 +28,9 @@ export const AboutSection = () => {
       }, []);
 
       const stats = [
-            { icon: Code2, value: '8+', label: t.about.stats.projects, color: 'text-mg-blue', dotColor: 'bg-mg-blue' },
-            { icon: Globe, value: '5', label: t.about.stats.languages, color: 'text-mg-orange', dotColor: 'bg-mg-orange' },
+            { icon: Code2, value: '12', label: t.about.stats.projects, color: 'text-mg-blue', dotColor: 'bg-mg-blue' }, // public projects in src/data/commit-trace.json
+            { icon: Globe, value: '3', label: t.about.stats.languages, color: 'text-mg-orange', dotColor: 'bg-mg-orange' },
             { icon: GraduationCap, value: t.about.stats.grad, label: t.about.stats.cs, color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise' },
-            { icon: Briefcase, value: '10+', label: t.about.stats.years, color: 'text-mg-violet', dotColor: 'bg-mg-violet' },
       ];
 
       return (
@@ -74,7 +73,7 @@ export const AboutSection = () => {
                               {/* Right: Bento Stat Cards */}
                               <div className="grid grid-cols-2 gap-4">
                                     {stats.map((stat, i) => (
-                                          <div key={i} className="about-animate bento-card p-6 lg:p-8 flex flex-col justify-between min-h-[160px] group">
+                                          <div key={i} className="about-animate bento-card p-6 lg:p-8 flex flex-col justify-between min-h-[160px] group first:col-span-2">
                                                 <stat.icon className={`w-5 h-5 ${stat.color} opacity-60 group-hover:opacity-100 transition-opacity duration-300 mb-6`} />
                                                 <div>
                                                       <div className={`font-display font-bold text-2xl lg:text-3xl mb-1 ${stat.color}`}>
