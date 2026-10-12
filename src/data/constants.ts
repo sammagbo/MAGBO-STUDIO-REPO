@@ -11,7 +11,7 @@ export const PROFILE = {
       ops: 'Multisectoral · Multilingual',
       bio: 'Technology and innovation professional with solid experience across public and private sectors. I combine a Computer Science background with multilingual fluency to manage multicultural environments and deliver impactful projects — from IT governance frameworks and system modernization to full-stack platforms and production access control systems.',
       email: 'sammagbo@gmail.com',
-      linkedin: 'https://www.linkedin.com/in/sam-magbo-02086555/',
+      linkedin: 'https://www.linkedin.com/in/sammagbo/',
       github: 'https://github.com/sammagbo',
 } as const;
 
