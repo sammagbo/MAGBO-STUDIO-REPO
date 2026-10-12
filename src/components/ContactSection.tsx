@@ -7,7 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FORM_T: Record<string, any> = {
+const FORM_T: Record<string, Record<string, string>> = {
       en: {
             title: "Let's <span class='marker-pink'>work together</span>.",
             description: "I'm open to <span class='marker-green'>new opportunities</span>, freelance projects, and interesting collaborations. Fill out the form or reach out directly.",

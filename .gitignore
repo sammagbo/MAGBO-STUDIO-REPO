@@ -125,3 +125,6 @@ Desktop.ini
 
 # Scratch / test files
 test_write_unc.txt
+
+# Local agent skill, kept out of the public repository
+SKILL.md
