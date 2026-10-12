@@ -43,10 +43,10 @@ export interface Experience {
 export const EXPERIENCE: Experience[] = [
       {
             id: 'aefe',
-            role: 'Vie Scolaire',
-            company: 'AEFE — Agence pour l\'enseignement français à l\'étranger',
+            role: 'Responsable Vie scolaire',
+            company: 'Lycée Molière (AEFE)',
             location: 'Rio de Janeiro, BR',
-            period: 'Sep 2020 — Present',
+            period: '09/2020 — 09/2026',
             type: 'full-time',
             bullets: [
                   'Multicultural and bilingual environment management across French educational institutions',
