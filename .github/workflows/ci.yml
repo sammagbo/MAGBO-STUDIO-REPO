@@ -1,0 +1,44 @@
+name: CI
+
+# Checks every pull request and every push to main. Vercel deploys the site; this workflow deploys nothing.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Commit trace library tests
+        run: npm run test:data
+
+      - name: Build
+        run: npm run build
+
+      # Only the packages that reach the browser: the build tools are left out on purpose.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
