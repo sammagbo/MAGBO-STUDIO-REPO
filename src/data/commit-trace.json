@@ -1064,6 +1064,14 @@
     [3,3,"e061781992a79613b6cd61e1649dd26e7c4d4e52","2026-10-11T00:03:57+02:00",0,"merge","","Merge pull request #2 from sammagbo/feat/brand-mark",""],
     [3,3,"e4a0f27d87f4de345f65aa6dc8ee4ce67d5406dd","2026-10-11T09:40:41+02:00",1,"fix","about","update location and languages in the about copy","Claude"],
     [3,3,"bb64164dc746b624b15de77ae71b2a89036d6ef0","2026-10-11T09:41:02+02:00",2,"fix","about","show real figures in the about cards","Claude"],
-    [3,3,"d12bcbbbf3db6f322942fc233aad5f1ad0cd1325","2026-10-11T09:42:44+02:00",0,"merge","","Merge pull request #3 from sammagbo/fix/about-facts",""]
+    [3,3,"d12bcbbbf3db6f322942fc233aad5f1ad0cd1325","2026-10-11T09:42:44+02:00",0,"merge","","Merge pull request #3 from sammagbo/fix/about-facts",""],
+    [3,3,"6279f6eeaa032769a832ef1216cfdd75e2f7ad20","2026-10-12T19:55:08+02:00",3,"ci","","replace the legacy pipeline and the Pages deploy with one check workflow","Claude"],
+    [3,3,"848093f83f9ac79f30f7e710c7a6ef2833de6dec","2026-10-12T19:55:24+02:00",1,"ci","data","run the commit trace twice a day","Claude"],
+    [3,3,"8c2007908c115c2fcbf8b0c703cf982f79e513a9","2026-10-12T19:55:54+02:00",2,"chore","deps","drop unused packages and apply non-breaking audit fixes","Claude"],
+    [3,3,"7e5ca57166cb2f72a3aa9db14eaf0de7248ac31c","2026-10-12T19:56:14+02:00",2,"fix","lint","type the translation lookups instead of using any","Claude"],
+    [3,3,"3ebf9cc02585517431f5f52983bb59284b702f44","2026-10-12T19:56:35+02:00",1,"chore","i18n","remove translation groups and keys that no component reads","Claude"],
+    [3,3,"46687905c747945c5e965125fdb29f5ed14e1462","2026-10-12T19:56:42+02:00",1,"fix","contact","point the LinkedIn link to /in/sammagbo","Claude"],
+    [3,3,"edfd142d33e722934c54a24943c604a999aa76dd","2026-10-12T19:56:47+02:00",2,"chore","","keep the frontend-design agent skill out of the repository","Claude"],
+    [3,3,"f860ea474165f5b95df8d952aed7d5a1ba75e48d","2026-10-12T22:24:10+02:00",0,"merge","","Merge pull request #4 from sammagbo/chore/cleanup",""]
   ]
 }
