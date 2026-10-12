@@ -4,7 +4,7 @@ export const TRANSLATIONS = {
       en: {
                         exp: {
           "aefe": {
-                    "role": "Vie Scolaire",
+                    "role": "Responsable Vie scolaire",
                     "bullets": [
                               "Multicultural and bilingual environment management across French educational institutions",
                               "School and academic organization, strategic communication with families",
@@ -101,7 +101,7 @@ export const TRANSLATIONS = {
       pt: {
                         exp: {
           "aefe": {
-                    "role": "Vie Scolaire",
+                    "role": "Responsable Vie scolaire",
                     "bullets": [
                               "Gestão de ambiente multicultural e bilíngue em instituições de ensino francesas",
                               "Organização escolar e acadêmica, comunicação estratégica com as famílias",
@@ -198,7 +198,7 @@ export const TRANSLATIONS = {
       fr: {
                         exp: {
           "aefe": {
-                    "role": "Vie Scolaire",
+                    "role": "Responsable Vie scolaire",
                     "bullets": [
                               "Gestion globale pour environnement multiculturel et francophone",
                               "Organisation de la vie scolaire, communication avec les familles",
