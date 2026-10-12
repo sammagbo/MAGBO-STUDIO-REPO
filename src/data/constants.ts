@@ -59,7 +59,7 @@ export const EXPERIENCE: Experience[] = [
             role: 'IT Development Agent — Strategic Projects',
             company: 'Governo do Estado do Rio de Janeiro (SEDEICS)',
             location: 'Rio de Janeiro, BR',
-            period: 'May 2022 — Jan 2026',
+            period: '05/2022 — 01/2026',
             type: 'contract',
             bullets: [
                   'Led the PDTIC (IT Master Plan) initiative for IT governance and system modernization',
@@ -72,7 +72,7 @@ export const EXPERIENCE: Experience[] = [
             role: 'Managing Partner',
             company: 'Noceci-Viagens',
             location: 'Rio de Janeiro, BR',
-            period: 'Apr 2022 — Aug 2025',
+            period: '04/2022 — 08/2025',
             type: 'entrepreneurship',
             bullets: [
                   'Administrative leadership and legal representation',
@@ -85,7 +85,7 @@ export const EXPERIENCE: Experience[] = [
             role: 'Founder — C.L. 2.0 (Language Courses)',
             company: 'Universidade Veiga de Almeida — Iniciação ao Empreendedorismo',
             location: 'Rio de Janeiro, BR',
-            period: 'Jan 2018 — Sep 2020',
+            period: '01/2018 — 09/2020',
             type: 'entrepreneurship',
             bullets: [
                   'University entrepreneurship project focused on multilingual education (English, Spanish, French, Italian)',
@@ -98,7 +98,7 @@ export const EXPERIENCE: Experience[] = [
             role: 'Agent — Information Security',
             company: 'MAORI do Brasil',
             location: 'Rio de Janeiro, BR',
-            period: 'Apr 2012 — May 2017',
+            period: '04/2012 — 05/2017',
             type: 'full-time',
             bullets: [
                   'Customer service and information security support for the DCNS project',
@@ -132,7 +132,7 @@ export const EDUCATION: Education[] = [
             degree: 'Technical Diploma',
             field: 'IT & Systems',
             institution: 'ISERJ',
-            period: 'Completed',
+            period: '2016',
       },
 ];
 
