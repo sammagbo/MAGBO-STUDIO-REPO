@@ -1,0 +1,36 @@
+/* The about section, ported from the approved canvas design.
+   It follows the site theme: dark by default, light under [data-theme='light']. */
+
+.about-v2 {
+  --ab-bg: #000000;
+  --ab-fg: #F2F0EB;
+  --ab-muted: #9A968F;
+  --ab-edge: #34322F;
+  --ab-pad: clamp(20px, 3.9vw, 56px);
+  background: var(--ab-bg);
+  color: var(--ab-fg);
+  font-family: 'Funnel Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+[data-theme='light'] .about-v2 {
+  --ab-bg: #F2F0EB;
+  --ab-fg: #0E0D0C;
+  --ab-muted: #5E5A54;
+  --ab-edge: #CFCAC1;
+}
+
+.about-v2 .ab-inner { max-width: 1808px; margin: 0 auto; padding: 128px var(--ab-pad) 140px; display: flex; flex-direction: column; gap: 72px; }
+.about-v2 .ab-title { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(3rem, 7vw, 6rem); line-height: .95; letter-spacing: -0.03em; }
+
+/* the opening sentence on the left and the story on the right, side by side from 904px of content width */
+.about-v2 .ab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 64px; align-items: start; }
+.about-v2 .ab-lead { margin: 0; max-width: 15em; font-family: 'Funnel Display', sans-serif; font-weight: 500; font-size: clamp(1.75rem, 3.2vw, 2.75rem); line-height: 1.12; letter-spacing: -0.02em; }
+.about-v2 .ab-story { display: flex; flex-direction: column; gap: 20px; max-width: 36rem; font-size: 18px; line-height: 1.65; color: var(--ab-muted); }
+.about-v2 .ab-story p { margin: 0; }
+.about-v2 .ab-story .ab-peak { font-size: 20px; font-weight: 500; color: var(--ab-fg); }
+
+/* the two facts, in the same grid as the text above */
+.about-v2 .ab-facts { margin: 0; padding-top: 28px; border-top: 1px solid var(--ab-edge); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 64px; }
+.about-v2 .ab-fact { display: flex; flex-direction: column-reverse; gap: 8px; }
+.about-v2 .ab-fact dt { font-size: 15px; line-height: 1.4; color: var(--ab-muted); }
+.about-v2 .ab-fact dd { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }

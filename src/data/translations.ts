@@ -76,11 +76,16 @@ export const TRANSLATIONS = {
           "contact_badge": "05 — Initializing Connection",
 },
             about: {
-                  section_label: '01 — About',
-                  title: 'Technology, innovation, and <span class="marker-turquoise">strategic execution</span>.',
-                  p1: 'I\'m a <span class="marker-blue">Computer Science graduate</span> with experience spanning <span class="marker-violet"> IT governance</span>, system modernization, and institutional-grade platform development. My work bridges <span class="marker-orange">public sector innovation</span> — from state-level IT master plans to <span class="marker-red">full-stack applications</span> serving educational networks.',
-                  p2: 'Settling in <span class="marker-green">Bordeaux</span>, I operate across cultures and languages (French, Portuguese, technical English) — managing <span class="marker-yellow">multicultural teams</span> and delivering projects where operational clarity and technical precision are non-negotiable.',
-                  stats: { projects: 'Public Projects', languages: 'Working Languages', grad: 'B.Sc. Degree', cs: 'Computer Science' }
+                  title: "About",
+                  lead: "I worked for fourteen years in Rio de Janeiro before coming to France.",
+                  story: [
+                        "In 2012, I started out as an information security agent. Four years later, I earned my technical diploma in computing at ISERJ. In 2018, I enrolled in a Computer Science degree at Universidade Veiga de Almeida.",
+                        "In 2020, I joined the Lycée Molière, a school in the AEFE network, as head of student life. In 2022, I went to work for the Rio de Janeiro state government, on IT governance and planning. I held both jobs at the same time. I finished my degree in 2025.",
+                        "It was at the school, in my first week, that I found the problem I mention above.",
+                  ],
+                  peak: "I never let it go.",
+                  closing: "Today I'm settling in Bordeaux. I'm looking for a permanent role (CDI) as a Java / Spring Boot backend developer. I want to travel the rest of this road with a team.",
+                  facts: { languages: "working languages: French, Portuguese, technical English", projects: "public projects on GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
             navbar: {
@@ -173,11 +178,16 @@ export const TRANSLATIONS = {
           "contact_badge": "05 — Iniciando Conexão",
 },
             about: {
-                  section_label: '01 — Sobre',
-                  title: 'Tecnologia, inovação e <span class="marker-turquoise">execução estratégica</span>.',
-                  p1: 'Sou <span class="marker-blue">formado em Ciência da Computação</span> com experiência abrangendo <span class="marker-violet"> governança de TI</span>, modernização de sistemas e desenvolvimento de plataformas de nível institucional. Meu trabalho conecta <span class="marker-orange">a inovação no setor público</span> — desde planos de TI em nível estadual até <span class="marker-red">aplicações full-stack</span>.',
-                  p2: 'De mudança para <span class="marker-green">Bordeaux</span>, opero através de culturas e idiomas (francês, português, inglês técnico) — gerenciando <span class="marker-yellow">equipes multiculturais</span> e entregando projetos onde a clareza sempre é inegociável.',
-                  stats: { projects: 'Projetos Públicos', languages: 'Idiomas de Trabalho', grad: 'Graduação', cs: 'Ciência da Computação' }
+                  title: "Sobre",
+                  lead: "Trabalhei catorze anos no Rio de Janeiro antes de vir para a França.",
+                  story: [
+                        "Em 2012, comecei como agente de segurança da informação. Quatro anos depois, tirei meu diploma técnico em informática no ISERJ. Em 2018, entrei na graduação em Ciência da Computação da Universidade Veiga de Almeida.",
+                        "Em 2020, fui para o Lycée Molière, uma escola da rede AEFE, como responsável pela vida escolar. Em 2022, passei a trabalhar no governo do Estado do Rio, com governança e planejamento de TI. Mantive os dois cargos ao mesmo tempo. Terminei a graduação em 2025.",
+                        "Foi na escola, na semana em que cheguei, que encontrei o problema de que falo acima.",
+                  ],
+                  peak: "Não larguei mais.",
+                  closing: "Hoje, estou me mudando para Bordeaux. Procuro uma vaga em CDI como desenvolvedor backend Java / Spring Boot. O resto do caminho, quero fazer em equipe.",
+                  facts: { languages: "idiomas de trabalho: francês, português, inglês técnico", projects: "projetos públicos no GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
             navbar: {
@@ -270,11 +280,16 @@ export const TRANSLATIONS = {
           "contact_badge": "05 — Connexion Initiale",
 },
             about: {
-                  section_label: '01 — À propos',
-                  title: 'Technologie, innovation et <span class="marker-turquoise">exécution stratégique</span>.',
-                  p1: 'Je suis un <span class="marker-blue">diplômé en Informatique</span> avec une expérience couvrant <span class="marker-violet"> la gouvernance informatique</span>, la modernisation de systèmes et le développement de plateformes de niveau institutionnel. Mon travail relie <span class="marker-orange">l\'innovation du secteur public</span> — des plans informatiques d\'état aux <span class="marker-red">applications full-stack</span>.',
-                  p2: 'En train de m\'installer à <span class="marker-green">Bordeaux</span>, j\'opère à travers différentes cultures et langues (français, portugais, anglais technique) — gérant des <span class="marker-yellow">équipes multiculturelles</span> et livrant des projets avec une précision non négociable.',
-                  stats: { projects: 'Projets Publics', languages: 'Langues de Travail', grad: 'Diplôme', cs: 'Informatique' }
+                  title: "À propos",
+                  lead: "J'ai travaillé quatorze ans à Rio de Janeiro avant de venir en France.",
+                  story: [
+                        "En 2012, j'ai commencé comme agent de sécurité de l'information. Quatre ans plus tard, j'ai obtenu mon diplôme technique en informatique à l'ISERJ. En 2018, je me suis inscrit en licence d'informatique à l'Universidade Veiga de Almeida.",
+                        "En 2020, je suis entré au Lycée Molière, un établissement du réseau AEFE, comme responsable de la vie scolaire. En 2022, j'ai rejoint le gouvernement de l'État de Rio pour travailler sur la gouvernance et la planification de son informatique. J'ai tenu les deux postes de front. J'ai terminé ma licence en 2025.",
+                        "C'est au lycée, la semaine de mon arrivée, que j'ai trouvé le problème dont je parle plus haut.",
+                  ],
+                  peak: "Je ne l'ai plus lâché.",
+                  closing: "Aujourd'hui, je m'installe à Bordeaux. Je cherche un CDI de développeur backend Java / Spring Boot. La suite du chemin, je veux la faire en équipe.",
+                  facts: { languages: "langues de travail : français, portugais, anglais technique", projects: "projets publics sur GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
             navbar: {
