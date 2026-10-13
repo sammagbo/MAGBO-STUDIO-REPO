@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "data:commits": "node scripts/commit-trace/build.mjs",
     "test:data": "node --test scripts/commit-trace/lib.test.mjs",
+    "og:image": "node scripts/og-image/render.mjs",
     "test": "vitest run"
   },
   "dependencies": {
