@@ -1075,6 +1075,20 @@
     [3,3,"f860ea474165f5b95df8d952aed7d5a1ba75e48d","2026-10-12T22:24:10+02:00",0,"merge","","Merge pull request #4 from sammagbo/chore/cleanup",""],
     [3,3,"5a5e2afab3050e6805e00423edd8a27d1fe7abac","2026-10-12T23:38:27+02:00",2,"fix","experience","close the Lycée Molière role in 09/2026 under its CV title","Claude"],
     [3,3,"6dd7987cda275e7821456673f9d3fe354d3b89a0","2026-10-12T23:38:32+02:00",1,"fix","experience","write the periods as numbers so they read the same in every language","Claude"],
-    [3,3,"a75e1997563f3b11f66eea659d08674440cb245f","2026-10-12T23:40:50+02:00",0,"merge","","Merge pull request #5 from sammagbo/fix/parcours-facts",""]
+    [3,3,"a75e1997563f3b11f66eea659d08674440cb245f","2026-10-12T23:40:50+02:00",0,"merge","","Merge pull request #5 from sammagbo/fix/parcours-facts",""],
+    [3,3,"c3d226fb9f229e9c3dfdb0c80817758023222bae","2026-10-13T17:10:30+02:00",1,"feat","i18n","open the site in the visitor's browser language","Claude"],
+    [3,3,"8264039428734053033220630d8b6d8db3690b82","2026-10-13T17:10:45+02:00",4,"refactor","seo","keep the meta tags in index.html only","Claude"],
+    [3,3,"4680b9c8b267b7795e92cd627eb5600997cbfcd6","2026-10-13T17:11:02+02:00",1,"fix","seo","describe the site in French for search engines and link previews","Claude"],
+    [3,3,"c2ba2375bde2f91458882cc015aad9c4eb1abbeb","2026-10-13T17:13:40+02:00",0,"merge","","Merge pull request #6 from sammagbo/feat/browser-language",""],
+    [3,3,"d7d149907007dcd9e7c113a454038ad552a585c0","2026-10-13T19:55:33+02:00",2,"test","data","pin the public project count to the commit trace","Claude"],
+    [3,3,"c4ebe516a77ee58fcb21a7de4f7fe2c0fdd36bba","2026-10-13T19:56:19+02:00",4,"feat","about","redesign the about section in the brand style","Claude"],
+    [3,3,"4b9910070828b4f9b83a8701feec11d22c459704","2026-10-13T19:56:32+02:00",1,"fix","contact","show Bordeaux as the location","Claude"],
+    [3,3,"9bbaf22a660bf793162b7affab3df6e9fdf1f38c","2026-10-13T19:59:41+02:00",0,"merge","","Merge pull request #7 from sammagbo/feat/about-redesign",""],
+    [3,3,"aa7432f8cd12e4b28ff4a1d6c6bb762d51486665","2026-10-13T20:49:45+02:00",3,"feat","seo","draw the link preview image from an HTML source","Claude"],
+    [3,3,"1092e969a0d4fb8b2bccb269dd23fcddadee5dc0","2026-10-13T20:50:02+02:00",1,"feat","seo","replace the link preview image with the new brand","Claude"],
+    [3,3,"5fb8699ed13c010bdabe353c2cfc53ccba39539b","2026-10-13T20:50:18+02:00",1,"fix","seo","version the preview image URL so link previews refresh","Claude"],
+    [3,3,"603c3585dde414b429e4f398196b6c7c2de14128","2026-10-13T20:51:28+02:00",0,"merge","","Merge pull request #8 from sammagbo/feat/og-image",""],
+    [3,3,"0f39f2031cfedbeb20f9aa4557c5c8f8c7f34415","2026-10-13T21:25:56+02:00",5,"feat","experience","redesign the experience section in the brand style","Claude"],
+    [3,3,"3fdc03e1bebe4cc91b02e138ecbf2d4681c4f0ac","2026-10-13T21:28:05+02:00",0,"merge","","Merge pull request #9 from sammagbo/feat/parcours-redesign",""]
   ]
 }
