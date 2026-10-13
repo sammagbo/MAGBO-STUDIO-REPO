@@ -15,6 +15,9 @@ export const PROFILE = {
       github: 'https://github.com/sammagbo',
 } as const;
 
+// Public projects in the commit trace (src/data/commit-trace.json); constants.test.ts keeps the two in step.
+export const PUBLIC_PROJECTS = 12;
+
 export const SKILLS = {
       frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GSAP', 'Three.js'],
       backend: ['Java', 'Spring Boot', 'Node.js', 'REST APIs', 'PostgreSQL'],
