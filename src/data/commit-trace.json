@@ -1072,6 +1072,9 @@
     [3,3,"3ebf9cc02585517431f5f52983bb59284b702f44","2026-10-12T19:56:35+02:00",1,"chore","i18n","remove translation groups and keys that no component reads","Claude"],
     [3,3,"46687905c747945c5e965125fdb29f5ed14e1462","2026-10-12T19:56:42+02:00",1,"fix","contact","point the LinkedIn link to /in/sammagbo","Claude"],
     [3,3,"edfd142d33e722934c54a24943c604a999aa76dd","2026-10-12T19:56:47+02:00",2,"chore","","keep the frontend-design agent skill out of the repository","Claude"],
-    [3,3,"f860ea474165f5b95df8d952aed7d5a1ba75e48d","2026-10-12T22:24:10+02:00",0,"merge","","Merge pull request #4 from sammagbo/chore/cleanup",""]
+    [3,3,"f860ea474165f5b95df8d952aed7d5a1ba75e48d","2026-10-12T22:24:10+02:00",0,"merge","","Merge pull request #4 from sammagbo/chore/cleanup",""],
+    [3,3,"5a5e2afab3050e6805e00423edd8a27d1fe7abac","2026-10-12T23:38:27+02:00",2,"fix","experience","close the Lycée Molière role in 09/2026 under its CV title","Claude"],
+    [3,3,"6dd7987cda275e7821456673f9d3fe354d3b89a0","2026-10-12T23:38:32+02:00",1,"fix","experience","write the periods as numbers so they read the same in every language","Claude"],
+    [3,3,"a75e1997563f3b11f66eea659d08674440cb245f","2026-10-12T23:40:50+02:00",0,"merge","","Merge pull request #5 from sammagbo/fix/parcours-facts",""]
   ]
 }
