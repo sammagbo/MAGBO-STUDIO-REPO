@@ -3,6 +3,8 @@
  * Real profile data sourced from LinkedIn + GitHub. Clean, recruiter-friendly.
  */
 
+import type { DegreeId, JobId } from '@/data/parcours';
+
 export const PROFILE = {
       name: 'Sam Magbo',
       role: 'Technology & Innovation Professional',
@@ -32,111 +34,35 @@ export const SKILLS_FLAT = [
 ] as const;
 
 // ── Experience ──
+// Language-neutral data; the role and bullets of each job live in src/data/parcours.ts.
 
 export interface Experience {
-      id: string;
-      role: string;
+      id: JobId;
       company: string;
       location: string;
       period: string;
-      type: 'full-time' | 'contract' | 'freelance' | 'entrepreneurship';
-      bullets: string[];
 }
 
 export const EXPERIENCE: Experience[] = [
-      {
-            id: 'aefe',
-            role: 'Responsable Vie scolaire',
-            company: 'Lycée Molière (AEFE)',
-            location: 'Rio de Janeiro, BR',
-            period: '09/2020 — 09/2026',
-            type: 'full-time',
-            bullets: [
-                  'Multicultural and bilingual environment management across French educational institutions',
-                  'School and academic organization, strategic communication with families',
-                  'Preparation and coordination for international certifications (BAC, Brevet, PIX)',
-            ],
-      },
-      {
-            id: 'sedeics',
-            role: 'IT Development Agent — Strategic Projects',
-            company: 'Governo do Estado do Rio de Janeiro (SEDEICS)',
-            location: 'Rio de Janeiro, BR',
-            period: '05/2022 — 01/2026',
-            type: 'contract',
-            bullets: [
-                  'Led the PDTIC (IT Master Plan) initiative for IT governance and system modernization',
-                  'Managed cross-departmental technology infrastructure and data organization',
-                  'Delivered strategic IT reports and digital transformation roadmaps',
-            ],
-      },
-      {
-            id: 'noceci',
-            role: 'Managing Partner',
-            company: 'Noceci-Viagens',
-            location: 'Rio de Janeiro, BR',
-            period: '04/2022 — 08/2025',
-            type: 'entrepreneurship',
-            bullets: [
-                  'Administrative leadership and legal representation',
-                  'Management of human resources, financial operations, and technology stack',
-                  'Strategic planning and business development',
-            ],
-      },
-      {
-            id: 'cl20',
-            role: 'Founder — C.L. 2.0 (Language Courses)',
-            company: 'Universidade Veiga de Almeida — Iniciação ao Empreendedorismo',
-            location: 'Rio de Janeiro, BR',
-            period: '01/2018 — 09/2020',
-            type: 'entrepreneurship',
-            bullets: [
-                  'University entrepreneurship project focused on multilingual education (English, Spanish, French, Italian)',
-                  'Developed the business model, bilingual curriculum strategy, and operational framework',
-                  'Bridged technology and language learning through academic-led initiatives',
-            ],
-      },
-      {
-            id: 'maori',
-            role: 'Agent — Information Security',
-            company: 'MAORI do Brasil',
-            location: 'Rio de Janeiro, BR',
-            period: '04/2012 — 05/2017',
-            type: 'full-time',
-            bullets: [
-                  'Customer service and information security support for the DCNS project',
-                  'Operational execution in high-clearance environments',
-            ],
-      },
+      { id: 'aefe', company: 'Lycée Molière (AEFE)', location: 'Rio de Janeiro, BR', period: '09/2020 — 09/2026' },
+      { id: 'sedeics', company: 'Governo do Estado do Rio de Janeiro (SEDEICS)', location: 'Rio de Janeiro, BR', period: '05/2022 — 01/2026' },
+      { id: 'noceci', company: 'Noceci-Viagens', location: 'Rio de Janeiro, BR', period: '04/2022 — 08/2025' },
+      { id: 'cl20', company: 'C.L. 2.0', location: 'Rio de Janeiro, BR', period: '01/2018 — 09/2020' },
+      { id: 'maori', company: 'MAORI do Brasil', location: 'Rio de Janeiro, BR', period: '04/2012 — 05/2017' },
 ];
 
 // ── Education ──
+// Language-neutral data; the degree and note live in src/data/parcours.ts.
 
 export interface Education {
-      id: string;
-      degree: string;
-      field: string;
+      id: DegreeId;
       institution: string;
       period: string;
-      note?: string;
 }
 
 export const EDUCATION: Education[] = [
-      {
-            id: 'uva',
-            degree: 'Bacharelado',
-            field: 'Computer Science',
-            institution: 'Universidade Veiga de Almeida',
-            period: '2018 — 2025',
-            note: 'Project Academic Manager (2018)',
-      },
-      {
-            id: 'iserj',
-            degree: 'Technical Diploma',
-            field: 'IT & Systems',
-            institution: 'ISERJ',
-            period: '2016',
-      },
+      { id: 'uva', institution: 'Universidade Veiga de Almeida', period: '2018 — 2025' },
+      { id: 'iserj', institution: 'ISERJ', period: '2016' },
 ];
 
 // ── Projects ──

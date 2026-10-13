@@ -2,59 +2,6 @@ export type Language = 'en' | 'pt' | 'fr';
 
 export const TRANSLATIONS = {
       en: {
-                        exp: {
-          "aefe": {
-                    "role": "Responsable Vie scolaire",
-                    "bullets": [
-                              "Multicultural and bilingual environment management across French educational institutions",
-                              "School and academic organization, strategic communication with families",
-                              "Preparation and coordination for international certifications (BAC, Brevet, PIX)"
-                    ]
-          },
-          "sedeics": {
-                    "role": "IT Development Agent — Strategic Projects",
-                    "bullets": [
-                              "Led the PDTIC (IT Master Plan) initiative for IT governance and system modernization",
-                              "Managed cross-departmental technology infrastructure and data organization",
-                              "Delivered strategic IT reports and digital transformation roadmaps"
-                    ]
-          },
-          "noceci": {
-                    "role": "Managing Partner",
-                    "bullets": [
-                              "Administrative leadership and legal representation",
-                              "Management of human resources, financial operations, and technology stack",
-                              "Strategic planning and business development"
-                    ]
-          },
-          "cl20": {
-                    "role": "Founder — C.L. 2.0 (Language Courses)",
-                    "bullets": [
-                              "University entrepreneurship project focused on multilingual education (English, Spanish, French, Italian)",
-                              "Developed the business model, bilingual curriculum strategy, and operational framework",
-                              "Bridged technology and language learning through academic-led initiatives"
-                    ]
-          },
-          "maori": {
-                    "role": "Agent — Information Security",
-                    "bullets": [
-                              "Customer service and information security support for the DCNS project",
-                              "Operational execution in high-clearance environments"
-                    ]
-          }
-},
-            edu: {
-          "uva": {
-                    "degree": "Bachelor",
-                    "field": "Computer Science",
-                    "note": "Project Academic Manager (2018)"
-          },
-          "iserj": {
-                    "degree": "Technical Diploma",
-                    "field": "IT & Systems",
-                    "note": ""
-          }
-},
             proj: {
           "magbo-studio": "Personal portfolio and engineering showcase. Built with React, TypeScript, GSAP animations, and Tailwind CSS on a dark premium design system.",
           "controle-de-acesso": "Production access control and meal-entitlement system for a French international school. Spring Boot backend integrating Hikvision face and card terminals, with an Electron desktop client. Deployed on Docker; 900+ students, 190+ automated tests.",
@@ -66,9 +13,6 @@ export const TRANSLATIONS = {
           "floresta-unity": "Environmental simulation game built with Unity and C#. Explores ecological themes through interactive 3D experiences."
 },
             ui: {
-          "experience_badge": "02 — Experience",
-          "experience_title": "Professional <span class=\"marker-orange\">Trajectory</span>",
-          "education_badge": "Education",
           "work_badge": "03 — Selected Work",
           "work_title": "<span class=\"marker-blue\">Engineering</span> Logs",
           "skills_badge": "04 — Skills & Expertise",
@@ -104,59 +48,6 @@ export const TRANSLATIONS = {
             },
       },
       pt: {
-                        exp: {
-          "aefe": {
-                    "role": "Responsable Vie scolaire",
-                    "bullets": [
-                              "Gestão de ambiente multicultural e bilíngue em instituições de ensino francesas",
-                              "Organização escolar e acadêmica, comunicação estratégica com as famílias",
-                              "Preparação e coordenação para certificações internacionais (BAC, Brevet, PIX)"
-                    ]
-          },
-          "sedeics": {
-                    "role": "Agente de Desenvolvimento de TI — Projetos Estratégicos",
-                    "bullets": [
-                              "Liderou a iniciativa do PDTIC (Plano Diretor de TI) para governança e modernização de sistemas",
-                              "Gerenciou infraestrutura tecnológica interdepartamental e organização de dados",
-                              "Entregou relatórios estratégicos de TI e roteiros de transformação digital"
-                    ]
-          },
-          "noceci": {
-                    "role": "Sócio Administrador",
-                    "bullets": [
-                              "Liderança administrativa e representação legal",
-                              "Gestão de recursos humanos, operações financeiras e stack tecnológico",
-                              "Planejamento estratégico e desenvolvimento de negócios"
-                    ]
-          },
-          "cl20": {
-                    "role": "Fundador — C.L. 2.0 (Cursos de Idiomas)",
-                    "bullets": [
-                              "Projeto universitário de empreendedorismo focado em educação multilíngue (Inglês, Espanhol, Francês, Italiano)",
-                              "Desenvolveu o modelo de negócio, currículo bilíngue e plano operacional",
-                              "Conectou tecnologia e aprendizagem de idiomas através de iniciativas lideradas por acadêmicos"
-                    ]
-          },
-          "maori": {
-                    "role": "Agente — Segurança da Informação",
-                    "bullets": [
-                              "Atendimento ao cliente e suporte em segurança da informação para o projeto DCNS",
-                              "Execução operacional em ambientes de alta confidencialidade"
-                    ]
-          }
-},
-            edu: {
-          "uva": {
-                    "degree": "Bacharelado",
-                    "field": "Ciência da Computação",
-                    "note": "Gerente Acadêmico de Projetos (2018)"
-          },
-          "iserj": {
-                    "degree": "Diploma Técnico",
-                    "field": "Sistemas e TI",
-                    "note": ""
-          }
-},
             proj: {
           "magbo-studio": "Portfólio pessoal e showcase de engenharia. Construído com React, TypeScript, GSAP e Tailwind CSS em um sistema de design premium escuro.",
           "controle-de-acesso": "Sistema de controle de acesso e gestão de refeições em produção para uma escola internacional francesa. Backend Spring Boot integrado a terminais Hikvision de reconhecimento facial e cartão, com cliente desktop em Electron. Implantado em Docker; mais de 900 alunos e 190 testes automatizados.",
@@ -168,9 +59,6 @@ export const TRANSLATIONS = {
           "floresta-unity": "Jogo de simulação ambiental construído em Unity e C#. Explora temas ecológicos de forma interativa e complexa."
 },
             ui: {
-          "experience_badge": "02 — Experiência",
-          "experience_title": "Trajetória <span class=\"marker-orange\">Profissional</span>",
-          "education_badge": "Educação",
           "work_badge": "03 — Trabalhos Selecionados",
           "work_title": "Logs de <span class=\"marker-blue\">Engenharia</span>",
           "skills_badge": "04 — Habilidades e Expertise",
@@ -206,59 +94,6 @@ export const TRANSLATIONS = {
             },
       },
       fr: {
-                        exp: {
-          "aefe": {
-                    "role": "Responsable Vie scolaire",
-                    "bullets": [
-                              "Gestion globale pour environnement multiculturel et francophone",
-                              "Organisation de la vie scolaire, communication avec les familles",
-                              "Certifications internationales (BAC, Brevet)"
-                    ]
-          },
-          "sedeics": {
-                    "role": "Agent de Dév. Informatique — Projets Stratég.",
-                    "bullets": [
-                              "Mise en oeuvre du Master Plan Informatique pour la gouvernance des SI",
-                              "Gestion des infrastructures interdépartementales",
-                              "Elaboration de feuilles de route stratégiques et transformation digitale"
-                    ]
-          },
-          "noceci": {
-                    "role": "Gérant et Partenaire",
-                    "bullets": [
-                              "Leadership administratif et représentation légale",
-                              "Gestion des RH, opérations financières, et de la pile technologique",
-                              "Développement commercial"
-                    ]
-          },
-          "cl20": {
-                    "role": "Fondateur — C.L. 2.0",
-                    "bullets": [
-                              "Projet de création d'entreprise pour cours de langues",
-                              "Développement du modèle économique",
-                              "Intégration technologique avec l'éducation"
-                    ]
-          },
-          "maori": {
-                    "role": "Agent de Sécurité de l'information",
-                    "bullets": [
-                              "Opérations support et sécurité DCNS",
-                              "Environnement à haute sécurité et clairance"
-                    ]
-          }
-},
-            edu: {
-          "uva": {
-                    "degree": "Licence",
-                    "field": "Science Informatique",
-                    "note": "Project Manager Académique (2018)"
-          },
-          "iserj": {
-                    "degree": "Diplôme Technique",
-                    "field": "Systèmes Informatiques",
-                    "note": ""
-          }
-},
             proj: {
           "magbo-studio": "Portefeuille personnel en React/TypeScript.",
           "controle-de-acesso": "Système de contrôle d'accès et de gestion des repas en production pour un établissement scolaire français à l'étranger. Backend Spring Boot intégré à des terminaux Hikvision (reconnaissance faciale et badge), avec un client de bureau Electron. Déployé sous Docker ; plus de 900 élèves et 190 tests automatisés.",
@@ -270,9 +105,6 @@ export const TRANSLATIONS = {
           "floresta-unity": "Jeu Unity écologique interactif."
 },
             ui: {
-          "experience_badge": "02 — Expérience",
-          "experience_title": "Parcours <span class=\"marker-orange\">Professionnel</span>",
-          "education_badge": "Éducation",
           "work_badge": "03 — Projets Sélectionnés",
           "work_title": "Registres <span class=\"marker-blue\">Techniques</span>",
           "skills_badge": "04 — Compétences",
