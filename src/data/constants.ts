@@ -7,7 +7,7 @@ export const PROFILE = {
       name: 'Sam Magbo',
       role: 'Technology & Innovation Professional',
       tagline: 'Systems Implementation · Project Management · Computer Science',
-      location: 'Rio de Janeiro, BR',
+      location: 'Bordeaux, FR',
       ops: 'Multisectoral · Multilingual',
       bio: 'Technology and innovation professional with solid experience across public and private sectors. I combine a Computer Science background with multilingual fluency to manage multicultural environments and deliver impactful projects — from IT governance frameworks and system modernization to full-stack platforms and production access control systems.',
       email: 'sammagbo@gmail.com',
