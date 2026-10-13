@@ -1,0 +1,43 @@
+/* The experience section, ported from the approved canvas design.
+   It follows the site theme: dark by default, light under [data-theme='light']. */
+
+.parcours-v2 {
+  --pc-bg: #000000;
+  --pc-fg: #F2F0EB;
+  --pc-muted: #9A968F;
+  --pc-edge: #34322F;
+  --pc-pad: clamp(20px, 3.9vw, 56px);
+  background: var(--pc-bg);
+  color: var(--pc-fg);
+  font-family: 'Funnel Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+[data-theme='light'] .parcours-v2 {
+  --pc-bg: #F2F0EB;
+  --pc-fg: #0E0D0C;
+  --pc-muted: #5E5A54;
+  --pc-edge: #CFCAC1;
+}
+
+.parcours-v2 .pc-inner { max-width: 1808px; margin: 0 auto; padding: 128px var(--pc-pad) 140px; display: flex; flex-direction: column; gap: 72px; }
+.parcours-v2 .pc-title { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(3rem, 7vw, 6rem); line-height: .95; letter-spacing: -0.03em; }
+
+/* one row per job: the dates on the left and the rest on the right, the dates on top when the row is narrow */
+.parcours-v2 .pc-list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--pc-edge); }
+.parcours-v2 .pc-row { display: flex; flex-wrap: wrap; gap: 12px 64px; padding: 36px 0 44px; border-top: 1px solid var(--pc-edge); }
+.parcours-v2 .pc-period { flex: 1 1 220px; margin: 0; font-size: 15px; line-height: 1.5; color: var(--pc-muted); font-variant-numeric: tabular-nums; }
+.parcours-v2 .pc-body { flex: 2 1 480px; display: flex; flex-direction: column; gap: 14px; }
+.parcours-v2 .pc-role { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(1.5rem, 2.2vw, 1.875rem); line-height: 1.15; letter-spacing: -0.015em; }
+.parcours-v2 .pc-org { margin: 0; font-size: 17px; line-height: 1.5; font-weight: 500; }
+.parcours-v2 .pc-org span { font-weight: 400; color: var(--pc-muted); }
+.parcours-v2 .pc-bullets { list-style: none; margin: 0; padding: 0; max-width: 44rem; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.6; color: var(--pc-muted); }
+.parcours-v2 .pc-bullets li { position: relative; padding-left: 22px; }
+.parcours-v2 .pc-bullets li::before { content: '–'; position: absolute; left: 0; top: 0; }
+
+/* the degrees, in the same rows */
+.parcours-v2 .pc-education { display: flex; flex-direction: column; gap: 32px; }
+.parcours-v2 .pc-subtitle { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1; letter-spacing: -0.02em; }
+.parcours-v2 .pc-row--degree { padding: 32px 0 36px; }
+.parcours-v2 .pc-row--degree .pc-body { gap: 8px; }
+.parcours-v2 .pc-degree { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; }
+.parcours-v2 .pc-note { margin: 0; font-size: 15px; line-height: 1.5; color: var(--pc-muted); }

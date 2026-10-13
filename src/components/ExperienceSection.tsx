@@ -1,142 +1,54 @@
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useExperience, useEducation } from '@/hooks/useData';
 import { useLanguage } from '@/context/LanguageContext';
+import { useEducation, useExperience } from '@/hooks/useData';
+import { PARCOURS } from '@/data/parcours';
+import './ExperienceSection.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
+// The experience section, from the approved canvas design: one row per job with its dates on the left, then the degrees.
 export const ExperienceSection = () => {
-      const EXPERIENCE = useExperience();
-      const EDUCATION = useEducation();
-      const containerRef = useRef<HTMLElement>(null);
-      const { t } = useLanguage();
-
-      useEffect(() => {
-            const ctx = gsap.context(() => {
-                  gsap.from('.exp-animate', {
-                        y: 40,
-                        opacity: 0,
-                        duration: 0.7,
-                        stagger: 0.1,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                              trigger: containerRef.current,
-                              start: 'top 75%',
-                        },
-                  });
-            }, containerRef);
-            return () => ctx.revert();
-      }, []);
+      const { language } = useLanguage();
+      const jobs = useExperience();
+      const degrees = useEducation();
+      const text = PARCOURS[language];
 
       return (
-            <section ref={containerRef} id="experience" className="relative py-32 lg:py-40 px-6 md:px-12 lg:px-20 xl:px-32 bg-dark-bg">
+            <section id="experience" className="parcours-v2" aria-labelledby="experience-title">
+                  <div className="pc-inner">
+                        <h2 id="experience-title" className="pc-title">{text.title}</h2>
 
-                  {/* Subtle section divider */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-mg-orange/20 to-transparent" />
-
-                  <div className="max-w-[1200px] mx-auto w-full">
-
-                        {/* Section Label */}
-                        <div className="exp-animate mb-4">
-                              <span className="text-mg-orange font-mono text-xs tracking-[0.25em] uppercase">
-                                    {t.ui.experience_badge}
-                              </span>
-                        </div>
-
-                        {/* Section Title */}
-                        <h2 className="exp-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-20"
-                              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
-                              dangerouslySetInnerHTML={{ __html: t.ui.experience_title }}
-                        />
-
-                        {/* ─── Timeline ─── */}
-                        <div className="relative">
-                              {/* Vertical line */}
-                              <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-mg-orange/30 via-dark-border to-transparent" />
-
-                              <div className="space-y-16">
-                                    {EXPERIENCE.map((exp) => {
-                                          const tExp = (t.exp as Record<string, { role: string; bullets: string[] } | undefined>)[exp.id];
-                                          return (
-                                          <div key={exp.id} className="exp-animate relative pl-8 md:pl-20">
-                                                {/* Timeline dot */}
-                                                <div className="absolute left-0 md:left-8 top-1.5 -translate-x-1/2">
-                                                      <div className="w-2.5 h-2.5 rounded-full bg-dark-bg border-2 border-mg-orange/60" />
-                                                </div>
-
-                                                {/* Period & Type badge */}
-                                                <div className="flex items-center gap-4 mb-3">
-                                                      <span className="text-dark-muted font-mono text-xs tracking-wider">
-                                                            {exp.period}
-                                                      </span>
-                                                      <span className="text-dark-muted font-mono text-[10px] tracking-widest uppercase px-2 py-0.5 border border-dark-border rounded-full">
-                                                            {exp.type}
-                                                      </span>
-                                                </div>
-
-                                                {/* Role */}
-                                                <h3 className="font-display font-bold text-dark-text text-xl lg:text-2xl tracking-tight mb-1">
-                                                      {tExp?.role || exp.role}
-                                                </h3>
-
-                                                {/* Company & Location */}
-                                                <p className="text-dark-secondary font-body text-sm mb-6">
-                                                      {exp.company}
-                                                      <span className="text-dark-muted"> · {exp.location}</span>
+                        <ol className="pc-list">
+                              {jobs.map((job) => (
+                                    <li key={job.id} className="pc-row">
+                                          <p className="pc-period">{job.period}</p>
+                                          <div className="pc-body">
+                                                <h3 className="pc-role">{text.jobs[job.id].role}</h3>
+                                                <p className="pc-org">
+                                                      {job.company} <span>· {job.location}</span>
                                                 </p>
-
-                                                {/* Bullets */}
-                                                <ul className="space-y-2.5">
-                                                      {(tExp?.bullets || exp.bullets).map((bullet: string, i: number) => (
-                                                            <li key={i} className="flex items-start gap-3 text-dark-muted font-body text-sm leading-relaxed">
-                                                                  <span className="w-1 h-1 rounded-full bg-mg-orange/40 mt-2 shrink-0" />
-                                                                  {bullet}
-                                                            </li>
+                                                <ul className="pc-bullets">
+                                                      {text.jobs[job.id].bullets.map((bullet) => (
+                                                            <li key={bullet}>{bullet}</li>
                                                       ))}
                                                 </ul>
                                           </div>
-                                    )})}
-                              </div>
-                        </div>
+                                    </li>
+                              ))}
+                        </ol>
 
-                        {/* ─── Education Block ─── */}
-                        <div className="mt-32">
-                              <div className="exp-animate mb-4">
-                                    <span className="text-mg-turquoise font-mono text-xs tracking-[0.25em] uppercase">
-                                          {t.ui.education_badge}
-                                    </span>
-                              </div>
-
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-                                    {EDUCATION.map((edu) => {
-                                          const tEdu = (t.edu as Record<string, { degree: string; field: string; note: string } | undefined>)[edu.id];
-                                          return (
-                                          <div key={edu.id} className="exp-animate border-l-2 border-mg-turquoise/30 pl-8 py-2">
-                                                <div className="flex items-baseline gap-3 mb-1">
-                                                      <span className="font-display font-bold text-dark-text text-xl tracking-tight">
-                                                            {tEdu?.degree || edu.degree}
-                                                      </span>
-                                                      <span className="text-dark-muted font-mono text-xs tracking-wider">
-                                                            {edu.period}
-                                                      </span>
+                        <div className="pc-education">
+                              <h3 className="pc-subtitle">{text.education}</h3>
+                              <ol className="pc-list">
+                                    {degrees.map((degree) => (
+                                          <li key={degree.id} className="pc-row pc-row--degree">
+                                                <p className="pc-period">{degree.period}</p>
+                                                <div className="pc-body">
+                                                      <h4 className="pc-degree">{text.degrees[degree.id].degree}</h4>
+                                                      <p className="pc-org">{degree.institution}</p>
+                                                      {text.degrees[degree.id].note && <p className="pc-note">{text.degrees[degree.id].note}</p>}
                                                 </div>
-                                                <p className="text-dark-secondary font-body text-sm mb-1">
-                                                      {tEdu?.field || edu.field}
-                                                </p>
-                                                <p className="text-dark-muted font-body text-sm">
-                                                      {edu.institution}
-                                                </p>
-                                                {(tEdu?.note || edu.note) && (
-                                                      <p className="text-mg-turquoise/60 font-mono text-[11px] mt-2 tracking-wide">
-                                                            {tEdu?.note || edu.note}
-                                                      </p>
-                                                )}
-                                          </div>
-                                    )})}
-                              </div>
+                                          </li>
+                                    ))}
+                              </ol>
                         </div>
-
                   </div>
             </section>
       );
