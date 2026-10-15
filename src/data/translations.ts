@@ -25,7 +25,7 @@ export const TRANSLATIONS = {
                         "It was at the school, in my first week, that I found the problem I mention above.",
                   ],
                   peak: "I never let it go.",
-                  closing: "Today I'm settling in Bordeaux. I'm looking for a permanent role (CDI) as a Java / Spring Boot backend developer. I want to travel the rest of this road with a team.",
+                  closing: "Today I'm settling in Bordeaux. I'm looking for a permanent role (CDI) as a junior Java / Spring Boot backend developer. I want to travel the rest of this road with a team.",
                   facts: { languages: "working languages: French, Portuguese, technical English", projects: "public projects on GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
@@ -39,7 +39,7 @@ export const TRANSLATIONS = {
             hero: {
                   h1_line1: 'I solve problems.',
                   h1_line2: 'Right now, in Java.',
-                  lead_strong: 'Java / Spring Boot backend developer',
+                  lead_strong: 'Junior Java / Spring Boot backend developer',
                   lead_rest: ', settling in Bordeaux and looking for a permanent role (CDI). My latest problem: nearly a thousand students and a paper student card. The solution has been in production since July 2026.',
                   cta_project: 'See the project',
             },
@@ -68,7 +68,7 @@ export const TRANSLATIONS = {
                         "Foi na escola, na semana em que cheguei, que encontrei o problema de que falo acima.",
                   ],
                   peak: "Não larguei mais.",
-                  closing: "Hoje, estou me mudando para Bordeaux. Procuro uma vaga em CDI como desenvolvedor backend Java / Spring Boot. O resto do caminho, quero fazer em equipe.",
+                  closing: "Hoje, estou me mudando para Bordeaux. Procuro uma vaga em CDI como desenvolvedor backend Java / Spring Boot júnior. O resto do caminho, quero fazer em equipe.",
                   facts: { languages: "idiomas de trabalho: francês, português, inglês técnico", projects: "projetos públicos no GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
@@ -82,7 +82,7 @@ export const TRANSLATIONS = {
             hero: {
                   h1_line1: 'Eu resolvo problemas.',
                   h1_line2: 'No momento, em Java.',
-                  lead_strong: 'Desenvolvedor backend Java / Spring Boot',
+                  lead_strong: 'Desenvolvedor backend Java / Spring Boot júnior',
                   lead_rest: ', estou me mudando para Bordeaux e procuro uma vaga em CDI. Meu último problema: quase mil alunos e uma carteirinha de estudante em papel. A solução está em produção desde julho de 2026.',
                   cta_project: 'Ver o projeto',
             },
@@ -111,7 +111,7 @@ export const TRANSLATIONS = {
                         "C'est au lycée, la semaine de mon arrivée, que j'ai trouvé le problème dont je parle plus haut.",
                   ],
                   peak: "Je ne l'ai plus lâché.",
-                  closing: "Aujourd'hui, je m'installe à Bordeaux. Je cherche un CDI de développeur backend Java / Spring Boot. La suite du chemin, je veux la faire en équipe.",
+                  closing: "Aujourd'hui, je m'installe à Bordeaux. Je cherche un CDI de développeur backend Java / Spring Boot junior. La suite du chemin, je veux la faire en équipe.",
                   facts: { languages: "langues de travail : français, portugais, anglais technique", projects: "projets publics sur GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
@@ -125,7 +125,7 @@ export const TRANSLATIONS = {
             hero: {
                   h1_line1: 'Je résous des problèmes.',
                   h1_line2: 'En ce moment, en Java.',
-                  lead_strong: 'Développeur backend Java / Spring Boot',
+                  lead_strong: 'Développeur backend Java / Spring Boot junior',
                   lead_rest: ', je m\'installe à Bordeaux et je cherche un CDI. Mon dernier problème : près de mille élèves et une carte d\'élève en papier. La solution tourne en production depuis juillet 2026.',
                   cta_project: 'Voir le projet',
             },
