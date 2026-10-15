@@ -1089,6 +1089,9 @@
     [3,3,"5fb8699ed13c010bdabe353c2cfc53ccba39539b","2026-10-13T20:50:18+02:00",1,"fix","seo","version the preview image URL so link previews refresh","Claude"],
     [3,3,"603c3585dde414b429e4f398196b6c7c2de14128","2026-10-13T20:51:28+02:00",0,"merge","","Merge pull request #8 from sammagbo/feat/og-image",""],
     [3,3,"0f39f2031cfedbeb20f9aa4557c5c8f8c7f34415","2026-10-13T21:25:56+02:00",5,"feat","experience","redesign the experience section in the brand style","Claude"],
-    [3,3,"3fdc03e1bebe4cc91b02e138ecbf2d4681c4f0ac","2026-10-13T21:28:05+02:00",0,"merge","","Merge pull request #9 from sammagbo/feat/parcours-redesign",""]
+    [3,3,"3fdc03e1bebe4cc91b02e138ecbf2d4681c4f0ac","2026-10-13T21:28:05+02:00",0,"merge","","Merge pull request #9 from sammagbo/feat/parcours-redesign",""],
+    [3,3,"7e35c1c993b0bab7b6927e11e06767bc9865a654","2026-10-15T01:08:54+02:00",5,"feat","contact","redesign the contact section in the brand style and keep the e-mail off the site","Claude"],
+    [3,3,"38c3758cf5649bb125b9de7fd519a61aed8e9517","2026-10-15T01:09:09+02:00",3,"chore","","remove the unused contact endpoint and the @vercel/node package","Claude"],
+    [3,3,"6dc85a4fd14e0bb3f9745e7390bbf0af9c1c809d","2026-10-15T10:48:35+02:00",0,"merge","","Merge pull request #10 from sammagbo/feat/contact-redesign",""]
   ]
 }
