@@ -1,103 +1,35 @@
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SKILLS } from '@/data/constants';
 import { useLanguage } from '@/context/LanguageContext';
+import { SKILL_GROUPS, SKILLS_TEXT, pick } from '@/data/skills';
+import './SkillsSection.css';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const CATEGORIES = [
-      { key: 'backend' as const, color: 'text-mg-orange', dotColor: 'bg-mg-orange/50', borderColor: 'border-mg-orange/20' },
-      { key: 'infrastructure' as const, color: 'text-mg-turquoise', dotColor: 'bg-mg-turquoise/50', borderColor: 'border-mg-turquoise/20' },
-      { key: 'frontend' as const, color: 'text-mg-blue', dotColor: 'bg-mg-blue/50', borderColor: 'border-mg-blue/20' },
-      { key: 'other' as const, color: 'text-mg-violet', dotColor: 'bg-mg-violet/50', borderColor: 'border-mg-violet/20' },
-];
-
+// The skills section, from the approved canvas design: one row per group, each tool with the projects where it is used.
 export const SkillsSection = () => {
-      const containerRef = useRef<HTMLElement>(null);
-      const { t, language } = useLanguage();
-
-      const LABELS: Record<string, Record<string, string>> = {
-            frontend: { en: 'Frontend', pt: 'Frontend', fr: 'Frontend' },
-            backend: { en: 'Backend', pt: 'Backend', fr: 'Backend' },
-            infrastructure: { en: 'Infrastructure', pt: 'Infraestrutura', fr: 'Infrastructure' },
-            other: { en: 'Other', pt: 'Outros', fr: 'Autres' },
-      };
-
-      const trSkill = (skill: string) => {
-            if (skill === 'IT Governance') return {
-                  en: 'IT Governance', pt: 'Governança de TI', fr: 'Gouvernance Informatique'
-            }[language] || skill;
-            if (skill === 'Project Management') return {
-                  en: 'Project Management', pt: 'Gestão de Projetos', fr: 'Gestion de Projet'
-            }[language] || skill;
-            if (skill === 'Strategic Planning') return {
-                  en: 'Strategic Planning', pt: 'Planejamento Estratégico', fr: 'Planification Stratégique'
-            }[language] || skill;
-            if (skill === 'Multilingual (FR/PT/EN)') return {
-                  en: 'Multilingual (FR/PT/EN)', pt: 'Multilíngue (FR/PT/EN)', fr: 'Multilingue (FR/PT/EN)'
-            }[language] || skill;
-            return skill;
-      };
-
-      useEffect(() => {
-            const ctx = gsap.context(() => {
-                  gsap.from('.skills-animate', {
-                        y: 40,
-                        opacity: 0,
-                        duration: 0.7,
-                        stagger: 0.08,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                              trigger: containerRef.current,
-                              start: 'top 75%',
-                        },
-                  });
-            }, containerRef);
-            return () => ctx.revert();
-      }, []);
+      const { language } = useLanguage();
+      const text = SKILLS_TEXT[language];
 
       return (
-            <section ref={containerRef} id="skills" className="relative py-32 lg:py-40 px-6 md:px-12 lg:px-20 xl:px-32 bg-dark-bg">
-
-                  {/* Subtle section divider glow */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-mg-turquoise/20 to-transparent" />
-
-                  <div className="max-w-[1200px] mx-auto w-full">
-
-                        {/* Section Label */}
-                        <div className="skills-animate mb-4">
-                              <span className="text-mg-turquoise font-mono text-xs tracking-[0.25em] uppercase">
-                                    {t.ui.skills_badge}
-                              </span>
+            <section id="skills" className="skills-v2" aria-labelledby="skills-title">
+                  <div className="sk-inner">
+                        <div className="sk-head">
+                              <h2 id="skills-title" className="sk-title">{text.title}</h2>
+                              <p className="sk-lead">{text.lead}</p>
                         </div>
 
-                        {/* Section Title */}
-                        <h2 className="skills-animate font-display font-bold text-dark-text leading-tight tracking-tight mb-16"
-                              style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
-                              dangerouslySetInnerHTML={{ __html: t.ui.skills_title }}
-                        />
-
-                        {/* Skills Grid — 4 category columns */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                              {CATEGORIES.map((cat) => (
-                                    <div key={cat.key} className="skills-animate">
-                                          <h3 className={`${cat.color} font-body text-sm font-medium uppercase tracking-wider mb-6 pb-3 border-b ${cat.borderColor}`}>
-                                                {LABELS[cat.key][language] || LABELS[cat.key].en}
-                                          </h3>
-                                          <ul className="space-y-3">
-                                                {SKILLS[cat.key].map((skill) => (
-                                                      <li key={skill} className="flex items-center gap-3 text-dark-text font-body text-sm group">
-                                                            <span className={`w-1.5 h-1.5 rounded-full ${cat.dotColor} group-hover:shadow-[0_0_6px] transition-all duration-300 shrink-0`} />
-                                                            <span className="group-hover:text-dark-text transition-colors duration-300">
-                                                                  {trSkill(skill)}
-                                                            </span>
+                        <ul className="sk-list">
+                              {SKILL_GROUPS.map((group) => (
+                                    <li key={group.label.en} className="sk-row">
+                                          <p className="sk-label">{group.label[language]}</p>
+                                          <ul className="sk-items">
+                                                {group.items.map((item) => (
+                                                      <li key={pick(item.name, 'en')} className="sk-item">
+                                                            <span className="sk-name">{pick(item.name, language)}</span>
+                                                            <span className="sk-where">{pick(item.where, language)}</span>
                                                       </li>
                                                 ))}
                                           </ul>
-                                    </div>
+                                    </li>
                               ))}
-                        </div>
+                        </ul>
                   </div>
             </section>
       );

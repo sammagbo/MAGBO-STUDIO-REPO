@@ -15,19 +15,6 @@ export const PROFILE = {
 // Public projects in the commit trace (src/data/commit-trace.json); constants.test.ts keeps the two in step.
 export const PUBLIC_PROJECTS = 12;
 
-export const SKILLS = {
-      frontend: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GSAP', 'Three.js'],
-      backend: ['Java', 'Spring Boot', 'Node.js', 'REST APIs', 'PostgreSQL'],
-      infrastructure: ['Docker', 'AWS', 'CI/CD', 'Nginx', 'Vercel'],
-      other: ['IT Governance', 'Project Management', 'Strategic Planning', 'Multilingual (FR/PT/EN)'],
-} as const;
-
-export const SKILLS_FLAT = [
-      'Java', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'Docker',
-      'CI/CD', 'AWS', 'TypeScript', 'React', 'Next.js',
-      'Node.js', 'Tailwind CSS', 'GSAP', 'IT Governance',
-] as const;
-
 // ── Experience ──
 // Language-neutral data; the role and bullets of each job live in src/data/parcours.ts.
 

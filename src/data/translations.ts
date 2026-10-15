@@ -15,8 +15,6 @@ export const TRANSLATIONS = {
             ui: {
           "work_badge": "03 — Selected Work",
           "work_title": "<span class=\"marker-blue\">Engineering</span> Logs",
-          "skills_badge": "04 — Skills & Expertise",
-          "skills_title": "Technical <span class=\"marker-red\">Arsenal</span>",
 },
             about: {
                   title: "About",
@@ -60,8 +58,6 @@ export const TRANSLATIONS = {
             ui: {
           "work_badge": "03 — Trabalhos Selecionados",
           "work_title": "Logs de <span class=\"marker-blue\">Engenharia</span>",
-          "skills_badge": "04 — Habilidades e Expertise",
-          "skills_title": "Arsenal <span class=\"marker-red\">Técnico</span>",
 },
             about: {
                   title: "Sobre",
@@ -105,8 +101,6 @@ export const TRANSLATIONS = {
             ui: {
           "work_badge": "03 — Projets Sélectionnés",
           "work_title": "Registres <span class=\"marker-blue\">Techniques</span>",
-          "skills_badge": "04 — Compétences",
-          "skills_title": "Arsenal <span class=\"marker-red\">Technologique</span>",
 },
             about: {
                   title: "À propos",
