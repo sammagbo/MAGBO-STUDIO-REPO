@@ -1,0 +1,42 @@
+/* The contact section, ported from the approved canvas design.
+   It follows the site theme: dark by default, light under [data-theme='light']. */
+
+.contact-v2 {
+  --cn-bg: #000000;
+  --cn-fg: #F2F0EB;
+  --cn-muted: #9A968F;
+  --cn-soft: #7A766F;
+  --cn-edge: #34322F;
+  --cn-red: #FF3D2E;
+  --cn-pad: clamp(20px, 3.9vw, 56px);
+  background: var(--cn-bg);
+  color: var(--cn-fg);
+  font-family: 'Funnel Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+[data-theme='light'] .contact-v2 {
+  --cn-bg: #F2F0EB;
+  --cn-fg: #0E0D0C;
+  --cn-muted: #5E5A54;
+  --cn-soft: #726D66;
+  --cn-edge: #CFCAC1;
+  --cn-red: #E5341F;
+}
+
+.contact-v2 .cn-inner { max-width: 1808px; margin: 0 auto; padding: 128px var(--cn-pad) 56px; display: flex; flex-direction: column; gap: 72px; }
+.contact-v2 .cn-title { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(3rem, 7vw, 6rem); line-height: .95; letter-spacing: -0.03em; }
+.contact-v2 .cn-intro { display: flex; flex-direction: column; gap: 16px; }
+.contact-v2 .cn-lead { margin: 0; max-width: 22em; font-family: 'Funnel Display', sans-serif; font-weight: 500; font-size: clamp(1.75rem, 3.2vw, 2.75rem); line-height: 1.12; letter-spacing: -0.02em; text-wrap: balance; }
+.contact-v2 .cn-note { margin: 0; max-width: 36rem; font-size: 18px; line-height: 1.6; color: var(--cn-muted); }
+
+/* one row per channel: the label on the left and the value on the right, the label on top when the row is narrow */
+.contact-v2 .cn-list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--cn-edge); }
+.contact-v2 .cn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 64px; padding: 32px 0; border-top: 1px solid var(--cn-edge); }
+.contact-v2 .cn-label { flex: 1 1 220px; margin: 0; font-size: 15px; line-height: 1.5; color: var(--cn-muted); }
+.contact-v2 .cn-value { flex: 2 1 480px; min-width: 0; margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 500; font-size: clamp(1.5rem, 3.2vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; }
+.contact-v2 .cn-link { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: .3em; overflow-wrap: anywhere; transition: color .2s ease; }
+.contact-v2 .cn-link:hover { color: var(--cn-red); }
+.contact-v2 .cn-link:focus-visible { outline: 2px solid var(--cn-fg); outline-offset: 4px; }
+.contact-v2 .cn-link svg { flex: none; width: .55em; height: .55em; }
+
+.contact-v2 .cn-copyright { margin: 0; font-size: 13px; line-height: 1.5; color: var(--cn-soft); }
