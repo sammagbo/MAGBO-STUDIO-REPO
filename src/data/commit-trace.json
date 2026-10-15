@@ -1092,6 +1092,11 @@
     [3,3,"3fdc03e1bebe4cc91b02e138ecbf2d4681c4f0ac","2026-10-13T21:28:05+02:00",0,"merge","","Merge pull request #9 from sammagbo/feat/parcours-redesign",""],
     [3,3,"7e35c1c993b0bab7b6927e11e06767bc9865a654","2026-10-15T01:08:54+02:00",5,"feat","contact","redesign the contact section in the brand style and keep the e-mail off the site","Claude"],
     [3,3,"38c3758cf5649bb125b9de7fd519a61aed8e9517","2026-10-15T01:09:09+02:00",3,"chore","","remove the unused contact endpoint and the @vercel/node package","Claude"],
-    [3,3,"6dc85a4fd14e0bb3f9745e7390bbf0af9c1c809d","2026-10-15T10:48:35+02:00",0,"merge","","Merge pull request #10 from sammagbo/feat/contact-redesign",""]
+    [3,3,"6dc85a4fd14e0bb3f9745e7390bbf0af9c1c809d","2026-10-15T10:48:35+02:00",0,"merge","","Merge pull request #10 from sammagbo/feat/contact-redesign",""],
+    [3,3,"2652d5efe2e11cab62220f7726409bdc0a45d4d9","2026-10-15T12:22:34+02:00",7,"feat","skills","redesign the skills section and present the tools as being learned","Claude"],
+    [3,3,"557711c38910b05d1c031c9d929e67d1697d5327","2026-10-15T12:24:53+02:00",0,"merge","","Merge pull request #11 from sammagbo/feat/skills-redesign",""],
+    [3,3,"2cf240cf2cd26a44f3b26b63a811015145ea4131","2026-10-15T13:02:14+02:00",4,"feat","seo","present the site as a junior Java backend developer","Claude"],
+    [3,3,"f2c932fe5af8556503193e626518079d80c50c2a","2026-10-15T13:02:27+02:00",5,"chore","","remove the hidden terminal","Claude"],
+    [3,3,"d2d6b83a85e5152da7e4e95f9817316eb18f8f41","2026-10-15T13:04:41+02:00",0,"merge","","Merge pull request #12 from sammagbo/feat/junior-title",""]
   ]
 }
