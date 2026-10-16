@@ -2,20 +2,6 @@ export type Language = 'en' | 'pt' | 'fr';
 
 export const TRANSLATIONS = {
       en: {
-            proj: {
-          "magbo-studio": "Personal portfolio and engineering showcase. Built with React, TypeScript, GSAP animations, and Tailwind CSS on a dark premium design system.",
-          "controle-de-acesso": "Production access control and meal-entitlement system for a French international school. Spring Boot backend integrating Hikvision face and card terminals, with an Electron desktop client. Deployed on Docker; 900+ students, 190+ automated tests.",
-          "ccc-cdi": "Full-stack access control and management system for the CDI organizational center. TypeScript frontend with real-time state management.",
-          "french-lms": "Language learning management system for French education. Full-stack architecture with Spring Boot backend and React frontend.",
-          "satisystem": "Systems development project (TCC) focused on process automation and institutional management. Built as a capstone project at ISERJ.",
-          "the-talk": "A podcast platform for fashion content by Mijean Rochus. Sleek media interface with audio playback capabilities and modern design.",
-          "magbo-studio-backend": "Spring Boot backend architecture for enterprise applications. Clean Architecture patterns, domain isolation, and strict persistence policies.",
-          "floresta-unity": "Environmental simulation game built with Unity and C#. Explores ecological themes through interactive 3D experiences."
-},
-            ui: {
-          "work_badge": "03 — Selected Work",
-          "work_title": "<span class=\"marker-blue\">Engineering</span> Logs",
-},
             about: {
                   title: "About",
                   lead: "I worked for fourteen years in Rio de Janeiro before coming to France.",
@@ -45,20 +31,6 @@ export const TRANSLATIONS = {
             },
       },
       pt: {
-            proj: {
-          "magbo-studio": "Portfólio pessoal e showcase de engenharia. Construído com React, TypeScript, GSAP e Tailwind CSS em um sistema de design premium escuro.",
-          "controle-de-acesso": "Sistema de controle de acesso e gestão de refeições em produção para uma escola internacional francesa. Backend Spring Boot integrado a terminais Hikvision de reconhecimento facial e cartão, com cliente desktop em Electron. Implantado em Docker; mais de 900 alunos e 190 testes automatizados.",
-          "ccc-cdi": "Sistema de gestão e controle de acesso full-stack para o centro organizacional CDI. Frontend TypeScript com gestão de estado em tempo real.",
-          "french-lms": "Sistema de gestão de aprendizagem para o ensino de francês. Arquitetura full-stack com backend em Spring Boot e frontend em React.",
-          "satisystem": "Projeto de desenvolvimento de sistemas (TCC) focado na automação de processos e gestão institucional e de pontuações.",
-          "the-talk": "Uma plataforma de podcast para conteúdo de moda por Mijean Rochus. Interface estilística moderna com capacidades avançadas de áudio.",
-          "magbo-studio-backend": "Arquitetura de backend Spring Boot para aplicações corporativas. Padrões Clean Architecture, isolamento de domínio e políticas de persistência.",
-          "floresta-unity": "Jogo de simulação ambiental construído em Unity e C#. Explora temas ecológicos de forma interativa e complexa."
-},
-            ui: {
-          "work_badge": "03 — Trabalhos Selecionados",
-          "work_title": "Logs de <span class=\"marker-blue\">Engenharia</span>",
-},
             about: {
                   title: "Sobre",
                   lead: "Trabalhei catorze anos no Rio de Janeiro antes de vir para a França.",
@@ -88,20 +60,6 @@ export const TRANSLATIONS = {
             },
       },
       fr: {
-            proj: {
-          "magbo-studio": "Portefeuille personnel en React/TypeScript.",
-          "controle-de-acesso": "Système de contrôle d'accès et de gestion des repas en production pour un établissement scolaire français à l'étranger. Backend Spring Boot intégré à des terminaux Hikvision (reconnaissance faciale et badge), avec un client de bureau Electron. Déployé sous Docker ; plus de 900 élèves et 190 tests automatisés.",
-          "ccc-cdi": "Contrôle d'accès du centre organisationnel CDI.",
-          "french-lms": "Système LMS pour le Français par API.",
-          "satisystem": "Automatisation de processus de l'institution.",
-          "the-talk": "Plateforme multimédia / Podcast The Talk Fashion.",
-          "magbo-studio-backend": "Architecture backend métier robuste en Spring Boot.",
-          "floresta-unity": "Jeu Unity écologique interactif."
-},
-            ui: {
-          "work_badge": "03 — Projets Sélectionnés",
-          "work_title": "Registres <span class=\"marker-blue\">Techniques</span>",
-},
             about: {
                   title: "À propos",
                   lead: "J'ai travaillé quatorze ans à Rio de Janeiro avant de venir en France.",
