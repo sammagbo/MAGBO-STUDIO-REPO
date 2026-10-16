@@ -28,9 +28,8 @@ export default {
                         'mg-black': '#212121',
                   },
                   fontFamily: {
-                        display: ['"Syne"', 'sans-serif'],
-                        body: ['"Space Grotesk"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
+                        display: ['"Funnel Display"', 'sans-serif'],
+                        body: ['"Funnel Sans"', 'system-ui', 'sans-serif'],
                   },
                   animation: {
                         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',

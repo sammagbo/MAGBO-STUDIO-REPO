@@ -130,7 +130,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                           <button
                                                 key={item.id}
                                                 onClick={() => scrollToSection(item.id)}
-                                                className="font-display font-bold text-dark-text text-3xl tracking-tight hover:text-dark-secondary transition-colors duration-300"
+                                                className="font-display font-semibold text-dark-text text-3xl tracking-tight hover:text-dark-secondary transition-colors duration-300"
                                           >
                                                 {item.label}
                                           </button>
