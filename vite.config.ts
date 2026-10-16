@@ -21,6 +21,8 @@ export default defineConfig({
     }
   },
   build: {
+    // The CSP in vercel.json has no data: in font-src, so a font file is never inlined as a data: URL.
+    assetsInlineLimit: (filePath) => (/\.(woff2?|ttf|otf|eot)$/i.test(filePath) ? false : undefined),
     rollupOptions: {
       output: {
         manualChunks: {

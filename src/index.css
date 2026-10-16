@@ -53,7 +53,7 @@ html {
 }
 
 body {
-  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  font-family: 'Funnel Sans', system-ui, sans-serif;
   background-color: var(--bg);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;

@@ -2,18 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 
-// Fonts (Loaded locally for max performance, no render blocking)
-import '@fontsource/syne/400.css';
-import '@fontsource/syne/600.css';
-import '@fontsource/syne/700.css';
-import '@fontsource/syne/800.css';
-import '@fontsource/space-grotesk/300.css';
-import '@fontsource/space-grotesk/400.css';
-import '@fontsource/space-grotesk/500.css';
-import '@fontsource/space-grotesk/600.css';
-import '@fontsource/space-grotesk/700.css';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/700.css';
+// Fonts, bundled locally: Funnel Display for titles, Funnel Sans for text. The site uses no other font.
 import '@fontsource/funnel-display/500.css';
 import '@fontsource/funnel-display/600.css';
 import '@fontsource/funnel-sans/400.css';
