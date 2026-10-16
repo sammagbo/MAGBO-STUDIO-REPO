@@ -5,6 +5,7 @@ import { PROFILE } from '@/data/constants';
 import { CARDS, FEATURED, OTHERS, PROJECTS_TEXT } from '@/data/projects';
 import type { Language } from '@/data/translations';
 import { ProjectTrace } from '@/components/trace/ProjectTrace';
+import { ProjectVideo } from '@/components/ProjectVideo';
 import { GO_LIVE, computeLayout, findPauses, goLiveIndex, readTrace } from '@/components/trace/model';
 import type { Trace, TraceCommit } from '@/components/trace/model';
 import { LOCALES, formatDate, formatNumber } from '@/components/trace/strings';
@@ -126,6 +127,7 @@ export const ProjectsSection = () => {
                                                 {text.status}
                                           </p>
                                           <h3 id="pj-featured-name" className="pj-name">{FEATURED.name}</h3>
+                                          <p className="pj-desc">{FEATURED.description[language]}</p>
                                           <ul className="pj-chips" aria-label={text.stack}>
                                                 {FEATURED.stack.map((item) => (
                                                       <li key={item}>{item}</li>
@@ -136,7 +138,10 @@ export const ProjectsSection = () => {
                                                 <ArrowIcon />
                                           </a>
                                     </div>
-                                    <p className="pj-desc">{FEATURED.description[language]}</p>
+                                    <figure className="pj-media">
+                                          <ProjectVideo {...FEATURED.video} label={text.videoLabel} />
+                                          <figcaption className="pj-media-caption">{text.videoCaption}</figcaption>
+                                    </figure>
                               </div>
 
                               <ul className="pj-problems" aria-label={text.problems}>

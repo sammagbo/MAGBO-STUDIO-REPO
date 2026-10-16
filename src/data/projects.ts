@@ -11,6 +11,8 @@ interface ProjectsText {
       stack: string;
       status: string;
       problems: string;
+      videoLabel: string;
+      videoCaption: string;
       goLive: (date: string) => string;
       first: (date: string) => string;
       last: (date: string, commits: string) => string;
@@ -29,6 +31,8 @@ interface FeaturedProject {
       stack: string[];
       description: Text;
       problems: { title: Text; text: Text }[];
+      // served from public/video; the WebM comes first, the MP4 is for browsers without VP9
+      video: { webm: string; mp4: string; poster: string };
 }
 
 interface ProjectCard {
@@ -59,6 +63,8 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             stack: "Technologies",
             status: "In production",
             problems: "Two problems solved",
+            videoLabel: "MAGBO Access Control demo: a student recognized by face enters the cafeteria, a student without a meal entitlement is refused, then her entitlement is granted and she enters.",
+            videoCaption: "Demo on a local instance, with fictional students.",
             goLive: (date) => `went live, ${date}`,
             first: (date) => `${date}, first commit`,
             last: (date, commits) => `${date}, last commit · ${commits}`,
@@ -78,6 +84,8 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             stack: "Tecnologias",
             status: "Em produção",
             problems: "Dois problemas resolvidos",
+            videoLabel: "Demonstração do MAGBO Access Control: um aluno reconhecido pelo rosto entra na cantina, uma aluna sem direito à refeição é recusada, depois o direito dela é concedido e ela entra.",
+            videoCaption: "Demonstração numa instância local, com alunos fictícios.",
             goLive: (date) => `entrada em produção, ${date}`,
             first: (date) => `${date}, primeiro commit`,
             last: (date, commits) => `${date}, último commit · ${commits}`,
@@ -97,6 +105,8 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             stack: "Technologies",
             status: "En production",
             problems: "Deux problèmes réglés",
+            videoLabel: "Démonstration de MAGBO Access Control\u00a0: un élève reconnu au visage entre à la cantine, une élève sans droit au repas est refusée, puis son droit est accordé et elle entre.",
+            videoCaption: "Démonstration sur une instance locale, avec des élèves fictifs.",
             goLive: (date) => `mise en production, ${date}`,
             first: (date) => `${date}, premier commit`,
             last: (date, commits) => `${date}, dernier commit · ${commits}`,
@@ -114,6 +124,11 @@ export const FEATURED: FeaturedProject = {
       name: "MAGBO Access Control",
       url: "https://github.com/sammagbo/Controle-de-Acesso",
       stack: ["Java 17", "Spring Boot 3", "Spring Security", "PostgreSQL", "JUnit", "Docker", "React", "Electron"],
+      video: {
+            webm: "/video/magbo-access-control.webm",
+            mp4: "/video/magbo-access-control.mp4",
+            poster: "/video/magbo-access-control-poster.webp",
+      },
       description: {
             en: "I built this access and meal control system for the school where I worked, in Rio de Janeiro. Hikvision terminals recognize a face or a badge, whichever each person prefers. The Spring Boot server receives each pass, checks the rule for that place (cafeteria, gate or library) and records it. The team sees each pass arrive live on a desktop app.",
             pt: "Construí este sistema de controle de acesso e de refeições para a escola onde eu trabalhava, no Rio de Janeiro. Os terminais Hikvision reconhecem o rosto ou o crachá, à escolha de cada um. O servidor Spring Boot recebe a passagem, confere a regra do local (cantina, portão ou biblioteca) e registra. A equipe vê as passagens chegarem ao vivo num aplicativo de desktop.",
