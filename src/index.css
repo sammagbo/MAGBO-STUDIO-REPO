@@ -1,53 +1,23 @@
-/* ── MAGBO STUDIO — Premium Dark Design System ── */
+/* Global styles: Tailwind's base, the page colours, the selection, the scrollbar and the focus ring.
+   Every section brings its own CSS file. */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design Tokens ── */
+/* ── Page colours, also used by the mobile menu through tailwind.config.js ── */
 :root {
   --bg: #000000;
-  --bg-elevated: #0a0a0a;
-  --bg-card: rgba(255, 255, 255, 0.02);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.16);
   --text-primary: #F2F0EB;
   --text-secondary: #9CA3AF;
-  --text-muted: #6B7280;
-  --accent: #E5E7EB;
-
-  /* ── MAGBO Palette ── */
-  --c-red: #E53935;
-  --c-orange: #FB8C00;
-  --c-brown: #8D6E63;
-  --c-yellow: #FDD835;
-  --c-green: #7CB342;
-  --c-turquoise: #26C6DA;
-  --c-blue: #1E88E5;
-  --c-violet: #8E24AA;
-  --c-pink: #EC407A;
-  --c-white: #FAFAFA;
-  --c-gray: #9E9E9E;
-  --c-black: #212121;
-
-  /* ── Derived accents ── */
-  --accent-gradient: linear-gradient(135deg, var(--c-blue), var(--c-violet), var(--c-turquoise));
-  --accent-gradient-warm: linear-gradient(135deg, var(--c-orange) 0%, var(--c-red) 50%, var(--c-pink) 100%);
 }
 
 [data-theme='light'] {
   --bg: #FAFAFA;
-  --bg-elevated: #FFFFFF;
-  --bg-card: rgba(0, 0, 0, 0.03);
-  --border: rgba(0, 0, 0, 0.1);
-  --border-hover: rgba(0, 0, 0, 0.15);
   --text-primary: #111827;
   --text-secondary: #4B5563;
-  --text-muted: #6B7280;
-  --accent: #111827;
 }
 
-/* ── Global Reset ── */
 html {
   scroll-behavior: auto; /* Lenis handles smooth scroll */
 }
@@ -66,7 +36,7 @@ body {
   color: #fff;
 }
 
-/* ── Scrollbar (ultra-thin, accent-tinted) ── */
+/* ── Scrollbar (ultra-thin) ── */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -84,117 +54,6 @@ body {
   background: rgba(30, 136, 229, 0.5);
 }
 
-/* ── Keyframes ── */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes tickerScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes subtlePulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* ── Utility Classes ── */
-.glass {
-  background: rgba(5, 5, 5, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.bento-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 1.25rem;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-.bento-card:hover {
-  border-color: rgba(30, 136, 229, 0.25);
-  box-shadow: 0 0 30px rgba(30, 136, 229, 0.06);
-}
-
-.gradient-text {
-  background: var(--accent-gradient);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 6s ease infinite;
-}
-
-.accent-dot {
-  background: var(--c-green);
-  box-shadow: 0 0 8px rgba(124, 179, 66, 0.5);
-}
-
-.accent-border {
-  border-color: rgba(30, 136, 229, 0.3);
-}
-
-.accent-glow {
-  box-shadow: 0 0 40px rgba(30, 136, 229, 0.08);
-}
-
-/* ──────────────────────────────────────────────────
-   HIGHLIGHTER MARKERS — text-marker effect
-   Emulates real marker pen highlighting behind text.
-   Usage: <span class="marker-orange">your text</span>
-   ────────────────────────────────────────────────── */
-.marker-red {
-  background: linear-gradient(180deg, transparent 55%, rgba(229, 57, 53, 0.35) 55%, rgba(229, 57, 53, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-.marker-orange {
-  background: linear-gradient(180deg, transparent 55%, rgba(251, 140, 0, 0.35) 55%, rgba(251, 140, 0, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-.marker-brown {
-  background: linear-gradient(180deg, transparent 55%, rgba(141, 110, 99, 0.35) 55%, rgba(141, 110, 99, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-.marker-yellow {
-  background: linear-gradient(180deg, transparent 55%, rgba(253, 216, 53, 0.35) 55%, rgba(253, 216, 53, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-.marker-green {
-  background: linear-gradient(180deg, transparent 55%, rgba(124, 179, 66, 0.35) 55%, rgba(124, 179, 66, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-.marker-turquoise {
-  background: linear-gradient(180deg, transparent 55%, rgba(38, 198, 218, 0.35) 55%, rgba(38, 198, 218, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-.marker-blue {
-  background: linear-gradient(180deg, transparent 55%, rgba(30, 136, 229, 0.35) 55%, rgba(30, 136, 229, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-.marker-violet {
-  background: linear-gradient(180deg, transparent 55%, rgba(142, 36, 170, 0.35) 55%, rgba(142, 36, 170, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-.marker-pink {
-  background: linear-gradient(180deg, transparent 55%, rgba(236, 64, 122, 0.35) 55%, rgba(236, 64, 122, 0.35) 90%, transparent 90%);
-  padding: 0 4px;
-}
-
 /* ── Focus styles ── */
 a:focus-visible,
 button:focus-visible {
@@ -202,38 +61,3 @@ button:focus-visible {
   outline-offset: 2px;
   border-radius: 4px;
 }
-
-/* ── Profile Photo ── */
-.photo-frame {
-  position: relative;
-  border-radius: 1.25rem;
-  overflow: hidden;
-  border: 2px solid var(--border);
-  transition: border-color 0.4s ease;
-}
-
-.photo-frame:hover {
-  border-color: rgba(30, 136, 229, 0.3);
-}
-
-.photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(20%) contrast(1.05);
-  transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-.photo-frame:hover img {
-  filter: grayscale(0%) contrast(1);
-  transform: scale(1.03);
-}
-
-.bg-scanlines {
-  background: linear-gradient(
-    to bottom,
-    transparent 50%,
-    rgba(0, 0, 0, 0.5) 50%
-  );
-  background-size: 100% 4px;
-}
