@@ -1112,6 +1112,8 @@
     [3,3,"930ee0019ef630fde4f11d920f439bc0d838d295","2026-10-16T19:14:43+02:00",8,"feat","projects","add the MAGBO Access Control demo video","Claude"],
     [3,3,"53cc59595adf24330b1ce2acffa1ee56d4472aab","2026-10-16T19:16:51+02:00",0,"merge","","Merge pull request #16 from sammagbo/feat/magbo-video",""],
     [0,0,"7acb97a4c750606ebee48a920113c1897e651b5f","2026-10-16",5,"docs","","remove a closed item from the audit notes","Claude"],
-    [0,0,"2e52132ddd3db06cc1c275bca916dac23cf922ca","2026-10-16",0,"merge","","Merge pull request #92 from sammagbo/docs/closed-audit-items",""]
+    [0,0,"2e52132ddd3db06cc1c275bca916dac23cf922ca","2026-10-16",0,"merge","","Merge pull request #92 from sammagbo/docs/closed-audit-items",""],
+    [3,3,"edcb93e10b39b9adc675d16af38328745ab0f446","2026-10-16T21:02:47+02:00",3,"chore","trace","hide two more messages of MAGBO Access Control","Claude"],
+    [3,3,"aebaaa6ba91ed9d1e18831b415b8a949d7148e40","2026-10-16T21:03:39+02:00",0,"merge","","Merge pull request #17 from sammagbo/chore/trace-rules",""]
   ]
 }
