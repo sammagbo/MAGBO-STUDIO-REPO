@@ -4,7 +4,7 @@ import { MainLayout } from '@/layout/MainLayout';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
 import { ExperienceSection } from '@/components/ExperienceSection';
-import { WorkSection } from '@/components/WorkSection';
+import { ProjectsSection } from '@/components/ProjectsSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { ContactSection } from '@/components/ContactSection';
 import { LanguageProvider } from '@/context/LanguageContext';
@@ -42,7 +42,7 @@ function App() {
                               <HeroSection />
                               <AboutSection />
                               <ExperienceSection />
-                              <WorkSection />
+                              <ProjectsSection />
                               <SkillsSection />
                               <ContactSection />
                         </MainLayout>
