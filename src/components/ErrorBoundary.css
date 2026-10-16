@@ -1,0 +1,25 @@
+/* The error screen, shown only if a section crashes. Same colours and fonts as the rest of the site. */
+
+.error-screen {
+  --es-bg: #000000;
+  --es-fg: #F2F0EB;
+  --es-edge: #34322F;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 48px clamp(20px, 3.9vw, 56px);
+  background: var(--es-bg);
+  color: var(--es-fg);
+  font-family: 'Funnel Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+[data-theme='light'] .error-screen {
+  --es-bg: #F2F0EB;
+  --es-fg: #0E0D0C;
+  --es-edge: #CFCAC1;
+}
+
+.error-screen .es-inner { width: 100%; max-width: 1808px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
+.error-screen .es-title { margin: 0; max-width: 16em; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+.error-screen .es-button { min-height: 44px; padding: 0 22px; border: 1px solid var(--es-edge); border-radius: 999px; background: transparent; color: inherit; font: inherit; font-size: 16px; font-weight: 500; cursor: pointer; }
+.error-screen .es-button:hover { border-color: currentColor; }

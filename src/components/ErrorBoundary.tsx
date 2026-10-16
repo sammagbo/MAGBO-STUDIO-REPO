@@ -1,5 +1,5 @@
-import { Component, ErrorInfo, ReactNode } from "react";
-import { AlertTriangle, Terminal } from "lucide-react";
+import { Component, ErrorInfo, ReactNode } from 'react';
+import './ErrorBoundary.css';
 
 interface Props {
       children: ReactNode;
@@ -7,56 +7,43 @@ interface Props {
 
 interface State {
       hasError: boolean;
-      error: Error | null;
 }
 
-export class ErrorBoundary extends Component<Props, State> {
-      public state: State = {
-            hasError: false,
-            error: null,
-      };
+// Shown only if a section crashes. The language comes from <html lang>, which the language context keeps up to date.
+const TEXT = {
+      fr: { title: "La page n'a pas pu s'afficher.", reload: 'Recharger la page' },
+      pt: { title: 'A página não pôde ser exibida.', reload: 'Recarregar a página' },
+      en: { title: 'The page could not be displayed.', reload: 'Reload the page' },
+};
 
-      public static getDerivedStateFromError(error: Error): State {
-            return { hasError: true, error };
+const pageLanguage = (): keyof typeof TEXT => {
+      const lang = typeof document === 'undefined' ? '' : document.documentElement.lang;
+      return lang === 'fr' || lang === 'pt' ? lang : 'en';
+};
+
+export class ErrorBoundary extends Component<Props, State> {
+      public state: State = { hasError: false };
+
+      public static getDerivedStateFromError(): State {
+            return { hasError: true };
       }
 
       public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-            console.error("Uncaught error:", error, errorInfo);
+            console.error('Uncaught error:', error, errorInfo);
       }
 
       public render() {
-            if (this.state.hasError) {
-                  return (
-                        <div className="min-h-screen bg-core-bg flex items-center justify-center p-4 font-mono">
-                              <div className="max-w-2xl w-full bg-core-surface border border-red-500/50 p-8 shadow-2xl relative overflow-hidden bevel-cut">
-                                    <div className="absolute top-0 left-0 w-full h-1 bg-red-500 animate-pulse" />
-
-                                    <div className="flex items-center gap-4 mb-6 text-red-500">
-                                          <AlertTriangle className="w-12 h-12" />
-                                          <h1 className="text-3xl font-bold tracking-tighter">Running System Failure Protocol</h1>
-                                    </div>
-
-                                    <div className="bg-black/50 p-4 border border-red-500/20 mb-6 font-mono text-sm text-red-400 bevel-cut-sm">
-                                          <p className="mb-2 uppercase tracking-widest text-xs text-red-600">Error Log:</p>
-                                          <p>{this.state.error?.toString()}</p>
-                                    </div>
-
-                                    <div className="flex items-center gap-2 text-core-dim text-sm">
-                                          <Terminal className="w-4 h-4" />
-                                          <span>System halted. Please contact administration or reload manually.</span>
-                                    </div>
-
-                                    <button
-                                          onClick={() => window.location.reload()}
-                                          className="mt-6 px-6 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/50 transition-all uppercase tracking-wider text-sm font-bold bevel-cut-sm"
-                                    >
-                                          Reboot System
-                                    </button>
-                              </div>
+            if (!this.state.hasError) return this.props.children;
+            const text = TEXT[pageLanguage()];
+            return (
+                  <div className="error-screen" role="alert">
+                        <div className="es-inner">
+                              <p className="es-title">{text.title}</p>
+                              <button type="button" className="es-button" onClick={() => window.location.reload()}>
+                                    {text.reload}
+                              </button>
                         </div>
-                  );
-            }
-
-            return this.props.children;
+                  </div>
+            );
       }
 }
