@@ -39,13 +39,16 @@
 .projects-v2 .pj-link svg,
 .projects-v2 .pj-row-name svg { flex: none; width: 12px; height: 12px; }
 
-/* MAGBO Access Control: the introduction, two problems it solved and its trace */
+/* MAGBO Access Control: the introduction next to its demo video, two problems it solved and its trace */
 .projects-v2 .pj-featured { display: flex; flex-direction: column; gap: 48px; }
-.projects-v2 .pj-top { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px 64px; }
+.projects-v2 .pj-top { display: flex; flex-wrap: wrap; align-items: center; gap: 40px 64px; }
 .projects-v2 .pj-intro { flex: 1 1 380px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
 .projects-v2 .pj-status { margin: 0; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; letter-spacing: .04em; }
 .projects-v2 .pj-name { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; }
-.projects-v2 .pj-desc { flex: 1.4 1 480px; margin: 0; max-width: 46rem; font-size: 20px; line-height: 1.6; color: var(--pj-muted); }
+.projects-v2 .pj-desc { margin: 0; max-width: 40rem; font-size: 18px; line-height: 1.6; color: var(--pj-muted); }
+.projects-v2 .pj-media { flex: 1.3 1 520px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.projects-v2 .pj-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; border-radius: 12px; background: #000000; }
+.projects-v2 .pj-media-caption { font-size: 13px; line-height: 1.4; color: var(--pj-muted); }
 .projects-v2 .pj-problems { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--pj-edge); }
 .projects-v2 .pj-problem { display: flex; flex-wrap: wrap; gap: 12px 64px; padding: 28px 0 32px; border-top: 1px solid var(--pj-edge); }
 .projects-v2 .pj-problem-title { flex: 1 1 220px; margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.25; letter-spacing: -0.01em; }

@@ -1,3 +1,5 @@
+import { existsSync, statSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import traceJson from '@/data/commit-trace.json';
 import { CARDS, FEATURED, OTHERS, PROJECTS_TEXT } from '@/data/projects';
@@ -19,11 +21,22 @@ describe('the projects section', () => {
     for (const project of projects) expect(project.url).toMatch(/^https:\/\/[^\s]+$/);
   });
 
+  it('ships the demo video of the featured project, light enough for the page', () => {
+    const limits = { webm: 1_200_000, mp4: 1_500_000, poster: 120_000 };
+    for (const [kind, url] of Object.entries(FEATURED.video)) {
+      const file = join(process.cwd(), 'public', url);
+      expect(existsSync(file), url).toBe(true);
+      expect(statSync(file).size, url).toBeLessThanOrEqual(limits[kind as keyof typeof limits]);
+    }
+  });
+
   it('has every text in French, Portuguese and English', () => {
     for (const language of languages) {
       const texts = [
         PROJECTS_TEXT[language].title,
         ...PROJECTS_TEXT[language].lead,
+        PROJECTS_TEXT[language].videoLabel,
+        PROJECTS_TEXT[language].videoCaption,
         ...projects.map(project => project.description[language]),
         ...FEATURED.problems.flatMap(problem => [problem.title[language], problem.text[language]]),
       ];
