@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { TRANSLATIONS, Language } from '@/data/translations';
+import { PROFILE } from '@/data/constants';
 
 interface LanguageContextType {
       language: Language;
@@ -35,9 +36,10 @@ const initialLanguage = (): Language => {
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       const [language, setLanguageState] = useState<Language>(initialLanguage);
 
-      // Keeps <html lang> in step with the page, for screen readers and the browser.
+      // Keeps <html lang> and the tab title in step with the page; index.html carries the French ones for crawlers.
       useEffect(() => {
             document.documentElement.lang = language;
+            document.title = `${PROFILE.name} — ${TRANSLATIONS[language].hero.lead_strong}`;
       }, [language]);
 
       const setLanguage = (lang: Language) => {

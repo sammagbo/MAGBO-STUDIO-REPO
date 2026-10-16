@@ -17,8 +17,7 @@
   transition: background-color .5s ease, border-color .5s ease;
 }
 
-/* Transparent over the hero at the top. Once scrolled, or while the mobile menu is open, a dark bar of its own
-   (.glass is left as it is for whoever else uses it). */
+/* Transparent over the hero at the top. Once scrolled, or while the mobile menu is open, a dark bar of its own. */
 .site-nav--solid {
   background-color: rgba(0, 0, 0, 0.85);
   -webkit-backdrop-filter: blur(20px);
