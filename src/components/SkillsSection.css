@@ -21,7 +21,8 @@
 
 .skills-v2 .sk-inner { max-width: 1808px; margin: 0 auto; padding: 128px var(--sk-pad) 140px; display: flex; flex-direction: column; gap: 72px; }
 .skills-v2 .sk-head { display: flex; flex-direction: column; gap: 24px; }
-.skills-v2 .sk-title { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(3rem, 7vw, 6rem); line-height: .95; letter-spacing: -0.03em; }
+/* "Competências" is the longest title: on screens narrower than about 340 px it shrinks to fit */
+.skills-v2 .sk-title { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: min(clamp(3rem, 7vw, 6rem), calc((100vw - 2 * var(--sk-pad)) / 6.8)); line-height: .95; letter-spacing: -0.03em; }
 .skills-v2 .sk-lead { margin: 0; max-width: 40rem; font-size: 18px; line-height: 1.6; color: var(--sk-muted); }
 
 /* one row per group: the group on the left and its tools on the right, each tool with the projects where it is used */
