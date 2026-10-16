@@ -24,7 +24,7 @@ export default {
       name: 'MAGBO Access Control',
       repos: ['Controle-de-Acesso'],
       showTime: false,
-      hideMessages: [/licen[cs]e/i, /c[aâé]m[eé]ra|deepinview/i],
+      hideMessages: [/licen[cs]e/i, /c[aâé]m[eé]ra|deepinview/i, /credential/i],
     },
     { key: 'talk', name: 'The Talk', repos: ['the-talk'] },
     {
