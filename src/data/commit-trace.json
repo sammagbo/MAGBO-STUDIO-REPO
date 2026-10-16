@@ -536,8 +536,8 @@
     [0,0,"c5d83a7926f4e76c017c5d820777e4b0df9d8d53","2026-07-16",36,"test","","add automated test suite (Phase I) - 183 tests",""],
     [0,0,"1639efaec7f2c3de00e417116cd6df4294628af7","2026-07-16",12,"chore","deploy","add versioned SQL migrations for VM (Phase J)",""],
     [0,0,"60e98c92932a258d2b82a494fa68eaa4c4633b8a","2026-07-16",14,"docs","","complete Phase K documentation and ADRs","Claude"],
-    [0,0,"aa115ab67f8ddec8af20f1115e5c1b929b9913f7","2026-07-16",1,"chore","security","remove credential pattern from mailmap and audit report",""],
-    [0,0,"34a2161a5fe96c9251d8226fc0cdf46a5e68b3b0","2026-07-16",1,"docs","security","omit credential value from audit report, mark R2 as resolved",""],
+    [0,0,"aa115ab67f8ddec8af20f1115e5c1b929b9913f7","2026-07-16",1,"chore","","",""],
+    [0,0,"34a2161a5fe96c9251d8226fc0cdf46a5e68b3b0","2026-07-16",1,"docs","","",""],
     [1,1,"c053270fed13ad72cfd4487292caa1f4118085cc","2026-07-16T15:45:29-03:00",16,"feat","","restore THE TALK visual identity",""],
     [0,0,"e450cd379edcad08d1108fcafda0805670eaf6b0","2026-07-16",7,"fix","","summary type mismatch, blank employeeNo guard, meal-pending=DENY in prod (Phase B.1)",""],
     [0,0,"8702ce73ac56fe4ac27b1e014cc3248e618c5fbd","2026-07-16",7,"docs","","consolidate operator-assisted model (ADR-004), HikCentral procedure, D1-D9 decisions",""],
@@ -1097,6 +1097,21 @@
     [3,3,"557711c38910b05d1c031c9d929e67d1697d5327","2026-10-15T12:24:53+02:00",0,"merge","","Merge pull request #11 from sammagbo/feat/skills-redesign",""],
     [3,3,"2cf240cf2cd26a44f3b26b63a811015145ea4131","2026-10-15T13:02:14+02:00",4,"feat","seo","present the site as a junior Java backend developer","Claude"],
     [3,3,"f2c932fe5af8556503193e626518079d80c50c2a","2026-10-15T13:02:27+02:00",5,"chore","","remove the hidden terminal","Claude"],
-    [3,3,"d2d6b83a85e5152da7e4e95f9817316eb18f8f41","2026-10-15T13:04:41+02:00",0,"merge","","Merge pull request #12 from sammagbo/feat/junior-title",""]
+    [3,3,"d2d6b83a85e5152da7e4e95f9817316eb18f8f41","2026-10-15T13:04:41+02:00",0,"merge","","Merge pull request #12 from sammagbo/feat/junior-title",""],
+    [3,3,"d20205e99f778262a2b54ec0e9395637218897fe","2026-10-16T13:52:09+02:00",6,"feat","projects","redesign the projects section around the commit trace","Claude"],
+    [3,3,"e728f330658f7736a8b6e76601ef87877c107185","2026-10-16T13:52:20+02:00",4,"chore","projects","remove the old projects grid and its data","Claude"],
+    [3,3,"1dbb0904dd5998020f1ad2d58b646787b1a893ab","2026-10-16T13:54:52+02:00",0,"merge","","Merge pull request #13 from sammagbo/feat/projects-redesign",""],
+    [3,3,"6966501cd1f22edcc95a97ae4c06ceed722292bb","2026-10-16T14:12:56+02:00",7,"fix","fonts","load only the Funnel fonts and never inline a font file","Claude"],
+    [3,3,"83f48ef211cf7470ce97f36237001ab20ece9ea3","2026-10-16T14:18:37+02:00",0,"merge","","Merge pull request #14 from sammagbo/fix/fonts-csp",""],
+    [3,3,"435cfa3d9010fc458e45300a6be690267a0f0e6d","2026-10-16T17:21:55+02:00",2,"fix","","show the tab title in the visitor's language and fit the skills title on 320 px screens","Claude"],
+    [3,3,"344b4469f04869b33f402fc2e8f5af50d1a69bdf","2026-10-16T17:22:01+02:00",3,"refactor","","replace the legacy error screen with a plain one in the site's style","Claude"],
+    [3,3,"26788b5718bf2d7ef5b9f258325d34916507db98","2026-10-16T17:22:22+02:00",17,"chore","","remove files, styles and dependencies nothing uses","Claude"],
+    [3,3,"fe74c301efc636ebd2d88a663f9b435b1808e290","2026-10-16T17:26:41+02:00",0,"merge","","Merge pull request #15 from sammagbo/chore/final-cleanup",""],
+    [8,10,"7904b88eebe0aaaeeecd2934853b48965bfd2772","2026-10-16T17:52:22+02:00",1,"docs","","rewrite the profile README to match sammagbo.com","Claude"],
+    [8,10,"27d260a154169b6c33b4ea7ac0657783b4474865","2026-10-16T17:52:49+02:00",0,"merge","","Merge pull request #1 from sammagbo/docs/profile-readme",""],
+    [3,3,"930ee0019ef630fde4f11d920f439bc0d838d295","2026-10-16T19:14:43+02:00",8,"feat","projects","add the MAGBO Access Control demo video","Claude"],
+    [3,3,"53cc59595adf24330b1ce2acffa1ee56d4472aab","2026-10-16T19:16:51+02:00",0,"merge","","Merge pull request #16 from sammagbo/feat/magbo-video",""],
+    [0,0,"7acb97a4c750606ebee48a920113c1897e651b5f","2026-10-16",5,"docs","","remove a closed item from the audit notes","Claude"],
+    [0,0,"2e52132ddd3db06cc1c275bca916dac23cf922ca","2026-10-16",0,"merge","","Merge pull request #92 from sammagbo/docs/closed-audit-items",""]
   ]
 }

@@ -168,6 +168,13 @@ test('a subject matching hideMessages keeps its commit, without message or scope
   assert.equal(kept[0].coauthor, 'Claude');
 });
 
+test('the MAGBO rule also hides the subjects about credentials, and nothing else', () => {
+  const subjects = ['chore(security): sample credential pattern', 'docs: sample Credential value', 'feat(auth): sample password reset'];
+  const { kept, hidden } = applyRules(subjects.map((subject, i) => commit({ sha: String(i + 1).repeat(40), subject })), context(MAGBO));
+  assert.equal(hidden, 2);
+  assert.deepEqual(kept.map(r => [r.scope, r.message]), [['', ''], ['', ''], ['auth', 'sample password reset']]);
+});
+
 test('the MeetingManager rule hides its three words, and nothing else', () => {
   const subjects = ['fix: sample jw link', 'feat: sample congregation field', 'docs: sample ministry section', 'fix: sample ministère', 'chore: sample sync-jw script', 'fix: sample timer'];
   const { kept, hidden } = applyRules(subjects.map((subject, i) => commit({ sha: String(i + 1).repeat(40), subject })), context(MEETING));
