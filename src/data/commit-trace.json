@@ -1114,6 +1114,8 @@
     [0,0,"7acb97a4c750606ebee48a920113c1897e651b5f","2026-10-16",5,"docs","","remove a closed item from the audit notes","Claude"],
     [0,0,"2e52132ddd3db06cc1c275bca916dac23cf922ca","2026-10-16",0,"merge","","Merge pull request #92 from sammagbo/docs/closed-audit-items",""],
     [3,3,"edcb93e10b39b9adc675d16af38328745ab0f446","2026-10-16T21:02:47+02:00",3,"chore","trace","hide two more messages of MAGBO Access Control","Claude"],
-    [3,3,"aebaaa6ba91ed9d1e18831b415b8a949d7148e40","2026-10-16T21:03:39+02:00",0,"merge","","Merge pull request #17 from sammagbo/chore/trace-rules",""]
+    [3,3,"aebaaa6ba91ed9d1e18831b415b8a949d7148e40","2026-10-16T21:03:39+02:00",0,"merge","","Merge pull request #17 from sammagbo/chore/trace-rules",""],
+    [3,3,"adb3d583cd1134ac24520c71fda722c377e3f56d","2026-10-17T00:32:16+02:00",2,"feat","layout","projects first, then skills, experience and about","Claude"],
+    [3,3,"9d0c4e1f382e165464fdaafc4dda6d92a44e30fc","2026-10-17T00:34:14+02:00",0,"merge","","Merge pull request #18 from sammagbo/feat/section-order",""]
   ]
 }
