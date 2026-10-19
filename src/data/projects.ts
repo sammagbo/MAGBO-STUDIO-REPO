@@ -13,6 +13,7 @@ interface ProjectsText {
       problems: string;
       videoLabel: string;
       videoCaption: string;
+      fullscreen: string;
       goLive: (date: string) => string;
       first: (date: string) => string;
       last: (date: string, commits: string) => string;
@@ -63,8 +64,9 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             stack: "Technologies",
             status: "In production",
             problems: "Two problems solved",
-            videoLabel: "MAGBO Access Control demo: a student recognized by face enters the cafeteria, a student without a meal entitlement is refused, then her entitlement is granted and she enters.",
-            videoCaption: "Demo on a local instance, with fictional students.",
+            videoLabel: "MAGBO Access Control demo: a school day, from the 7:28 a.m. login to the 5 p.m. closing, with the gate, the library, the cafeteria and the safety head count, then the week in numbers.",
+            videoCaption: "Demo on a local instance, with fictional students and a simulated day.",
+            fullscreen: "Watch full screen",
             goLive: (date) => `went live, ${date}`,
             first: (date) => `${date}, first commit`,
             last: (date, commits) => `${date}, last commit · ${commits}`,
@@ -84,8 +86,9 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             stack: "Tecnologias",
             status: "Em produção",
             problems: "Dois problemas resolvidos",
-            videoLabel: "Demonstração do MAGBO Access Control: um aluno reconhecido pelo rosto entra na cantina, uma aluna sem direito à refeição é recusada, depois o direito dela é concedido e ela entra.",
-            videoCaption: "Demonstração numa instância local, com alunos fictícios.",
+            videoLabel: "Demonstração do MAGBO Access Control: um dia na escola, do login às 7h28 ao fechamento das 17h, com o portão, a biblioteca, a cantina e a contagem de segurança, e depois a semana em números.",
+            videoCaption: "Demonstração numa instância local, com alunos fictícios e um dia simulado.",
+            fullscreen: "Ver em tela cheia",
             goLive: (date) => `entrada em produção, ${date}`,
             first: (date) => `${date}, primeiro commit`,
             last: (date, commits) => `${date}, último commit · ${commits}`,
@@ -105,8 +108,9 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             stack: "Technologies",
             status: "En production",
             problems: "Deux problèmes réglés",
-            videoLabel: "Démonstration de MAGBO Access Control\u00a0: un élève reconnu au visage entre à la cantine, une élève sans droit au repas est refusée, puis son droit est accordé et elle entre.",
-            videoCaption: "Démonstration sur une instance locale, avec des élèves fictifs.",
+            videoLabel: "Démonstration de MAGBO Access Control\u00a0: une journée au lycée, de la connexion à 7\u00a0h\u00a028 à la clôture de 17\u00a0h, avec le portail, le CDI, la cantine et le PPMS, puis la semaine en chiffres.",
+            videoCaption: "Démonstration sur une instance locale, avec des élèves fictifs et une journée simulée.",
+            fullscreen: "Voir en plein écran",
             goLive: (date) => `mise en production, ${date}`,
             first: (date) => `${date}, premier commit`,
             last: (date, commits) => `${date}, dernier commit · ${commits}`,
