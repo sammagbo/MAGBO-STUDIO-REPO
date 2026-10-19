@@ -1116,6 +1116,8 @@
     [3,3,"edcb93e10b39b9adc675d16af38328745ab0f446","2026-10-16T21:02:47+02:00",3,"chore","trace","hide two more messages of MAGBO Access Control","Claude"],
     [3,3,"aebaaa6ba91ed9d1e18831b415b8a949d7148e40","2026-10-16T21:03:39+02:00",0,"merge","","Merge pull request #17 from sammagbo/chore/trace-rules",""],
     [3,3,"adb3d583cd1134ac24520c71fda722c377e3f56d","2026-10-17T00:32:16+02:00",2,"feat","layout","projects first, then skills, experience and about","Claude"],
-    [3,3,"9d0c4e1f382e165464fdaafc4dda6d92a44e30fc","2026-10-17T00:34:14+02:00",0,"merge","","Merge pull request #18 from sammagbo/feat/section-order",""]
+    [3,3,"9d0c4e1f382e165464fdaafc4dda6d92a44e30fc","2026-10-17T00:34:14+02:00",0,"merge","","Merge pull request #18 from sammagbo/feat/section-order",""],
+    [3,3,"431e3f5ddab773b9dfc8cedd55e894b163d3ab13","2026-10-19T19:15:37+02:00",11,"feat","projects","the whole-day demo video, with a full-screen button","Claude"],
+    [3,3,"7e56495385be5230ccd6a64018d88e29614fa6d7","2026-10-19T21:18:25+02:00",0,"merge","","Merge pull request #19 from sammagbo/feat/magbo-video-day",""]
   ]
 }
