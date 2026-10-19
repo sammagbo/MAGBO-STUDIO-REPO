@@ -139,8 +139,7 @@ export const ProjectsSection = () => {
                                           </a>
                                     </div>
                                     <figure className="pj-media">
-                                          <ProjectVideo {...FEATURED.video} label={text.videoLabel} />
-                                          <figcaption className="pj-media-caption">{text.videoCaption}</figcaption>
+                                          <ProjectVideo {...FEATURED.video} label={text.videoLabel} caption={text.videoCaption} fullscreen={text.fullscreen} />
                                     </figure>
                               </div>
 

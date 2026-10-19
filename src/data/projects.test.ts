@@ -21,8 +21,9 @@ describe('the projects section', () => {
     for (const project of projects) expect(project.url).toMatch(/^https:\/\/[^\s]+$/);
   });
 
-  it('ships the demo video of the featured project, light enough for the page', () => {
-    const limits = { webm: 1_200_000, mp4: 1_500_000, poster: 120_000 };
+  it('ships the demo video of the featured project, within its size budget', () => {
+    // only the poster comes with the page: the video loads once it is on screen (preload="none")
+    const limits = { webm: 5_000_000, mp4: 6_000_000, poster: 120_000 };
     for (const [kind, url] of Object.entries(FEATURED.video)) {
       const file = join(process.cwd(), 'public', url);
       expect(existsSync(file), url).toBe(true);
@@ -37,6 +38,7 @@ describe('the projects section', () => {
         ...PROJECTS_TEXT[language].lead,
         PROJECTS_TEXT[language].videoLabel,
         PROJECTS_TEXT[language].videoCaption,
+        PROJECTS_TEXT[language].fullscreen,
         ...projects.map(project => project.description[language]),
         ...FEATURED.problems.flatMap(problem => [problem.title[language], problem.text[language]]),
       ];
