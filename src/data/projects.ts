@@ -14,6 +14,7 @@ interface ProjectsText {
       videoLabel: string;
       videoCaption: string;
       fullscreen: string;
+      demo: string;
       goLive: (date: string) => string;
       first: (date: string) => string;
       last: (date: string, commits: string) => string;
@@ -36,6 +37,15 @@ interface FeaturedProject {
       video: { webm: string; mp4: string; poster: string };
 }
 
+interface CardDemo {
+      // served from public/video, like the featured video: the card shows the poster, and the video loads on the click
+      webm: string;
+      mp4: string;
+      poster: string;
+      label: Text;
+      caption: Text;
+}
+
 interface ProjectCard {
       trace: string;
       name: string;
@@ -44,6 +54,7 @@ interface ProjectCard {
       client?: boolean;
       stack: string[];
       description: Text;
+      demo?: CardDemo;
 }
 
 interface OtherProject {
@@ -67,6 +78,7 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             videoLabel: "MAGBO Access Control demo: a school day, from the 7:28 a.m. login to the 5 p.m. closing, with the gate, the library, the cafeteria and the safety head count, then the week in numbers.",
             videoCaption: "Demo on a local instance, with fictional students and a simulated day.",
             fullscreen: "Watch full screen",
+            demo: "Watch the demo",
             goLive: (date) => `went live, ${date}`,
             first: (date) => `${date}, first commit`,
             last: (date, commits) => `${date}, last commit · ${commits}`,
@@ -89,6 +101,7 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             videoLabel: "Demonstração do MAGBO Access Control: um dia na escola, do login às 7h28 ao fechamento das 17h, com o portão, a biblioteca, a cantina e a contagem de segurança, e depois a semana em números.",
             videoCaption: "Demonstração numa instância local, com alunos fictícios e um dia simulado.",
             fullscreen: "Ver em tela cheia",
+            demo: "Ver a demonstração",
             goLive: (date) => `entrada em produção, ${date}`,
             first: (date) => `${date}, primeiro commit`,
             last: (date, commits) => `${date}, último commit · ${commits}`,
@@ -111,6 +124,7 @@ export const PROJECTS_TEXT: Record<Language, ProjectsText> = {
             videoLabel: "Démonstration de MAGBO Access Control\u00a0: une journée au lycée, de la connexion à 7\u00a0h\u00a028 à la clôture de 17\u00a0h, avec le portail, le CDI, la cantine et le PPMS, puis la semaine en chiffres.",
             videoCaption: "Démonstration sur une instance locale, avec des élèves fictifs et une journée simulée.",
             fullscreen: "Voir en plein écran",
+            demo: "Voir la démo",
             goLive: (date) => `mise en production, ${date}`,
             first: (date) => `${date}, premier commit`,
             last: (date, commits) => `${date}, dernier commit · ${commits}`,
@@ -169,6 +183,21 @@ export const CARDS: ProjectCard[] = [
                   en: "The app installs from the browser and works offline. It times each part of a meeting and counts attendance. The report comes out as a PDF, and the whole history exports to Excel. I replaced Supabase with a Spring Boot 4 API on PostgreSQL.",
                   pt: "O aplicativo se instala pelo navegador e funciona offline. Ele cronometra cada parte de uma reunião e conta os presentes. O relatório sai em PDF, e todo o histórico pode ser exportado para Excel. Troquei o Supabase por uma API Spring Boot 4 com PostgreSQL.",
                   fr: "L'application s'installe depuis le navigateur et marche hors ligne. Elle minute chaque partie d'une réunion et compte l'assistance. Le rapport sort en PDF, et tout l'historique s'exporte en Excel. J'ai remplacé Supabase par une API Spring Boot 4 avec PostgreSQL.",
+            },
+            demo: {
+                  webm: "/video/meetingmanager-demo.webm",
+                  mp4: "/video/meetingmanager-demo.mp4",
+                  poster: "/video/meetingmanager-demo-poster.webp",
+                  label: {
+                        en: "MeetingManager demo: a team meeting, from the preparation to the report, with the live timer, the room screen, the attendance count, the history and the statistics.",
+                        pt: "Demonstração do MeetingManager: uma reunião de equipe, da preparação ao relatório, com o cronômetro ao vivo, a tela da sala, a contagem dos presentes, o histórico e as estatísticas.",
+                        fr: "Démonstration de MeetingManager\u00a0: une réunion d'équipe, de la préparation au rapport, avec le chrono en direct, l'écran de la salle, le comptage des présents, l'historique et les statistiques.",
+                  },
+                  caption: {
+                        en: "Demo on a local instance, with fictional data.",
+                        pt: "Demonstração numa instância local, com dados fictícios.",
+                        fr: "Démonstration sur une instance locale, avec des données fictives.",
+                  },
             },
       },
       {

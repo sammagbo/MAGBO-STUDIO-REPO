@@ -5,6 +5,7 @@ import { PROFILE } from '@/data/constants';
 import { CARDS, FEATURED, OTHERS, PROJECTS_TEXT } from '@/data/projects';
 import type { Language } from '@/data/translations';
 import { ProjectTrace } from '@/components/trace/ProjectTrace';
+import { ProjectDemo } from '@/components/ProjectDemo';
 import { ProjectVideo } from '@/components/ProjectVideo';
 import { GO_LIVE, computeLayout, findPauses, goLiveIndex, readTrace } from '@/components/trace/model';
 import type { Trace, TraceCommit } from '@/components/trace/model';
@@ -191,6 +192,11 @@ export const ProjectsSection = () => {
                                                       {card.client && <span className="pj-badge">{text.client}</span>}
                                                 </div>
                                                 <p className="pj-card-desc">{card.description[language]}</p>
+                                                {card.demo && (
+                                                      <figure className="pj-card-media">
+                                                            <ProjectDemo webm={card.demo.webm} mp4={card.demo.mp4} poster={card.demo.poster} label={card.demo.label[language]} caption={card.demo.caption[language]} button={text.demo} />
+                                                      </figure>
+                                                )}
                                                 <ul className="pj-chips" aria-label={text.stack}>
                                                       {card.stack.map((item) => (
                                                             <li key={item}>{item}</li>
