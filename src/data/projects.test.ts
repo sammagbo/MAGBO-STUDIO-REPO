@@ -36,6 +36,16 @@ describe('the projects section', () => {
     }
   });
 
+  it('ships the screenshot of a card within its size budget', () => {
+    const shots = CARDS.flatMap(card => (card.shot ? [card.shot.src] : []));
+    expect(shots.length).toBeGreaterThan(0);
+    for (const src of shots) {
+      const file = join(process.cwd(), 'public', src);
+      expect(existsSync(file), src).toBe(true);
+      expect(statSync(file).size, src).toBeLessThanOrEqual(150_000);
+    }
+  });
+
   it('has every text in French, Portuguese and English', () => {
     for (const language of languages) {
       const texts = [
@@ -47,6 +57,7 @@ describe('the projects section', () => {
         PROJECTS_TEXT[language].demo,
         ...projects.map(project => project.description[language]),
         ...CARDS.flatMap(card => (card.demo ? [card.demo.label[language], card.demo.caption[language]] : [])),
+        ...CARDS.flatMap(card => (card.shot ? [card.shot.alt[language], card.shot.caption[language]] : [])),
         ...FEATURED.problems.flatMap(problem => [problem.title[language], problem.text[language]]),
       ];
       for (const text of texts) expect(text.trim()).not.toBe('');

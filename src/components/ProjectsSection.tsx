@@ -197,6 +197,16 @@ export const ProjectsSection = () => {
                                                             <ProjectDemo webm={card.demo.webm} mp4={card.demo.mp4} poster={card.demo.poster} label={card.demo.label[language]} caption={card.demo.caption[language]} button={text.demo} />
                                                       </figure>
                                                 )}
+                                                {card.shot && (
+                                                      <figure className="pj-card-media">
+                                                            <a className="pj-shot-link" href={card.url} target="_blank" rel="noopener noreferrer">
+                                                                  <img className="pj-shot" src={card.shot.src} alt={card.shot.alt[language]} width={1600} height={1000} loading="lazy" decoding="async" />
+                                                            </a>
+                                                            <figcaption className="pj-media-caption">
+                                                                  <span>{card.shot.caption[language]}</span>
+                                                            </figcaption>
+                                                      </figure>
+                                                )}
                                                 <ul className="pj-chips" aria-label={text.stack}>
                                                       {card.stack.map((item) => (
                                                             <li key={item}>{item}</li>
