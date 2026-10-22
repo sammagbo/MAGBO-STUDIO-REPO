@@ -46,6 +46,13 @@ interface CardDemo {
       caption: Text;
 }
 
+interface CardShot {
+      // a screenshot of a live site, served from public/projects; the card links it to the site
+      src: string;
+      alt: Text;
+      caption: Text;
+}
+
 interface ProjectCard {
       trace: string;
       name: string;
@@ -55,6 +62,7 @@ interface ProjectCard {
       stack: string[];
       description: Text;
       demo?: CardDemo;
+      shot?: CardShot;
 }
 
 interface OtherProject {
@@ -223,6 +231,19 @@ export const CARDS: ProjectCard[] = [
                   en: "This editorial site covers fashion, lifestyle and culture in three languages. Every episode comes as video and audio, and all the content comes from Sanity. A Next.js version is in pre-production.",
                   pt: "Este site editorial fala de moda, lifestyle e cultura, em três línguas. Cada episódio existe em vídeo e em áudio, e todo o conteúdo vem do Sanity. Uma versão em Next.js está em pré-produção.",
                   fr: "Ce site éditorial parle de mode, de lifestyle et de culture, en trois langues. Chaque épisode existe en vidéo et en audio, et tout le contenu vient de Sanity. Une version Next.js est en préproduction.",
+            },
+            shot: {
+                  src: "/projects/the-talk.webp",
+                  alt: {
+                        en: "The Talk's live home page: the podcast title over a fashion video in the background.",
+                        pt: "A página inicial do The Talk no ar: o título do podcast sobre um vídeo de moda ao fundo.",
+                        fr: "La page d'accueil de The Talk en ligne\u00a0: le titre du podcast sur une vidéo de mode en fond.",
+                  },
+                  caption: {
+                        en: "Screenshot of the live site, October 2026.",
+                        pt: "Captura do site no ar, em outubro de 2026.",
+                        fr: "Capture du site en ligne, en octobre 2026.",
+                  },
             },
       },
 ];
