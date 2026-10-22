@@ -21,13 +21,18 @@ describe('the projects section', () => {
     for (const project of projects) expect(project.url).toMatch(/^https:\/\/[^\s]+$/);
   });
 
-  it('ships the demo video of the featured project, within its size budget', () => {
-    // only the poster comes with the page: the video loads once it is on screen (preload="none")
+  it('ships every demo video within its size budget', () => {
+    // only the posters come with the page (preload="none"): the featured video loads once it is on screen, and the
+    // video of a card when its button is pressed
     const limits = { webm: 5_000_000, mp4: 6_000_000, poster: 120_000 };
-    for (const [kind, url] of Object.entries(FEATURED.video)) {
-      const file = join(process.cwd(), 'public', url);
-      expect(existsSync(file), url).toBe(true);
-      expect(statSync(file).size, url).toBeLessThanOrEqual(limits[kind as keyof typeof limits]);
+    const demos = [FEATURED.video, ...CARDS.flatMap(card => (card.demo ? [card.demo] : []))];
+    expect(demos.length).toBeGreaterThan(1);
+    for (const demo of demos) {
+      for (const kind of ['webm', 'mp4', 'poster'] as const) {
+        const file = join(process.cwd(), 'public', demo[kind]);
+        expect(existsSync(file), demo[kind]).toBe(true);
+        expect(statSync(file).size, demo[kind]).toBeLessThanOrEqual(limits[kind]);
+      }
     }
   });
 
@@ -39,7 +44,9 @@ describe('the projects section', () => {
         PROJECTS_TEXT[language].videoLabel,
         PROJECTS_TEXT[language].videoCaption,
         PROJECTS_TEXT[language].fullscreen,
+        PROJECTS_TEXT[language].demo,
         ...projects.map(project => project.description[language]),
+        ...CARDS.flatMap(card => (card.demo ? [card.demo.label[language], card.demo.caption[language]] : [])),
         ...FEATURED.problems.flatMap(problem => [problem.title[language], problem.text[language]]),
       ];
       for (const text of texts) expect(text.trim()).not.toBe('');

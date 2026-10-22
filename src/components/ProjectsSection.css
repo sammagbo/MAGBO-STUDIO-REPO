@@ -81,6 +81,9 @@
 .projects-v2 .pj-card-name { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; }
 .projects-v2 .pj-badge { border: 1px solid var(--pj-edge); border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 500; letter-spacing: .04em; }
 .projects-v2 .pj-card-desc { margin: 0; font-size: 16px; line-height: 1.55; color: var(--pj-muted); }
+/* the demo of a card: its poster, and a button that plays it full screen */
+.projects-v2 .pj-card-media { align-self: stretch; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.projects-v2 .pj-card-media .pj-video { cursor: pointer; }
 .projects-v2 .pj-card .pj-link { font-size: 15px; }
 
 /* the other projects, one row each */
