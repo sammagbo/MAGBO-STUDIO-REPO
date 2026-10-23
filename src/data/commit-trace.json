@@ -1124,6 +1124,12 @@
     [3,3,"0d2d3967da866423e0c7e34f19268e2d715015a3","2026-10-22T15:50:42+02:00",9,"feat","projects","the MeetingManager demo on its card, full screen on demand","Claude"],
     [3,3,"a19ce33fabb206b44b40b00ed1c5d25054bd4eb1","2026-10-22T16:35:24+02:00",5,"feat","projects","a screenshot of The Talk's live site on its card","Claude"],
     [3,3,"668eb5eccf733346c422620d3055e4a4d3c2bd88","2026-10-22T16:36:24+02:00",0,"merge","","Merge pull request #20 from sammagbo/feat/meetingmanager-demo",""],
-    [3,3,"97e7b0ae55b38e27473c3f2328d5fbc4196cd274","2026-10-22T22:53:45+02:00",0,"merge","","Merge pull request #21 from sammagbo/feat/the-talk-shot",""]
+    [3,3,"97e7b0ae55b38e27473c3f2328d5fbc4196cd274","2026-10-22T22:53:45+02:00",0,"merge","","Merge pull request #21 from sammagbo/feat/the-talk-shot",""],
+    [5,6,"dc0baa6f5ebc2184efb0c0765487b95c49526bf2","2026-10-22T23:18:13+02:00",9,"feat","api","require the auth service's access token on every endpoint","Claude"],
+    [5,6,"b01744a002ca3306f7bffca0d637a6f5e70a3950","2026-10-22T23:18:22+02:00",14,"feat","auth","sign tokens for the API, no fallback secret, accounts from the terminal only","Claude"],
+    [5,6,"8ce29313798872208e6e98530dd482ea08f8d19c","2026-10-22T23:18:27+02:00",3,"docs","","run pHARe with the shared secret and create the first account","Claude"],
+    [5,6,"9310dc0a776db91c9cee97d975e7cdd2fa2b4dbb","2026-10-22T23:47:31+02:00",4,"build","auth","a lockfile that npm 10 and 11 both install, and npm ci to install it","Claude"],
+    [5,6,"02589526cdc21b360d3b54fa5c1536b2d3f14e72","2026-10-22T23:47:31+02:00",1,"docs","api","the backend README follows the access token and the current code","Claude"],
+    [5,6,"1d1519756249db3cbf054f641bc2ccc0c3cea329","2026-10-23T14:32:44+02:00",0,"merge","","Merge pull request #1 from sammagbo/feat/api-requires-token",""]
   ]
 }
