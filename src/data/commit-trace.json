@@ -1122,6 +1122,8 @@
     [5,6,"4a681d82b3562e0637b2e0dbec5d583b7679b8b7","2026-10-20T15:48:02+02:00",8,"fix","","remove the real team names from the code","Claude"],
     [5,6,"9eadbe645bb73539b281da6dd7e951e6b5dfd854","2026-10-20T16:10:45+02:00",0,"merge","","Merge pull request #1 from sammagbo/fix/remove-team-names",""],
     [3,3,"0d2d3967da866423e0c7e34f19268e2d715015a3","2026-10-22T15:50:42+02:00",9,"feat","projects","the MeetingManager demo on its card, full screen on demand","Claude"],
-    [3,3,"668eb5eccf733346c422620d3055e4a4d3c2bd88","2026-10-22T16:36:24+02:00",0,"merge","","Merge pull request #20 from sammagbo/feat/meetingmanager-demo",""]
+    [3,3,"a19ce33fabb206b44b40b00ed1c5d25054bd4eb1","2026-10-22T16:35:24+02:00",5,"feat","projects","a screenshot of The Talk's live site on its card","Claude"],
+    [3,3,"668eb5eccf733346c422620d3055e4a4d3c2bd88","2026-10-22T16:36:24+02:00",0,"merge","","Merge pull request #20 from sammagbo/feat/meetingmanager-demo",""],
+    [3,3,"97e7b0ae55b38e27473c3f2328d5fbc4196cd274","2026-10-22T22:53:45+02:00",0,"merge","","Merge pull request #21 from sammagbo/feat/the-talk-shot",""]
   ]
 }
