@@ -18,7 +18,11 @@ describe('the projects section', () => {
   });
 
   it('links to https addresses only', () => {
-    for (const project of projects) expect(project.url).toMatch(/^https:\/\/[^\s]+$/);
+    for (const project of projects) if (project.url) expect(project.url).toMatch(/^https:\/\/[^\s]+$/);
+  });
+
+  it('gives the French LMS no link: its code is private, and the old repository is archived', () => {
+    expect(OTHERS.find(project => project.trace === 'lms')?.url).toBeUndefined();
   });
 
   it('ships every demo video within its size budget', () => {
