@@ -228,10 +228,14 @@ export const ProjectsSection = () => {
                                           const list = of(project.trace);
                                           return (
                                                 <li key={project.trace} className="pj-row">
-                                                      <a className="pj-row-name" href={project.url} target="_blank" rel="noopener noreferrer">
-                                                            {project.name}
-                                                            <ArrowIcon />
-                                                      </a>
+                                                      {project.url ? (
+                                                            <a className="pj-row-name" href={project.url} target="_blank" rel="noopener noreferrer">
+                                                                  {project.name}
+                                                                  <ArrowIcon />
+                                                            </a>
+                                                      ) : (
+                                                            <span className="pj-row-name">{project.name}</span>
+                                                      )}
                                                       <span className="pj-row-desc">
                                                             {project.description[language]} · {project.stack}
                                                       </span>

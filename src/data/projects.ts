@@ -68,7 +68,7 @@ interface ProjectCard {
 interface OtherProject {
       trace: string;
       name: string;
-      url: string;
+      url?: string; // none when the code is private: the row shows the name without a link
       stack: string;
       description: Text;
 }
@@ -252,12 +252,11 @@ export const OTHERS: OtherProject[] = [
       {
             trace: "lms",
             name: "French LMS",
-            url: "https://github.com/sammagbo/french-lms",
             stack: "NestJS, Prisma, PostgreSQL, Next.js",
             description: {
-                  en: "A platform to learn French, with online lessons and graded assignments",
-                  pt: "Plataforma para aprender francês, com aulas online e tarefas corrigidas",
-                  fr: "Plateforme pour apprendre le français, avec des cours en ligne et des devoirs corrigés",
+                  en: "A platform to learn French, with online lessons and graded assignments. Still in development, with private code; the dates are those of its first version, which was public",
+                  pt: "Plataforma para aprender francês, com aulas online e tarefas corrigidas. Ainda em desenvolvimento, com código privado; as datas são as da primeira versão, que era pública",
+                  fr: "Plateforme pour apprendre le français, avec des cours en ligne et des devoirs corrigés. Encore en développement, avec un code privé ; les dates sont celles de sa première version, qui était publique",
             },
       },
       {
