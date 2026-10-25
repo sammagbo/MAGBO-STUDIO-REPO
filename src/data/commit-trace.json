@@ -1161,6 +1161,11 @@
     [2,2,"c010ced23afcce1bb9db59a219fa4288eb584089","2026-10-24T10:59:39+02:00",0,"merge","","Merge pull request #1 from sammagbo/fix/live-attendance-statistics",""],
     [6,8,"3558275d8c71239205cda3148724cea63c74218d","2026-10-24T11:00:16+02:00",0,"merge","","Merge pull request #1 from sammagbo/fix/security-deps",""],
     [3,3,"b3f69553e687006d16c4119f9899c97b2061b796","2026-10-24T11:04:45+02:00",3,"fix","projects","the French LMS row without a link to the archived repository","Claude"],
-    [3,3,"00404aeef38b5474ea9715b7d0abd571c5e583b6","2026-10-24T11:17:52+02:00",0,"merge","","Merge pull request #22 from sammagbo/fix/french-lms-row",""]
+    [3,3,"00404aeef38b5474ea9715b7d0abd571c5e583b6","2026-10-24T11:17:52+02:00",0,"merge","","Merge pull request #22 from sammagbo/fix/french-lms-row",""],
+    [5,6,"a9e313af7a3f9748f781e9c55d1c5f797ce888d1","2026-10-24T15:30:37+02:00",4,"fix","ui","role labels readable on their colors, in light and dark","Claude"],
+    [5,6,"a53035f8db5a50ffceff7fcf9c56cff3a1660425","2026-10-24T15:30:45+02:00",1,"fix","ui","meeting rows that fit their content","Claude"],
+    [5,6,"425bc93c915157f4389e0f59a14cba0e325f9c7a","2026-10-24T16:13:29+02:00",1,"fix","ui","a student's class never splits in a meeting row","Claude"],
+    [5,6,"11843b12c7daaeb80ba6ac31181ac453e8e5ea1e","2026-10-24T16:13:36+02:00",1,"fix","ui","the role hint follows the students of the form","Claude"],
+    [5,6,"b3f4b03b174f4fe9a8396f8dd8e0d6427a644771","2026-10-25T19:24:50+01:00",0,"merge","","Merge pull request #4 from sammagbo/fix/role-labels",""]
   ]
 }
