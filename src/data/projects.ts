@@ -217,7 +217,22 @@ export const CARDS: ProjectCard[] = [
             description: {
                   en: "pHARe is France's national anti-bullying program for schools. This tool helps a school's pHARe team follow cases and assign interviews during meetings. If the server does not answer, it keeps working in the browser.",
                   pt: "O pHARe é o programa nacional francês de combate ao bullying nas escolas. Esta ferramenta ajuda a equipe pHARe de uma escola a acompanhar os casos e a distribuir as entrevistas durante as reuniões. Se o servidor não responde, ela continua funcionando no navegador.",
-                  fr: "pHARe est le programme national de lutte contre le harcèlement à l'école. Cet outil aide l'équipe pHARe d'un lycée à suivre les situations et à répartir les entretiens pendant les réunions. Si le serveur ne répond pas, il continue en local.",
+                  fr: "pHARe est le programme national de lutte contre le harcèlement à l'école. Cet outil aide l'équipe pHARe d'un établissement à suivre les situations et à répartir les entretiens pendant les réunions. Si le serveur ne répond pas, il continue en local.",
+            },
+            demo: {
+                  webm: "/video/phare-demo.webm",
+                  mp4: "/video/phare-demo.mp4",
+                  poster: "/video/phare-demo-poster.webp",
+                  label: {
+                        en: "pHARe demo: the login, a new case with its three students, the history and its search, the team, then the interviews of the pHARe meeting, from the list to the planning.",
+                        pt: "Demonstração do pHARe: o login, um caso novo com três alunos, o histórico e a busca, a equipe, e as entrevistas da reunião pHARe, da lista ao planejamento.",
+                        fr: "Démonstration de pHARe\u00a0: la connexion, un nouveau cas et ses trois élèves, l'historique et sa recherche, l'équipe, puis les entretiens de la réunion pHARe, de la liste au planning.",
+                  },
+                  caption: {
+                        en: "Demo on a local instance, with fictional data.",
+                        pt: "Demonstração numa instância local, com dados fictícios.",
+                        fr: "Démonstration sur une instance locale, avec des données fictives.",
+                  },
             },
       },
       {
