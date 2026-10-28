@@ -14,12 +14,11 @@ export const TRANSLATIONS = {
                   closing: "Today I'm settling in Bordeaux. I'm looking for a permanent role (CDI) as a junior Java / Spring Boot backend developer. I want to travel the rest of this road with a team.",
                   facts: { languages: "working languages: French, Portuguese, technical English", projects: "public projects on GitHub" },
             },
-            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            // labels of the fixed navigation only; the section ids stay about, experience, work, contact
             navbar: {
                   about: 'About',
                   experience: 'Experience',
                   work: 'Projects',
-                  skills: 'Skills',
                   contact: 'Contact',
             },
             hero: {
@@ -43,12 +42,11 @@ export const TRANSLATIONS = {
                   closing: "Hoje, estou me mudando para Bordeaux. Procuro uma vaga em CDI como desenvolvedor backend Java / Spring Boot júnior. O resto do caminho, quero fazer em equipe.",
                   facts: { languages: "idiomas de trabalho: francês, português, inglês técnico", projects: "projetos públicos no GitHub" },
             },
-            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            // labels of the fixed navigation only; the section ids stay about, experience, work, contact
             navbar: {
                   about: 'Sobre',
                   experience: 'Trajetória',
                   work: 'Projetos',
-                  skills: 'Competências',
                   contact: 'Contato',
             },
             hero: {
@@ -72,12 +70,11 @@ export const TRANSLATIONS = {
                   closing: "Aujourd'hui, je m'installe à Bordeaux. Je cherche un CDI de développeur backend Java / Spring Boot junior. La suite du chemin, je veux la faire en équipe.",
                   facts: { languages: "langues de travail : français, portugais, anglais technique", projects: "projets publics sur GitHub" },
             },
-            // labels of the fixed navigation only; the section ids stay about, experience, work, skills, contact
+            // labels of the fixed navigation only; the section ids stay about, experience, work, contact
             navbar: {
                   about: 'À propos',
                   experience: 'Parcours',
                   work: 'Projets',
-                  skills: 'Compétences',
                   contact: 'Contact',
             },
             hero: {
