@@ -1174,6 +1174,8 @@
     [3,3,"a28b6fa9c4f8c06aa3af550c02113667e94e9cb8","2026-10-28T19:04:54+01:00",6,"feat","site","remove the skills section","Claude"],
     [3,3,"3227ebd1732c7b86444904e2f528f561a31116d6","2026-10-28T19:13:27+01:00",0,"merge","","Merge pull request #24 from sammagbo/feat/remove-skills-section",""],
     [3,3,"50ea2d062670b490c35b15fd1ea58280c174d04f","2026-10-29T01:32:39+01:00",6,"feat","site","offer the CV and align the site with it","Claude"],
-    [3,3,"981b78c64919289b1bcaa3834cca3cffa1c0123a","2026-10-29T12:00:51+01:00",0,"merge","","Merge pull request #25 from sammagbo/feat/cv-on-site",""]
+    [3,3,"981b78c64919289b1bcaa3834cca3cffa1c0123a","2026-10-29T12:00:51+01:00",0,"merge","","Merge pull request #25 from sammagbo/feat/cv-on-site",""],
+    [3,3,"880ee85d56195852e1638fdcc2f67d5ba6e70f7f","2026-10-29T20:56:44+01:00",3,"feat","site","count the visits with Vercel Web Analytics","Claude"],
+    [3,3,"c003b1bde8d1ed5895b315a419a1d804a0950245","2026-10-29T21:08:59+01:00",0,"merge","","Merge pull request #26 from sammagbo/feat/web-analytics",""]
   ]
 }
