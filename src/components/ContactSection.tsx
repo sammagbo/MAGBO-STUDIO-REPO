@@ -12,7 +12,8 @@ const ArrowIcon = () => (
       </svg>
 );
 
-// The contact section, from the approved canvas design: LinkedIn, GitHub and the city. No form and no e-mail address on the site.
+// The contact section, from the approved canvas design: LinkedIn, GitHub, the CV and the city. No form, and no e-mail address
+// or phone number on the site.
 export const ContactSection = () => {
       const { language } = useLanguage();
       const text = CONTACT[language];
@@ -43,6 +44,15 @@ export const ContactSection = () => {
                                           </div>
                                     </li>
                               ))}
+                              <li className="cn-row">
+                                    <p className="cn-label">{text.cv}</p>
+                                    <div className="cn-value">
+                                          <a className="cn-link" href={PROFILE.cv} target="_blank" rel="noopener noreferrer">
+                                                {text.cvLink}
+                                                <ArrowIcon />
+                                          </a>
+                                    </div>
+                              </li>
                               <li className="cn-row">
                                     <p className="cn-label">{text.basedIn}</p>
                                     <p className="cn-value">{text.city}</p>

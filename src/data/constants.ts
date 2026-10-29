@@ -5,11 +5,12 @@
 
 import type { DegreeId, JobId } from '@/data/parcours';
 
-// Shown in the contact section. The e-mail address stays off the site.
+// Shown in the contact section. The e-mail address and the phone number stay off the site, and out of the CV.
 export const PROFILE = {
       name: 'Sammy K. Magbo',
       linkedin: 'https://www.linkedin.com/in/sammagbo/',
       github: 'https://github.com/sammagbo',
+      cv: '/cv/CV_Sammy_K_Magbo.pdf',
 } as const;
 
 // Public projects in the commit trace (src/data/commit-trace.json); constants.test.ts keeps the two in step.
