@@ -7,7 +7,7 @@ export const TRANSLATIONS = {
                   lead: "I worked for fourteen years in Rio de Janeiro before coming to France.",
                   story: [
                         "In 2012, I started out as an information security agent. Four years later, I earned my technical diploma in computing at ISERJ. In 2018, I enrolled in a Computer Science degree at Universidade Veiga de Almeida.",
-                        "In 2020, I joined the Lycée Molière, a school in the AEFE network, as head of student life. In 2022, I went to work for the Rio de Janeiro state government, on IT governance and planning. I held both jobs at the same time. I finished my degree in 2025.",
+                        "In 2020, I joined the Lycée Molière, a school in the AEFE network, as head of student life. In 2022, I went to work for the Rio de Janeiro state government, first in the projects office, then in the IT team. I held both jobs at the same time. I finished my degree in 2025.",
                         "It was at the school, in my first week, that I found the problem I mention above.",
                   ],
                   peak: "I never let it go.",
@@ -35,7 +35,7 @@ export const TRANSLATIONS = {
                   lead: "Trabalhei catorze anos no Rio de Janeiro antes de vir para a França.",
                   story: [
                         "Em 2012, comecei como agente de segurança da informação. Quatro anos depois, tirei meu diploma técnico em informática no ISERJ. Em 2018, entrei na graduação em Ciência da Computação da Universidade Veiga de Almeida.",
-                        "Em 2020, fui para o Lycée Molière, uma escola da rede AEFE, como responsável pela vida escolar. Em 2022, passei a trabalhar no governo do Estado do Rio, com governança e planejamento de TI. Mantive os dois cargos ao mesmo tempo. Terminei a graduação em 2025.",
+                        "Em 2020, fui para o Lycée Molière, uma escola da rede AEFE, como responsável pela vida escolar. Em 2022, passei a trabalhar no governo do Estado do Rio, primeiro no escritório de projetos, depois na equipe de TI. Mantive os dois cargos ao mesmo tempo. Terminei a graduação em 2025.",
                         "Foi na escola, na semana em que cheguei, que encontrei o problema de que falo acima.",
                   ],
                   peak: "Não larguei mais.",
@@ -62,8 +62,8 @@ export const TRANSLATIONS = {
                   title: "À propos",
                   lead: "J'ai travaillé quatorze ans à Rio de Janeiro avant de venir en France.",
                   story: [
-                        "En 2012, j'ai commencé comme agent de sécurité de l'information. Quatre ans plus tard, j'ai obtenu mon diplôme technique en informatique à l'ISERJ. En 2018, je me suis inscrit en licence d'informatique à l'Universidade Veiga de Almeida.",
-                        "En 2020, je suis entré au Lycée Molière, un établissement du réseau AEFE, comme responsable de la vie scolaire. En 2022, j'ai rejoint le gouvernement de l'État de Rio pour travailler sur la gouvernance et la planification de son informatique. J'ai tenu les deux postes de front. J'ai terminé ma licence en 2025.",
+                        "En 2012, j'ai commencé comme agent de sûreté de l'information. Quatre ans plus tard, j'ai obtenu mon diplôme technique en informatique à l'ISERJ. En 2018, je me suis inscrit en informatique à l'Universidade Veiga de Almeida.",
+                        "En 2020, je suis entré au Lycée Molière, un établissement du réseau AEFE, comme responsable de la vie scolaire. En 2022, j'ai rejoint le gouvernement de l'État de Rio, d'abord au bureau de projets, puis à l'équipe informatique. J'ai tenu les deux postes de front. J'ai obtenu mon diplôme en 2025.",
                         "C'est au lycée, la semaine de mon arrivée, que j'ai trouvé le problème dont je parle plus haut.",
                   ],
                   peak: "Je ne l'ai plus lâché.",

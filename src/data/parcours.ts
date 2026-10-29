@@ -26,11 +26,12 @@ export const PARCOURS: Record<Language, ParcoursText> = {
                         ],
                   },
                   sedeics: {
-                        role: "IT Development Agent — Strategic Projects",
+                        role: "Special Advisor",
                         bullets: [
-                              "In charge of technology for the executive board.",
-                              "Leadership and delivery of the SEDEICS PDTIC, the IT master plan that every state secretariat had to submit.",
-                              "Mapping of the secretariat's IT network.",
+                              "At the projects office, support for micro-entrepreneurs to regularize their business and get an interest-free public loan.",
+                              "Referral of young people to the free courses of Instituto PROA, through organizations that help young people and migrants.",
+                              "In the IT team, leadership of the PDTIC, the IT master plan that every state secretariat had to submit, until its publication in the state's Official Gazette.",
+                              "Launch of the secretariat's IT network mapping.",
                         ],
                   },
                   noceci: {
@@ -65,11 +66,12 @@ export const PARCOURS: Record<Language, ParcoursText> = {
                         ],
                   },
                   sedeics: {
-                        role: "Agente de Desenvolvimento de TI — Projetos Estratégicos",
+                        role: "Assessor Especial",
                         bullets: [
-                              "Responsável pela tecnologia junto à diretoria executiva.",
-                              "Liderança e entrega do PDTIC da SEDEICS, o plano diretor de TI que cada secretaria do Estado tinha de entregar.",
-                              "Mapeamento da rede de TI da secretaria.",
+                              "No escritório de projetos, acompanhamento de microempreendedores para se regularizarem e obterem um crédito público sem juros.",
+                              "Encaminhamento de jovens para os cursos gratuitos do Instituto PROA, por meio de associações de apoio a jovens e a migrantes.",
+                              "Na equipe de TI, liderança do PDTIC, o plano diretor de TI que cada secretaria do Estado tinha de entregar, até sua publicação no Diário Oficial.",
+                              "Início do mapeamento da rede de TI da secretaria.",
                         ],
                   },
                   noceci: {
@@ -104,11 +106,12 @@ export const PARCOURS: Record<Language, ParcoursText> = {
                         ],
                   },
                   sedeics: {
-                        role: "Agent de développement informatique, projets stratégiques",
+                        role: "Conseiller spécial",
                         bullets: [
-                              "Responsable de la technologie auprès de la direction exécutive.",
-                              "Pilotage et livraison du PDTIC de la SEDEICS, le schéma directeur informatique que chaque secrétariat de l'État devait remettre.",
-                              "Cartographie du réseau informatique du secrétariat.",
+                              "Au bureau de projets, accompagnement de micro-entrepreneurs vers la régularisation et un crédit public à taux zéro.",
+                              "Orientation de jeunes vers les formations gratuites de l'Instituto PROA, en passant par des associations d'aide aux jeunes et aux migrants.",
+                              "À l'équipe informatique, pilotage du PDTIC, le schéma directeur informatique que chaque secrétariat de l'État devait remettre, jusqu'à sa publication au Journal officiel.",
+                              "Lancement de la cartographie du réseau informatique du secrétariat.",
                         ],
                   },
                   noceci: {
@@ -120,12 +123,12 @@ export const PARCOURS: Record<Language, ParcoursText> = {
                         bullets: ["École de langues (anglais, espagnol, français, italien) créée dans le programme d'entrepreneuriat de l'Universidade Veiga de Almeida : modèle économique, offre de cours, fonctionnement."],
                   },
                   maori: {
-                        role: "Agent de sécurité de l'information",
+                        role: "Agent de sûreté de l'information",
                         bullets: ["Accueil et sécurité de l'information sur le projet DCNS, dans un environnement à accès restreint."],
                   },
             },
             degrees: {
-                  uva: { degree: "Licence en informatique (Ciência da Computação)", note: "Responsable du projet C.L. 2.0 (2018)" },
+                  uva: { degree: "Diplôme d'informatique (Bacharelado)", note: "Responsable du projet C.L. 2.0 (2018)" },
                   iserj: { degree: "Diplôme technique en informatique" },
             },
       },
