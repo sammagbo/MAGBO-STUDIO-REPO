@@ -40,8 +40,8 @@ function App() {
                         <MainLayout>
                               <HeroSection />
                               <ProjectsSection />
-                              <ExperienceSection />
                               <AboutSection />
+                              <ExperienceSection />
                               <ContactSection />
                         </MainLayout>
                   </ErrorBoundary>

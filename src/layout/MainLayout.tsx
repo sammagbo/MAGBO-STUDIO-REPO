@@ -10,11 +10,11 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
       const [isScrolled, setIsScrolled] = useState(false);
       const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
-      // Same order as the sections on the page: the projects first, then the experience and the story
+      // Same order as the sections on the page: the projects first, then the story, the experience and the contact
       const NAV_ITEMS = [
             { id: 'work', label: t.navbar.work },
-            { id: 'experience', label: t.navbar.experience },
             { id: 'about', label: t.navbar.about },
+            { id: 'experience', label: t.navbar.experience },
             { id: 'contact', label: t.navbar.contact },
       ];
 
