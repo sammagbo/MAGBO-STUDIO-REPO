@@ -1,5 +1,6 @@
 /* The public commit trace, ported from the approved prototype (portfolio-hero-geral.html).
-   Every rule lives under .ctrace; classes and variables carry a ct- prefix so the site's own never collide. */
+   Every rule lives under .ctrace; classes and variables carry a ct- prefix so the site's own never collide.
+   The colours follow the site theme: dark by default, light under [data-theme='light']. */
 
 .ctrace {
   --ct-bg: #000000;
@@ -13,6 +14,15 @@
   flex: none;
   padding-bottom: 22px;
   color: var(--ct-fg);
+}
+[data-theme='light'] .ctrace {
+  --ct-bg: #F2F0EB;
+  --ct-fg: #0E0D0C;
+  --ct-muted: #5E5A54;
+  --ct-soft: #726D66;
+  --ct-rule: #DDD8CF;
+  --ct-edge: #CFCAC1;
+  --ct-red: #E5341F;
 }
 .ctrace a { color: inherit; }
 .ctrace button { font: inherit; color: inherit; }

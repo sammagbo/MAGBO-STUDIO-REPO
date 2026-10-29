@@ -6,7 +6,6 @@
   --cn-fg: #F2F0EB;
   --cn-muted: #9A968F;
   --cn-soft: #7A766F;
-  --cn-edge: #34322F;
   --cn-red: #FF3D2E;
   --cn-pad: clamp(20px, 3.9vw, 56px);
   background: var(--cn-bg);
@@ -19,7 +18,6 @@
   --cn-fg: #0E0D0C;
   --cn-muted: #5E5A54;
   --cn-soft: #726D66;
-  --cn-edge: #CFCAC1;
   --cn-red: #E5341F;
 }
 
@@ -29,9 +27,10 @@
 .contact-v2 .cn-lead { margin: 0; max-width: 22em; font-family: 'Funnel Display', sans-serif; font-weight: 500; font-size: clamp(1.75rem, 3.2vw, 2.75rem); line-height: 1.12; letter-spacing: -0.02em; text-wrap: balance; }
 .contact-v2 .cn-note { margin: 0; max-width: 36rem; font-size: 18px; line-height: 1.6; color: var(--cn-muted); }
 
-/* one row per channel: the label on the left and the value on the right, the label on top when the row is narrow */
-.contact-v2 .cn-list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--cn-edge); }
-.contact-v2 .cn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 64px; padding: 32px 0; border-top: 1px solid var(--cn-edge); }
+/* one row per channel: the label on the left and the value on the right, the label on top when the row is narrow.
+   No rules between the rows: the space separates them. */
+.contact-v2 .cn-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 48px; }
+.contact-v2 .cn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 64px; }
 .contact-v2 .cn-label { flex: 1 1 220px; margin: 0; font-size: 15px; line-height: 1.5; color: var(--cn-muted); }
 .contact-v2 .cn-value { flex: 2 1 480px; min-width: 0; margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 500; font-size: clamp(1.5rem, 3.2vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; }
 .contact-v2 .cn-link { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: .3em; overflow-wrap: anywhere; transition: color .2s ease; }

@@ -1,10 +1,13 @@
 /* The fixed navigation, after the prototype (portfolio-hero-geral.html): the name on the left, links in grey,
-   languages on the right, on the hero's side margin. Light on dark in both themes and in every state. */
+   languages on the right, on the hero's side margin. It follows the site theme, like the hero under it. */
 
 .site-nav {
+  --sn-bg: #000000;
   --sn-fg: #F2F0EB;
   --sn-muted: #9A968F;
   --sn-edge: #34322F;
+  --sn-rule: #1F1E1C;
+  --sn-hover: rgba(255, 255, 255, 0.04);
   --sn-pad: clamp(20px, 3.9vw, 56px); /* the hero's side margin */
   position: fixed;
   top: 0;
@@ -16,13 +19,21 @@
   border-bottom: 1px solid transparent;
   transition: background-color .5s ease, border-color .5s ease;
 }
+[data-theme='light'] .site-nav {
+  --sn-bg: #F2F0EB;
+  --sn-fg: #0E0D0C;
+  --sn-muted: #5E5A54;
+  --sn-edge: #CFCAC1;
+  --sn-rule: #DDD8CF;
+  --sn-hover: rgba(0, 0, 0, 0.04);
+}
 
-/* Transparent over the hero at the top. Once scrolled, or while the mobile menu is open, a dark bar of its own. */
+/* Transparent over the hero at the top. Once scrolled, or while the mobile menu is open, a bar of its own, in the theme's colours. */
 .site-nav--solid {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: color-mix(in srgb, var(--sn-bg) 85%, transparent);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border-bottom-color: #1F1E1C;
+  border-bottom-color: var(--sn-rule);
 }
 
 .site-nav__bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px var(--sn-pad); }
@@ -38,9 +49,9 @@
 .site-nav__lang:hover { color: var(--sn-fg); }
 .site-nav button:focus-visible { outline: 1px solid var(--sn-fg); outline-offset: 3px; border-radius: 4px; }
 
-/* languages: the current one, and a menu that is always dark */
+/* languages: the current one, and a menu in the theme's colours */
 .site-nav__lang { display: inline-flex; align-items: center; gap: 8px; padding: 4px 8px; font-size: 14px; line-height: 1.5; color: var(--sn-muted); transition: color .2s ease; }
-.site-nav__lang-menu { position: absolute; right: 0; z-index: 50; width: 96px; margin-top: 8px; padding: 4px 0; overflow: hidden; background-color: #000000; border: 1px solid var(--sn-edge); border-radius: 4px; }
+.site-nav__lang-menu { position: absolute; right: 0; z-index: 50; width: 96px; margin-top: 8px; padding: 4px 0; overflow: hidden; background-color: var(--sn-bg); border: 1px solid var(--sn-edge); border-radius: 4px; }
 .site-nav__lang-item { display: block; width: 100%; padding: 8px 16px; text-align: left; font-size: 14px; line-height: 1.5; color: var(--sn-muted); transition: color .2s ease, background-color .2s ease; }
-.site-nav__lang-item:hover { color: var(--sn-fg); background-color: rgba(255, 255, 255, 0.04); }
+.site-nav__lang-item:hover { color: var(--sn-fg); background-color: var(--sn-hover); }
 .site-nav__lang-item.is-current { color: var(--sn-fg); font-weight: 500; }

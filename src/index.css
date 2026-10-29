@@ -13,9 +13,9 @@
 }
 
 [data-theme='light'] {
-  --bg: #FAFAFA;
-  --text-primary: #111827;
-  --text-secondary: #4B5563;
+  --bg: #F2F0EB;
+  --text-primary: #0E0D0C;
+  --text-secondary: #5E5A54;
 }
 
 html {

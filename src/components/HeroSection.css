@@ -1,5 +1,5 @@
 /* The hero, ported from the approved prototype (portfolio-hero-geral.html).
-   Always dark: it has its own tokens, which the site's light theme does not touch.
+   It follows the site theme: dark by default, light under [data-theme='light'], like every other section.
    The navigation is MainLayout's fixed bar; the top padding keeps it off the title. */
 
 .hero-v2 {
@@ -23,6 +23,15 @@
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+[data-theme='light'] .hero-v2 {
+  --hv-bg: #F2F0EB;
+  --hv-fg: #0E0D0C;
+  --hv-muted: #5E5A54;
+  --hv-soft: #726D66;
+  --hv-rule: #DDD8CF;
+  --hv-edge: #CFCAC1;
+  --hv-red: #E5341F;
 }
 .hero-v2 a { color: inherit; }
 

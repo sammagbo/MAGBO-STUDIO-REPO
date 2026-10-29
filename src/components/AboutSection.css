@@ -5,7 +5,6 @@
   --ab-bg: #000000;
   --ab-fg: #F2F0EB;
   --ab-muted: #9A968F;
-  --ab-edge: #34322F;
   --ab-pad: clamp(20px, 3.9vw, 56px);
   background: var(--ab-bg);
   color: var(--ab-fg);
@@ -16,7 +15,6 @@
   --ab-bg: #F2F0EB;
   --ab-fg: #0E0D0C;
   --ab-muted: #5E5A54;
-  --ab-edge: #CFCAC1;
 }
 
 .about-v2 .ab-inner { max-width: 1808px; margin: 0 auto; padding: 128px var(--ab-pad) 140px; display: flex; flex-direction: column; gap: 72px; }
@@ -30,7 +28,7 @@
 .about-v2 .ab-story .ab-peak { font-size: 20px; font-weight: 500; color: var(--ab-fg); }
 
 /* the two facts, in the same grid as the text above */
-.about-v2 .ab-facts { margin: 0; padding-top: 28px; border-top: 1px solid var(--ab-edge); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 64px; }
+.about-v2 .ab-facts { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 64px; }
 .about-v2 .ab-fact { display: flex; flex-direction: column-reverse; gap: 8px; }
 .about-v2 .ab-fact dt { font-size: 15px; line-height: 1.4; color: var(--ab-muted); }
 .about-v2 .ab-fact dd { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
