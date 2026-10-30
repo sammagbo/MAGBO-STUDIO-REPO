@@ -1180,6 +1180,9 @@
     [3,3,"03d14f1e56dff9b9374037e58a1c9d37c34a48cf","2026-10-29T21:55:30+01:00",2,"feat","site","the about section before the experience","Claude"],
     [3,3,"4765be9676220ca3f140a04e15c4d1cc45cec351","2026-10-29T23:24:17+01:00",0,"merge","","Merge pull request #27 from sammagbo/feat/about-before-experience",""],
     [3,3,"4bd890ccb184222a5304fe53439fa19d70bcf723","2026-10-29T23:31:23+01:00",9,"style","site","drop the rules in the lists, let the hero follow the theme","Claude"],
-    [3,3,"afc768f6a7d4c9ce62644cd2d0da6bd3dd5d8343","2026-10-30T12:03:25+01:00",0,"merge","","Merge pull request #28 from sammagbo/feat/no-rules-themed-hero",""]
+    [3,3,"afc768f6a7d4c9ce62644cd2d0da6bd3dd5d8343","2026-10-30T12:03:25+01:00",0,"merge","","Merge pull request #28 from sammagbo/feat/no-rules-themed-hero",""],
+    [3,3,"83494bb75ddc5f09e5e4e5877356db7d2752c0b8","2026-10-30T21:01:40+01:00",5,"feat","hero","tell the story of the student card on scroll","Claude"],
+    [3,3,"7d6a222804a95c7391a5292872ee5d00eaca4957","2026-10-30T21:01:40+01:00",6,"feat","projects","play the commit trace with the scroll, under the projects title","Claude"],
+    [3,3,"4f471f6ded579b824426d80f57c9ff59eaeabe42","2026-10-30T21:15:50+01:00",0,"merge","","Merge pull request #29 from sammagbo/feat/hero-story",""]
   ]
 }
