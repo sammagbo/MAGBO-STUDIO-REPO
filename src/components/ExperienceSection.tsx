@@ -1,9 +1,11 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { useEducation, useExperience } from '@/hooks/useData';
 import { PARCOURS } from '@/data/parcours';
+import { ParcoursTimeline } from '@/components/ParcoursTimeline';
 import './ExperienceSection.css';
 
 // The experience section, from the approved canvas design: one row per job with its dates on the left, then the degrees.
+// Above the list, the timeline puts the same jobs and degrees on one axis of years, played by the scroll.
 export const ExperienceSection = () => {
       const { language } = useLanguage();
       const jobs = useExperience();
@@ -14,6 +16,8 @@ export const ExperienceSection = () => {
             <section id="experience" className="parcours-v2" aria-labelledby="experience-title">
                   <div className="pc-inner">
                         <h2 id="experience-title" className="pc-title">{text.title}</h2>
+
+                        <ParcoursTimeline />
 
                         <ol className="pc-list">
                               {jobs.map((job) => (
