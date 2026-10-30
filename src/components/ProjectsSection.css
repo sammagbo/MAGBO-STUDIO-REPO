@@ -54,8 +54,8 @@
 .projects-v2 .pj-fullscreen { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--pj-fg); font: inherit; font-size: 14px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; cursor: pointer; }
 .projects-v2 .pj-fullscreen:hover { color: var(--pj-hover); }
 .projects-v2 .pj-fullscreen svg { flex: none; width: 12px; height: 12px; }
-.projects-v2 .pj-problems { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--pj-edge); }
-.projects-v2 .pj-problem { display: flex; flex-wrap: wrap; gap: 12px 64px; padding: 28px 0 32px; border-top: 1px solid var(--pj-edge); }
+.projects-v2 .pj-problems { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 48px; }
+.projects-v2 .pj-problem { display: flex; flex-wrap: wrap; gap: 12px 64px; }
 .projects-v2 .pj-problem-title { flex: 1 1 220px; margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.25; letter-spacing: -0.01em; }
 .projects-v2 .pj-problem-text { flex: 2 1 480px; margin: 0; max-width: 46rem; font-size: 18px; line-height: 1.6; color: var(--pj-muted); }
 
@@ -92,8 +92,8 @@
 /* the other projects, one row each */
 .projects-v2 .pj-others { display: flex; flex-direction: column; gap: 24px; }
 .projects-v2 .pj-others-title { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -0.01em; }
-.projects-v2 .pj-list { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--pj-edge); }
-.projects-v2 .pj-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 32px; padding: 10px 0; border-top: 1px solid var(--pj-edge); }
+.projects-v2 .pj-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 28px; }
+.projects-v2 .pj-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 32px; }
 .projects-v2 .pj-row-name { flex: 1 1 220px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 22px; }
 .projects-v2 .pj-row-desc { flex: 2 1 320px; font-size: 15px; line-height: 1.5; color: var(--pj-muted); }
 .projects-v2 .pj-row-period { flex: 0 0 10rem; font-size: 14px; color: var(--pj-muted); }

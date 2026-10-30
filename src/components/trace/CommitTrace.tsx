@@ -31,9 +31,9 @@ import {
 } from './strings';
 import './trace.css';
 
-const FG = '#F2F0EB';
-const SOFT = '#66625C';
-const RED = '#FF3D2E'; // the go-live marker: the only red element
+const FG = 'currentColor'; // the colour of .ctrace, which follows the theme (trace.css)
+const SOFT = { stroke: 'var(--ct-soft)' };
+const RED = { fill: 'var(--ct-red)' }; // the go-live marker: the only red element
 const RISE = 40; // the marker and its label rise this far above the bars
 const DIMMED = 0.13; // lit bars of the other projects while one project is in focus
 
@@ -169,13 +169,13 @@ const Bars = memo(function Bars({ model, layout, clipId }: BarsProps) {
           x2={(xs[i + 1] - 4).toFixed(2)}
           y1={mid}
           y2={mid}
-          stroke={SOFT}
+          style={SOFT}
           strokeWidth={1.5}
           strokeDasharray="0.5 4"
           strokeLinecap="round"
         />
       ))}
-      {goLiveX !== null && <rect x={(goLiveX - 1).toFixed(2)} y={-RISE} width={2} height={height + RISE} fill={RED} />}
+      {goLiveX !== null && <rect x={(goLiveX - 1).toFixed(2)} y={-RISE} width={2} height={height + RISE} style={RED} />}
     </>
   );
 });
