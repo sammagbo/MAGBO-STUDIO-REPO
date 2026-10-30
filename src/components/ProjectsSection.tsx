@@ -6,6 +6,7 @@ import { CARDS, FEATURED, OTHERS, PROJECTS_TEXT } from '@/data/projects';
 import type { Language } from '@/data/translations';
 import { CommitTrace } from '@/components/trace/CommitTrace';
 import { ProjectTrace } from '@/components/trace/ProjectTrace';
+import { ProblemDiagram } from '@/components/ProblemDiagram';
 import { ProjectDemo } from '@/components/ProjectDemo';
 import { ProjectVideo } from '@/components/ProjectVideo';
 import { GO_LIVE, computeLayout, findPauses, goLiveIndex, readTrace } from '@/components/trace/model';
@@ -151,7 +152,11 @@ export const ProjectsSection = () => {
                               <ul className="pj-problems" aria-label={text.problems}>
                                     {FEATURED.problems.map((problem) => (
                                           <li key={problem.title.en} className="pj-problem">
-                                                <h4 className="pj-problem-title">{problem.title[language]}</h4>
+                                                {/* the title, and the problem drawn under it, where the column was empty */}
+                                                <div className="pj-problem-side">
+                                                      <h4 className="pj-problem-title">{problem.title[language]}</h4>
+                                                      <ProblemDiagram kind={problem.diagram} />
+                                                </div>
                                                 <p className="pj-problem-text">{problem.text[language]}</p>
                                           </li>
                                     ))}

@@ -1,4 +1,5 @@
 import type { Language } from '@/data/translations';
+import type { DiagramKind } from '@/data/diagrams';
 
 // The projects section, checked against the public repositories in October 2026.
 // Commit counts and dates are not written here: the section reads them from src/data/commit-trace.json,
@@ -32,7 +33,8 @@ interface FeaturedProject {
       url: string;
       stack: string[];
       description: Text;
-      problems: { title: Text; text: Text }[];
+      // each problem is drawn under its title (src/components/ProblemDiagram.tsx)
+      problems: { title: Text; text: Text; diagram: DiagramKind }[];
       // served from public/video; the WebM comes first, the MP4 is for browsers without VP9
       video: { webm: string; mp4: string; poster: string };
 }
@@ -163,6 +165,7 @@ export const FEATURED: FeaturedProject = {
       problems: [
             {
                   title: { en: "Meals counted by mistake", pt: "Refeições contadas por engano", fr: "Des repas comptés à tort" },
+                  diagram: "meals",
                   text: {
                         en: "The terminal sent the student's ID even when it refused entry. The system then counted meals nobody ate. I split actual passes and refused attempts into two separate tables.",
                         pt: "O terminal enviava o número do aluno mesmo quando recusava a passagem. O sistema contava então refeições que nunca aconteceram. Separei as passagens efetivas e as tentativas recusadas em duas tabelas.",
@@ -171,6 +174,7 @@ export const FEATURED: FeaturedProject = {
             },
             {
                   title: { en: "The time of the pass", pt: "A hora da passagem", fr: "L'heure du passage" },
+                  diagram: "clock",
                   text: {
                         en: "I fixed four clock errors. One came from a Docker container left on UTC: a pass at 14:26 was recorded at 17:26. Since then, every decision is judged by the time of the pass, never by the time it is processed.",
                         pt: "Corrigi quatro erros de relógio. Um vinha de um contêiner Docker que ficou em UTC: uma passagem às 14h26 era gravada às 17h26. Desde então, toda decisão se julga pela hora da passagem, nunca pela hora do processamento.",

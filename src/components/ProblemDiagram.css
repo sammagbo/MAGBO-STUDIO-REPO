@@ -1,0 +1,40 @@
+/* The drawings under the problems of MAGBO Access Control (ProblemDiagram.tsx), from the approved prototype of
+   30/10/2026: lines in the text colour, red for what was wrong. Each drawing has a wide and a compact layout; the
+   width of its own column picks one. It follows the site theme: dark by default, light under [data-theme='light']. */
+
+.pd {
+  --pd-bg: #000000;
+  --pd-fg: #F2F0EB;
+  --pd-muted: #9A968F;
+  --pd-red: #FF3D2E;
+  container-type: inline-size;
+  max-width: 520px;
+}
+[data-theme='light'] .pd {
+  --pd-bg: #F2F0EB;
+  --pd-fg: #0E0D0C;
+  --pd-muted: #5E5A54;
+  --pd-red: #E5341F;
+}
+.pd svg { display: block; width: 100%; height: auto; overflow: visible; }
+/* the compact drawing first; the wide one once the column gives it room */
+.pd .pd-wide { display: none; }
+@container (min-width: 440px) {
+  .pd .pd-wide { display: block; }
+  .pd .pd-compact { display: none; }
+}
+
+.pd .pd-ink { fill: none; stroke: var(--pd-fg); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pd .pd-thin { stroke-width: 1.4; }
+.pd .pd-muted { stroke: var(--pd-muted); }
+.pd .pd-red { stroke: var(--pd-red); }
+/* boxes are filled with the page colour, so the travelling dot passes under them */
+.pd .pd-box { fill: var(--pd-bg); }
+.pd .pd-fill { fill: var(--pd-fg); }
+.pd .pd-state { fill: var(--pd-fg); font-family: 'Funnel Sans', system-ui, sans-serif; font-weight: 500; font-size: 12px; letter-spacing: .14em; }
+.pd .pd-label { fill: var(--pd-muted); font-family: 'Funnel Sans', system-ui, sans-serif; font-size: 11.5px; letter-spacing: .06em; }
+.pd .pd-plain { font-size: 12.5px; letter-spacing: 0; }
+.pd .pd-mid { fill: var(--pd-fg); font-family: 'Funnel Sans', system-ui, sans-serif; font-weight: 500; font-size: 15px; }
+.pd .pd-small { font-size: 13.5px; }
+.pd .pd-big { fill: var(--pd-fg); font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 30px; letter-spacing: -0.02em; }
+.pd .pd-bad { fill: var(--pd-red); }
