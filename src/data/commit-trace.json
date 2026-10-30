@@ -1176,6 +1176,10 @@
     [3,3,"50ea2d062670b490c35b15fd1ea58280c174d04f","2026-10-29T01:32:39+01:00",6,"feat","site","offer the CV and align the site with it","Claude"],
     [3,3,"981b78c64919289b1bcaa3834cca3cffa1c0123a","2026-10-29T12:00:51+01:00",0,"merge","","Merge pull request #25 from sammagbo/feat/cv-on-site",""],
     [3,3,"880ee85d56195852e1638fdcc2f67d5ba6e70f7f","2026-10-29T20:56:44+01:00",3,"feat","site","count the visits with Vercel Web Analytics","Claude"],
-    [3,3,"c003b1bde8d1ed5895b315a419a1d804a0950245","2026-10-29T21:08:59+01:00",0,"merge","","Merge pull request #26 from sammagbo/feat/web-analytics",""]
+    [3,3,"c003b1bde8d1ed5895b315a419a1d804a0950245","2026-10-29T21:08:59+01:00",0,"merge","","Merge pull request #26 from sammagbo/feat/web-analytics",""],
+    [3,3,"03d14f1e56dff9b9374037e58a1c9d37c34a48cf","2026-10-29T21:55:30+01:00",2,"feat","site","the about section before the experience","Claude"],
+    [3,3,"4765be9676220ca3f140a04e15c4d1cc45cec351","2026-10-29T23:24:17+01:00",0,"merge","","Merge pull request #27 from sammagbo/feat/about-before-experience",""],
+    [3,3,"4bd890ccb184222a5304fe53439fa19d70bcf723","2026-10-29T23:31:23+01:00",9,"style","site","drop the rules in the lists, let the hero follow the theme","Claude"],
+    [3,3,"afc768f6a7d4c9ce62644cd2d0da6bd3dd5d8343","2026-10-30T12:03:25+01:00",0,"merge","","Merge pull request #28 from sammagbo/feat/no-rules-themed-hero",""]
   ]
 }
