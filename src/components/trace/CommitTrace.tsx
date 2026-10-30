@@ -1,5 +1,8 @@
 import { memo, useEffect, useId, useLayoutEffect, useMemo, useReducer, useRef, useState } from 'react';
 import type { CSSProperties, KeyboardEvent, PointerEvent, ReactElement, ReactNode } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import { useLanguage } from '@/context/LanguageContext';
 import {
   barShape,
@@ -31,11 +34,24 @@ import {
 } from './strings';
 import './trace.css';
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 const FG = 'currentColor'; // the colour of .ctrace, which follows the theme (trace.css)
 const SOFT = { stroke: 'var(--ct-soft)' };
 const RED = { fill: 'var(--ct-red)' }; // the go-live marker: the only red element
 const RISE = 40; // the marker and its label rise this far above the bars
 const DIMMED = 0.13; // lit bars of the other projects while one project is in focus
+
+/* The scroll plays the history while the graph crosses the screen, from 90 % of its height to 30 % (after the approved
+   prototype, hero-em-movimento.html, A+B, ending a little higher so the last caption is still on screen): the bars
+   light up month by month until PLAY_END, then the whole history stays lit, and from FOCUS_FROM on MAGBO Access Control
+   stands out, the project that follows the graph. */
+const PLAY_END = 1;
+const FOCUS_FROM = 1.1;
+const SCROLL_END = 1.25;
+const FOCUS_KEY = 'magbo';
+
+const reducedMotion = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches === true;
 
 /* ── data: a chunk of its own, requested as soon as this module is evaluated ── */
 
@@ -55,12 +71,10 @@ if (typeof window !== 'undefined') loadModel().catch(() => undefined);
 
 /* ── state ── */
 
-type Mode = 'idle' | 'playing' | 'paused' | 'ended';
+type Mode = 'idle' | 'paused';
 
 interface UiState {
   mode: Mode;
-  /** playback clock, in seconds */
-  t: number;
   /** pinned commit while paused */
   sel: number;
   /** commit under the mouse */
@@ -70,44 +84,22 @@ interface UiState {
 }
 
 type Action =
-  | { type: 'play' }
-  | { type: 'pause' }
   | { type: 'seek'; index: number; clearHover?: boolean }
   | { type: 'release'; hover?: number }
-  | { type: 'tick'; dt: number }
   | { type: 'hover'; index: number }
   | { type: 'legendHover'; project: number }
   | { type: 'legendPin'; project: number };
 
-const INITIAL: UiState = { mode: 'idle', t: 0, sel: -1, hover: -1, legendHover: -1, legendPin: -1 };
+const INITIAL: UiState = { mode: 'idle', sel: -1, hover: -1, legendHover: -1, legendPin: -1 };
 
-function reduce(model: Model, state: UiState, action: Action): UiState {
-  const { playback, n } = model;
+function reduce(state: UiState, action: Action): UiState {
   switch (action.type) {
-    case 'play': {
-      const restart = state.mode === 'idle' || state.mode === 'ended' || (state.mode === 'paused' && state.sel >= n - 1);
-      return { ...state, mode: 'playing', t: restart ? 0 : state.t, hover: -1 };
-    }
-    case 'pause':
-      return state.mode === 'playing'
-        ? { ...state, mode: 'paused', sel: Math.min(n - 1, Math.floor(posAtTime(playback, state.t))) }
-        : state;
     case 'seek':
       if (state.mode === 'paused' && state.sel === action.index && (!action.clearHover || state.hover === -1)) return state;
-      return {
-        ...state,
-        mode: 'paused',
-        sel: action.index,
-        t: timeAtIndex(playback, action.index) + 1e-6,
-        hover: action.clearHover ? -1 : state.hover,
-      };
+      return { ...state, mode: 'paused', sel: action.index, hover: action.clearHover ? -1 : state.hover };
     case 'release':
+      if (state.mode === 'idle' && action.hover === undefined) return state;
       return { ...state, mode: 'idle', sel: -1, hover: action.hover ?? state.hover };
-    case 'tick': {
-      if (state.mode !== 'playing') return state;
-      const t = state.t + action.dt;
-      return t >= playback.total ? { ...state, mode: 'ended', t: playback.total } : { ...state, t };
-    }
     case 'hover':
       return state.hover === action.index ? state : { ...state, hover: action.index };
     case 'legendHover':
@@ -187,10 +179,13 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
   const { trace, n, playback } = model;
   const { commits, projects } = trace;
   const clipId = `ct-lit-${useId().replace(/:/g, '')}`;
+  const featured = useMemo(() => projects.findIndex(project => project.key === FOCUS_KEY), [projects]);
 
-  const [ui, dispatch] = useReducer((state: UiState, action: Action) => reduce(model, state, action), INITIAL);
-  const { mode, t, sel, hover, legendHover, legendPin } = ui;
+  const [ui, dispatch] = useReducer(reduce, INITIAL);
+  const { mode, sel, hover, legendHover, legendPin } = ui;
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const prodRef = useRef<HTMLDivElement>(null);
   const sepRef = useRef<HTMLDivElement>(null);
@@ -201,6 +196,39 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const capRef = useRef<HTMLParagraphElement>(null);
   const dragging = useRef(false);
+  const press = useRef<{ x: number; y: number } | null>(null);
+
+  /* the scroll: how far the graph has crossed the screen, from 0 to SCROLL_END; still at PLAY_END for less motion */
+  const [sp, setSp] = useState(() => (reducedMotion() ? PLAY_END : 0));
+  const spRef = useRef(sp);
+  useGSAP(
+    () => {
+      const stage = stageRef.current;
+      if (!stage) return;
+      const show = (p: number) => {
+        // scrolling back into the playback lets go of a pinned commit, so the history plays again
+        if (spRef.current >= PLAY_END && p < PLAY_END) dispatch({ type: 'release' });
+        spRef.current = p;
+        setSp(p);
+      };
+      const mm = gsap.matchMedia();
+      mm.add('(prefers-reduced-motion: no-preference)', () => {
+        const scroll = { p: 0 };
+        show(0); // until the graph comes into view; the trigger only reports once it moves
+        gsap.to(scroll, {
+          p: SCROLL_END,
+          ease: 'none',
+          scrollTrigger: { trigger: stage, start: 'top 90%', end: 'top 30%', scrub: 0.5 },
+          onUpdate: () => show(scroll.p),
+        });
+        // the fonts can move the graph down the page once they arrive
+        document.fonts?.ready.then(() => ScrollTrigger.refresh());
+        return () => show(PLAY_END);
+      });
+      mm.add('(prefers-reduced-motion: reduce)', () => show(PLAY_END));
+    },
+    { scope: sectionRef },
+  );
 
   /* size: everything is recomputed when the svg changes size */
   const [size, setSize] = useState<{ width: number; height: number } | null>(null);
@@ -235,21 +263,35 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
       first: formatDate(lang, first),
       last: formatDate(lang, last),
       goLive: goLiveDate(lang),
-      seconds: formatNumber(lang, Math.round(model.playback.total)),
     };
   }, [lang, model, names]);
+  // every caption the graph can show, laid out hidden behind the visible one: the box keeps the tallest one's height
+  const sizes = useMemo(
+    () => [
+      { title: texts.idle.title, text: `${texts.idle.text} ${texts.idle.hover}` },
+      { title: texts.idle.title, text: `${texts.idle.text} ${texts.idle.tap}` },
+      ...texts.months,
+      ...texts.spans.map((text, p) => ({ title: names[p], text })),
+    ],
+    [texts, names],
+  );
 
-  /* what the state means on screen, as in the prototype's render() */
-  const playing = mode === 'playing';
-  const full = mode === 'idle' || mode === 'ended';
-  const pos = full ? n : posAtTime(playback, t);
+  /* what the state means on screen */
   const pinned = mode === 'paused' ? sel : -1;
+  const playing = sp < PLAY_END && pinned < 0;
+  const full = !playing && pinned < 0;
+  const t = pinned >= 0 ? timeAtIndex(playback, pinned) + 1e-6 : Math.max(0, sp) * playback.total;
+  const pos = full ? n : posAtTime(playback, t);
   const cursor = !playing && hover >= 0 ? hover : pinned;
   const legendProject = legendHover >= 0 ? legendHover : legendPin;
   const shown = pinned >= 0 ? pinned : !playing ? hover : -1;
-  const focus = cursor >= 0 ? commits[cursor].project : playing ? -1 : legendProject;
-  const monthIndex = mode === 'ended' ? playback.months.length - 1 : monthAtTime(playback, t);
-  const captionKey = !playing && legendProject >= 0 ? `p${legendProject}` : mode === 'idle' ? 'idle' : `m${monthIndex}`;
+  // past the playback, with nothing else in focus, the scroll brings MAGBO Access Control forward, little by little
+  const lead = full && cursor < 0 && legendProject < 0 && sp > PLAY_END ? featured : -1;
+  const focus = cursor >= 0 ? commits[cursor].project : playing ? -1 : legendProject >= 0 ? legendProject : lead;
+  const dimmed = lead >= 0 ? 1 - (1 - DIMMED) * Math.min(1, (sp - PLAY_END) / (SCROLL_END - PLAY_END)) : DIMMED;
+  const monthIndex = monthAtTime(playback, t);
+  const captionProject = !playing && legendProject >= 0 ? legendProject : lead >= 0 && sp >= FOCUS_FROM ? lead : -1;
+  const captionKey = captionProject >= 0 ? `p${captionProject}` : full ? 'idle' : `m${monthIndex}`;
 
   // the card keeps its last commit while it fades out; the slider keeps its last pinned commit
   const [cardIndex, setCardIndex] = useState(-1);
@@ -272,10 +314,10 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
     if (focus < 0) return undefined;
     const style: Record<string, number> = {};
     projects.forEach((_, p) => {
-      style[`--ct-o${p}`] = p === focus ? 1 : DIMMED;
+      style[`--ct-o${p}`] = p === focus ? 1 : dimmed;
     });
     return style as CSSProperties;
-  }, [focus, projects]);
+  }, [focus, dimmed, projects]);
 
   let highlight: ReactElement | null = null;
   if (layout && cursor >= 0) {
@@ -292,42 +334,29 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
     );
   }
 
+  // the title in bold, then the text: one sentence for a screen reader, two lines on screen
   let caption: ReactNode;
   if (captionKey === 'idle') {
     caption = (
-      <span>
-        {texts.idle.text} <span className="ct-hov">{texts.idle.hover}</span>
+      <>
+        <b>{texts.idle.title}</b> {texts.idle.text} <span className="ct-hov">{texts.idle.hover}</span>
         <span className="ct-tap">{texts.idle.tap}</span>
-      </span>
+      </>
     );
-  } else if (captionKey.startsWith('p')) {
+  } else if (captionProject >= 0) {
     caption = (
-      <span>
-        <b>{names[legendProject]}</b> {texts.spans[legendProject]}
-      </span>
+      <>
+        <b>{names[captionProject]}</b> {texts.spans[captionProject]}
+      </>
     );
   } else {
     const month = texts.months[monthIndex];
     caption = (
-      <span>
+      <>
         <b>{month.title}</b> {month.text}
-      </span>
+      </>
     );
   }
-
-  /* the playback clock */
-  useEffect(() => {
-    if (mode !== 'playing') return;
-    let frame = 0;
-    let last = performance.now();
-    const tick = (now: number) => {
-      dispatch({ type: 'tick', dt: Math.max(0, now - last) / 1000 });
-      last = now;
-      frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [mode]);
 
   /* the go-live label: right of the red line, else left of it, else in its short form; never off-screen */
   useLayoutEffect(() => {
@@ -398,15 +427,32 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
   useEffect(() => {
     const element = capRef.current;
     if (!element || typeof element.animate !== 'function') return;
-    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    if (reducedMotion()) return;
     element.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, easing: 'ease-out' });
   }, [captionKey]);
 
-  /* pointer and keyboard */
+  /* pointer and keyboard; while the scroll plays the history, the graph only listens to the keyboard */
   const xOf = (event: PointerEvent<HTMLDivElement>) => event.clientX - event.currentTarget.getBoundingClientRect().left;
+  const capture = (event: PointerEvent<HTMLDivElement>) => {
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    } catch {
+      // the pointer is already gone: the drag ends with it
+    }
+  };
 
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
     if (!layout) return;
+    const start = press.current;
+    if (start && !dragging.current) {
+      // a touch that moves sideways scrubs the commits; one that moves up or down is the page scrolling
+      const dx = Math.abs(event.clientX - start.x);
+      if (dx > 8 && dx > Math.abs(event.clientY - start.y)) {
+        press.current = null;
+        dragging.current = true;
+        capture(event);
+      }
+    }
     if (dragging.current) {
       dispatch({ type: 'seek', index: idxAtX(layout, xOf(event)) });
       return;
@@ -415,23 +461,35 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
   };
 
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    if (!layout) return;
+    if (!layout || playing) return;
+    if (event.pointerType !== 'mouse') {
+      // a touch or a pen pins a commit when it lifts without moving: a swipe over the graph scrolls the page
+      press.current = { x: event.clientX, y: event.clientY };
+      return;
+    }
     const index = idxAtX(layout, xOf(event));
-    if (event.pointerType === 'mouse' && mode === 'paused' && index === sel) {
+    if (mode === 'paused' && index === sel) {
       dispatch({ type: 'release', hover: index }); // a second click on the pinned commit unpins it
       return;
     }
     dragging.current = true;
-    event.currentTarget.setPointerCapture(event.pointerId);
+    capture(event);
     dispatch({ type: 'seek', index });
   };
 
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    if (press.current && layout) dispatch({ type: 'seek', index: idxAtX(layout, xOf(event)) });
+    press.current = null;
+    dragging.current = false;
+  };
+
   const endDrag = () => {
+    press.current = null;
     dragging.current = false;
   };
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    const current = mode === 'paused' ? sel : playing ? Math.floor(posAtTime(playback, t)) : -1;
+    const current = pinned >= 0 ? pinned : playing ? Math.floor(pos) : -1;
     const big = event.shiftKey ? 10 : 1;
     let next: number;
     switch (event.key) {
@@ -455,11 +513,6 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
           dispatch({ type: 'release' });
         }
         return;
-      case ' ':
-      case 'Enter':
-        event.preventDefault();
-        dispatch({ type: playing ? 'pause' : 'play' });
-        return;
       default:
         return;
     }
@@ -471,8 +524,20 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
   const ariaCommit = ariaIndex >= 0 ? commits[ariaIndex] : null;
 
   return (
-    <section className="ctrace" data-state={mode} aria-label={words.section}>
-      <div className="ct-stage">
+    <section ref={sectionRef} className="ctrace" data-state={playing ? 'playing' : mode} aria-label={words.section}>
+      <div className="ct-head">
+        <p ref={capRef} className="ct-cap">
+          {caption}
+        </p>
+        <div className="ct-sizer" aria-hidden="true">
+          {sizes.map((entry, i) => (
+            <p key={i} className="ct-cap">
+              <b>{entry.title}</b> {entry.text}
+            </p>
+          ))}
+        </div>
+      </div>
+      <div ref={stageRef} className="ct-stage">
         <svg
           ref={svgRef}
           className="ct-wave"
@@ -512,7 +577,7 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
           onPointerMove={onPointerMove}
           onPointerLeave={() => dispatch({ type: 'hover', index: -1 })}
           onPointerDown={onPointerDown}
-          onPointerUp={endDrag}
+          onPointerUp={onPointerUp}
           onPointerCancel={endDrag}
           onLostPointerCapture={endDrag}
           onKeyDown={onKeyDown}
@@ -554,23 +619,6 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
           )}
         </div>
       </div>
-      <div className="ct-caption">
-        <button type="button" className="ct-play" onClick={() => dispatch({ type: playing ? 'pause' : 'play' })}>
-          <svg className="ct-i-play" viewBox="0 0 12 12" aria-hidden="true">
-            <path d="M2 1.2v9.6L10.4 6z" fill="currentColor" />
-          </svg>
-          <svg className="ct-i-pause" viewBox="0 0 12 12" aria-hidden="true">
-            <path d="M2 1h3v10H2zM7 1h3v10H7z" fill="currentColor" />
-          </svg>
-          <span>{playing ? words.pause : mode === 'paused' ? words.resume : words.replay(texts.seconds)}</span>
-        </button>
-        <p ref={capRef} className="ct-cap">
-          {caption}
-        </p>
-        <a className="ct-more" href="#work">
-          {words.seeProjects}
-        </a>
-      </div>
       <div
         className="ct-legend"
         role="group"
@@ -604,26 +652,21 @@ function TraceView({ model, lang }: { model: Model; lang: Lang }) {
   );
 }
 
-/** Reserves the trace's height while its data loads. */
+/** Reserves the trace's place while its data loads. */
 function TraceSkeleton({ lang }: { lang: Lang }) {
   return (
     <section className="ctrace ct-loading" aria-label={WORDS[lang].section} aria-busy="true">
+      <div className="ct-head" />
       <div className="ct-stage">
         <svg className="ct-wave" aria-hidden="true" />
         <div className="ct-marks" />
-      </div>
-      <div className="ct-caption">
-        <span className="ct-play" aria-hidden="true">
-          &nbsp;
-        </span>
-        <p className="ct-cap" />
       </div>
       <div className="ct-legend" />
     </section>
   );
 }
 
-/** Every public commit, all projects together: a bar per commit, a playback by month, a card per commit. */
+/** Every public commit, all projects together: a bar per commit, played by the scroll month by month, a card per commit. */
 export function CommitTrace() {
   const { language } = useLanguage();
   const [model, setModel] = useState<Model | null>(null);

@@ -87,10 +87,6 @@ interface Words {
   lastCommit: string;
   goLive: string;
   goLiveShort: string;
-  replay: (seconds: string) => string;
-  pause: string;
-  resume: string;
-  seeProjects: string;
   viewCommit: string;
   pinHint: string;
   hover: string;
@@ -100,7 +96,8 @@ interface Words {
   /** the word before a time of day: à · at · às */
   at: (hour: number) => string;
   commits: (n: number) => string;
-  idle: (commits: number, projects: number, from: string, to: string) => string;
+  /** the whole history, at rest: the count in bold, then the projects and the span */
+  idle: (commits: number, projects: number, from: string, to: string) => { title: string; text: string };
   colon: string;
   allOn: (commits: string, project: string) => string;
   busiest: string;
@@ -123,10 +120,6 @@ const fr: Words = {
   lastCommit: 'dernier commit public',
   goLive: 'MAGBO Access Control en production',
   goLiveShort: 'mise en production',
-  replay: seconds => `Rejouer l'historique (${seconds} s)`,
-  pause: 'Pause',
-  resume: 'Reprendre',
-  seeProjects: 'Voir les projets',
   viewCommit: 'Voir le commit sur GitHub',
   pinHint: 'Cliquez sur le trait pour épingler ce commit.',
   hover: 'Survolez le graphique pour lire chaque commit.',
@@ -135,8 +128,10 @@ const fr: Words = {
   paris: 'heure de Paris',
   at: () => 'à',
   commits: n => `${formatNumber('fr', n)} commit${n > 1 ? 's' : ''}`,
-  idle: (c, p, from, to) =>
-    `${formatNumber('fr', c)} commit${c > 1 ? 's' : ''} public${c > 1 ? 's' : ''} dans ${formatNumber('fr', p)} projet${p > 1 ? 's' : ''}, de ${from} à ${to}.`,
+  idle: (c, p, from, to) => ({
+    title: `${formatNumber('fr', c)} commit${c > 1 ? 's' : ''} public${c > 1 ? 's' : ''}`,
+    text: `dans ${formatNumber('fr', p)} projet${p > 1 ? 's' : ''}, de ${from} à ${to}.`,
+  }),
   colon: ' :',
   allOn: (commits, project) => `${commits}, tous sur ${project}.`,
   busiest: 'Le mois le plus actif.',
@@ -167,10 +162,6 @@ const en: Words = {
   lastCommit: 'latest public commit',
   goLive: 'MAGBO Access Control goes live',
   goLiveShort: 'goes live',
-  replay: seconds => `Replay the history (${seconds} s)`,
-  pause: 'Pause',
-  resume: 'Resume',
-  seeProjects: 'See the projects',
   viewCommit: 'View the commit on GitHub',
   pinHint: 'Click the bar to pin this commit.',
   hover: 'Hover over the graph to read each commit.',
@@ -179,8 +170,10 @@ const en: Words = {
   paris: 'Paris time',
   at: () => 'at',
   commits: n => `${formatNumber('en', n)} commit${n === 1 ? '' : 's'}`,
-  idle: (c, p, from, to) =>
-    `${formatNumber('en', c)} public commit${c === 1 ? '' : 's'} across ${formatNumber('en', p)} project${p === 1 ? '' : 's'}, from ${from} to ${to}.`,
+  idle: (c, p, from, to) => ({
+    title: `${formatNumber('en', c)} public commit${c === 1 ? '' : 's'}`,
+    text: `across ${formatNumber('en', p)} project${p === 1 ? '' : 's'}, from ${from} to ${to}.`,
+  }),
   colon: ':',
   allOn: (commits, project) => `${commits}, all on ${project}.`,
   busiest: 'The busiest month.',
@@ -211,10 +204,6 @@ const pt: Words = {
   lastCommit: 'último commit público',
   goLive: 'MAGBO Access Control em produção',
   goLiveShort: 'em produção',
-  replay: seconds => `Rever o histórico (${seconds} s)`,
-  pause: 'Pausar',
-  resume: 'Continuar',
-  seeProjects: 'Ver os projetos',
   viewCommit: 'Ver o commit no GitHub',
   pinHint: 'Clique na barra para fixar este commit.',
   hover: 'Passe o mouse sobre o gráfico para ler cada commit.',
@@ -223,8 +212,10 @@ const pt: Words = {
   paris: 'horário de Paris',
   at: hour => (hour === 1 ? 'à' : 'às'),
   commits: n => `${formatNumber('pt', n)} commit${n === 1 ? '' : 's'}`,
-  idle: (c, p, from, to) =>
-    `${formatNumber('pt', c)} commit${c === 1 ? '' : 's'} público${c === 1 ? '' : 's'} em ${formatNumber('pt', p)} projeto${p === 1 ? '' : 's'}, de ${from} a ${to}.`,
+  idle: (c, p, from, to) => ({
+    title: `${formatNumber('pt', c)} commit${c === 1 ? '' : 's'} público${c === 1 ? '' : 's'}`,
+    text: `em ${formatNumber('pt', p)} projeto${p === 1 ? '' : 's'}, de ${from} a ${to}.`,
+  }),
   colon: ':',
   allOn: (commits, project) => `${commits}, todos em ${project}.`,
   busiest: 'O mês mais ativo.',
@@ -259,10 +250,11 @@ export function typeLabel(lang: Lang, type: string): string {
   return WORDS[lang].types[type] ?? type;
 }
 
-/** The caption at rest: totals and span, then the hint for a mouse and the hint for a touch screen. */
+/** The caption at rest: the count as its title, the projects and the span, then the hint for a mouse and the hint for a
+ *  touch screen. Title and text read as one sentence. */
 export function idleText(lang: Lang, commits: number, projects: number, firstIso: string, lastIso: string) {
   const words = WORDS[lang];
-  return { text: words.idle(commits, projects, formatMonth(lang, firstIso), formatMonth(lang, lastIso)), hover: words.hover, tap: words.tap };
+  return { ...words.idle(commits, projects, formatMonth(lang, firstIso), formatMonth(lang, lastIso)), hover: words.hover, tap: words.tap };
 }
 
 /** The caption of a month during playback; the title goes in bold before the text. */
