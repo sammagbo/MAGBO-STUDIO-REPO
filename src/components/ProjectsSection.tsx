@@ -4,6 +4,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { PROFILE } from '@/data/constants';
 import { CARDS, FEATURED, OTHERS, PROJECTS_TEXT } from '@/data/projects';
 import type { Language } from '@/data/translations';
+import { CommitTrace } from '@/components/trace/CommitTrace';
 import { ProjectTrace } from '@/components/trace/ProjectTrace';
 import { ProjectDemo } from '@/components/ProjectDemo';
 import { ProjectVideo } from '@/components/ProjectVideo';
@@ -18,7 +19,7 @@ const CARD_BOX = { width: 400, height: 56 };
 
 type CommitsByProject = Record<string, TraceCommit[]>;
 
-/* ── the commits of each project, from the same lazy chunk as the hero trace ── */
+/* ── the commits of each project, from the same lazy chunk as the commit trace ── */
 
 let pending: Promise<CommitsByProject> | null = null;
 
@@ -40,7 +41,7 @@ function byProject(trace: Trace): CommitsByProject {
       return commits;
 }
 
-/* ── dates, read from the author's own fields like the hero trace ── */
+/* ── dates, read from the author's own fields like the commit trace ── */
 
 const monthFormats = new Map<string, Intl.DateTimeFormat>();
 
@@ -80,6 +81,7 @@ const ArrowIcon = () => (
 
 // The projects section, from the approved canvas design. The texts live in src/data/projects.ts; the counts,
 // dates and traces come from the commit trace, so the robot keeps them up to date. The id stays "work" for the links.
+// Under the title, the trace of every public commit, played by the scroll, ends on MAGBO Access Control, the next project.
 export const ProjectsSection = () => {
       const { language } = useLanguage();
       const text = PROJECTS_TEXT[language];
@@ -119,6 +121,8 @@ export const ProjectsSection = () => {
                                     ))}
                               </div>
                         </header>
+
+                        <CommitTrace />
 
                         <article className="pj-featured" aria-labelledby="pj-featured-name">
                               <div className="pj-top">

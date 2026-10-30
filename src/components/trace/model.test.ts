@@ -241,11 +241,20 @@ describe('project captions', () => {
 describe('caption at rest, separator and slider', () => {
   it('sums up the history in each language', () => {
     expect(formatNumber('fr', 1029)).toMatch(/^1\s029$/);
-    expect(idleText('fr', 1029, 12, '2024-11-22T01:23:23-03:00', '2026-09-04').text).toBe(
-      `${formatNumber('fr', 1029)} commits publics dans 12 projets, de novembre 2024 à septembre 2026.`,
-    );
-    expect(idleText('en', 1029, 12, '2024-11-22T01:23:23-03:00', '2026-09-04').text).toBe('1,029 public commits across 12 projects, from November 2024 to September 2026.');
-    expect(idleText('pt', 1029, 12, '2024-11-22T01:23:23-03:00', '2026-09-04').text).toBe('1.029 commits públicos em 12 projetos, de novembro de 2024 a setembro de 2026.');
+    expect(idleText('fr', 1029, 12, '2024-11-22T01:23:23-03:00', '2026-09-04')).toMatchObject({
+      title: `${formatNumber('fr', 1029)} commits publics`,
+      text: 'dans 12 projets, de novembre 2024 à septembre 2026.',
+    });
+    expect(idleText('en', 1029, 12, '2024-11-22T01:23:23-03:00', '2026-09-04')).toMatchObject({
+      title: '1,029 public commits',
+      text: 'across 12 projects, from November 2024 to September 2026.',
+    });
+    expect(idleText('pt', 1029, 12, '2024-11-22T01:23:23-03:00', '2026-09-04')).toMatchObject({
+      title: '1.029 commits públicos',
+      text: 'em 12 projetos, de novembro de 2024 a setembro de 2026.',
+    });
+    expect(idleText('fr', 1, 1, '2026-09-04', '2026-09-04').title).toBe('1 commit public');
+    expect(idleText('en', 1, 1, '2026-09-04', '2026-09-04').title).toBe('1 public commit');
     expect(idleText('fr', 1, 1, '2026-09-04', '2026-09-04').hover).toBe('Survolez le graphique pour lire chaque commit.');
     expect(idleText('pt', 1, 1, '2026-09-04', '2026-09-04').tap).toBe('Toque no gráfico para ler cada commit.');
   });

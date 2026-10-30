@@ -9,7 +9,7 @@ interface ProjectTraceProps {
   height: number;
 }
 
-/** The trace of one project, drawn like the hero trace: one bar per commit, taller when the commit
+/** The trace of one project, drawn like the commit trace: one bar per commit, taller when the commit
  *  touches more files. Decorative: the caption next to it gives the dates and the count. */
 export const ProjectTrace = memo(function ProjectTrace({ commits, width, height }: ProjectTraceProps) {
   const path = useMemo(() => {
