@@ -5,6 +5,7 @@
   --ab-bg: #000000;
   --ab-fg: #F2F0EB;
   --ab-muted: #9A968F;
+  --ab-frame: #161513;
   --ab-pad: clamp(20px, 3.9vw, 56px);
   background: var(--ab-bg);
   color: var(--ab-fg);
@@ -15,6 +16,7 @@
   --ab-bg: #F2F0EB;
   --ab-fg: #0E0D0C;
   --ab-muted: #5E5A54;
+  --ab-frame: #E6E2D9;
 }
 
 .about-v2 .ab-inner { max-width: 1808px; margin: 0 auto; padding: 128px var(--ab-pad) 140px; display: flex; flex-direction: column; gap: 72px; }
@@ -26,6 +28,15 @@
 .about-v2 .ab-story { display: flex; flex-direction: column; gap: 20px; max-width: 36rem; font-size: 18px; line-height: 1.65; color: var(--ab-muted); }
 .about-v2 .ab-story p { margin: 0; }
 .about-v2 .ab-story .ab-peak { font-size: 20px; font-weight: 500; color: var(--ab-fg); }
+
+/* the opening sentence and the portrait share the left column; on a phone the portrait comes before the story.
+   The frame colour shows only until the photo arrives. src/data/portrait.ts gives the browser these two widths. */
+.about-v2 .ab-side { display: flex; flex-direction: column; gap: clamp(32px, 3.4vw, 48px); min-width: 0; }
+.about-v2 .ab-portrait { margin: 0; width: min(100%, 360px); aspect-ratio: 4 / 5; overflow: hidden; background: var(--ab-frame); }
+.about-v2 .ab-portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 600px) {
+  .about-v2 .ab-portrait { width: min(80%, 300px); }
+}
 
 /* the two facts, in the same grid as the text above */
 .about-v2 .ab-facts { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 64px; }
