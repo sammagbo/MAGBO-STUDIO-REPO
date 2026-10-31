@@ -1183,6 +1183,14 @@
     [3,3,"afc768f6a7d4c9ce62644cd2d0da6bd3dd5d8343","2026-10-30T12:03:25+01:00",0,"merge","","Merge pull request #28 from sammagbo/feat/no-rules-themed-hero",""],
     [3,3,"83494bb75ddc5f09e5e4e5877356db7d2752c0b8","2026-10-30T21:01:40+01:00",5,"feat","hero","tell the story of the student card on scroll","Claude"],
     [3,3,"7d6a222804a95c7391a5292872ee5d00eaca4957","2026-10-30T21:01:40+01:00",6,"feat","projects","play the commit trace with the scroll, under the projects title","Claude"],
-    [3,3,"4f471f6ded579b824426d80f57c9ff59eaeabe42","2026-10-30T21:15:50+01:00",0,"merge","","Merge pull request #29 from sammagbo/feat/hero-story",""]
+    [3,3,"4f471f6ded579b824426d80f57c9ff59eaeabe42","2026-10-30T21:15:50+01:00",0,"merge","","Merge pull request #29 from sammagbo/feat/hero-story",""],
+    [3,3,"0b55c0e5774a65bb824a83cbbb1433c603c8935d","2026-10-31T00:42:45+01:00",5,"feat","parcours","add a timeline of the jobs and degrees, played by the scroll","Claude"],
+    [3,3,"370388fd24b36a8f273a4f8b0d5a1fc6bd2a26c8","2026-10-31T00:43:12+01:00",7,"feat","projects","draw the two problems of MAGBO Access Control","Claude"],
+    [3,3,"619f4c6c127e13c70d24aedae2200a7c7b5b54ba","2026-10-31T13:15:10+01:00",0,"merge","","Merge pull request #30 from sammagbo/feat/timeline-diagrams",""],
+    [3,3,"4ec03253abdc9962626d50bee28462639e013d19","2026-10-31T14:39:40+01:00",6,"feat","about","add a portrait under the opening sentence","Claude"],
+    [3,3,"e28a447c811cf1a6e6814aed2262bf77bf1af27e","2026-10-31T14:39:59+01:00",6,"feat","about","give the two facts in words only, with the languages of the CV","Claude"],
+    [3,3,"cb9989655da1edd118432c49d02c6ea4a10364aa","2026-10-31T14:45:33+01:00",0,"merge","","Merge pull request #31 from sammagbo/feat/about-portrait",""],
+    [3,3,"40e44d31d283f7160367a040f075094482c4f705","2026-10-31T20:43:17+01:00",2,"chore","","remove two old photos that nothing uses","Claude"],
+    [3,3,"51f00670ca2c0e061ae7d86df583a239bbdc09c2","2026-10-31T20:52:33+01:00",0,"merge","","Merge pull request #32 from sammagbo/chore/remove-old-photos",""]
   ]
 }
