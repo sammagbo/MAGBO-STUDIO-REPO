@@ -12,7 +12,7 @@ export const TRANSLATIONS = {
                   ],
                   peak: "I never let it go.",
                   closing: "Today I'm settling in Bordeaux. I'm looking for a permanent role (CDI) as a junior Java / Spring Boot backend developer. I want to travel the rest of this road with a team.",
-                  facts: { languages: "working languages: French, Portuguese, technical English", projects: "public projects on GitHub" },
+                  facts: { languages: "Languages: French (native), Portuguese (bilingual), Swahili and Lingala (fluent), English (technical reading)", projects: "Public projects on GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, contact
             navbar: {
@@ -40,7 +40,7 @@ export const TRANSLATIONS = {
                   ],
                   peak: "Não larguei mais.",
                   closing: "Hoje, estou me mudando para Bordeaux. Procuro uma vaga em CDI como desenvolvedor backend Java / Spring Boot júnior. O resto do caminho, quero fazer em equipe.",
-                  facts: { languages: "idiomas de trabalho: francês, português, inglês técnico", projects: "projetos públicos no GitHub" },
+                  facts: { languages: "Idiomas: francês (língua materna), português (bilíngue), suaíli e lingala (fluente), inglês (leitura técnica)", projects: "Projetos públicos no GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, contact
             navbar: {
@@ -68,7 +68,7 @@ export const TRANSLATIONS = {
                   ],
                   peak: "Je ne l'ai plus lâché.",
                   closing: "Aujourd'hui, je m'installe à Bordeaux. Je cherche un CDI de développeur backend Java / Spring Boot junior. La suite du chemin, je veux la faire en équipe.",
-                  facts: { languages: "langues de travail : français, portugais, anglais technique", projects: "projets publics sur GitHub" },
+                  facts: { languages: "Langues : français (langue maternelle), portugais (bilingue), swahili et lingala (courant), anglais (lecture technique)", projects: "Projets publics sur GitHub" },
             },
             // labels of the fixed navigation only; the section ids stay about, experience, work, contact
             navbar: {

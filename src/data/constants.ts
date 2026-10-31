@@ -13,9 +13,6 @@ export const PROFILE = {
       cv: '/cv/CV_Sammy_K_Magbo.pdf',
 } as const;
 
-// Public projects in the commit trace (src/data/commit-trace.json); constants.test.ts keeps the two in step.
-export const PUBLIC_PROJECTS = 12;
-
 // ── Experience ──
 // Language-neutral data; the role and bullets of each job live in src/data/parcours.ts.
 
