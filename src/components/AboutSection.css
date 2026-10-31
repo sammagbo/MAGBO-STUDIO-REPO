@@ -38,8 +38,9 @@
   .about-v2 .ab-portrait { width: min(80%, 300px); }
 }
 
-/* the two facts, in the same grid as the text above */
-.about-v2 .ab-facts { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 64px; }
-.about-v2 .ab-fact { display: flex; flex-direction: column-reverse; gap: 8px; }
-.about-v2 .ab-fact dt { font-size: 15px; line-height: 1.4; color: var(--ab-muted); }
-.about-v2 .ab-fact dd { margin: 0; font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+/* the two facts, in the same grid as the text above: words only, no figure */
+.about-v2 .ab-facts { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px 64px; }
+.about-v2 .ab-fact { max-width: 36rem; font-size: 16px; line-height: 1.5; color: var(--ab-muted); }
+.about-v2 .ab-link { color: var(--ab-fg); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.about-v2 .ab-link:hover { text-decoration-thickness: 2px; }
+.about-v2 .ab-link:focus-visible { outline: 2px solid var(--ab-fg); outline-offset: 4px; }
